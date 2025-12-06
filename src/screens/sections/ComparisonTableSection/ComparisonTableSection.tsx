@@ -138,7 +138,7 @@ export const ComparisonTableSection = () => {
                 <img
                   className="w-32 h-11 object-contain filter brightness-150 contrast-125 drop-shadow-[0_0_25px_rgba(255,255,255,1)] saturate-110 relative z-10"
                   alt="THAURUS GURU"
-                  src="https://c.animaapp.com/mishf4erVkDEuN/img/image-1-2.png"
+                  src="/Thaurus-logo.png"
                 />
               </div>
 

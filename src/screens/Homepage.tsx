@@ -99,7 +99,7 @@ export const Homepage = () => {
             className="relative z-20 w-[157px] h-12 object-cover drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/image-1-2.png"
+            src="/Thaurus-logo.png"
           />
 
           {/* Navigation Items */}
