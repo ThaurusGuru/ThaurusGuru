@@ -191,11 +191,7 @@ export const MediaSection = () => {
             </button>
           </div>
 
-          <img
-            className="absolute top-[5px] left-0 w-40 h-[65px]"
-            alt="Decoration"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/frame-131.svg"
-          />
+         
         </div>
 
         {/* Testimonials section */}
