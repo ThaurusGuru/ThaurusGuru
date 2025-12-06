@@ -1,0 +1,373 @@
+import { useState } from "react";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
+import { Card, CardContent } from "../../../components/ui/card";
+
+const chartLines = [
+  { top: "top-[130px]", left: "left-[107px]" },
+  { top: "top-[173px]", left: "left-[107px]" },
+  { top: "top-[216px]", left: "left-[107px]" },
+  { top: "top-[259px]", left: "left-[107px]" },
+];
+
+const backgroundBars = [
+  { top: "top-[15px]", left: "left-[245px]" },
+  { top: "top-[53px]", left: "left-[277px]" },
+  { top: "top-[9px]", left: "left-[319px]" },
+  { top: "top-[45px]", left: "left-[372px]" },
+  { top: "top-[74px]", left: "left-[344px]" },
+  { top: "top-1.5", left: "left-[417px]" },
+  { top: "top-8", left: "left-[463px]" },
+  { top: "top-[75px]", left: "left-[439px]" },
+  { top: "top-[63px]", left: "left-[46px]" },
+  { top: "top-px", left: "left-3.5" },
+  { top: "top-[71px]", left: "left-[215px]" },
+  { top: "top-[62px]", left: "left-[81px]", height: "h-6" },
+  { top: "top-[62px]", left: "left-[139px]", height: "h-[43px]" },
+  { top: "top-3", left: "left-[81px]", height: "h-[15px]" },
+  { top: "top-px", left: "left-44", height: "h-[26px]" },
+];
+
+const purpleBars = [
+  { top: "top-[91px]", left: "left-[213px]", height: "h-[18px]" },
+  { top: "top-[35px]", left: "left-[243px]", height: "h-[18px]" },
+  { top: "top-[72px]", left: "left-[275px]", height: "h-3.5" },
+  { top: "top-[29px]", left: "left-[317px]", height: "h-[26px]" },
+  { top: "top-[15px]", left: "left-[174px]", height: "h-3" },
+  { top: "top-[65px]", left: "left-[137px]", height: "h-[15px]" },
+  { top: "top-[84px]", left: "left-11", height: "h-[15px]" },
+  { top: "top-5", left: "left-3", height: "h-5" },
+  { top: "top-[62px]", left: "left-[79px]", height: "h-2" },
+  { top: "top-24", left: "left-[342px]", height: "h-[18px]" },
+  { top: "top-[59px]", left: "left-[370px]", height: "h-6" },
+  { top: "top-[26px]", left: "left-[415px]", height: "h-4" },
+  { top: "top-[51px]", left: "left-[461px]", height: "h-4" },
+  { top: "top-[94px]", left: "left-[437px]", height: "h-5" },
+];
+
+const yAxisLabels = ["$8,000", "$4,000", "$2,000", "$0"];
+
+export const CalculatorSection = () => {
+  const [accountSize, setAccountSize] = useState(25000);
+  const [profitRate, setProfitRate] = useState(12);
+  const [rewardSplit, setRewardSplit] = useState(80);
+
+  // Calculate estimated earnings
+  const calculateEarnings = () => {
+    const profit = accountSize * (profitRate / 100);
+    const earnings = profit * (rewardSplit / 100);
+    return Math.round(earnings).toLocaleString();
+  };
+
+  // Calculate bar height for chart
+  const calculateBarHeight = () => {
+    const earnings = accountSize * (profitRate / 100) * (rewardSplit / 100);
+    const maxHeight = 132; // pixels
+    const maxEarnings = 8000;
+    return Math.min((earnings / maxEarnings) * maxHeight, maxHeight);
+  };
+
+  return (
+    <section className="relative w-full py-20 translate-y-[-1rem] animate-fade-in opacity-0">
+      <div className="container mx-auto px-4 max-w-[1160px]">
+        <h2 className="text-center mb-16 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[42px] tracking-[0] leading-[78px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+          Want to know your potential reward?
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-9 items-start translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+          <div className="relative">
+            {/* Earnings Estimator Card */}
+            <Card className="relative w-full h-[306px] rounded-[20px] border-none 
+              bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
+              backdrop-blur-md border border-purple-500/30
+              shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
+              overflow-hidden">
+              <CardContent className="relative p-0 h-[306px]">
+                {/* Glow effect */}
+                <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
+                  blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
+                
+                <img
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  alt="Mask group"
+                  src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-7.png"
+                />
+
+                {backgroundBars.map((bar, index) => (
+                  <img
+                    key={`bg-bar-${index}`}
+                    className={`absolute ${bar.top} ${bar.left} w-px ${bar.height || "h-[59px]"} object-cover`}
+                    alt="Line"
+                    src="https://c.animaapp.com/mishf4erVkDEuN/img/line-60.svg"
+                  />
+                ))}
+
+                {purpleBars.map((bar, index) => (
+                  <div
+                    key={`purple-bar-${index}`}
+                    className={`absolute ${bar.top} ${bar.left} w-[5px] ${bar.height} bg-[#542098]`}
+                  />
+                ))}
+
+                <Badge className="absolute top-[27px] left-[35px] flex w-[163px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
+                  <img
+                    className="relative w-5 h-5"
+                    alt="Solar calculator"
+                    src="https://c.animaapp.com/mishf4erVkDEuN/img/solar-calculator-minimalistic-outline.svg"
+                  />
+                  <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[20px] whitespace-nowrap">
+                    Earnings Estimator
+                  </span>
+                </Badge>
+
+                <div className="absolute top-[180px] left-[33px] right-[33px] w-[425px] z-10">
+                  <p className="[font-family:'Cambay',Helvetica] font-normal text-lg tracking-[0] leading-[22px]">
+                    <span className="text-[#dcc0ff]">Use our calculator </span>
+                    <span className="text-[#874dce]">to</span>
+                    <span className="text-[#dcc0ff]"> estimate your monthly payouts </span>
+                    <span className="text-[#874dce]">based on your account size and performance.</span>
+                    <span className="text-[#dcc0ff]"> No stress. No uncertainty. Just clear insights into your earning potential.</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Estimated Monthly Take-Home Chart */}
+            <Card className="absolute top-[342px] left-0 w-full h-[306px] rounded-[20px] border-none 
+              bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
+              backdrop-blur-md border border-purple-500/30
+              shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
+              overflow-hidden">
+              <CardContent className="relative p-0 h-[306px]">
+                {/* Glow effect */}
+                <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
+                  blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
+                
+                <Badge className="absolute top-7 left-[35px] flex w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
+                  <img
+                    className="relative w-[22px] h-[22px]"
+                    alt="Healthicons money"
+                    src="https://c.animaapp.com/mishf4erVkDEuN/img/healthicons-money-bag-outline.svg"
+                  />
+                  <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                    Estimated Monthly Take-Home
+                  </span>
+                </Badge>
+
+                {/* Chart Grid Lines */}
+                <div className="absolute top-[130px] left-[107px] w-[338px] h-[132px] flex flex-col gap-[43px]">
+                  {chartLines.map((_, index) => (
+                    <img
+                      key={`chart-line-${index}`}
+                      className="w-[338px] h-px object-cover"
+                      alt="Line"
+                      src="https://c.animaapp.com/mishf4erVkDEuN/img/line-56.svg"
+                    />
+                  ))}
+                </div>
+
+                {/* Dynamic Bar - White/Purple gradient */}
+                <div 
+                  className="absolute left-[310px] w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
+                  style={{
+                    height: `${calculateBarHeight()}px`,
+                    top: `${262 - calculateBarHeight()}px`
+                  }}
+                />
+
+                {/* Static comparison bar - Dark purple */}
+                <div className="absolute top-[169px] left-[190px] w-[62px] h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]" />
+
+                {/* Y-axis labels */}
+                <div className="absolute top-[107px] left-[35px] h-[172px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-lg tracking-[0] leading-[43px]">
+                  {yAxisLabels.map((label, index) => (
+                    <div key={`y-label-${index}`}>{label}</div>
+                  ))}
+                </div>
+
+                {/* Value label for left bar */}
+                <div className="absolute top-[127px] left-[184px] w-[73px] h-9 flex bg-[#4b1d7b] rounded-[18px] z-20">
+                  <div className="flex mt-[3px] w-16 h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                      $4,150
+                    </span>
+                  </div>
+                </div>
+
+                {/* Value label for right bar - Dynamic */}
+                <div 
+                  className="absolute left-[302px] w-[78px] h-9 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
+                  style={{
+                    top: `${262 - calculateBarHeight() - 50}px`
+                  }}
+                >
+                  <div className="mt-[3px] w-[68px] ml-[5px] flex h-[30px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                      ${calculateEarnings()}
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Calculator Input Card */}
+          <Card className="relative w-full h-[648px] rounded-[20px] border-none 
+            bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
+            backdrop-blur-md border border-purple-500/30
+            shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
+            overflow-hidden">
+            <CardContent className="relative p-0 h-[648px]">
+              {/* Glow effect */}
+              <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
+                blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
+              
+              <img
+                className="absolute top-0.5 left-0 w-full h-[438px] object-cover"
+                alt="Mask group"
+                src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-6.png"
+              />
+
+              <div className="relative z-10 flex flex-col gap-[38px] pt-[40px] px-[62px]">
+                {/* Account Size */}
+                <div className="flex items-center justify-between">
+                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-lg tracking-[0] leading-5">
+                    Account Size
+                  </h3>
+                  <div className="w-[78px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
+                    <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                      <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                        ${accountSize.toLocaleString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Account Size Slider */}
+                <div className="relative w-full h-3.5">
+                  <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
+                  <div 
+                    className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
+                    style={{ width: `${((accountSize - 5000) / 95000) * 100}%` }}
+                  />
+                  <input
+                    type="range"
+                    min="5000"
+                    max="100000"
+                    step="5000"
+                    value={accountSize}
+                    onChange={(e) => setAccountSize(Number(e.target.value))}
+                    className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
+                  />
+                  <div 
+                    className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
+                    style={{ left: `calc(${((accountSize - 5000) / 95000) * 100}% - 7px)` }}
+                  />
+                </div>
+
+                {/* Profit Rate */}
+                <div className="flex items-center justify-between">
+                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-lg tracking-[0] leading-5">
+                    Profit Rate
+                  </h3>
+                  <div className="w-[63px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
+                    <div className="w-[52px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                      <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                        {profitRate}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Profit Rate Slider */}
+                <div className="relative w-full h-3.5">
+                  <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
+                  <div 
+                    className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
+                    style={{ width: `${(profitRate / 20) * 100}%` }}
+                  />
+                  <input
+                    type="range"
+                    min="1"
+                    max="20"
+                    step="1"
+                    value={profitRate}
+                    onChange={(e) => setProfitRate(Number(e.target.value))}
+                    className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
+                  />
+                  <div 
+                    className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
+                    style={{ left: `calc(${(profitRate / 20) * 100}% - 7px)` }}
+                  />
+                </div>
+
+                {/* Reward Split */}
+                <div className="flex items-center justify-between">
+                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-lg tracking-[0] leading-5">
+                    Reward Split
+                  </h3>
+                  <div className="w-[68px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
+                    <div className="w-[58px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                      <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                        {rewardSplit}/{100 - rewardSplit}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reward Split Radio Options */}
+                <div className="inline-flex items-center gap-[34px]">
+                  <div 
+                    className="inline-flex items-center gap-4 cursor-pointer"
+                    onClick={() => setRewardSplit(80)}
+                  >
+                    <div className={`w-5 h-5 rounded-[10px] border-2 flex items-center justify-center transition-all ${
+                      rewardSplit === 80 
+                        ? 'bg-white border-white' 
+                        : 'bg-transparent border-[#4b1d7b]'
+                    }`}>
+                      {rewardSplit === 80 && (
+                        <div className="w-2.5 h-2.5 bg-[#4b1d7b] rounded-[5px]" />
+                      )}
+                    </div>
+                    <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                      80/20
+                    </span>
+                  </div>
+                </div>
+
+                {/* Estimated Earnings Result */}
+                <div className="flex flex-col items-center gap-4 px-10 py-5 rounded-[20px] 
+                  bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
+                  backdrop-blur-md
+                  relative overflow-hidden
+                  border border-purple-500/30 shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]">
+                  {/* Inner glow */}
+                  <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
+                    blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
+                  
+                  <p className="relative [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap z-10">
+                    Your Estimated Earnings:
+                  </p>
+                  <p className="relative font-bold text-[#ab66ff] text-[30px] leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10">
+                    ${calculateEarnings()}
+                  </p>
+                  <Button className="relative h-auto flex items-center justify-center gap-2.5 pl-[30px] pr-7 py-1.5 rounded-[10px] border border-solid border-[#7a27ef] shadow-[inset_0px_4px_14px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] bg-[linear-gradient(159deg,rgba(246,230,255,1)_0%,rgba(214,146,255,1)_25%,rgba(129,72,237,1)_50%,rgba(72,41,195,1)_75%,rgba(9,4,34,1)_100%)] transition-transform hover:scale-105 z-10">
+                    <span className="[text-shadow:0px_2px_4px_#00000040] [font-family:'Cambay',Helvetica] font-bold text-white text-base tracking-[0] leading-[normal]">
+                      Start your Challenge
+                    </span>
+                    <img
+                      className="w-[34px] h-[23px]"
+                      alt="Frame"
+                      src="https://c.animaapp.com/mishf4erVkDEuN/img/frame-144-1.svg"
+                    />
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -1,0 +1,121 @@
+import React from "react";
+import { Separator } from "../../../components/ui/separator";
+
+const footerColumns = [
+  {
+    title: "Contact",
+    links: ["Support", "Chat", "Contact", "FAQs"],
+  },
+  {
+    title: "Quick Links",
+    links: ["About Us", "Career", "Purchase Assessment"],
+  },
+  {
+    title: "Trading",
+    links: [
+      "How it Works",
+      "One step",
+      "Two step",
+      "Three step",
+      "Instant Funding",
+      "Try Pay as you go",
+    ],
+  },
+  {
+    title: "Community",
+    links: ["Join Discord", "Instagram Community"],
+  },
+];
+
+export const FooterSection = () => {
+  return (
+    <footer className="relative w-full bg-transparent">
+      <img
+        className="absolute inset-0 w-full h-full object-cover"
+        alt="Footer background"
+        src="https://c.animaapp.com/mishf4erVkDEuN/img/vector-7.svg"
+      />
+
+      <div className="relative px-8 md:px-16 lg:px-20 py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+            <div className="lg:col-span-1">
+              <img
+                className="w-[262px] h-[79px] object-cover mb-6"
+                alt="Company logo"
+                src="https://c.animaapp.com/mishf4erVkDEuN/img/image-1-2.png"
+              />
+
+              <img
+                className="w-[258px] h-[31px]"
+                alt="Social media links"
+                src="https://c.animaapp.com/mishf4erVkDEuN/img/frame-181.svg"
+              />
+            </div>
+
+            {footerColumns.map((column, index) => (
+              <nav
+                key={column.title}
+                className="flex flex-col gap-2 translate-y-[-1rem] animate-fade-in opacity-0"
+                style={
+                  {
+                    "--animation-delay": `${400 + index * 100}ms`,
+                  } as React.CSSProperties
+                }
+              >
+                <h3 className="[font-family:'Cambay',Helvetica] font-normal text-white text-[22px] tracking-[0.22px] leading-normal mb-2">
+                  {column.title}
+                </h3>
+                <ul className="flex flex-col gap-1">
+                  {column.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a
+                        href="#"
+                        className="[font-family:'Poppins',Helvetica] font-normal text-[#b882fb] text-sm tracking-[0.14px] leading-normal hover:text-white transition-colors"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
+
+          <Separator className="bg-white/20 mb-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]" />
+
+          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+            <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-xs tracking-[0.12px] leading-normal opacity-[0.57] mb-2">
+              Disclaimer
+            </h4>
+            <p className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-xs tracking-[0.12px] leading-normal opacity-[0.57]">
+              Thaurusguru is a trading education and evaluation company that
+              does not in any way collect customer deposits or offer any
+              financial services to customers. Thaurusguru only provides
+              services of simulated trading and educational tools for traders.
+              All trading accounts provided to customers are part of a virtual
+              demo environment using purely virtual money. The information on
+              this site is not directed at residents in any country or
+              jurisdiction where such distribution or use would be contrary to
+              local laws or regulations. All information on this website is
+              solely for educational purposes related to trading on financial
+              markets. Any opinions, news, research, analysis, prices, or other
+              information contained on this website is provided as general
+              market commentary and does not constitute any investment advice.
+              Thaurusguru does not provide any investment recommendation,
+              business recommendation, investment opportunity analysis or
+              similar general recommendation regarding the trading of investment
+              instruments. The offered technical solution for the Thaurusguru
+              platforms and data feed is powered by Thaurus Ltd, a licensed
+              investment broker. Certain restrictions for access to services
+              shall apply to Customers being residents or nationals of the
+              United States of America, North Korea, Iran, Russia and others,
+              depending on the actual list of acceptable jurisdictions. Please
+              check the updated list.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

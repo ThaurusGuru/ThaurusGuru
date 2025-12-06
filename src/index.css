@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  animation-delay: var(--animation-delay, 0ms);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  animation-delay: var(--animation-delay, 0ms);
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Glass morphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+/* Liquid Glass Effect - Premium Blur */
+.liquid-glass {
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(60px) saturate(200%) brightness(1.2) contrast(1.15) !important;
+  -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(1.2) contrast(1.15) !important;
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+  will-change: backdrop-filter;
+  isolation: isolate;
+}
+
+.liquid-glass:hover {
+  backdrop-filter: blur(80px) saturate(220%) brightness(1.25) contrast(1.2) !important;
+  -webkit-backdrop-filter: blur(80px) saturate(220%) brightness(1.25) contrast(1.2) !important;
+  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.6));
+}
+
