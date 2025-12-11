@@ -56,7 +56,7 @@ export const PricingSection = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="mt-10 mb-6 text-white [font-family:'M_PLUS_2',Helvetica] font-normal text-[42px] tracking-[0] leading-[normal] opacity-0 animate-fade-in [--animation-delay:400ms]">
+        <h2 className="mt-10 mb-6 [font-family:'M_PLUS_2',Helvetica] font-normal text-[42px] tracking-[0] leading-[normal] bg-gradient-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent opacity-0 animate-fade-in [--animation-delay:400ms]">
           Choose Your Prop Trading Challenge &amp; Get Funded Today
         </h2>
 
@@ -86,9 +86,11 @@ export const PricingSection = () => {
                 alt="Arrow"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/group-66.png"
               />
-              <Button className="h-[52px] w-[228px] rounded-[10px] border-[none] bg-[linear-gradient(159deg,rgba(246,230,255,1)_0%,rgba(214,146,255,1)_25%,rgba(129,72,237,1)_50%,rgba(72,41,195,1)_75%,rgba(9,4,34,1)_100%)] before:content-[''] before:absolute before:inset-0 before:p-0.5 before:rounded-[10px] before:[background:linear-gradient(90deg,rgba(110,64,225,1)_0%,rgba(122,39,239,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none [text-shadow:0px_2px_4px_#00000040] [font-family:'Cambay',Helvetica] font-bold text-white text-xl hover:opacity-90 transition-opacity">
-                PAY AS YOU GO
-              </Button>
+              <img
+                className="w-[228px] h-[52px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                alt="Pay As You Go"
+                src="/pricing-section/payg-btn.svg"
+              />
             </div>
           </div>
         </div>

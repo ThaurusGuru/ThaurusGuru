@@ -1,52 +1,61 @@
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent } from "../../../components/ui/card";
-import { ArrowRight } from "lucide-react";
 
 const featureCards = [
   {
-    title: "Meta Trader 5",
+    title: (
+      <>
+        Meta
+        <br />
+        Trader 5
+      </>
+    ),
     subtitle: "Now available",
   },
   {
-    title: "Boost Performance With Powerful AI Tools",
+    title: (
+      <>
+        24/7
+        <br />
+        Support
+      </>
+    ),
     subtitle: "Try it now!",
   },
   {
-    title: "Full Trading Education & Support",
+    title: (
+      <>
+        Zero
+        <br />
+        Commisions
+      </>
+    ),
     subtitle: "Learn More",
   },
 ];
 
-const reviewCards = [
-  {
-    logo: "https://c.animaapp.com/mishf4erVkDEuN/img/trustpilot-logo-white-icon-1.svg",
-    rating: "4.4",
-    ratingColor: "text-[#04da8d]",
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154.svg",
-    label: "Excellent",
-    subtext: "Based on reviews",
-    subtextColor: "text-[#7ec2b0]",
-    borderColor: "border-[#00b67b]",
-    bgGradient: "from-[#015235]/60 to-[#1b092e]",
-  },
-  {
-    logo: "https://c.animaapp.com/mishf4erVkDEuN/img/ttp.png",
-    rating: "4.6",
-    ratingColor: "text-[#003aff]",
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-155.svg",
-    label: "Excellent",
-    subtext: "Based on 169+ users",
-    subtextColor: "text-[#1468ca]",
-    borderColor: "border-[#003aff]",
-    bgGradient: "from-[#001a71]/60 to-[#1b092e]",
-  },
+const reviewImages = [
+  "/hero/Trustpilot.svg",
+  "/hero/TTP.svg",
 ];
 
 export const HeroSection = () => {
   return (
-    <section className="relative w-full px-[105px] pt-[220px] pb-[100px]">
-      <div className="grid grid-cols-2 gap-16">
+    <section className="relative w-full px-[105px] pt-[220px] pb-[100px] overflow-hidden">
+      {/* Hero Background Image with line effects - POSITIONED LOWER */}
+      <div className="absolute inset-0  right-0 bottom-[-100px] w-full h-full pointer-events-none">
+        <img
+          src="/hero/hero-bg.png"
+          alt="Hero Background"
+          className="absolute top-0 left-0 w-full h-full object-cover object-top mix-blend-screen"
+          style={{ opacity: 1 }}
+        />
+        {/* Minimal gradient - only at bottom for smooth transition */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1b082e]/60" />
+      </div>
+
+      <div className="relative z-10 grid grid-cols-2 gap-16">
         {/* Left Column - Content */}
         <div className="flex flex-col">
           {/* Badge with violet gradient and white border */}
@@ -73,26 +82,29 @@ export const HeroSection = () => {
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] 
   flex gap-6 mt-10">
   {featureCards.map((card, index) => (
-    <Card
+    <div
       key={index}
-      className={`${
-        index === 0 ? 'w-[95px]' : index === 1 ? 'w-[140px]' : 'w-[130px]'
-      } h-[90px] rounded-xl
-      bg-white/5 backdrop-blur-md border border-white/10 
+      className="relative h-[90px] w-[140px] rounded-xl overflow-hidden
       shadow-[0_8px_32px_0_rgba(96,32,163,0.35)]
-      hover:bg-white/10 hover:border-white/20 transition-all duration-300`}
+      hover:scale-105 transition-all duration-300"
     >
-      <CardContent className="flex flex-col items-start justify-center gap-2 p-3 h-full">
-        <div className={`[font-family:'Cambay',Helvetica] font-normal text-white ${
-          index === 0 ? 'text-[15px]' : 'text-[13px]'
-        } leading-snug`}>
+      {/* Background Image */}
+      <img
+        src="/hero/card.png"
+        alt="Card Background"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      
+      {/* Text Overlay */}
+      <div className="relative z-10 flex flex-col items-start justify-center gap-2 p-3 h-full">
+        <div className="[font-family:'Cambay',Helvetica] font-normal text-white text-[16px] leading-[18px]">
           {card.title}
         </div>
-        <div className="[font-family:'Cambay',Helvetica] text-[#9d62d9] text-[11px] font-normal tracking-[0] leading-normal">
+        <div className="[font-family:'Cambay',Helvetica] text-[#9D63D9] font-normal text-[8px] leading-normal">
           {card.subtitle}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   ))}
 </div>
 
@@ -115,10 +127,14 @@ export const HeroSection = () => {
               hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.7)] 
               hover:scale-105 transition-all duration-300
               group">
-              <span className="[font-family:'Cambay',Helvetica] font-bold text-white text-[15px] tracking-[0] leading-[normal]">
+              <span className="[font-family:'Cambay',Helvetica] font-semibold text-white text-[15px] tracking-[0] leading-[normal]">
                 Start your Challenge
               </span>
-              <ArrowRight className="w-5 h-5 ml-2 text-white group-hover:translate-x-1 transition-transform" />
+              <img 
+                src="/hero/btn-arrow.svg" 
+                alt="Arrow" 
+                className=" w-10 h-6 group-hover:translate-x-1 transition-transform"
+              />
             </Button>
 
             <Button
@@ -135,44 +151,16 @@ export const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Review Cards */}
+          {/* Review Images */}
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] 
             flex gap-4 mt-14">
-            {reviewCards.map((review, index) => (
-              <div
+            {reviewImages.map((imageSrc, index) => (
+              <img
                 key={index}
-                className={`flex-1 h-16 rounded-xl backdrop-blur-md bg-gradient-to-r ${review.bgGradient}
-                border ${review.borderColor}
-                shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]
-                hover:bg-white/5 transition-all duration-300
-                p-4 flex items-center justify-between`}
-              >
-                <div className="flex items-center gap-3">
-                  <img
-                    className="h-5 object-contain"
-                    alt="Logo"
-                    src={review.logo}
-                  />
-                  <div className="flex flex-col">
-                    <div className="[font-family:'Poppins',Helvetica] font-medium text-white text-[9px] leading-tight">
-                      {review.label}
-                    </div>
-                    <div className={`[font-family:'Poppins',Helvetica] font-normal ${review.subtextColor} text-[8px] leading-tight`}>
-                      {review.subtext}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className={`[font-family:'Poppins',Helvetica] font-semibold ${review.ratingColor} text-sm`}>
-                    {review.rating}
-                  </div>
-                  <img
-                    className="h-3"
-                    alt="Stars"
-                    src={review.stars}
-                  />
-                </div>
-              </div>
+                src={imageSrc}
+                alt={`Review ${index + 1}`}
+                className="h-16 w-auto object-contain"
+              />
             ))}
           </div>
         </div>

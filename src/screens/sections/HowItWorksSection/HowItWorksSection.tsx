@@ -8,6 +8,7 @@ const stepsData = [
     description: "Choose the funding program that fits your trading style.",
     icon: (
       <>
+
         <img
           className="absolute top-[37px] left-8 w-[66px] h-[66px]"
           alt="Ellipse"
@@ -53,6 +54,7 @@ const stepsData = [
       "Trade in a real-market environment and hit the profit targets.",
     icon: (
       <>
+
         <div className="absolute top-0 left-0 w-[194px] h-[102px]">
           <img
             className="absolute top-9 left-8 w-[66px] h-[66px]"
@@ -94,6 +96,7 @@ const stepsData = [
     description: "Pass the evaluation and start trading with our capital.",
     icon: (
       <>
+
         <img
           className="absolute top-9 left-8 w-[66px] h-[66px]"
           alt="Ellipse"
@@ -127,96 +130,97 @@ const stepsData = [
       </>
     ),
   },
-  {
-    number: "4",
-    title: "Trade Smarter With AI",
-    description: "Use AI insights and MT5 tools to make data-driven trades.",
-    icon: (
-      <>
-        <div className="absolute top-0 left-0 w-[194px] h-[102px]">
-          <img
-            className="absolute top-9 left-8 w-[66px] h-[66px]"
-            alt="Ellipse"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-1.svg"
-          />
-          <img
-            className="absolute top-[41px] left-[37px] w-14 h-14"
-            alt="Ellipse"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-2.svg"
-          />
-          <img
-            className="absolute w-[49.48%] h-0 top-[67.65%] left-[50.52%] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/line-1.svg"
-          />
-          <img
-            className="absolute w-[16.49%] h-0 top-[68.63%] left-0 object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/line-2.svg"
-          />
-          <img
-            className="absolute w-0 h-[35.29%] top-0 left-[32.99%] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/line-3.svg"
-          />
-        </div>
-        <img
-          className="absolute top-14 left-[52px] w-[26px] h-[26px]"
-          alt="Hugeicons ai scan"
-          src="https://c.animaapp.com/mishf4erVkDEuN/img/hugeicons-ai-scan.svg"
-        />
-      </>
-    ),
-  },
-  {
-    number: "5",
-    title: "Earn & Withdraw Profits",
-    description: "Keep up to 80% profits with fast, reliable payouts.",
-    icon: (
-      <>
-        <div className="absolute top-0 left-0 w-[194px] h-[102px]">
-          <img
-            className="absolute top-9 left-8 w-[66px] h-[66px]"
-            alt="Ellipse"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-1.svg"
-          />
-          <img
-            className="absolute top-[41px] left-[37px] w-14 h-14"
-            alt="Ellipse"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-2.svg"
-          />
-          <img
-            className="absolute w-[49.48%] h-0 top-[67.65%] left-[50.52%] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/line-1.svg"
-          />
-          <img
-            className="absolute w-[16.49%] h-0 top-[68.63%] left-0 object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/line-2.svg"
-          />
-          <img
-            className="absolute w-0 h-[35.29%] top-0 left-[32.99%] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/line-3.svg"
-          />
-        </div>
-        <img
-          className="absolute top-14 left-[52px] w-[26px] h-[26px]"
-          alt="Fluent arrow growth"
-          src="https://c.animaapp.com/mishf4erVkDEuN/img/fluent-arrow-growth-20-filled.svg"
-        />
-      </>
-    ),
-  },
+  // {
+  //   number: "4",
+  //   title: "Trade Smarter With AI",
+  //   description: "Use AI insights and MT5 tools to make data-driven trades.",
+  //   icon: (
+  //     <>
+  //       <div className="absolute top-0 left-0 w-[194px] h-[102px]">
+  //         <img
+  //           className="absolute top-9 left-8 w-[66px] h-[66px]"
+  //           alt="Ellipse"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-1.svg"
+  //         />
+  //         <img
+  //           className="absolute top-[41px] left-[37px] w-14 h-14"
+  //           alt="Ellipse"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-2.svg"
+  //         />
+  //         <img
+  //           className="absolute w-[49.48%] h-0 top-[67.65%] left-[50.52%] object-cover"
+  //           alt="Line"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/line-1.svg"
+  //         />
+  //         <img
+  //           className="absolute w-[16.49%] h-0 top-[68.63%] left-0 object-cover"
+  //           alt="Line"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/line-2.svg"
+  //         />
+  //         <img
+  //           className="absolute w-0 h-[35.29%] top-0 left-[32.99%] object-cover"
+  //           alt="Line"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/line-3.svg"
+  //         />
+  //       </div>
+  //       <img
+  //         className="absolute top-14 left-[52px] w-[26px] h-[26px]"
+  //         alt="Hugeicons ai scan"
+  //         src="https://c.animaapp.com/mishf4erVkDEuN/img/hugeicons-ai-scan.svg"
+  //       />
+  //     </>
+  //   ),
+  // },
+  // {
+  //   number: "5",
+  //   title: "Earn & Withdraw Profits",
+  //   description: "Keep up to 80% profits with fast, reliable payouts.",
+  //   icon: (
+  //     <>
+  //       <div className="absolute top-0 left-0 w-[194px] h-[102px]">
+  //         <img
+  //           className="absolute top-9 left-8 w-[66px] h-[66px]"
+  //           alt="Ellipse"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-1.svg"
+  //         />
+  //         <img
+  //           className="absolute top-[41px] left-[37px] w-14 h-14"
+  //           alt="Ellipse"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/ellipse-2.svg"
+  //         />
+  //         <img
+  //           className="absolute w-[49.48%] h-0 top-[67.65%] left-[50.52%] object-cover"
+  //           alt="Line"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/line-1.svg"
+  //         />
+  //         <img
+  //           className="absolute w-[16.49%] h-0 top-[68.63%] left-0 object-cover"
+  //           alt="Line"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/line-2.svg"
+  //         />
+  //         <img
+  //           className="absolute w-0 h-[35.29%] top-0 left-[32.99%] object-cover"
+  //           alt="Line"
+  //           src="https://c.animaapp.com/mishf4erVkDEuN/img/line-3.svg"
+  //         />
+  //       </div>
+  //       <img
+  //         className="absolute top-14 left-[52px] w-[26px] h-[26px]"
+  //         alt="Fluent arrow growth"
+  //         src="https://c.animaapp.com/mishf4erVkDEuN/img/fluent-arrow-growth-20-filled.svg"
+  //       />
+  //     </>
+  //   ),
+  // },
 ];
 
 export const HowItWorksSection = () => {
   return (
     <section className="w-full py-20 px-4 flex flex-col gap-16">
       <h2 className="max-w-[832px] mx-auto 
-        [font-family:'M_PLUS_2',Helvetica] font-normal text-white text-[42px] 
-        text-center tracking-[0] leading-[normal] 
+        text-center font-normal text-[42px] leading-normal
+        bg-gradient-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent
+        [font-family:'M_PLUS_2',Helvetica]
         translate-y-[-1rem] animate-fade-in opacity-0">
         How Thaurus Guru&apos;s Prop Trading Works?
       </h2>

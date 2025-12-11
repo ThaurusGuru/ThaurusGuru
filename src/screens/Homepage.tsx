@@ -32,7 +32,7 @@ export const Homepage = () => {
       data-model-id="264:7829"
     >
       {/* Background decorative images */}
-      <img
+      {/* <img
         className="absolute top-[10516px] left-[calc(50.00%_-_720px)] w-[1440px] h-[1113px] pointer-events-none"
         alt="Frame"
         src="https://c.animaapp.com/mishf4erVkDEuN/img/frame-180.svg"
@@ -66,7 +66,7 @@ export const Homepage = () => {
         className="absolute top-[2703px] left-0 w-[1440px] h-[2018px] pointer-events-none"
         alt="Frame"
         src="https://c.animaapp.com/mishf4erVkDEuN/img/frame-182.svg"
-      />
+      /> */}
 
       {/* PREMIUM LIQUID GLASS HEADER - ELEGANT & BEAUTIFUL */}
       <header className="fixed top-[41px] left-[calc(50.00%-667px)] z-[100] w-[1335px] h-16">
