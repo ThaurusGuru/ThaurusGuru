@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "../../../components/ui/button";
-import { Card, CardContent } from "../../../components/ui/card";
 
 const screenshots = [
   {
@@ -26,104 +24,104 @@ const screenshots = [
   },
 ];
 
-const testimonials = [
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-5.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-5.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-  {
-    stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-5.svg",
-    author: "George Nyabadza,",
-    time: "4 hours ago",
-    title: "Super-thrilled with my first payout",
-    description:
-      "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
-  },
-];
+// const testimonials = [
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-5.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-5.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-1.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+//   {
+//     stars: "https://c.animaapp.com/mishf4erVkDEuN/img/frame-154-5.svg",
+//     author: "George Nyabadza,",
+//     time: "4 hours ago",
+//     title: "Super-thrilled with my first payout",
+//     description:
+//       "I am super-thrilled to have received my first payout, and beautifully crafted Payout Certificate, from Thaurus Guru. There is no better way to be self-emplyed than to be partnered.",
+//   },
+// ];
 
 export const MediaSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
