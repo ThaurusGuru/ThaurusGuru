@@ -70,7 +70,7 @@ export const DiscordSection = () => {
           {/* Discord Screenshot - Proper large size */}
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] relative w-full max-w-[1160px] flex justify-center mt-4 mb-[-50px]">
             <img
-              className="w-[1161.262px] h-[777.788px] rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              className="w-[1161.262px] h-[777.788px] rounded-[12px]"
               style={{ aspectRatio: '1161.26/777.79' }}
               alt="Discord Community Announcement"
               src="/discord-section/discord-img.svg"
@@ -78,7 +78,16 @@ export const DiscordSection = () => {
           </div>
 
           {/* Feature Cards - Overlapping bottom of Discord image */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full max-w-[1000px] px-32">
+          <div className="relative z-10 w-full max-w-[1200px] px-56">
+            {/* Dark background with gradient blend */}
+            <div 
+              className="absolute inset-0 -top-20 rounded-b-[12px]"
+              style={{
+                background: 'linear-gradient(to bottom, transparent 0%, #1B092E 40%, #1B092E 100%)'
+              }}
+            />
+            
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
             {featureCards.map((card, index) => (
               <Card
                 key={index}
@@ -109,6 +118,7 @@ export const DiscordSection = () => {
                 </CardContent>
               </Card>
             ))}
+            </div>
           </div>
 
           {/* Join Button */}
