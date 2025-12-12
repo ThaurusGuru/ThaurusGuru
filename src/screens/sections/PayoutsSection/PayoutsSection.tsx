@@ -34,43 +34,43 @@ const verticalLines = [
 
 const notificationCards = [
   {
-    top: "top-[429px]",
+    top: "top-[379px]",
     left: "left-[578px]",
     rotation: "rotate-[-15deg]",
-    imageRotation: "rotate-[15deg]",
   },
   {
-    top: "top-[413px]",
+    top: "top-[363px]",
     left: "-left-11",
     rotation: "rotate-[15deg]",
-    imageRotation: "rotate-[-15deg]",
   },
   {
-    top: "top-28",
+    top: "top-[62px]",
     left: "left-[5px]",
     rotation: "rotate-[-22deg]",
-    imageRotation: "rotate-[22deg]",
   },
 ];
 
 const certificates = [
   {
     left: "left-[calc(50.00%_-_574px)]",
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-117.png",
+    src: "/payouts/payout-certificate.svg",
   },
   {
     left: "left-[calc(50.00%_-_205px)]",
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-118.png",
+    src: "/payouts/payout-certificate.svg",
   },
   {
     left: "left-[calc(50.00%_+_164px)]",
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-119.png",
+    src: "/payouts/payout-certificate.svg",
   },
 ];
 
 export const PayoutsSection = () => {
   return (
-    <section className="relative w-full py-20">
+    <section 
+      className="relative w-full py-20 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/payouts/payouts-bg.png)' }}
+    >
       <div className="relative mx-auto max-w-[1316px] h-[592px]">
         <div className="absolute top-[116px] left-[calc(50.00%_-_658px)] w-[1316px] h-[360px] flex flex-col gap-[59px]">
           {horizontalLines.map((line, index) => (
@@ -103,7 +103,7 @@ export const PayoutsSection = () => {
               className={`absolute ${card.top} ${card.left} w-[220px] h-16 flex gap-[11.7px] bg-[#00000000] rounded-[14px] ${card.rotation} shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]`}
             >
               <img
-                className={`mt-[9.0px] w-[46.3px] h-[46.3px] ml-[13.3px] rounded-md ${card.imageRotation} object-cover`}
+                className="mt-[9.0px] w-[46.3px] h-[46.3px] ml-[13.3px] rounded-md object-cover"
                 alt="Rectangle"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-145-3.png"
               />
@@ -129,9 +129,9 @@ export const PayoutsSection = () => {
           ))}
         </div>
 
-        <div className="absolute top-[136px] left-[1068px] w-[220px] h-16 flex gap-[11.7px] bg-[#00000000] rounded-[14px] rotate-[15deg] shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
+        <div className="absolute top-[86px] left-[1068px] w-[220px] h-16 flex gap-[11.7px] bg-[#00000000] rounded-[14px] rotate-[15deg] shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
           <img
-            className="mt-[9.0px] w-[46.3px] h-[46.3px] ml-[13.3px] rotate-[-15deg] rounded-md object-cover"
+            className="mt-[9.0px] w-[46.3px] h-[46.3px] ml-[13.3px] rounded-md object-cover"
             alt="Rectangle"
             src="https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-145-3.png"
           />
@@ -155,14 +155,14 @@ export const PayoutsSection = () => {
           </div>
         </div>
 
-        <h2 className="absolute top-[94px] left-[calc(50.00%_-_251px)] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] tracking-[0] leading-[normal] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+        <h2 className="absolute top-[60px] left-[calc(50.00%_-_251px)] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] tracking-[0] leading-[normal] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           Payouts and Certificates
         </h2>
 
         {certificates.map((cert, index) => (
           <img
             key={`certificate-${index}`}
-            className={`absolute top-[164px] ${cert.left} w-[421px] h-[310px] translate-y-[-1rem] animate-fade-in opacity-0`}
+            className={`absolute top-[114px] ${cert.left} w-[421px] h-[310px] translate-y-[-1rem] animate-fade-in opacity-0`}
             style={
               {
                 "--animation-delay": `${400 + index * 200}ms`,

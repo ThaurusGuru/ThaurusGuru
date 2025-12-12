@@ -194,52 +194,15 @@ export const MediaSection = () => {
          
         </div>
 
-        {/* Testimonials section */}
+        {/* Reviews Image */}
         <div className="relative">
-          <div className="absolute w-full h-[235px] top-0 left-0 bg-[linear-gradient(180deg,rgba(27,9,46,1)_0%,rgba(28,10,47,0)_100%)] pointer-events-none z-10" />
-
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-[17px] gap-y-[52px]">
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className="w-full max-w-[280px] mx-auto border border-solid border-[#e8b0ff] rounded-[3.77px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)]"
-              >
-                <CardContent className="p-5 space-y-3">
-                  <img
-                    className="w-[118px] h-[22px]"
-                    alt="Rating stars"
-                    src={testimonial.stars}
-                  />
-
-                  <div className="flex items-center gap-2">
-                    <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-[11px] tracking-[0] leading-[18.8px]">
-                      {testimonial.author}
-                    </span>
-                    <span className="[font-family:'Poppins',Helvetica] font-light text-[#929292] text-[9px] tracking-[0] leading-[18.8px]">
-                      {testimonial.time}
-                    </span>
-                  </div>
-
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-xs tracking-[0] leading-[18.8px]">
-                    {testimonial.title}
-                  </h3>
-
-                  <p className="bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(27,9,46,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Poppins',Helvetica] font-light text-transparent text-[10px] tracking-[0] leading-[15.1px]">
-                    {testimonial.description}
-                  </p>
-
-                  <Button
-                    variant="link"
-                    className="h-auto p-0 [font-family:'Poppins',Helvetica] font-medium text-[#1bad7c] text-[10px] tracking-[0] leading-[15.1px]"
-                  >
-                    Read More
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] flex justify-center">
+            <img
+              src="/reviews/Text reviews.svg"
+              alt="Customer Reviews"
+              className="w-[1160px] h-[666px]"
+            />
           </div>
-
-          <div className="absolute w-full h-[236px] bottom-0 left-0 bg-[linear-gradient(0deg,rgba(27,9,46,1)_0%,rgba(28,10,47,0)_100%)] pointer-events-none z-10" />
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import { ChevronDownIcon, GlobeIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { BuildSection } from "./sections/BuildSection";
 import { CalculatorSection } from "./sections/CalculatorSection";
+import { CollaborationSection } from "./sections/CollaborationSection";
 import { ComparisonTableSection } from "./sections/ComparisonTableSection";
 import { DiscordSection } from "./sections/DiscordSection";
 import { FAQsSection } from "./sections/FAQsSection";
@@ -217,6 +218,15 @@ export const Homepage = () => {
           <BuildSection />
         </section>
 
+        {/* Background effect spanning between BuildSection and CalculatorSection */}
+        <div className="relative w-full h-0">
+          <img
+            src="/calculator-section/bg-effectt.svg"
+            alt=""
+            className="absolute -top-[1100px] right-0 w-[1500px] h-auto opacity-100 pointer-events-none z-10"
+          />
+        </div>
+
         <section className="relative w-full">
           <CalculatorSection />
         </section>
@@ -230,8 +240,21 @@ export const Homepage = () => {
         </section>
 
         <section className="relative w-full">
+          <CollaborationSection />
+        </section>
+
+        <section className="relative w-full">
           <DiscordSection />
         </section>
+
+        {/* Background effect spanning from Discord to Media section */}
+        <div className="relative w-full h-0">
+          <img
+            src="/discord-section/effect.png"
+            alt=""
+            className="absolute -top-[800px] left-0 w-auto h-[1500px] opacity-70 pointer-events-none z-0"
+          />
+        </div>
 
         <section className="relative w-full">
           <MediaSection />

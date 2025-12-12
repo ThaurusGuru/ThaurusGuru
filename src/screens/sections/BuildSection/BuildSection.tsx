@@ -25,22 +25,10 @@ const locations = [
   },
 ];
 
-const stats = [
-  {
-    value: "25+",
-    label: "Dedicated Professionals",
-    labelBold: true,
-  },
-  {
-    value: "3",
-    label: "Dedicated Offices around the world",
-    labelBold: true,
-  },
-  {
-    value: "24/7",
-    label: "Available customer services",
-    labelBold: false,
-  },
+const statImages = [
+  "/build-section/card-1.svg",
+  "/build-section/card-2.svg",
+  "/build-section/card-3.svg",
 ];
 
 const placeholderCards = Array(4).fill(null);
@@ -50,7 +38,7 @@ export const BuildSection = () => {
     <section className="relative w-full py-16">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="relative w-full max-w-[566px] h-[534px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
+          <div className="relative w-full max-w-[566px] h-[534px] ml-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
             <img
               className="absolute top-0 left-0 w-[534px] h-[534px]"
               alt="World map"
@@ -85,35 +73,22 @@ export const BuildSection = () => {
 
           <div className="flex flex-col gap-8">
             <h2 className="w-full max-w-[570px] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] tracking-[0] leading-[58px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-              Built by Professionals. Backed by Transparency.
+              Built by Professionals. <br />
+              Backed by Transparency.
             </h2>
 
             <div className="flex flex-wrap gap-[15px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-              {stats.map((stat, index) => (
-                <Card
+              {statImages.map((imageSrc, index) => (
+                <img
                   key={index}
-                  className="w-[184px] h-[122.12px] rounded-[10px] shadow-[0px_4px_8px_#3f0d7366] [background:radial-gradient(50%_50%_at_80%_50%,rgba(112,0,255,0.2)_0%,rgba(30,9,51,0.2)_100%)] border-0"
-                >
-                  <CardContent className="p-0 relative w-full h-full">
-                    <div className="absolute top-[34px] left-[35px] [font-family:'Manrope',Helvetica] font-bold text-white text-[50px] tracking-[0] leading-4 whitespace-nowrap">
-                      {stat.value}
-                    </div>
-
-                    <div
-                      className={`absolute top-[74px] left-[35px] max-w-[118px] text-white text-sm tracking-[0] leading-4 ${
-                        stat.labelBold
-                          ? "[font-family:'Cambay',Helvetica] font-bold"
-                          : "[font-family:'Montserrat',Helvetica] font-semibold"
-                      }`}
-                    >
-                      {stat.label}
-                    </div>
-                  </CardContent>
-                </Card>
+                  src={imageSrc}
+                  alt={`Stat card ${index + 1}`}
+                  className="w-[184px] h-[122.12px]"
+                />
               ))}
             </div>
 
-            <p className="w-full max-w-[579px] [font-family:'Cambay',Helvetica] font-normal text-white text-xl tracking-[0.20px] leading-7 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
+            <p className="w-full max-w-[579px] [font-family:'Cambay',Helvetica] font-medium text-white text-lg tracking-[0.20px] leading-7 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
               Our team is composed of seasoned tech entrepreneurs and global
               traders, all committed to unwavering transparency and
               professionalism.
@@ -131,11 +106,11 @@ export const BuildSection = () => {
         </div>
 
         {/* Horizontal Linear Card Layout - FULL WIDTH CENTERED */}
-        <div className="grid grid-cols-4 gap-5 w-full px-4 mt-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+        <div className="grid grid-cols-4 w-full px-24 mt-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
           {placeholderCards.map((_, index) => (
             <Card
               key={index}
-              className="w-full h-40 bg-[#a770e04c] rounded-[10px] border border-solid border-[#a770e0]"
+              className="w-72 h-40 bg-[#a770e04c] rounded-[10px] border border-solid border-[#a770e0]"
             >
               <CardContent className="w-full h-full" />
             </Card>

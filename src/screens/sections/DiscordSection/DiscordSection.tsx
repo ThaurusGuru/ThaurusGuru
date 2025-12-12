@@ -57,7 +57,7 @@ export const DiscordSection = () => {
   return (
     <section className="relative w-full py-16 px-4">
       <div className="max-w-[1202px] mx-auto">
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-4">
           <h2 className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] text-center tracking-[0.42px] leading-[normal]">
             Join The Thaurus Community!
           </h2>
@@ -68,75 +68,44 @@ export const DiscordSection = () => {
           </p>
 
           {/* Discord Screenshot - Proper large size */}
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] relative w-full max-w-[1160px] flex justify-center mt-8 mb-[-80px]">
+          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] relative w-full max-w-[1160px] flex justify-center mt-4 mb-[-50px]">
             <img
-              className="w-full h-auto rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              className="w-[1161.262px] h-[777.788px] rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              style={{ aspectRatio: '1161.26/777.79' }}
               alt="Discord Community Announcement"
-              src="https://c.animaapp.com/mishf4erVkDEuN/img/announcement-2.png"
+              src="/discord-section/discord-img.svg"
             />
           </div>
 
           {/* Feature Cards - Overlapping bottom of Discord image */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full max-w-[1000px] px-4">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full max-w-[1000px] px-32">
             {featureCards.map((card, index) => (
               <Card
                 key={index}
-                className="translate-y-[-1rem] animate-fade-in opacity-0 relative w-full h-[260px] rounded-[10px] border-2 border-solid border-[#7f89ec]/60 shadow-[0px_4px_12px_#7f89ec40] bg-[linear-gradient(180deg,rgba(88,103,241,0.35)_0%,rgba(154,164,255,0.2)_100%)] backdrop-blur-xl overflow-hidden"
+                className="translate-y-[-1rem] animate-fade-in opacity-0 relative w-[190px] h-[112px] rounded-[10px] overflow-hidden bg-transparent border-0"
                 style={{
                   animationDelay: `${600 + index * 100}ms`,
+                  backgroundImage: 'url(/collaboration/Rectangle-bg.svg)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                 }}
               >
                 <CardContent className="p-5 h-full flex flex-col relative">
-                  {/* Decorative background images */}
-                  {card.hasImage && (
-                    <img
-                      className="absolute bottom-0 left-[3px] w-[185px] h-auto opacity-40"
-                      alt="Market Chats Illustration"
-                      src={card.imageUrl}
-                    />
-                  )}
-                  
-                  {/* Community Hub decorative design */}
-                  {card.title === "Community Hub" && (
-                    <div className="absolute bottom-0 right-0 w-32 h-32 opacity-30">
-                      <div className="absolute bottom-0 right-0 w-24 h-24 rounded-full bg-gradient-to-br from-[#7f89ec]/40 to-transparent blur-2xl" />
-                      <div className="absolute bottom-4 right-4 w-16 h-16 rounded-full bg-gradient-to-tl from-[#9aa4ff]/30 to-transparent blur-xl" />
-                    </div>
-                  )}
-                  
-                  {/* Announcements decorative design */}
-                  {card.title === "Announcements" && (
-                    <div className="absolute bottom-0 right-0 w-32 h-32 opacity-30">
-                      <div className="absolute bottom-2 right-2 w-20 h-20 rounded-full bg-gradient-to-br from-[#7f89ec]/50 to-transparent blur-xl" />
-                      <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-gradient-to-tl from-[#5867f1]/40 to-transparent blur-lg" />
-                    </div>
-                  )}
-
                   <div className="flex items-center gap-3 mb-4 relative z-10">
-                    <div className="w-9 h-9 rounded-lg bg-white/30 backdrop-blur-sm flex items-center justify-center border border-white/40">
-                      <img
-                        className="w-6 h-6 brightness-0 invert"
-                        alt={`${card.title} icon`}
-                        src={card.icon}
-                      />
-                    </div>
-                    <h3 className="[font-family:'Cambay',Helvetica] font-bold text-white text-base tracking-[0] leading-[normal] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                    <img
+                      className="w-6 h-6"
+                      alt={`${card.title} icon`}
+                      src={card.icon}
+                    />
+                    <h3 className="text-[#7F89EC] font-['Cambay'] text-[14px] font-bold leading-normal">
                       {card.title}
                     </h3>
                   </div>
 
-                  <p className="w-full max-w-[200px] [font-family:'Cambay',Helvetica] font-medium text-white/95 text-[11px] tracking-[0] leading-[14px] mb-4 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                  <p className="w-[153px] text-[#7C85E2] font-['Cambay'] text-[10px] font-normal leading-[12px] mb-4 relative z-10">
                     {card.description}
                   </p>
 
-                  <div className="[font-family:'Cambay',Helvetica] font-normal text-white/90 text-xs tracking-[0] leading-[18px] relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
-                    {card.channels.map((channel, channelIndex) => (
-                      <React.Fragment key={channelIndex}>
-                        {channel}
-                        {channelIndex < card.channels.length - 1 && <br />}
-                      </React.Fragment>
-                    ))}
-                  </div>
                 </CardContent>
               </Card>
             ))}
