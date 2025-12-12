@@ -74,7 +74,7 @@ export const Homepage = () => {
         <div className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04] opacity-90" />
         
         <nav 
-          className="relative flex items-center justify-center gap-24 h-full 
+          className="relative flex items-center justify-between gap-24 h-full px-11
           rounded-[10px] 
           border border-white/[0.18]
           shadow-[0_8px_32px_rgba(168,85,247,0.15),0_0_0_1px_rgba(255,255,255,0.1)_inset,0_2px_0_rgba(255,255,255,0.2)_inset]
