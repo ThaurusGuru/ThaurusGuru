@@ -161,12 +161,12 @@ export const Homepage = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-purple-400/20 to-purple-400/0 
                 translate-x-[-100%] group-hover/webapp:translate-x-[100%] transition-transform duration-700" />
                 <span className="relative z-10 [font-family:'Cambay',Helvetica] font-semibold text-[#1b092e] text-sm tracking-[0.2px] leading-[normal]">
-                  Web App
+                  Login
                 </span>
               </Button>
 
               {/* Client Login Button - Premium glass */}
-              <Button 
+              {/* <Button 
                 className="relative h-9 px-6 py-1 rounded-lg overflow-hidden
                 bg-gradient-to-br from-purple-600/20 via-purple-700/10 to-purple-900/20
                 border border-purple-400/[0.25]
@@ -186,7 +186,7 @@ export const Homepage = () => {
                 transition-all duration-300 group-hover/login:text-purple-100">
                   Client Login
                 </span>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </nav>
