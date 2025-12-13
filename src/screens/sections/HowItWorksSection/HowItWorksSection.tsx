@@ -77,12 +77,12 @@ export const HowItWorksSection = () => {
                   {step.icon}
 
                   <div className="absolute top-[125px] left-8 
-                    [font-family:'Cambay',Helvetica] font-bold text-white text-lg 
-                    tracking-[0] leading-[26px]">
+                    [font-family:'Cambay',Helvetica] font-semibold text-white text-[20px] 
+                    tracking-[0] leading-normal">
                     {step.title}
                   </div>
 
-                  <div className="absolute top-[155px] left-8 w-[280px] 
+                  <div className="absolute top-[165px] left-8 w-[280px] 
                     [font-family:'Manrope',Helvetica] font-normal text-[#9d62d9] text-sm 
                     tracking-[0] leading-5">
                     {step.description}
