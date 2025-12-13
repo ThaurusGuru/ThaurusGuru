@@ -127,9 +127,23 @@ export const PricingSection = () => {
 
         {/* Bordered Table Container */}
         <div className="border border-[rgba(218,182,255,0.2)] rounded-[24px] rounded-tl-none p-8 -mt-[1px]">
-
-          {/* Add-ons Bar */}
           
+          {/* Promotional Banner */}
+          <div className="flex items-center justify-end mt-6 mb-8">
+            <div className="w-[888px] h-[53px] rounded-[10px] border border-dashed border-[#B982FB] bg-[linear-gradient(90deg,#1F0A34_0%,#4F1990_50%,#1B092E_100%)] flex items-center justify-center gap-3 px-6">
+              <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[22px] leading-[28px]">
+                15% Off + BOGO on 1,2,3 Step Challenges
+              </span>
+              <img 
+                src="/pricing-section/basil_arrow-up-outline.svg" 
+                alt="Arrow" 
+                className="w-6 h-6"
+              />
+              <span className="text-[#A861FF] [font-family:'Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
+                CODE - XMAS
+              </span>
+            </div>
+          </div>
 
           {/* Platform Badge */}
           <div className="flex items-center justify-start  mt-12 -mb-10 opacity-0 animate-fade-in [--animation-delay:1400ms]">
