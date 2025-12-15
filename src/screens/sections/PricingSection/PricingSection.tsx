@@ -165,11 +165,11 @@ export const PricingSection = () => {
               {/* Table Grid */}
               <div className="relative">
                 {/* Column Background Wrappers */}
-                <div className="absolute left-[212px] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*1)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*2)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*3)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*4-4px)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[212px] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*1)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*2)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*3)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*4-4px)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
                 
                 {/* Row Backgrounds */}
                 {/* Profit Target (Phase 1) - Row 0 */}
@@ -322,4 +322,4 @@ export const PricingSection = () => {
       </div>
     </section>
   );
-};
+}
