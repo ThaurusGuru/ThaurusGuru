@@ -38,7 +38,8 @@ export const BuildSection = () => {
     <section className="relative w-full py-16">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="relative w-full max-w-[566px] h-[534px] ml-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
+          {/* Map Section - Centered on Mobile */}
+          <div className="relative w-full max-w-[566px] h-[534px] lg:ml-12 mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
             <img
               className="absolute top-0 left-0 w-[534px] h-[534px]"
               alt="World map"
@@ -71,13 +72,15 @@ export const BuildSection = () => {
             ))}
           </div>
 
-          <div className="flex flex-col gap-8">
-            <h2 className="w-full max-w-[570px] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] tracking-[0] leading-[58px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-              Built by Professionals. <br />
+          {/* Content Section */}
+          <div className="flex flex-col gap-8 items-center lg:items-start">
+            <h2 className="w-full max-w-[570px] text-center lg:text-left mt-6 md:mt-0 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[32px] md:text-[42px] tracking-[0] leading-[40px] md:leading-[58px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+              <span className="whitespace-nowrap">Built by Professionals.</span>
+              <br />
               Backed by Transparency.
             </h2>
 
-            <div className="flex flex-wrap gap-[15px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+            <div className="flex flex-wrap gap-[15px] justify-center lg:justify-start translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
               {statImages.map((imageSrc, index) => (
                 <img
                   key={index}
@@ -88,7 +91,7 @@ export const BuildSection = () => {
               ))}
             </div>
 
-            <p className="w-full max-w-[579px] [font-family:'Cambay',Helvetica] font-medium text-white text-lg tracking-[0.20px] leading-7 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
+            <p className="w-full max-w-[579px] text-center lg:text-left [font-family:'Cambay',Helvetica] font-medium text-white text-lg tracking-[0.20px] leading-7 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
               Our team is composed of seasoned tech entrepreneurs and global
               traders, all committed to unwavering transparency and
               professionalism.
@@ -105,12 +108,12 @@ export const BuildSection = () => {
           </div>
         </div>
 
-        {/* Horizontal Linear Card Layout - FULL WIDTH CENTERED */}
-        <div className="grid grid-cols-4 w-full px-24 mt-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+        {/* Card Layout - 4 columns on desktop, 2x2 grid on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-0 w-full lg:px-24 px-4 mt-12 justify-items-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
           {placeholderCards.map((_, index) => (
             <Card
               key={index}
-              className="w-72 h-40 bg-[#a770e04c] rounded-[10px] border border-solid border-[#a770e0]"
+              className="w-full max-w-[280px] lg:w-72 h-40 bg-[#a770e04c] rounded-[10px] border border-solid border-[#a770e0]"
             >
               <CardContent className="w-full h-full" />
             </Card>

@@ -1,13 +1,10 @@
-
-
-
 const statsData = [
   {
-    value: "$440k+",
+    value: "$1.9M+",
     label: "Paid to traders",
   },
   {
-    value: "600+",
+    value: "6K+",
     label: "Traders",
   },
   {
@@ -22,70 +19,97 @@ const statsData = [
 
 export const MainContentSection = () => {
   return (
-    <section className="w-full py-12 relative">
+    <section className="w-full py-8 md:py-12 relative">
       <div className="container mx-auto px-4">
+        {/* Top Horizontal Line */}
         <img 
           src="/hero/Horizontal-line.jpg" 
           alt="Horizontal line" 
-          className="w-full h-[3px] mb-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] object-cover"
+          className="w-full h-[3px] -mb-6 md:mb-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] object-cover"
         />
 
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+        {/* Stats Grid Container */}
+        <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-0 py-2 lg:py-0 pt-4 md:pt-0">
           {statsData.map((stat, index) => (
-            <>
-              <div
-                key={index}
-                className={`flex flex-col items-center justify-center px-6 translate-y-[-1rem] animate-fade-in opacity-0 ${
-                  index === 0
-                    ? "[--animation-delay:200ms]"
-                    : index === 1
-                      ? "[--animation-delay:400ms]"
-                      : index === 2
-                        ? "[--animation-delay:600ms]"
-                        : "[--animation-delay:800ms]"
-                }`}
-              >
-                <h3 className="[font-family:'Poppins',Helvetica] font-semibold text-white text-5xl tracking-[0] leading-normal mb-2">
-                  {stat.value}
-                </h3>
-                <p className="[font-family:'Montserrat',Helvetica] font-medium text-white text-xl text-center tracking-[0] leading-normal">
-                  {stat.label}
-                </p>
-              </div>
-              
-              {/* Vertical line images between stats */}
-              {index === 0 && (
-                <img
-                  src="/hero/vertical-line-1.png"
-                  alt="Vertical line 1"
-                  className="hidden lg:block absolute left-1/4 -top-32 h-80 w-auto object-cover"
-                  style={{ transform: 'translateX(-50%)' }}
-                />
-              )}
-              {index === 1 && (
-                <img
-                  src="/hero/vertical-line-2.jpg"
-                  alt="Vertical line 2"
-                  className="hidden lg:block absolute left-1/2 -top-40 h-80 w-auto object-cover"
-                  style={{ transform: 'translateX(-50%)' }}
-                />
-              )}
-              {index === 2 && (
-                <img
-                  src="/hero/vertical-line-3.jpg"
-                  alt="Vertical line 3"
-                  className="hidden lg:block absolute left-3/4 -top-16 h-80 w-auto object-cover"
-                  style={{ transform: 'translateX(-50%)' }}
-                />
-              )}
-            </>
+            <div
+              key={index}
+              className={`
+                flex flex-col items-center justify-center 
+                px-4 py-4 md:py-8 lg:px-6
+                translate-y-[-1rem] animate-fade-in opacity-0
+                ${index === 0 ? "[--animation-delay:200ms]" : ""}
+                ${index === 1 ? "[--animation-delay:400ms]" : ""}
+                ${index === 2 ? "[--animation-delay:600ms]" : ""}
+                ${index === 3 ? "[--animation-delay:800ms]" : ""}
+              `}
+            >
+              <h3 className="[font-family:'Poppins',Helvetica] font-semibold text-white 
+                text-2xl sm:text-3xl md:text-4xl lg:text-5xl 
+                tracking-[0] leading-normal mb-1 md:mb-2">
+                {stat.value}
+              </h3>
+              <p className="[font-family:'Montserrat',Helvetica] font-medium text-white/80 
+                text-xs sm:text-sm md:text-base lg:text-xl 
+                text-center tracking-[0] leading-normal">
+                {stat.label}
+              </p>
+            </div>
           ))}
+
+          {/* Mobile/Tablet: Middle Horizontal line between rows */}
+          <img
+            src="/hero/Horizontal-line.jpg"
+            alt="Horizontal line middle"
+            className="block lg:hidden absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full h-[2px] object-cover pointer-events-none z-10"
+          />
+
+          {/* Mobile/Tablet: Left Vertical line - Extended beyond horizontal lines */}
+          <img
+            src="/hero/vertical-line-2.jpg"
+            alt="Vertical line left"
+            className="block lg:hidden absolute left-0 top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
+          />
+
+          {/* Mobile/Tablet: Middle Vertical line between columns - Extended beyond horizontal lines */}
+          <img
+            src="/hero/vertical-line-2.jpg"
+            alt="Vertical line middle"
+            className="block lg:hidden absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
+          />
+
+          {/* Mobile/Tablet: Right Vertical line - Extended beyond horizontal lines */}
+          <img
+            src="/hero/vertical-line-2.jpg"
+            alt="Vertical line right"
+            className="block lg:hidden absolute right-0 top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
+          />
+
+          {/* Desktop: Vertical line images between stats */}
+          <img
+            src="/hero/vertical-line-1.png"
+            alt="Vertical line 1"
+            className="hidden lg:block absolute left-1/4 -top-32 h-80 w-auto object-cover pointer-events-none"
+            style={{ transform: 'translateX(-50%)' }}
+          />
+          <img
+            src="/hero/vertical-line-2.jpg"
+            alt="Vertical line 2"
+            className="hidden lg:block absolute left-1/2 -top-40 h-80 w-auto object-cover pointer-events-none"
+            style={{ transform: 'translateX(-50%)' }}
+          />
+          <img
+            src="/hero/vertical-line-3.jpg"
+            alt="Vertical line 3"
+            className="hidden lg:block absolute left-3/4 -top-16 h-80 w-auto object-cover pointer-events-none"
+            style={{ transform: 'translateX(-50%)' }}
+          />
         </div>
 
+        {/* Bottom Horizontal Line */}
         <img 
           src="/hero/Horizontal-line.jpg" 
           alt="Horizontal line" 
-          className="w-full h-[3px] mt-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] object-cover"
+          className="w-full h-[3px] md:mt-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] object-cover"
         />
       </div>
     </section>

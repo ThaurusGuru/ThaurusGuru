@@ -1,4 +1,4 @@
-import { ChevronDownIcon, GlobeIcon } from "lucide-react";
+import { ChevronDownIcon, GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { BuildSection } from "./sections/BuildSection";
 import { CalculatorSection } from "./sections/CalculatorSection";
@@ -14,7 +14,8 @@ import { MediaSection } from "./sections/MediaSection";
 import { PayoutsSection } from "./sections/PayoutsSection";
 import { PricingSection } from "./sections/PricingSection";
 import { SponsorSection } from "./sections/SponsorSection";
-import "../index.css"
+import "../index.css";
+import { useState } from "react";
 
 const navItems = [
   { label: "Home", href: "#" },
@@ -27,9 +28,11 @@ const navItems = [
 ];
 
 export const Homepage = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div
-      className="bg-[#1b082e] w-full min-w-[1440px] relative overflow-hidden"
+      className="bg-[#1b082e] w-full min-w-0 lg:min-w-[1440px] relative overflow-hidden"
       data-model-id="264:7829"
     >
       {/* Background decorative images */}
@@ -70,11 +73,11 @@ export const Homepage = () => {
       /> */}
 
       {/* PREMIUM LIQUID GLASS HEADER - ELEGANT & BEAUTIFUL */}
-      <header className="fixed top-[41px] left-[calc(50.00%-667px)] z-[100] w-[1335px] h-16">
+      <header className="fixed top-[20px] sm:top-[41px] left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-32px)] sm:w-[calc(100%-80px)] lg:w-[1440px] h-[46px] sm:h-16">
         <div className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04] opacity-90" />
         
         <nav 
-          className="relative flex items-center justify-between gap-24 h-full px-11
+          className="relative flex items-center justify-between h-full px-4 sm:px-6 lg:px-11
           rounded-[10px] 
           border border-white/[0.18]
           shadow-[0_8px_32px_rgba(168,85,247,0.15),0_0_0_1px_rgba(255,255,255,0.1)_inset,0_2px_0_rgba(255,255,255,0.2)_inset]
@@ -97,14 +100,14 @@ export const Homepage = () => {
           
           {/* Logo */}
           <img
-            className="relative z-20 w-[157px] h-12 object-cover drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
+            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-cover drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
             src="/Thaurus-logo.png"
           />
 
-          {/* Navigation Items */}
-          <ul className="relative z-20 inline-flex items-center justify-center gap-11">
+          {/* Desktop Navigation Items - Hidden on mobile/tablet */}
+          <ul className="hidden lg:inline-flex relative z-20 items-center justify-center gap-11">
             {navItems.map((item, index) => (
               <li key={index}>
                 <a
@@ -126,8 +129,8 @@ export const Homepage = () => {
             ))}
           </ul>
 
-          {/* Right side actions */}
-          <div className="relative z-20 inline-flex items-center gap-4">
+          {/* Right side actions - Desktop */}
+          <div className="hidden lg:inline-flex relative z-20 items-center gap-4">
             {/* Language selector */}
             <button className="inline-flex items-center gap-1.5 
               px-3 py-1.5 rounded-lg
@@ -189,7 +192,79 @@ export const Homepage = () => {
               </Button> */}
             </div>
           </div>
+
+          {/* Mobile: Login + Hamburger */}
+          <div className="flex lg:hidden relative z-20 items-center gap-2">
+            <Button className="relative h-8 px-4 py-1 rounded-lg border-none overflow-hidden
+              bg-gradient-to-r from-white via-[#e9d5ff] to-white
+              shadow-[0_4px_20px_rgba(168,85,247,0.4)]
+              transition-all duration-300">
+              <span className="relative z-10 [font-family:'Cambay',Helvetica] font-semibold text-[#1b092e] text-xs sm:text-sm tracking-[0.2px] leading-[normal]">
+                Login
+              </span>
+            </Button>
+
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg bg-white/[0.05] border border-white/[0.1] 
+              hover:bg-white/[0.1] transition-all duration-300"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <XIcon className="w-5 h-5 text-white" />
+              ) : (
+                <MenuIcon className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-[calc(100%+8px)] left-0 right-0 
+            rounded-[10px] overflow-hidden
+            bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04]
+            border border-white/[0.18]
+            shadow-[0_8px_32px_rgba(168,85,247,0.25)]
+            animate-fade-in"
+            style={{
+              backdropFilter: 'blur(40px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            }}
+          >
+            <ul className="flex flex-col p-4 gap-1">
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.href}
+                    className="block px-4 py-3 rounded-lg
+                    [font-family:'Cambay',Helvetica] font-normal text-white/90 text-sm
+                    hover:bg-white/[0.1] hover:text-white
+                    transition-all duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              
+              {/* Language selector in mobile menu */}
+              <li className="mt-2 pt-2 border-t border-white/[0.1]">
+                <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg
+                  bg-white/[0.05] border border-white/[0.1]
+                  [font-family:'Cambay',Helvetica] font-normal text-white/90 text-sm
+                  hover:bg-white/[0.1] transition-all duration-300">
+                  <div className="flex items-center gap-2">
+                    <GlobeIcon className="w-5 h-5 text-white/80" />
+                    <span>English</span>
+                  </div>
+                  <ChevronDownIcon className="w-4 h-4 text-white/80" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* Main content */}
