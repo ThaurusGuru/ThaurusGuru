@@ -68,27 +68,27 @@ export const CalculatorSection = () => {
   };
 
   return (
-    <section className="relative w-full py-20 translate-y-[-1rem] animate-fade-in opacity-0">
+    <section className="relative w-full py-12 md:py-20 translate-y-[-1rem] animate-fade-in opacity-0">
       <div className="container mx-auto px-4 max-w-[1160px]">
-        <h2 className="text-center mb-16 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[42px] tracking-[0] leading-[78px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+        <h2 className="text-center mb-8 md:mb-16 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[24px] md:text-[42px] tracking-[0] leading-[normal] md:leading-[78px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           Want to know your potential reward?
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-9 items-start translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-          <div className="relative">
+        <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-6 md:gap-9 items-start translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+          <div className="relative flex flex-col gap-6 lg:block">
             {/* Earnings Estimator Card */}
-            <Card className="relative w-full h-[306px] rounded-[20px] border-none 
+            <Card className="relative w-full h-[250px] md:h-[306px] rounded-[20px] border-none 
               bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
               backdrop-blur-md border border-purple-500/30
               shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
               overflow-hidden">
-              <CardContent className="relative p-0 h-[306px]">
+              <CardContent className="relative p-0 h-full">
                 {/* Glow effect */}
                 <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
                   blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
                 
                 <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  className="hidden md:block absolute top-0 left-0 w-full h-full object-cover"
                   alt="Mask group"
                   src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-7.png"
                 />
@@ -96,7 +96,7 @@ export const CalculatorSection = () => {
                 {backgroundBars.map((bar, index) => (
                   <img
                     key={`bg-bar-${index}`}
-                    className={`absolute ${bar.top} ${bar.left} w-px ${bar.height || "h-[59px]"} object-cover`}
+                    className={`hidden md:block absolute ${bar.top} ${bar.left} w-px ${bar.height || "h-[59px]"} object-cover`}
                     alt="Line"
                     src="https://c.animaapp.com/mishf4erVkDEuN/img/line-60.svg"
                   />
@@ -105,11 +105,11 @@ export const CalculatorSection = () => {
                 {purpleBars.map((bar, index) => (
                   <div
                     key={`purple-bar-${index}`}
-                    className={`absolute ${bar.top} ${bar.left} w-[5px] ${bar.height} bg-[#542098]`}
+                    className={`hidden md:block absolute ${bar.top} ${bar.left} w-[5px] ${bar.height} bg-[#542098]`}
                   />
                 ))}
 
-                <Badge className="absolute top-[27px] left-[35px] flex w-[163px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
+                <Badge className="absolute top-[20px] md:top-[27px] left-[20px] md:left-[35px] flex w-[163px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
                   <img
                     className="relative w-5 h-5"
                     alt="Solar calculator"
@@ -120,8 +120,8 @@ export const CalculatorSection = () => {
                   </span>
                 </Badge>
 
-                <div className="absolute top-[180px] left-[33px] right-[33px] w-[425px] z-10">
-                  <p className="[font-family:'Cambay',Helvetica] font-normal text-lg tracking-[0] leading-[22px]">
+                <div className="absolute top-[100px] md:top-[180px] left-[20px] md:left-[33px] right-[20px] md:right-[33px] w-auto md:w-[425px] z-10">
+                  <p className="[font-family:'Cambay',Helvetica] font-normal text-sm md:text-lg tracking-[0] leading-[18px] md:leading-[22px]">
                     <span className="text-[#dcc0ff]">Use our calculator </span>
                     <span className="text-[#874dce]">to</span>
                     <span className="text-[#dcc0ff]"> estimate your monthly payouts </span>
@@ -133,76 +133,78 @@ export const CalculatorSection = () => {
             </Card>
 
             {/* Estimated Monthly Take-Home Chart */}
-            <Card className="absolute top-[342px] left-0 w-full h-[306px] rounded-[20px] border-none 
+            <Card className="relative lg:absolute lg:top-[342px] lg:left-0 w-full h-[250px] md:h-[306px] rounded-[20px] border-none 
               bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
               backdrop-blur-md border border-purple-500/30
               shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
               overflow-hidden">
-              <CardContent className="relative p-0 h-[306px]">
+              <CardContent className="relative p-0 h-full">
                 {/* Glow effect */}
                 <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
                   blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
                 
-                <Badge className="absolute top-7 left-[35px] flex w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
+                <Badge className="absolute top-[20px] md:top-7 left-[20px] md:left-[35px] flex w-auto md:w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
                   <img
                     className="relative w-[22px] h-[22px]"
                     alt="Healthicons money"
                     src="https://c.animaapp.com/mishf4erVkDEuN/img/healthicons-money-bag-outline.svg"
                   />
-                  <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                  <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-xs md:text-sm tracking-[0] leading-5 whitespace-nowrap">
                     Estimated Monthly Take-Home
                   </span>
                 </Badge>
 
-                {/* Chart Grid Lines */}
-                <div className="absolute top-[130px] left-[107px] w-[338px] h-[132px] flex flex-col gap-[43px]">
+                {/* Chart Grid Lines - Mobile: scaled down, Desktop: original */}
+                <div className="absolute top-[100px] left-[60px] md:top-[130px] md:left-[107px] w-[240px] md:w-[338px] h-[100px] md:h-[132px] flex flex-col gap-[30px] md:gap-[43px]">
                   {chartLines.map((_, index) => (
                     <img
                       key={`chart-line-${index}`}
-                      className="w-[338px] h-px object-cover"
+                      className="w-[240px] md:w-[338px] h-px object-cover"
                       alt="Line"
                       src="https://c.animaapp.com/mishf4erVkDEuN/img/line-56.svg"
                     />
                   ))}
                 </div>
 
-                {/* Dynamic Bar - White/Purple gradient */}
+                {/* Dynamic Bar - White/Purple gradient - Responsive */}
                 <div 
-                  className="absolute left-[310px] w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
+                  className="absolute left-[220px] md:left-[310px] w-[44px] md:w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                   style={{
-                    height: `${calculateBarHeight()}px`,
-                    top: `${262 - calculateBarHeight()}px`
+                    height: `${calculateBarHeight() * 0.75}px`,
+                    top: `${210 - calculateBarHeight() * 0.75}px`
                   }}
                 />
 
-                {/* Static comparison bar - Dark purple */}
-                <div className="absolute top-[169px] left-[190px] w-[62px] h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]" />
+                {/* Static comparison bar - Dark purple - Responsive */}
+                <div 
+                  className="absolute top-[140px] left-[135px] md:top-[169px] md:left-[190px] w-[44px] md:w-[62px] h-[70px] md:h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]" 
+                />
 
-                {/* Y-axis labels */}
-                <div className="absolute top-[107px] left-[35px] h-[172px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-lg tracking-[0] leading-[43px]">
+                {/* Y-axis labels - Responsive */}
+                <div className="absolute top-[80px] left-[15px] md:top-[107px] md:left-[35px] h-[130px] md:h-[172px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-xs md:text-lg tracking-[0] leading-[30px] md:leading-[43px]">
                   {yAxisLabels.map((label, index) => (
                     <div key={`y-label-${index}`}>{label}</div>
                   ))}
                 </div>
 
-                {/* Value label for left bar */}
-                <div className="absolute top-[127px] left-[184px] w-[73px] h-9 flex bg-[#4b1d7b] rounded-[18px] z-20">
-                  <div className="flex mt-[3px] w-16 h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                {/* Value label for left bar - Responsive */}
+                <div className="absolute top-[100px] left-[125px] md:top-[127px] md:left-[184px] w-[60px] md:w-[73px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] z-20">
+                  <div className="flex mt-[3px] w-[50px] md:w-16 h-[26px] md:h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[#1b092e] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                       $4,150
                     </span>
                   </div>
                 </div>
 
-                {/* Value label for right bar - Dynamic */}
+                {/* Value label for right bar - Dynamic - Responsive */}
                 <div 
-                  className="absolute left-[302px] w-[78px] h-9 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
+                  className="absolute left-[212px] md:left-[302px] w-[65px] md:w-[78px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
                   style={{
-                    top: `${262 - calculateBarHeight() - 50}px`
+                    top: `${210 - calculateBarHeight() * 0.75 - 40}px`
                   }}
                 >
-                  <div className="mt-[3px] w-[68px] ml-[5px] flex h-[30px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                  <div className="mt-[3px] w-[55px] md:w-[68px] ml-[5px] flex h-[26px] md:h-[30px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[#1b092e] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                       ${calculateEarnings()}
                     </span>
                   </div>
@@ -212,26 +214,26 @@ export const CalculatorSection = () => {
           </div>
 
           {/* Calculator Input Card */}
-          <Card className="relative w-full h-[648px] rounded-[20px] border-none 
+          <Card className="relative w-full h-auto md:h-[648px] rounded-[20px] border-none 
             bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
             backdrop-blur-md border border-purple-500/30
             shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
             overflow-hidden">
-            <CardContent className="relative p-0 h-[648px]">
+            <CardContent className="relative p-0 h-full">
               {/* Glow effect */}
               <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
                 blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
               
               <img
-                className="absolute top-0.5 left-0 w-full h-[438px] object-cover"
+                className="hidden md:block absolute top-0.5 left-0 w-full h-[438px] object-cover"
                 alt="Mask group"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-6.png"
               />
 
-              <div className="relative z-10 flex flex-col gap-[38px] pt-[40px] px-[62px]">
+              <div className="relative z-10 flex flex-col gap-6 md:gap-[38px] pt-6 md:pt-[40px] px-6 md:px-[62px] pb-6 md:pb-0">
                 {/* Account Size */}
                 <div className="flex items-center justify-between">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-lg tracking-[0] leading-5">
+                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
                     Account Size
                   </h3>
                   <div className="w-[78px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
@@ -267,7 +269,7 @@ export const CalculatorSection = () => {
 
                 {/* Profit Rate */}
                 <div className="flex items-center justify-between">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-lg tracking-[0] leading-5">
+                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
                     Profit Rate
                   </h3>
                   <div className="w-[63px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
@@ -303,7 +305,7 @@ export const CalculatorSection = () => {
 
                 {/* Reward Split */}
                 <div className="flex items-center justify-between">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-lg tracking-[0] leading-5">
+                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
                     Reward Split
                   </h3>
                   <div className="w-[68px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
@@ -337,7 +339,7 @@ export const CalculatorSection = () => {
                 </div>
 
                 {/* Estimated Earnings Result */}
-                <div className="flex flex-col items-center gap-4 px-10 py-5 rounded-[20px] 
+                <div className="flex flex-col items-center gap-4 px-6 md:px-10 py-5 rounded-[20px] 
                   bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
                   backdrop-blur-md
                   relative overflow-hidden
@@ -352,12 +354,12 @@ export const CalculatorSection = () => {
                   <p className="relative font-bold text-[#ab66ff] text-[30px] leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10">
                     ${calculateEarnings()}
                   </p>
-                  <Button className="relative h-auto flex items-center justify-center gap-2.5 pl-[30px] pr-7 py-1.5 rounded-[10px] border border-solid border-[#7a27ef] shadow-[inset_0px_4px_14px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] bg-[linear-gradient(159deg,rgba(246,230,255,1)_0%,rgba(214,146,255,1)_25%,rgba(129,72,237,1)_50%,rgba(72,41,195,1)_75%,rgba(9,4,34,1)_100%)] transition-transform hover:scale-105 z-10">
-                    <span className="[text-shadow:0px_2px_4px_#00000040] [font-family:'Cambay',Helvetica] font-bold text-white text-base tracking-[0] leading-[normal]">
+                  <Button className="relative h-auto flex items-center justify-center gap-2.5 px-6 md:pl-[30px] md:pr-7 py-1.5 rounded-[10px] border border-solid border-[#7a27ef] shadow-[inset_0px_4px_14px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] bg-[linear-gradient(159deg,rgba(246,230,255,1)_0%,rgba(214,146,255,1)_25%,rgba(129,72,237,1)_50%,rgba(72,41,195,1)_75%,rgba(9,4,34,1)_100%)] transition-transform hover:scale-105 z-10">
+                    <span className="[text-shadow:0px_2px_4px_#00000040] [font-family:'Cambay',Helvetica] font-bold text-white text-sm md:text-base tracking-[0] leading-[normal]">
                       Start your Challenge
                     </span>
                     <img
-                      className="w-[34px] h-[23px]"
+                      className="w-[30px] md:w-[34px] h-[20px] md:h-[23px]"
                       alt="Frame"
                       src="https://c.animaapp.com/mishf4erVkDEuN/img/frame-144-1.svg"
                     />

@@ -38,12 +38,13 @@ const faqData = [
 
 export const FAQsSection = () => {
   return (
-    <section className="relative w-full flex flex-col gap-14 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] px-4 py-20">
-      <h2 className="self-center bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] text-center tracking-[0.42px] leading-[normal]">
+    <section className="relative w-full flex flex-col gap-8 md:gap-14 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] px-4 py-12 md:py-20">
+      {/* Heading - Responsive */}
+      <h2 className="self-center bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[24px] md:text-[42px] text-center tracking-[0.24px] md:tracking-[0.42px] leading-[normal]">
         FAQs
       </h2>
 
-      <div className="max-w-[1100px] mx-auto w-full">
+      <div className="max-w-[390px] md:max-w-[1100px] mx-auto w-full">
         <Accordion
           type="single"
           collapsible
@@ -54,43 +55,45 @@ export const FAQsSection = () => {
             <div key={faq.id}>
               <AccordionItem
                 value={faq.id}
-                className="border-none data-[state=open]:rounded-[24px] data-[state=open]:border data-[state=open]:border-[#E9B1FF] data-[state=open]:[background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)]"
+                className="border-none data-[state=open]:rounded-[16px] md:data-[state=open]:rounded-[24px] data-[state=open]:border data-[state=open]:border-[#E9B1FF] data-[state=open]:[background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)]"
               >
-                <AccordionTrigger className="flex items-center justify-between gap-8 pl-16 pr-8 py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
-                  <div className="flex items-center gap-64 flex-1">
-                    <span className="serial-number text-[#A0A3BD] font-['Inter'] text-[18px] font-semibold leading-[135%] transition-colors">
+                <AccordionTrigger className="flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
+                  {/* Mobile: Vertical layout, Desktop: Horizontal layout */}
+                  <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-64 flex-1">
+                    <span className="serial-number text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">
                       {faq.number}
                     </span>
-                    <span className="question-text w-[490px] min-w-[490px] max-w-[490px] text-white font-['Inter'] text-[18px] font-semibold leading-[135%] transition-colors">
+                    <span className="question-text w-full md:w-[490px] md:min-w-[490px] md:max-w-[490px] text-white font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors text-left">
                       {faq.question}
                     </span>
                   </div>
                   
                   {/* Custom icon */}
-                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
-                    <span className="text-white text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
-                    <span className="text-white text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
+                  <div className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
+                    <span className="text-white text-xl md:text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
+                    <span className="text-white text-xl md:text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
                   </div>
                 </AccordionTrigger>
 
                 {faq.answer && (
-                  <AccordionContent className="pl-16 pr-8 pb-6">
-                    <div className="flex gap-64">
-                      <div className="w-[18px]" />
-                      <p className="flex-1 text-[#88729E] font-['Inter'] text-[14px] font-normal leading-[150%] whitespace-pre-line">
+                  <AccordionContent className="pl-4 md:pl-16 pr-4 md:pr-8 pb-4 md:pb-6">
+                    {/* Mobile: No left spacing, Desktop: Maintains alignment */}
+                    <div className="flex flex-col md:flex-row gap-3 md:gap-64">
+                      <div className="hidden md:block md:w-[18px]" />
+                      <p className="flex-1 text-[#88729E] font-['Inter'] text-[12px] md:text-[14px] font-normal leading-[150%] whitespace-pre-line">
                         {faq.answer}
                       </p>
-                      <div className="w-6" />
+                      <div className="hidden md:block md:w-6" />
                     </div>
                   </AccordionContent>
                 )}
               </AccordionItem>
               
-              {/* Gradient divider line */}
+              {/* Gradient divider line - Responsive width */}
               {index < faqData.length - 1 && (
-                <div className="w-full flex justify-center my-4">
+                <div className="w-full flex justify-center my-3 md:my-4">
                   <div 
-                    className="w-[1160px] h-[1px]"
+                    className="w-full md:w-[1160px] h-[1px]"
                     style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}
                   />
                 </div>
