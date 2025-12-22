@@ -41,7 +41,7 @@ const reviewImages = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative w-full px-4 md:px-8 lg:px-[105px] pt-[100px] md:pt-[180px] lg:pt-[220px] pb-[40px] md:pb-[80px] lg:pb-[100px] overflow-hidden">
+    <section className="relative w-full px-4 md:px-8 lg:px-[105px] pt-[130px] md:pt-[180px] lg:pt-[220px] pb-[40px] md:pb-[80px] lg:pb-[100px] overflow-hidden">
       {/* Hero Background Image with line effects */}
       <div className="absolute inset-0 right-0 bottom-[-100px] w-full h-full pointer-events-none">
         <img
@@ -124,21 +124,23 @@ export const HeroSection = () => {
             {/* CTA Buttons - Centered on mobile, left on desktop */}
             <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] 
               flex flex-col sm:flex-row flex-wrap items-center lg:items-start gap-3 md:gap-4 mt-5 sm:mt-6 md:mt-8 lg:mt-10 w-full">
-              <Button className="w-full sm:w-auto max-w-[196px] sm:max-w-none h-10 sm:h-11 md:h-12 px-7 sm:px-5 md:px-7 rounded-md sm:rounded-lg 
-                bg-gradient-to-r from-[#F6E6FF] via-[#D692FF] to-[#8148ED]
+              <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
                 border border-[#7A27EF]
+                bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)]
                 shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] 
                 hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.7)] 
                 hover:scale-105 transition-all duration-300
                 group">
-                <span className="[font-family:'Cambay',Helvetica] font-semibold text-white text-[13px] sm:text-[14px] md:text-[15px] tracking-[0] leading-[normal]">
+                <span className="w-[152px] h-[18px] lg:h-[20px] shrink-0 text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.25)] [font-family:'Cambay',Helvetica] font-bold text-[13px] lg:text-[16px] leading-[normal]">
                   Start your Challenge
                 </span>
-                <img 
-                  src="/hero/btn-arrow.svg" 
-                  alt="Arrow" 
-                  className="w-7 sm:w-8 md:w-10 h-4 sm:h-5 md:h-6 group-hover:translate-x-1 transition-transform -ml-[18px] sm:ml-0"
-                />
+                <div className="flex w-[28px] lg:w-[34px] h-[20px] lg:h-[23px] px-[7px] py-px items-center gap-[10px] shrink-0 rounded-[30px] bg-white group-hover:scale-110 transition-transform">
+                  <img 
+                    src="/solar_arrow-up-linear.svg" 
+                    alt="Arrow" 
+                    className="w-auto h-auto"
+                  />
+                </div>
               </Button>
 
               <Button

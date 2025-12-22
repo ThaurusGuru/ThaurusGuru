@@ -36,6 +36,7 @@ export const MainContentSection = () => {
               className={`
                 flex flex-col items-center justify-center 
                 px-4 py-4 md:py-8 lg:px-6
+                ${index % 2 === 0 ? "ml-12 lg:ml-0" : "mr-12 lg:mr-0"}
                 translate-y-[-1rem] animate-fade-in opacity-0
                 ${index === 0 ? "[--animation-delay:200ms]" : ""}
                 ${index === 1 ? "[--animation-delay:400ms]" : ""}
@@ -67,21 +68,21 @@ export const MainContentSection = () => {
           <img
             src="/hero/vertical-line-2.jpg"
             alt="Vertical line left"
-            className="block lg:hidden absolute left-0 top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
+            className="block lg:hidden absolute left-[56px] top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
           />
 
           {/* Mobile/Tablet: Middle Vertical line between columns - Extended beyond horizontal lines */}
           <img
             src="/hero/vertical-line-2.jpg"
             alt="Vertical line middle"
-            className="block lg:hidden absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
+            className="block lg:hidden absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-[calc(50%-20px)] w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
           />
 
           {/* Mobile/Tablet: Right Vertical line - Extended beyond horizontal lines */}
           <img
             src="/hero/vertical-line-2.jpg"
             alt="Vertical line right"
-            className="block lg:hidden absolute right-0 top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
+            className="block lg:hidden absolute right-[56px] top-1/2 -translate-y-1/2 w-auto h-[calc(100%+60px)] object-cover pointer-events-none z-20"
           />
 
           {/* Desktop: Vertical line images between stats */}

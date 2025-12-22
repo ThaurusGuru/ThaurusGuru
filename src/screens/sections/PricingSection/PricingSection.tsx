@@ -42,6 +42,7 @@ const prices = ["$89", "$129", "$249", "$369", "$589"];
 
 export const PricingSection = () => {
   const [activeTab, setActiveTab] = React.useState(0);
+  const [activeAccountIndex, setActiveAccountIndex] = React.useState(0);
 
   return (
     <section className="relative w-full py-6 md:py-10 px-4 translate-y-[-1rem] animate-fade-in opacity-0">
@@ -148,6 +149,7 @@ export const PricingSection = () => {
               key={index}
               onClick={() => setActiveTab(index)}
               className={`relative flex items-center justify-center gap-2 md:gap-3 py-4 md:py-6 cursor-pointer flex-shrink-0
+                ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
                   ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-12' 
                   : 'text-gray-400 bg-transparent px-4 md:px-8'
@@ -188,19 +190,59 @@ export const PricingSection = () => {
           </div>
 
           {/* Mobile: Promotional Banner - Compact version */}
-          <div className="md:hidden flex flex-col items-center gap-2 mt-4 mb-6 p-3 rounded-[10px] border border-dashed border-[#B982FB] bg-[linear-gradient(90deg,#1F0A34_0%,#4F1990_50%,#1B092E_100%)]">
-            <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[14px] text-center leading-[20px]">
-              15% Off + BOGO on 1,2,3 Step Challenges
-            </span>
-            <div className="flex items-center gap-2">
-              <img 
-                src="/pricing-section/basil_arrow-up-outline.svg" 
-                alt="Arrow" 
-                className="w-5 h-5"
-              />
-              <span className="text-[#A861FF] [font-family:'Poppins',Helvetica] font-bold text-[18px] leading-[20px]">
+          <div className="md:hidden flex flex-col items-center gap-3 mt-4 mb-6">
+            <div className="w-full flex flex-col items-center gap-2 p-3 rounded-[10px] border border-dashed border-[#B982FB] bg-[linear-gradient(90deg,#1F0A34_0%,#4F1990_50%,#1B092E_100%)]">
+              <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[14px] text-center leading-[20px]">
+                15% Off + BOGO on 1,2,3 Step Challenges
+              </span>
+              <span className="text-[#A861FF] [font-family:'Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
                 CODE - XMAS
               </span>
+            </div>
+            
+            {/* Challenge Type Buttons */}
+            <div className="w-full flex gap-2">
+              {challengeTypes.slice(1).map((type, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTab(index + 1)}
+                  className={`flex flex-col justify-center items-center w-[112px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border transition-all
+                    ${activeTab === index + 1
+                      ? 'bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] border-[#a770e0]'
+                      : 'bg-[#1b0732] border-[#4f1b85]'
+                    }`}
+                >
+                  <span className="[font-family:'Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                    {type.number} {type.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+            
+            {/* Account Size Buttons */}
+            <div className="w-full flex gap-2 overflow-x-auto pb-2">
+              {accountSizes.map((size, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveAccountIndex(index)}
+                  className="flex flex-col justify-center items-center w-[62px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border shrink-0 transition-all"
+                  style={
+                    activeAccountIndex === index
+                      ? {
+                          border: '1px solid rgba(218, 182, 255, 0.15)',
+                          background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)'
+                        }
+                      : {
+                          border: '1px solid #4f1b85',
+                          background: '#1b0732'
+                        }
+                  }
+                >
+                  <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                    {size}
+                  </span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -220,63 +262,105 @@ export const PricingSection = () => {
 
           {/* Mobile: Horizontal Scrollable Pricing Cards */}
           <div className="md:hidden mt-8 opacity-0 animate-fade-in [--animation-delay:1600ms]">
-            <div className="overflow-x-auto pb-4 -mx-4 px-4">
-              <div className="flex gap-4 min-w-min">
-                {accountSizes.map((size, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-[280px] rounded-[20px] border border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] p-4"
-                  >
-                    {/* Account Size Header */}
-                    <div className="text-center mb-4 pb-4 border-b border-[rgba(218,182,255,0.10)]">
-                      <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-1">
-                        {size}
-                      </p>
-                      <div className="flex items-center justify-center gap-1">
-                        <span className="[font-family:'Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
-                          Account Size
-                        </span>
-                        <InfoIcon className="w-3 h-3 text-[#9d62d9]" />
-                      </div>
-                    </div>
+            <div className="w-full max-w-[360px] mx-auto">
+              <div
+                className="w-[360px] h-[696px] rounded-[20px] border border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] p-4"
+              >
+                {/* Account Size Header */}
+                <div className="text-center mb-4 pb-4">
+                  <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-[34px] tracking-[0] leading-[normal] mb-1">
+                    {accountSizes[activeAccountIndex]}
+                  </p>
+                  <div className="flex items-center justify-center gap-1">
+                    <span className="[font-family:'Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
+                      Account Size
+                    </span>
+                    <InfoIcon className="w-3 h-3 text-[#9d62d9]" />
+                  </div>
+                </div>
 
-                    {/* Table Data */}
-                    <div className="space-y-3">
-                      {tableRows.slice(0, -1).map((row, rowIndex) => (
-                        <div key={rowIndex} className="flex flex-col gap-1">
+                {/* Table Data - Fixed height container with scroll */}
+                <div className="w-[358px] h-[400px] overflow-y-auto -mx-4 px-4 mb-4">
+                  <div className="space-y-4">
+                    {tableRows.slice(0, -1).map((row, rowIndex) => {
+                      // Last two rows (Payout Split and Leverage) have height 80px
+                      const isLargeRow = rowIndex >= 4;
+                      
+                      return (
+                        <div 
+                          key={rowIndex} 
+                          className={`w-[358px] ${isLargeRow ? 'h-[80px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3 -mx-4`}
+                          style={{
+                            background: 'linear-gradient(90deg, #1F0A34 0%, #29094B 50%, #1B092E 100%)'
+                          }}
+                        >
+                          {/* Left: Label with info icon */}
                           <div className="flex items-center gap-1">
-                            <span className="[font-family:'Cambay',Helvetica] font-normal text-white/70 text-xs tracking-[0] leading-[normal]">
+                            <span className="[font-family:'Poppins',Helvetica] font-normal text-[#975CE9] text-[16px] tracking-[0] leading-[normal]">
                               {row.label}
                             </span>
                             {row.hasInfo && (
-                              <InfoIcon className="w-3 h-3 text-white/70 flex-shrink-0" />
+                              <InfoIcon className="w-3 h-3 text-[#975CE9] flex-shrink-0" />
                             )}
                           </div>
-                          <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-sm tracking-[0] leading-relaxed">
-                            {columnData[rowIndex].value.split('\n').map((line, i) => (
-                              <React.Fragment key={i}>
-                                {line}
-                                {i < columnData[rowIndex].value.split('\n').length - 1 && <br />}
-                              </React.Fragment>
-                            ))}
+                          
+                          {/* Right: Value */}
+                          <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] text-right">
+                            {rowIndex === 4 ? (
+                              // Payout Split - Multi-line format
+                              <>
+                                80%/20% - Bi-Weekly<br />
+                                80%/20% - Weekly<br />
+                                (add-on)
+                              </>
+                            ) : rowIndex === 5 ? (
+                              // Leverage - Multi-line format
+                              <>
+                                FX 1:50 , Indices 1:10,<br />
+                                Metals 1:10, Energies<br />
+                                1:10 & Crypto 1:1
+                              </>
+                            ) : (
+                              columnData[rowIndex].value.split('\n').map((line, i) => (
+                                <React.Fragment key={i}>
+                                  {line}
+                                  {i < columnData[rowIndex].value.split('\n').length - 1 && <br />}
+                                </React.Fragment>
+                              ))
+                            )}
                           </span>
                         </div>
-                      ))}
-                    </div>
-
-                    {/* Price & Button */}
-                    <div className="mt-4 pt-4 border-t border-[rgba(218,182,255,0.10)] space-y-3">
-                      <div className="h-14 rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center">
-                        <span className="bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent [font-family:'Poppins',Helvetica] font-semibold text-2xl tracking-[0] leading-normal">
-                          {prices[index]}
-                        </span>
-                      </div>
-                      <Button className="h-10 w-full rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-sm hover:opacity-90 transition-opacity">
-                        Start Now
-                      </Button>
-                    </div>
+                      );
+                    })}
                   </div>
-                ))}
+                </div>
+
+                {/* Price & Button */}
+                <div className="mt-auto space-y-3">
+                  <div className="w-[110px] h-[68px] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center mx-auto my-6">
+                    <span 
+                      className="[font-family:'Poppins',Helvetica] font-semibold text-[38px] tracking-[0] leading-[normal]"
+                      style={{
+                        background: 'linear-gradient(115deg, #9E59FF 15.77%, #E9B1FF 93.98%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      {prices[activeAccountIndex]}
+                    </span>
+                  </div>
+                  <Button 
+                    className="flex w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
+                    style={{
+                      background: 'linear-gradient(90deg, #FFF 0%, #DAB6FF 100%)'
+                    }}
+                  >
+                    <span className="w-[77px] h-[20px] shrink-0 text-black [font-family:'Cambay',Helvetica] font-bold text-[16px] leading-[normal]">
+                      Start Now
+                    </span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -440,23 +524,23 @@ export const PricingSection = () => {
               <div className="flex-1 h-px bg-purple-500"></div>
             </div>
             <div className="space-y-3">
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-2">
                 <img src="/pricing-section/icon-1.svg" alt="News trading" className="w-8 h-8 flex-shrink-0" />
-                <span className="text-white [font-family:'Cambay',Helvetica] text-sm leading-[20px]">
+                <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
                   <span className="font-bold">News trading</span>
                   <span className="font-normal"> (+10% from challenge price)</span>
                 </span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-2">
                 <img src="/pricing-section/icon-2.svg" alt="Weekend Trading" className="w-8 h-8 flex-shrink-0" />
-                <span className="text-white [font-family:'Cambay',Helvetica] text-sm leading-[20px]">
+                <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
                   <span className="font-bold">Weekend Trading</span>
                   <span className="font-normal"> (+10% from challenge price)</span>
                 </span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-2">
                 <img src="/pricing-section/icon-3.svg" alt="Weekly Payout" className="w-8 h-8 flex-shrink-0" />
-                <span className="text-white [font-family:'Cambay',Helvetica] text-sm leading-[20px]">
+                <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
                   <span className="font-bold">Weekly Payout</span>
                   <span className="font-normal"> (+40% from challenge price)</span>
                 </span>
