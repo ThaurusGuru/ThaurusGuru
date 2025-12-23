@@ -49,11 +49,11 @@ export const PricingSection = () => {
       <div className="max-w-[1160px] mx-auto">
         {/* Top Badges - Mobile: Horizontal Scroll, Desktop: Normal */}
         <div className="mb-4 md:mb-6 opacity-0 animate-fade-in [--animation-delay:200ms]">
-          <div className="flex md:flex-row items-center gap-2 md:gap-4 overflow-x-auto pb-2 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex md:flex-row items-center gap-2 md:gap-4 pb-2 md:pb-0">
             {processSteps.map((step, index) => (
               <Badge
                 key={index}
-                className="flex-shrink-0 h-auto px-3 md:px-[17px] py-1 md:py-[5px] rounded-[14px] border-[0.6px] border-white shadow-[inset_0px_4px_4px_#00000040] bg-[linear-gradient(90deg,rgba(112,35,192,1)_0%,rgba(53,16,90,1)_100%)] text-white text-[10px] md:text-xs [font-family:'Blinker',Helvetica] font-normal whitespace-nowrap"
+                className="flex-shrink-0 h-auto px-2 md:px-[17px] py-1 md:py-[5px] rounded-[14px] border-[0.6px] border-white shadow-[inset_0px_4px_4px_#00000040] bg-[linear-gradient(90deg,rgba(112,35,192,1)_0%,rgba(53,16,90,1)_100%)] text-white text-[8px] md:text-xs [font-family:'Blinker',Helvetica] font-normal whitespace-nowrap"
               >
                 {step.label}
               </Badge>
@@ -154,6 +154,11 @@ export const PricingSection = () => {
                   ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-12' 
                   : 'text-gray-400 bg-transparent px-4 md:px-8'
               } ${index > 0 ? 'ml-4 md:ml-20' : ''}`}
+              style={
+                activeTab === index && index === 0
+                  ? { borderBottom: 'none' }
+                  : undefined
+              }
             >
               {type.icon ? (
                 <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
@@ -170,7 +175,15 @@ export const PricingSection = () => {
         </div>
 
         {/* Bordered Table Container */}
-        <div className="border border-[rgba(218,182,255,0.2)] rounded-[24px] rounded-tl-none p-4 md:p-8 -mt-[1px]">
+        <div 
+          className="border border-[rgba(218,182,255,0.2)] rounded-[24px] rounded-tl-none p-4 md:p-8 -mt-[1px]"
+          style={{
+            width: window.innerWidth < 768 ? '100%' : 'auto',
+            maxWidth: window.innerWidth < 768 ? '386px' : 'none',
+            margin: window.innerWidth < 768 ? '0 auto' : undefined,
+            overflow: window.innerWidth < 768 ? 'hidden' : 'visible'
+          }}
+        >
           
           {/* Promotional Banner - Hidden on mobile */}
           <div className="hidden md:flex items-center justify-end mt-6 mb-8">
@@ -201,7 +214,7 @@ export const PricingSection = () => {
             </div>
             
             {/* Challenge Type Buttons */}
-            <div className="w-full flex gap-2">
+            <div className="w-full flex gap-2 justify-center">
               {challengeTypes.slice(1).map((type, index) => (
                 <button
                   key={index}
@@ -220,7 +233,7 @@ export const PricingSection = () => {
             </div>
             
             {/* Account Size Buttons */}
-            <div className="w-full flex gap-2 overflow-x-auto pb-2">
+            <div className="w-full flex gap-2 justify-center pb-2">
               {accountSizes.map((size, index) => (
                 <button
                   key={index}
@@ -262,9 +275,9 @@ export const PricingSection = () => {
 
           {/* Mobile: Horizontal Scrollable Pricing Cards */}
           <div className="md:hidden mt-8 opacity-0 animate-fade-in [--animation-delay:1600ms]">
-            <div className="w-full max-w-[360px] mx-auto">
+            <div className="w-full mx-auto">
               <div
-                className="w-[360px] h-[696px] rounded-[20px] border border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] p-4"
+                className="w-full max-w-[340px] mx-auto h-[696px] rounded-[20px] border border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] p-4"
               >
                 {/* Account Size Header */}
                 <div className="text-center mb-4 pb-4">
@@ -280,7 +293,7 @@ export const PricingSection = () => {
                 </div>
 
                 {/* Table Data - Fixed height container with scroll */}
-                <div className="w-[358px] h-[400px] overflow-y-auto -mx-4 px-4 mb-4">
+                <div className="w-full h-[400px] overflow-y-auto mb-4">
                   <div className="space-y-4">
                     {tableRows.slice(0, -1).map((row, rowIndex) => {
                       // Last two rows (Payout Split and Leverage) have height 80px
@@ -289,7 +302,7 @@ export const PricingSection = () => {
                       return (
                         <div 
                           key={rowIndex} 
-                          className={`w-[358px] ${isLargeRow ? 'h-[80px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3 -mx-4`}
+                          className={`w-full ${isLargeRow ? 'h-[80px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3`}
                           style={{
                             background: 'linear-gradient(90deg, #1F0A34 0%, #29094B 50%, #1B092E 100%)'
                           }}
@@ -351,7 +364,7 @@ export const PricingSection = () => {
                     </span>
                   </div>
                   <Button 
-                    className="flex w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
+                    className="flex w-full max-w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
                     style={{
                       background: 'linear-gradient(90deg, #FFF 0%, #DAB6FF 100%)'
                     }}

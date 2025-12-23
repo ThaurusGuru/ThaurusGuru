@@ -68,12 +68,12 @@ const certificates = [
 // Mobile notification cards with proper spacing
 const mobileNotifications = [
   {
-    top: "top-[210px]",
+    top: "top-[230px]",
     left: "left-[10px]",
     rotation: "rotate-[-15deg]",
   },
   {
-    top: "top-[-30px]",
+    top: "top-[180px]",
     left: "right-[10px]",
     rotation: "rotate-[12deg]",
     isRight: true,
@@ -94,7 +94,7 @@ const mobileNotifications = [
 export const PayoutsSection = () => {
   return (
     <section 
-      className="relative w-full py-20 md:py-20 py-12 bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="relative w-full pt-12 pb-4 md:py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: 'url(/payouts/payouts-bg.png)' }}
     >
       {/* Desktop Version */}
@@ -203,39 +203,49 @@ export const PayoutsSection = () => {
 
       {/* Mobile Version */}
       <div className="md:hidden relative mx-auto px-4 w-full min-h-[900px] pb-20">
-        <h2 className="text-center mb-12 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-3xl tracking-[0] leading-[normal] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+        <h2 className="text-center mb-20 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-3xl tracking-[0] leading-[normal] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           Payouts and Certificates
         </h2>
 
         <div className="relative w-full">
-          {/* Grid Lines Background - More Visible */}
-          <div className="absolute inset-0 w-full h-full overflow-hidden opacity-40">
-            {/* Horizontal lines - More visible */}
-            {[...Array(25)].map((_, index) => (
-              <div
-                key={`h-line-${index}`}
-                className="absolute left-0 w-full h-[1px]"
-                style={{ 
-                  top: `${index * 55}px`,
-                  background: 'linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(185,130,251,0.4) 50%, rgba(255,255,255,0.3) 100%)'
-                }}
-              />
-            ))}
-            {/* Vertical lines - More visible */}
+          {/* Grid Lines Background - Same as Desktop */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            {/* Horizontal lines - Using same SVG as desktop */}
+            {[...Array(25)].map((_, index) => {
+              // Skip first and last lines on mobile
+              if (index === 0 || index === 24) return null;
+              return (
+                <img
+                  key={`h-line-${index}`}
+                  className="absolute left-0 w-full h-px object-cover opacity-40"
+                  style={{ top: `${index * 60}px` }}
+                  alt="Line"
+                  src="https://c.animaapp.com/mishf4erVkDEuN/img/line-41.svg"
+                />
+              );
+            })}
+            {/* Vertical lines - Using same SVG as desktop */}
             {[...Array(8)].map((_, index) => (
-              <div
+              <img
                 key={`v-line-${index}`}
-                className="absolute top-0 w-[1px] h-full"
+                className="absolute top-0 w-1px h-[1200px] object-cover opacity-40"
                 style={{ 
                   left: `${(index * 100) / 7}%`,
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(185,130,251,0.3) 50%, rgba(255,255,255,0.2) 100%)'
+                  maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)'
                 }}
+                alt="Line"
+                src={
+                  index < 4
+                    ? "https://c.animaapp.com/mishf4erVkDEuN/img/line-50.svg"
+                    : "https://c.animaapp.com/mishf4erVkDEuN/img/line-43.svg"
+                }
               />
             ))}
           </div>
 
-          {/* Certificates - Stacked Vertically with more spacing */}
-          <div className="relative space-y-8">
+          {/* Certificates - Stacked Vertically with reduced spacing */}
+          <div className="relative space-y-1 mt-8">
             {certificates.map((cert, index) => (
               <div
                 key={`mobile-cert-${index}`}
@@ -259,10 +269,10 @@ export const PayoutsSection = () => {
           {mobileNotifications.map((card, index) => (
             <div
               key={`mobile-notification-${index}`}
-              className={`absolute ${card.top} ${card.isRight ? card.left : card.left} w-[180px] h-14 flex gap-2.5 bg-[#00000000] rounded-[14px] ${card.rotation} shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] z-20`}
+              className={`absolute ${card.top} ${card.isRight ? card.left : card.left} w-[160px] h-[50px] flex gap-2.5 bg-[#00000000] rounded-[14px] ${card.rotation} shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] z-20`}
             >
               <img
-                className="mt-2 w-10 h-10 ml-3 rounded-md object-cover flex-shrink-0"
+                className="mt-2 w-9 h-9 ml-3 rounded-md object-cover flex-shrink-0"
                 alt="Profile"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-145-3.png"
               />
@@ -276,11 +286,11 @@ export const PayoutsSection = () => {
                   Just got paid $345
                 </div>
 
-                <div className="absolute top-0 right-2 [font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
+                <div className="absolute top-0 right-6 [font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
                   IN
                 </div>
 
-                <div className="absolute top-0 right-[-14px] [font-family:'Blinker',Helvetica] font-normal text-[#8b8b8b] text-[9px] tracking-[0] leading-[normal] whitespace-nowrap">
+                <div className="absolute top-0 right-1 [font-family:'Blinker',Helvetica] font-normal text-[#8b8b8b] text-[9px] tracking-[0] leading-[normal] whitespace-nowrap">
                   now
                 </div>
               </div>
