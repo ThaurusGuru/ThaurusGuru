@@ -10,40 +10,40 @@ const chartLines = [
   { top: "top-[259px]", left: "left-[107px]" },
 ];
 
-const backgroundBars = [
-  { top: "top-[15px]", left: "left-[245px]" },
-  { top: "top-[53px]", left: "left-[277px]" },
-  { top: "top-[9px]", left: "left-[319px]" },
-  { top: "top-[45px]", left: "left-[372px]" },
-  { top: "top-[74px]", left: "left-[344px]" },
-  { top: "top-1.5", left: "left-[417px]" },
-  { top: "top-8", left: "left-[463px]" },
-  { top: "top-[75px]", left: "left-[439px]" },
-  { top: "top-[63px]", left: "left-[46px]" },
-  { top: "top-px", left: "left-3.5" },
-  { top: "top-[71px]", left: "left-[215px]" },
-  { top: "top-[62px]", left: "left-[81px]", height: "h-6" },
-  { top: "top-[62px]", left: "left-[139px]", height: "h-[43px]" },
-  { top: "top-3", left: "left-[81px]", height: "h-[15px]" },
-  { top: "top-px", left: "left-44", height: "h-[26px]" },
-];
+// const backgroundBars = [
+//   { top: "top-[15px]", left: "left-[245px]" },
+//   { top: "top-[53px]", left: "left-[277px]" },
+//   { top: "top-[9px]", left: "left-[319px]" },
+//   { top: "top-[45px]", left: "left-[372px]" },
+//   { top: "top-[74px]", left: "left-[344px]" },
+//   { top: "top-1.5", left: "left-[417px]" },
+//   { top: "top-8", left: "left-[463px]" },
+//   { top: "top-[75px]", left: "left-[439px]" },
+//   { top: "top-[63px]", left: "left-[46px]" },
+//   { top: "top-px", left: "left-3.5" },
+//   { top: "top-[71px]", left: "left-[215px]" },
+//   { top: "top-[62px]", left: "left-[81px]", height: "h-6" },
+//   { top: "top-[62px]", left: "left-[139px]", height: "h-[43px]" },
+//   { top: "top-3", left: "left-[81px]", height: "h-[15px]" },
+//   { top: "top-px", left: "left-44", height: "h-[26px]" },
+// ];
 
-const purpleBars = [
-  { top: "top-[91px]", left: "left-[213px]", height: "h-[18px]" },
-  { top: "top-[35px]", left: "left-[243px]", height: "h-[18px]" },
-  { top: "top-[72px]", left: "left-[275px]", height: "h-3.5" },
-  { top: "top-[29px]", left: "left-[317px]", height: "h-[26px]" },
-  { top: "top-[15px]", left: "left-[174px]", height: "h-3" },
-  { top: "top-[65px]", left: "left-[137px]", height: "h-[15px]" },
-  { top: "top-[84px]", left: "left-11", height: "h-[15px]" },
-  { top: "top-5", left: "left-3", height: "h-5" },
-  { top: "top-[62px]", left: "left-[79px]", height: "h-2" },
-  { top: "top-24", left: "left-[342px]", height: "h-[18px]" },
-  { top: "top-[59px]", left: "left-[370px]", height: "h-6" },
-  { top: "top-[26px]", left: "left-[415px]", height: "h-4" },
-  { top: "top-[51px]", left: "left-[461px]", height: "h-4" },
-  { top: "top-[94px]", left: "left-[437px]", height: "h-5" },
-];
+// const purpleBars = [
+//   { top: "top-[91px]", left: "left-[213px]", height: "h-[18px]" },
+//   { top: "top-[35px]", left: "left-[243px]", height: "h-[18px]" },
+//   { top: "top-[72px]", left: "left-[275px]", height: "h-3.5" },
+//   { top: "top-[29px]", left: "left-[317px]", height: "h-[26px]" },
+//   { top: "top-[15px]", left: "left-[174px]", height: "h-3" },
+//   { top: "top-[65px]", left: "left-[137px]", height: "h-[15px]" },
+//   { top: "top-[84px]", left: "left-11", height: "h-[15px]" },
+//   { top: "top-5", left: "left-3", height: "h-5" },
+//   { top: "top-[62px]", left: "left-[79px]", height: "h-2" },
+//   { top: "top-24", left: "left-[342px]", height: "h-[18px]" },
+//   { top: "top-[59px]", left: "left-[370px]", height: "h-6" },
+//   { top: "top-[26px]", left: "left-[415px]", height: "h-4" },
+//   { top: "top-[51px]", left: "left-[461px]", height: "h-4" },
+//   { top: "top-[94px]", left: "left-[437px]", height: "h-5" },
+// ];
 
 const yAxisLabels = ["$8,000", "$4,000", "$2,000", "$0"];
 

@@ -1,13 +1,7 @@
 export const CollaborationSection = () => {
   return (
     <section className="relative w-full pt-12 md:pt-20 pb-12 md:pb-20 overflow-hidden">
-      {/* Background glow effect at center */}
-      <img
-        src="/collaboration/bg.png"
-        alt=""
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-auto opacity-80 pointer-events-none z-0"
-      />
-
+      
       <div className="container mx-auto px-4 relative z-10">
         {/* Logos with X separator - LARGER on mobile */}
         <div className="flex items-center justify-center gap-4 md:gap-6 mb-8 md:mb-12">

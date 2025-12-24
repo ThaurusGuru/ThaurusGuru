@@ -79,18 +79,18 @@ export const ComparisonTableSection = () => {
     <section className="relative w-full py-12 md:py-16 translate-y-[-1rem] animate-fade-in opacity-0 overflow-hidden">
       {/* Background decoration - positioned exactly with heading */}
       <img
-        className="absolute top-[-300px] md:top-[-700px] left-1/2 -translate-x-1/2 w-[1800px] md:w-[1440px] h-[800px] md:h-[1452px] pointer-events-none opacity-90 md:opacity-100 z-0 object-cover"
+        className="absolute top-[-300px] md:top-[-700px] left-1/2 -translate-x-1/2 w-[1400px] md:w-[1200px] h-[800px] md:h-[1452px] pointer-events-none opacity-90 md:opacity-100 z-0 object-cover"
         alt="Background decoration"
         src="https://c.animaapp.com/mishf4erVkDEuN/img/group-110.png"
       />
 
       <div className="container mx-auto px-4 max-w-[1160px] pt-16 md:pt-24 relative z-10">
-        <h2 className="text-center bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[24px] md:text-[42px] leading-[normal] md:leading-[78px] mb-12 md:mb-20 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+        <h2 className="w-full max-w-[240px] md:max-w-none mx-auto text-center bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[24px] md:text-[42px] leading-[35px] md:leading-[78px] mb-20 md:mb-24 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           Compare. Evaluate. Choose Smarter.
         </h2>
 
         {/* Mobile: Horizontal scroll wrapper - MORE ZOOMED */}
-        <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4">
+        <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <Card className="relative rounded-[20px] shadow-[0px_4px_55px_#00000040] [background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)] border-0 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] min-w-[1100px]">
             <CardContent className="p-0">
               {/* Table Header */}
@@ -164,7 +164,7 @@ export const ComparisonTableSection = () => {
                 </div>
 
                 {/* THAURUS GURU Column */}
-                <div className="border-l-2 border-r-2 border-[#b882fb] shadow-[inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
+                <div className="shadow-[inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,130,251,0.3)_0%,transparent_50%)]" />
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(123,39,239,0.2)_0%,transparent_50%)]" />
                   <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(184,130,251,0.15)_0%,rgba(123,39,239,0.1)_50%,rgba(184,130,251,0.15)_100%)]" />
@@ -278,7 +278,7 @@ export const ComparisonTableSection = () => {
               </div>
 
               {/* THAURUS GURU Column - Fully Immersive Elegant Glow */}
-              <div className="border-l-2 border-r-2 border-[#b882fb] shadow-[inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
+              <div className="shadow-[inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,130,251,0.3)_0%,transparent_50%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(123,39,239,0.2)_0%,transparent_50%)]" />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(184,130,251,0.15)_0%,rgba(123,39,239,0.1)_50%,rgba(184,130,251,0.15)_100%)]" />

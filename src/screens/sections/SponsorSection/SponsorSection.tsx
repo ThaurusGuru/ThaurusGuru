@@ -2,19 +2,23 @@ import { Button } from "../../../components/ui/button";
 
 export const SponsorSection = () => {
   return (
-    <section className="relative w-full min-h-[500px] md:min-h-[860px] py-8 md:py-16 overflow-hidden">
-      {/* Main background image - full width */}
+    <section className="relative w-full min-h-[500px] md:min-h-[892px] py-8 md:py-16 overflow-hidden">
+      {/* Main background image - bg-pml.png - covers entire section */}
       <img
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-auto object-contain"
-        alt="Background gradient"
-        src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group.png"
+        className="absolute inset-0 w-full h-full object-contain z-0"
+        style={{
+          borderRadius: '9.404px',
+          filter: 'blur(25px)'
+        }}
+        alt="Background"
+        src="/sponsor/bg-pml.png"
       />
       
-      {/* Left decorative element */}
+      {/* Front image - frontpml.png - layered on top, covers full width */}
       <img
-        className="absolute top-[120px] md:top-[250px] left-0 w-[200px] md:w-[397px] h-auto object-cover opacity-80"
-        alt="Decorative element"
-        src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-1.png"
+        className="absolute top-[50px] md:top-[100px] left-0 w-full h-auto object-contain z-10"
+        alt="PML Front"
+        src="/sponsor/frontpml.png"
       />
       
       {/* Content container */}
@@ -27,7 +31,7 @@ export const SponsorSection = () => {
           <img
             className="w-[70px] md:w-[140px] h-auto object-contain"
             alt="PML Logo"
-            src="https://c.animaapp.com/mishf4erVkDEuN/img/image-4.png"
+            src="/sponsor/pnml-logo.png"
           />
         </div>
         
@@ -44,31 +48,6 @@ export const SponsorSection = () => {
           </span>
         </Button>
       </div>
-      
-      {/* Fighter images - scaled proportionally for mobile */}
-      <img
-        className="absolute top-[90px] md:top-[180px] left-[50%] md:left-[807px] w-[183px] md:w-[366px] h-auto object-cover opacity-90"
-        alt="Fighter 1"
-        src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-2.png"
-      />
-      
-      <img
-        className="absolute top-[95px] md:top-[190px] left-[15%] md:left-[390px] w-[256px] md:w-[513px] h-auto object-cover opacity-90"
-        alt="Fighter 2"
-        src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-3.png"
-      />
-      
-      <img
-        className="absolute top-[220px] md:top-[440px] left-[50%] md:left-[882px] w-[274px] md:w-[548px] h-auto object-cover opacity-90"
-        alt="Fighter 3"
-        src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-4.png"
-      />
-      
-      <img
-        className="absolute top-[120px] md:top-[240px] left-[60%] md:left-[1070px] w-[187px] md:w-[375px] h-auto object-contain opacity-100"
-        alt="Fighter 4"
-        src="/sponsor/img-1.png"
-      />
     </section>
   );
 };
