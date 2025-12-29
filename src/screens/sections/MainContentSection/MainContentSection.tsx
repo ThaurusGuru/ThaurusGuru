@@ -35,7 +35,7 @@ export const MainContentSection = () => {
               key={index}
               className={`
                 flex flex-col items-center justify-center 
-                px-4 py-4 md:py-8 lg:px-6
+                px-4 py-4 md:py-7 lg:px-6
                 ${index % 2 === 0 ? "ml-12 lg:ml-0" : "mr-12 lg:mr-0"}
                 translate-y-[-1rem] animate-fade-in opacity-0
                 ${index === 0 ? "[--animation-delay:200ms]" : ""}
@@ -89,19 +89,19 @@ export const MainContentSection = () => {
           <img
             src="/hero/vertical-line-1.png"
             alt="Vertical line 1"
-            className="hidden lg:block absolute left-1/4 -top-32 h-80 w-auto object-cover pointer-events-none"
+            className="hidden lg:block absolute left-1/4 -top-32 h-96 w-auto object-cover pointer-events-none"
             style={{ transform: 'translateX(-50%)' }}
           />
           <img
             src="/hero/vertical-line-2.jpg"
             alt="Vertical line 2"
-            className="hidden lg:block absolute left-1/2 -top-40 h-80 w-auto object-cover pointer-events-none"
+            className="hidden lg:block absolute left-1/2 -top-40 h-92 w-auto object-cover pointer-events-none"
             style={{ transform: 'translateX(-50%)' }}
           />
           <img
             src="/hero/vertical-line-3.jpg"
             alt="Vertical line 3"
-            className="hidden lg:block absolute left-3/4 -top-16 h-80 w-auto object-cover pointer-events-none"
+            className="hidden lg:block absolute left-3/4 -top-16 h-98 w-auto object-cover pointer-events-none"
             style={{ transform: 'translateX(-50%)' }}
           />
         </div>

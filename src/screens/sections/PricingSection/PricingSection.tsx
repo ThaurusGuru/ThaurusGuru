@@ -151,7 +151,7 @@ export const PricingSection = () => {
               className={`relative flex items-center justify-center gap-2 md:gap-3 py-4 md:py-6 cursor-pointer flex-shrink-0
                 ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
-                  ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-12' 
+                  ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18' 
                   : 'text-gray-400 bg-transparent px-4 md:px-8'
               } ${index > 0 ? 'ml-4 md:ml-20' : ''}`}
               style={
@@ -187,7 +187,23 @@ export const PricingSection = () => {
           
           {/* Promotional Banner - Hidden on mobile */}
           <div className="hidden md:flex items-center justify-end mt-6 mb-8">
-            <div className="w-[888px] h-[53px] rounded-[10px] border border-dashed border-[#B982FB] bg-[linear-gradient(90deg,#1F0A34_0%,#4F1990_50%,#1B092E_100%)] flex items-center justify-center gap-3 px-6">
+            <div 
+              className="w-[888px] h-[53px] rounded-[10px] flex items-center justify-center gap-3 px-6"
+              style={{
+                background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
+                backgroundImage: `
+                  linear-gradient(90deg, transparent calc(50% - 1px), #B982FB calc(50% - 1px), #B982FB calc(50% + 1px), transparent calc(50% + 1px)),
+                  repeating-linear-gradient(90deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  repeating-linear-gradient(90deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  repeating-linear-gradient(0deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  repeating-linear-gradient(0deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)
+                `,
+                backgroundSize: '100% 1px, 100% 1px, 100% 1px, 1px 100%, 1px 100%, 100% 100%',
+                backgroundPosition: 'left top, left top, left bottom, left top, right top, center',
+                backgroundRepeat: 'no-repeat, repeat-x, repeat-x, repeat-y, repeat-y, no-repeat'
+              }}
+            >
               <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[22px] leading-[28px]">
                 15% Off + BOGO on 1,2,3 Step Challenges
               </span>
@@ -204,7 +220,23 @@ export const PricingSection = () => {
 
           {/* Mobile: Promotional Banner - Compact version */}
           <div className="md:hidden flex flex-col items-center gap-3 mt-4 mb-6">
-            <div className="w-full flex flex-col items-center gap-2 p-3 rounded-[10px] border border-dashed border-[#B982FB] bg-[linear-gradient(90deg,#1F0A34_0%,#4F1990_50%,#1B092E_100%)]">
+            <div 
+              className="w-full flex flex-col items-center gap-2 p-3 rounded-[10px]"
+              style={{
+                background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
+                backgroundImage: `
+                  linear-gradient(90deg, transparent calc(50% - 1px), #B982FB calc(50% - 1px), #B982FB calc(50% + 1px), transparent calc(50% + 1px)),
+                  repeating-linear-gradient(90deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  repeating-linear-gradient(90deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  repeating-linear-gradient(0deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  repeating-linear-gradient(0deg, #B982FB 0, #B982FB 6px, transparent 6px, transparent 12px),
+                  linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)
+                `,
+                backgroundSize: '100% 1px, 100% 1px, 100% 1px, 1px 100%, 1px 100%, 100% 100%',
+                backgroundPosition: 'left top, left top, left bottom, left top, right top, center',
+                backgroundRepeat: 'no-repeat, repeat-x, repeat-x, repeat-y, repeat-y, no-repeat'
+              }}
+            >
               <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[14px] text-center leading-[20px]">
                 15% Off + BOGO on 1,2,3 Step Challenges
               </span>
@@ -451,7 +483,7 @@ export const PricingSection = () => {
                   <div></div>
                   {prices.map((price, index) => (
                     <div key={index} className="flex flex-col items-center gap-4">
-                      <div className="h-16 rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-4 w-[85%]">
+                      <div className="h-16 rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-4 w-[65%]">
                         <span className="bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent [font-family:'Poppins',Helvetica] font-semibold text-3xl tracking-[0] leading-normal">
                           {price}
                         </span>

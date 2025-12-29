@@ -1,5 +1,4 @@
 import { Button } from "../../../components/ui/button";
-import { Card, CardContent } from "../../../components/ui/card";
 
 const locations = [
   {
@@ -30,8 +29,6 @@ const statImages = [
   "/build-section/card-2.svg",
   "/build-section/card-3.svg",
 ];
-
-const placeholderCards = Array(4).fill(null);
 
 export const BuildSection = () => {
   return (
@@ -120,14 +117,18 @@ export const BuildSection = () => {
         </div>
 
         {/* Card Layout - 4 columns on desktop, 2x2 grid on mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-[18px] lg:gap-0 w-full lg:px-24 px-4 mt-12 justify-items-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
-          {placeholderCards.map((_, index) => (
-            <Card
-              key={index}
-              className="w-[163px] lg:w-72 h-[97px] lg:h-40 bg-[#a770e04c] rounded-[10px] border border-solid border-[#a770e0]"
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-[18px] lg:gap-6 w-full lg:px-24 px-4 mt-12 justify-items-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+          {[1, 2, 3, 4].map((num) => (
+            <div
+              key={num}
+              className="w-[163px] lg:w-72 h-[97px] lg:h-40 rounded-[10px] border border-solid border-[#a770e0] overflow-hidden"
             >
-              <CardContent className="w-full h-full" />
-            </Card>
+              <img 
+                src={`/build-section/${num}.png`}
+                alt={`Build section card ${num}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           ))}
         </div>
       </div>

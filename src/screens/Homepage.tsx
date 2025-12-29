@@ -277,11 +277,20 @@ export const Homepage = () => {
           <MainContentSection />
         </section>
 
-        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
+        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms] z-10">
           <HowItWorksSection />
         </section>
 
-        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]">
+        {/* Background image between How It Works and Pricing */}
+        <div className="relative w-full h-0">
+          <img
+            src="/bg2.png"
+            alt=""
+            className="absolute -top-[400px] left-0 w-auto h-[1200px] pointer-events-none z-0"
+          />
+        </div>
+
+        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] z-10">
           <PricingSection />
         </section>
 
