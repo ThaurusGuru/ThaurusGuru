@@ -2,7 +2,7 @@ import { Button } from "../../../components/ui/button";
 
 export const SponsorSection = () => {
   return (
-    <section className="relative w-full min-h-[250px] md:min-h-[892px] py-8 md:py-16 overflow-visible md:overflow-hidden">
+    <section className="relative w-full min-h-[250px] md:min-h-[892px] py-8 md:py-16 overflow-visible">
       {/* Main background image - bg-pml.png - covers entire section */}
       <img
         className="absolute inset-0 top-[-140px] md:top-0 w-full h-[200%] md:h-full object-contain z-0 filter-[blur(12px)] md:filter-[blur(25px)]"

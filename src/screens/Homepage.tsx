@@ -100,10 +100,10 @@ export const Homepage = () => {
           
           {/* Logo */}
           <img
-            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-cover drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
+            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
-            src="/Thaurus-logo.png"
+            src="/thaurus logo.svg"
           />
 
           {/* Desktop Navigation Items - Hidden on mobile/tablet */}
@@ -332,11 +332,21 @@ export const Homepage = () => {
           <SponsorSection />
         </section>
 
-        <section className="relative w-full">
+        {/* Background decoration between Sponsor and Collaboration */}
+        <div className="relative w-full h-0">
+          <img
+            src="/bg6.png"
+            alt=""
+            className="absolute -top-[350px] left-1/2 -translate-x-1/2 w-full h-auto pointer-events-none z-0"
+            style={{ mixBlendMode: 'lighten', opacity: 0.95 }}
+          />
+        </div>
+
+        <section className="relative w-full -mb-12 md:-mb-16">
           <CollaborationSection />
         </section>
 
-        <section className="relative w-full">
+        <section className="relative w-full mt-8 md:mt-12">
           <DiscordSection />
         </section>
 

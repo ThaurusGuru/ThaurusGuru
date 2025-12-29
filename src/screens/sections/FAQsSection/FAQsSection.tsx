@@ -55,7 +55,7 @@ export const FAQsSection = () => {
             <div key={faq.id}>
               <AccordionItem
                 value={faq.id}
-                className="border-none data-[state=open]:rounded-[16px] md:data-[state=open]:rounded-[24px] data-[state=open]:border data-[state=open]:border-[#E9B1FF] data-[state=open]:[background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)]"
+                className="border-0 data-[state=open]:rounded-[16px] md:data-[state=open]:rounded-[24px] data-[state=open]:!border data-[state=open]:!border-solid data-[state=open]:!border-[#E9B1FF] data-[state=open]:[background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)]"
               >
                 <AccordionTrigger className="flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
                   {/* Mobile: Vertical layout, Desktop: Horizontal layout */}
@@ -91,7 +91,7 @@ export const FAQsSection = () => {
               
               {/* Gradient divider line - Responsive width */}
               {index < faqData.length - 1 && (
-                <div className="w-full flex justify-center my-3 md:my-4">
+                <div className="w-full flex justify-center my-0">
                   <div 
                     className="w-full md:w-[1160px] h-[1px]"
                     style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}

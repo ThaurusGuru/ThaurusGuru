@@ -89,11 +89,11 @@ export const DiscordSection = () => {
             />
             
             {/* Mobile: 2x2 grid, Desktop: 1x4 grid */}
-            <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-2">
+            <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {featureCards.map((card, index) => (
                 <Card
                   key={index}
-                  className="translate-y-[-1rem] animate-fade-in opacity-0 relative w-full md:w-[190px] h-[100px] md:h-[112px] rounded-[10px] overflow-hidden bg-transparent border-0"
+                  className="translate-y-[-1rem] animate-fade-in opacity-0 relative w-[190px] h-[112px] rounded-[10px] overflow-hidden bg-transparent border-0"
                   style={{
                     animationDelay: `${600 + index * 100}ms`,
                     backgroundImage: 'url(/collaboration/Rectangle-bg.svg)',
@@ -101,19 +101,19 @@ export const DiscordSection = () => {
                     backgroundPosition: 'center',
                   }}
                 >
-                  <CardContent className="p-3 md:p-5 h-full flex flex-col relative">
-                    <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4 relative z-10">
+                  <CardContent className="px-5 py-3 md:px-6 md:py-5 h-full flex flex-col relative">
+                    <div className="flex items-center gap-2 md:gap-3 mb-1 relative z-10">
                       <img
                         className="w-5 h-5 md:w-6 md:h-6"
                         alt={`${card.title} icon`}
                         src={card.icon}
                       />
-                      <h3 className="text-[#7F89EC] font-['Cambay'] text-[12px] md:text-[14px] font-bold leading-normal">
+                      <h3 className="text-[#7F89EC] font-['Cambay'] text-[14px] font-bold leading-normal">
                         {card.title}
                       </h3>
                     </div>
 
-                    <p className="w-full md:w-[153px] text-[#7C85E2] font-['Cambay'] text-[9px] md:text-[10px] font-normal leading-[10px] md:leading-[12px] mb-2 md:mb-4 relative z-10">
+                    <p className="w-[153px] text-[#7C85E2] font-['Cambay'] text-[10px] font-normal leading-[12px] mb-2 md:mb-4 relative z-10">
                       {card.description}
                     </p>
                   </CardContent>

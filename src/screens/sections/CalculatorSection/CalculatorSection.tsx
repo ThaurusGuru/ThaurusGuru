@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
-import { Card, CardContent } from "../../../components/ui/card";
 
 const chartLines = [
   { top: "top-[130px]", left: "left-[107px]" },
@@ -9,41 +8,6 @@ const chartLines = [
   { top: "top-[216px]", left: "left-[107px]" },
   { top: "top-[259px]", left: "left-[107px]" },
 ];
-
-// const backgroundBars = [
-//   { top: "top-[15px]", left: "left-[245px]" },
-//   { top: "top-[53px]", left: "left-[277px]" },
-//   { top: "top-[9px]", left: "left-[319px]" },
-//   { top: "top-[45px]", left: "left-[372px]" },
-//   { top: "top-[74px]", left: "left-[344px]" },
-//   { top: "top-1.5", left: "left-[417px]" },
-//   { top: "top-8", left: "left-[463px]" },
-//   { top: "top-[75px]", left: "left-[439px]" },
-//   { top: "top-[63px]", left: "left-[46px]" },
-//   { top: "top-px", left: "left-3.5" },
-//   { top: "top-[71px]", left: "left-[215px]" },
-//   { top: "top-[62px]", left: "left-[81px]", height: "h-6" },
-//   { top: "top-[62px]", left: "left-[139px]", height: "h-[43px]" },
-//   { top: "top-3", left: "left-[81px]", height: "h-[15px]" },
-//   { top: "top-px", left: "left-44", height: "h-[26px]" },
-// ];
-
-// const purpleBars = [
-//   { top: "top-[91px]", left: "left-[213px]", height: "h-[18px]" },
-//   { top: "top-[35px]", left: "left-[243px]", height: "h-[18px]" },
-//   { top: "top-[72px]", left: "left-[275px]", height: "h-3.5" },
-//   { top: "top-[29px]", left: "left-[317px]", height: "h-[26px]" },
-//   { top: "top-[15px]", left: "left-[174px]", height: "h-3" },
-//   { top: "top-[65px]", left: "left-[137px]", height: "h-[15px]" },
-//   { top: "top-[84px]", left: "left-11", height: "h-[15px]" },
-//   { top: "top-5", left: "left-3", height: "h-5" },
-//   { top: "top-[62px]", left: "left-[79px]", height: "h-2" },
-//   { top: "top-24", left: "left-[342px]", height: "h-[18px]" },
-//   { top: "top-[59px]", left: "left-[370px]", height: "h-6" },
-//   { top: "top-[26px]", left: "left-[415px]", height: "h-4" },
-//   { top: "top-[51px]", left: "left-[461px]", height: "h-4" },
-//   { top: "top-[94px]", left: "left-[437px]", height: "h-5" },
-// ];
 
 const yAxisLabels = ["$8,000", "$4,000", "$2,000", "$0"];
 
@@ -85,292 +49,276 @@ export const CalculatorSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-6 md:gap-9 items-start -mb-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
           <div className="relative flex flex-col gap-6 lg:block">
             {/* Earnings Estimator Card */}
-            <Card className="relative w-full h-[250px] md:h-[306px] rounded-[20px] border-none bg-transparent overflow-hidden">
-              <CardContent className="relative p-0 h-full">
+            <div className="relative w-full h-[250px] md:h-[306px]">
+              <img
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                alt="Mask group"
+                src="/calculator-section/earning-card.svg"
+              />
+
+              <Badge className="absolute top-[20px] md:top-[27px] left-[20px] md:left-[35px] flex w-[163px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
                 <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  alt="Mask group"
-                  src="/calculator-section/earning-card.svg"
+                  className="relative w-5 h-5"
+                  alt="Solar calculator"
+                  src="https://c.animaapp.com/mishf4erVkDEuN/img/solar-calculator-minimalistic-outline.svg"
                 />
+                <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[20px] whitespace-nowrap">
+                  Earnings Estimator
+                </span>
+              </Badge>
 
-                <Badge className="absolute top-[20px] md:top-[27px] left-[20px] md:left-[35px] flex w-[163px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
-                  <img
-                    className="relative w-5 h-5"
-                    alt="Solar calculator"
-                    src="https://c.animaapp.com/mishf4erVkDEuN/img/solar-calculator-minimalistic-outline.svg"
-                  />
-                  <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[20px] whitespace-nowrap">
-                    Earnings Estimator
-                  </span>
-                </Badge>
-
-                <div className="absolute top-[140px] md:top-[180px] left-[20px] md:left-[33px] right-[20px] md:right-[33px] w-auto md:w-[425px] z-10">
-                  <p className="[font-family:'Cambay',Helvetica] font-normal text-sm md:text-lg tracking-[0] leading-[18px] md:leading-[22px]">
-                    <span className="text-[#dcc0ff]">Use our calculator </span>
-                    <span className="text-[#874dce]">to</span>
-                    <span className="text-[#dcc0ff]"> estimate your monthly payouts </span>
-                    <span className="text-[#874dce]">based on your account size and performance.</span>
-                    <span className="text-[#dcc0ff]"> No stress. No uncertainty. Just clear insights into your earning potential.</span>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              <div className="absolute top-[140px] md:top-[180px] left-[20px] md:left-[33px] right-[20px] md:right-[33px] w-auto md:w-[425px] z-10">
+                <p className="[font-family:'Cambay',Helvetica] font-normal text-sm md:text-lg tracking-[0] leading-[18px] md:leading-[22px]">
+                  <span className="text-[#dcc0ff]">Use our calculator </span>
+                  <span className="text-[#874dce]">to</span>
+                  <span className="text-[#dcc0ff]"> estimate your monthly payouts </span>
+                  <span className="text-[#874dce]">based on your account size and performance.</span>
+                  <span className="text-[#dcc0ff]"> No stress. No uncertainty. Just clear insights into your earning potential.</span>
+                </p>
+              </div>
+            </div>
 
             {/* Estimated Monthly Take-Home Chart */}
-            <Card className="relative lg:absolute lg:top-[342px] lg:left-0 w-full h-[250px] md:h-[306px] rounded-[20px] border-none 
-              backdrop-blur-md
-              shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
-              overflow-hidden"
-            >
-              <CardContent className="relative p-0 h-full">
-                {/* SVG Background */}
+            <div className="relative lg:absolute lg:top-[342px] lg:left-0 w-full h-[250px] md:h-[306px]">
+              {/* SVG Background */}
+              <img
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                alt="Card background"
+                src="/calculator-section/estimate.svg"
+              />
+              
+              <Badge className="absolute top-[20px] md:top-7 left-[20px] md:left-[35px] flex w-auto md:w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
                 <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  alt="Card background"
-                  src="/calculator-section/estimate.svg"
+                  className="relative w-[22px] h-[22px]"
+                  alt="Healthicons money"
+                  src="https://c.animaapp.com/mishf4erVkDEuN/img/healthicons-money-bag-outline.svg"
                 />
-                {/* Glow effect */}
-                <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
-                  blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
-                
-                <Badge className="absolute top-[20px] md:top-7 left-[20px] md:left-[35px] flex w-auto md:w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
+                <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-xs md:text-sm tracking-[0] leading-5 whitespace-nowrap">
+                  Estimated Monthly Take-Home
+                </span>
+              </Badge>
+
+              {/* Chart Grid Lines - Mobile: scaled down, Desktop: original */}
+              <div className="absolute top-[100px] left-[60px] md:top-[130px] md:left-[107px] w-[240px] md:w-[338px] h-[100px] md:h-[132px] flex flex-col gap-[30px] md:gap-[43px]">
+                {chartLines.map((_, index) => (
                   <img
-                    className="relative w-[22px] h-[22px]"
-                    alt="Healthicons money"
-                    src="https://c.animaapp.com/mishf4erVkDEuN/img/healthicons-money-bag-outline.svg"
+                    key={`chart-line-${index}`}
+                    className="w-[240px] md:w-[338px] h-px object-cover"
+                    alt="Line"
+                    src="https://c.animaapp.com/mishf4erVkDEuN/img/line-56.svg"
                   />
-                  <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-xs md:text-sm tracking-[0] leading-5 whitespace-nowrap">
-                    Estimated Monthly Take-Home
+                ))}
+              </div>
+
+              {/* Dynamic Bar - White/Purple gradient - Responsive */}
+              <div 
+                className="absolute left-[220px] md:left-[310px] w-[44px] md:w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
+                style={{
+                  height: `${calculateBarHeight()}px`,
+                  top: `${getBarBaseline() - calculateBarHeight()}px`
+                }}
+              />
+
+              {/* Static comparison bar - Dark purple - Responsive */}
+              <div 
+                className="absolute left-[135px] md:left-[190px] w-[44px] md:w-[62px] h-[70px] md:h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
+                style={{
+                  top: `${getBarBaseline() - 70}px`
+                }}
+              />
+
+              {/* Y-axis labels - Responsive */}
+              <div className="absolute top-[80px] left-[15px] md:top-[107px] md:left-[35px] h-[130px] md:h-[172px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-xs md:text-lg tracking-[0] leading-[30px] md:leading-[43px]">
+                {yAxisLabels.map((label, index) => (
+                  <div key={`y-label-${index}`}>{label}</div>
+                ))}
+              </div>
+
+              {/* Value label for left bar - Responsive */}
+              <div className="absolute top-[100px] left-[125px] md:top-[127px] md:left-[184px] w-[60px] md:w-[73px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] z-20">
+                <div className="flex mt-[3px] w-[50px] md:w-16 h-[26px] md:h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                    $4,150
                   </span>
-                </Badge>
-
-                {/* Chart Grid Lines - Mobile: scaled down, Desktop: original */}
-                <div className="absolute top-[100px] left-[60px] md:top-[130px] md:left-[107px] w-[240px] md:w-[338px] h-[100px] md:h-[132px] flex flex-col gap-[30px] md:gap-[43px]">
-                  {chartLines.map((_, index) => (
-                    <img
-                      key={`chart-line-${index}`}
-                      className="w-[240px] md:w-[338px] h-px object-cover"
-                      alt="Line"
-                      src="https://c.animaapp.com/mishf4erVkDEuN/img/line-56.svg"
-                    />
-                  ))}
                 </div>
+              </div>
 
-                {/* Dynamic Bar - White/Purple gradient - Responsive */}
-                <div 
-                  className="absolute left-[220px] md:left-[310px] w-[44px] md:w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
-                  style={{
-                    height: `${calculateBarHeight()}px`,
-                    top: `${getBarBaseline() - calculateBarHeight()}px`
-                  }}
-                />
-
-                {/* Static comparison bar - Dark purple - Responsive */}
-                <div 
-                  className="absolute left-[135px] md:left-[190px] w-[44px] md:w-[62px] h-[70px] md:h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
-                  style={{
-                    top: `${getBarBaseline() - 70}px`
-                  }}
-                />
-
-                {/* Y-axis labels - Responsive */}
-                <div className="absolute top-[80px] left-[15px] md:top-[107px] md:left-[35px] h-[130px] md:h-[172px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-xs md:text-lg tracking-[0] leading-[30px] md:leading-[43px]">
-                  {yAxisLabels.map((label, index) => (
-                    <div key={`y-label-${index}`}>{label}</div>
-                  ))}
+              {/* Value label for right bar - Dynamic - Responsive */}
+              <div 
+                className="absolute left-[212px] md:left-[302px] w-[65px] md:w-[78px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
+                style={{
+                  top: `${getBarBaseline() - calculateBarHeight() - 40}px`
+                }}
+              >
+                <div className="mt-[3px] w-[55px] md:w-[68px] ml-[5px] flex h-[26px] md:h-[30px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                    ${calculateEarnings()}
+                  </span>
                 </div>
-
-                {/* Value label for left bar - Responsive */}
-                <div className="absolute top-[100px] left-[125px] md:top-[127px] md:left-[184px] w-[60px] md:w-[73px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] z-20">
-                  <div className="flex mt-[3px] w-[50px] md:w-16 h-[26px] md:h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
-                      $4,150
-                    </span>
-                  </div>
-                </div>
-
-                {/* Value label for right bar - Dynamic - Responsive */}
-                <div 
-                  className="absolute left-[212px] md:left-[302px] w-[65px] md:w-[78px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
-                  style={{
-                    top: `${getBarBaseline() - calculateBarHeight() - 40}px`
-                  }}
-                >
-                  <div className="mt-[3px] w-[55px] md:w-[68px] ml-[5px] flex h-[26px] md:h-[30px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                    <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
-                      ${calculateEarnings()}
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* Calculator Input Card */}
-          <Card className="relative w-full h-auto md:h-[648px] rounded-[20px] border-none 
-            !bg-transparent
-            shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
-            overflow-hidden">
-            <CardContent className="relative p-0 h-full">
-              {/* SVG Background */}
-              <img
-                className="absolute top-0 left-0 w-full h-full object-fill"
-                alt="Card background"
-                src="/calculator-section/Acc-card.svg"
-              />
-              
-              {/* Glow effect */}
-              <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
-                blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
-              
-              <div className="relative z-10 flex flex-col gap-6 md:gap-[38px] pt-6 md:pt-[40px] px-6 md:px-[62px] pb-6 md:pb-0">
-                {/* Account Size */}
-                <div className="flex items-center justify-between">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
-                    Account Size
-                  </h3>
-                  <div className="w-[78px] h-9  rounded-[18px] flex items-center justify-center">
-                    <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px]  rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                      <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
-                        ${accountSize.toLocaleString()}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Account Size Slider */}
-                <div className="relative w-full h-3.5">
-                  <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
-                  <div 
-                    className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
-                    style={{ width: `${((accountSize - 5000) / 95000) * 100}%` }}
-                  />
-                  <input
-                    type="range"
-                    min="5000"
-                    max="100000"
-                    step="5000"
-                    value={accountSize}
-                    onChange={(e) => setAccountSize(Number(e.target.value))}
-                    className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
-                  />
-                  <div 
-                    className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
-                    style={{ left: `calc(${((accountSize - 5000) / 95000) * 100}% - 7px)` }}
-                  />
-                </div>
-
-                {/* Profit Rate */}
-                <div className="flex items-center justify-between">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
-                    Profit Rate
-                  </h3>
-                  <div className="w-[63px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
-                    <div className="w-[52px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                      <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
-                        {profitRate}%
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Profit Rate Slider */}
-                <div className="relative w-full h-3.5">
-                  <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
-                  <div 
-                    className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
-                    style={{ width: `${(profitRate / 20) * 100}%` }}
-                  />
-                  <input
-                    type="range"
-                    min="1"
-                    max="20"
-                    step="1"
-                    value={profitRate}
-                    onChange={(e) => setProfitRate(Number(e.target.value))}
-                    className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
-                  />
-                  <div 
-                    className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
-                    style={{ left: `calc(${(profitRate / 20) * 100}% - 7px)` }}
-                  />
-                </div>
-
-                {/* Reward Split */}
-                <div className="flex items-center justify-between">
-                  <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
-                    Reward Split
-                  </h3>
-                  <div className="w-[68px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
-                    <div className="w-[58px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                      <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
-                        {rewardSplit}/{100 - rewardSplit}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Reward Split Radio Options */}
-                <div className="inline-flex items-center gap-[34px]">
-                  <div 
-                    className="inline-flex items-center gap-4 cursor-pointer"
-                    onClick={() => setRewardSplit(80)}
-                  >
-                    <div className={`w-5 h-5 rounded-[10px] border-2 flex items-center justify-center transition-all ${
-                      rewardSplit === 80 
-                        ? 'bg-white border-white' 
-                        : 'bg-transparent border-[#4b1d7b]'
-                    }`}>
-                      {rewardSplit === 80 && (
-                        <div className="w-2.5 h-2.5 bg-[#4b1d7b] rounded-[5px]" />
-                      )}
-                    </div>
-                    <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
-                      80/20
+          <div className="relative w-full h-auto md:h-[648px]">
+            {/* SVG Background */}
+            <img
+              className="absolute top-0 left-0 w-full h-full object-fill"
+              alt="Card background"
+              src="/calculator-section/Acc-card.svg"
+            />
+            
+            <div className="relative z-10 flex flex-col gap-6 md:gap-[38px] pt-6 md:pt-[40px] px-6 md:px-[62px] pb-6 md:pb-0">
+              {/* Account Size */}
+              <div className="flex items-center justify-between">
+                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
+                  Account Size
+                </h3>
+                <div className="w-[78px] h-9  rounded-[18px] flex items-center justify-center">
+                  <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px]  rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                      ${accountSize.toLocaleString()}
                     </span>
                   </div>
-                </div>
-
-                {/* Estimated Earnings Result */}
-                <div className="flex flex-col items-center gap-4 px-6 md:px-10 py-5 rounded-[20px] 
-                  bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
-                  backdrop-blur-md
-                  relative overflow-hidden
-                  border border-purple-500/30 shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]">
-                  {/* Inner glow */}
-                  <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
-                    blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
-                  
-                  <p className="relative [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap z-10">
-                    Your Estimated Earnings:
-                  </p>
-                  <p className="relative font-medium md:font-bold text-[#ab66ff] text-[34px] md:text-[30px] leading-[20px] md:leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10">
-                    ${calculateEarnings()}
-                  </p>
-                  <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
-                    border border-[#7A27EF]
-                    bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)]
-                    shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] 
-                    hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.7)] 
-                    hover:scale-105 transition-all duration-300
-                    my-3
-                    z-10
-                    group">
-                    <span className="w-[152px] h-[18px] lg:h-[20px] shrink-0 text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.25)] [font-family:'Cambay',Helvetica] font-bold text-[13px] lg:text-[16px] leading-[normal]">
-                      Start your Challenge
-                    </span>
-                    <div className="flex w-[28px] lg:w-[34px] h-[20px] lg:h-[23px] px-[7px] py-px items-center gap-[10px] shrink-0 rounded-[30px] bg-white group-hover:scale-110 transition-transform">
-                      <img 
-                        src="/solar_arrow-up-linear.svg" 
-                        alt="Arrow" 
-                        className="w-auto h-auto"
-                      />
-                    </div>
-                  </Button>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+
+              {/* Account Size Slider */}
+              <div className="relative w-full h-3.5">
+                <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
+                <div 
+                  className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
+                  style={{ width: `${((accountSize - 5000) / 95000) * 100}%` }}
+                />
+                <input
+                  type="range"
+                  min="5000"
+                  max="100000"
+                  step="5000"
+                  value={accountSize}
+                  onChange={(e) => setAccountSize(Number(e.target.value))}
+                  className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
+                />
+                <div 
+                  className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
+                  style={{ left: `calc(${((accountSize - 5000) / 95000) * 100}% - 7px)` }}
+                />
+              </div>
+
+              {/* Profit Rate */}
+              <div className="flex items-center justify-between">
+                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
+                  Profit Rate
+                </h3>
+                <div className="w-[63px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
+                  <div className="w-[52px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                      {profitRate}%
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Profit Rate Slider */}
+              <div className="relative w-full h-3.5">
+                <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
+                <div 
+                  className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
+                  style={{ width: `${(profitRate / 20) * 100}%` }}
+                />
+                <input
+                  type="range"
+                  min="1"
+                  max="20"
+                  step="1"
+                  value={profitRate}
+                  onChange={(e) => setProfitRate(Number(e.target.value))}
+                  className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
+                />
+                <div 
+                  className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
+                  style={{ left: `calc(${(profitRate / 20) * 100}% - 7px)` }}
+                />
+              </div>
+
+              {/* Reward Split */}
+              <div className="flex items-center justify-between">
+                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
+                  Reward Split
+                </h3>
+                <div className="w-[68px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
+                  <div className="w-[58px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                    <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                      {rewardSplit}/{100 - rewardSplit}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Reward Split Radio Options */}
+              <div className="inline-flex items-center gap-[34px]">
+                <div 
+                  className="inline-flex items-center gap-4 cursor-pointer"
+                  onClick={() => setRewardSplit(80)}
+                >
+                  <div className={`w-5 h-5 rounded-[10px] border-2 flex items-center justify-center transition-all ${
+                    rewardSplit === 80 
+                      ? 'bg-white border-white' 
+                      : 'bg-transparent border-[#4b1d7b]'
+                  }`}>
+                    {rewardSplit === 80 && (
+                      <div className="w-2.5 h-2.5 bg-[#4b1d7b] rounded-[5px]" />
+                    )}
+                  </div>
+                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                    80/20
+                  </span>
+                </div>
+              </div>
+
+              {/* Estimated Earnings Result */}
+              <div 
+                className="flex flex-col items-center gap-5 rounded-[20px] 
+                  border border-[#E9B1FF]
+                  relative overflow-hidden"
+                style={{
+                  width: '510px',
+                  height: '178px',
+                  padding: '28px 140px',
+                  background: 'linear-gradient(0deg, rgba(36, 12, 61, 0.60) 59.48%, rgba(185, 130, 251, 0.23) 177.61%)'
+                }}
+              >
+                
+                <p className="relative [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap z-10">
+                  Your Estimated Earnings:
+                </p>
+                <p className="relative font-medium md:font-bold text-[#ab66ff] text-[34px] md:text-[30px] leading-[20px] md:leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10 -mt-2">
+                  ${calculateEarnings()}
+                </p>
+                <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
+                  border border-[#7A27EF]
+                  bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)]
+                  shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] 
+                  hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.7)] 
+                  hover:scale-105 transition-all duration-300
+                  my-3
+                  -mt-3 mb-3
+                  z-10
+                  group">
+                  <span className="w-[152px] h-[18px] lg:h-[20px] shrink-0 text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.25)] [font-family:'Cambay',Helvetica] font-bold text-[13px] lg:text-[16px] leading-[normal]">
+                    Start your Challenge
+                  </span>
+                  <div className="flex w-[28px] lg:w-[34px] h-[20px] lg:h-[23px] px-[7px] py-px items-center gap-[10px] shrink-0 rounded-[30px] bg-white group-hover:scale-110 transition-transform">
+                    <img 
+                      src="/solar_arrow-up-linear.svg" 
+                      alt="Arrow" 
+                      className="w-auto h-auto"
+                    />
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

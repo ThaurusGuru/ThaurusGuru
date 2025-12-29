@@ -1,28 +1,6 @@
 import { Button } from "../../../components/ui/button";
 
-const locations = [
-  {
-    name: "Nigeria",
-    top: "top-[52%] lg:top-[282px]",
-    left: "left-[11%] lg:left-[61px]",
-    flagSrc: "https://c.animaapp.com/mishf4erVkDEuN/img/image-2.png",
-    vectorSrc: "https://c.animaapp.com/mishf4erVkDEuN/img/vector-3-2.svg",
-  },
-  {
-    name: "Slovakia",
-    top: "top-[32%] lg:top-[167px]",
-    left: "left-[21%] lg:left-[168px]",
-    flagSrc: "https://c.animaapp.com/mishf4erVkDEuN/img/image-2-1.png",
-    vectorSrc: "https://c.animaapp.com/mishf4erVkDEuN/img/vector-3.svg",
-  },
-  {
-    name: "Mauritius",
-    top: "top-[62%] lg:top-[457px]",
-    left: "left-[48%] lg:left-[312px]",
-    flagSrc: "https://c.animaapp.com/mishf4erVkDEuN/img/image-2-2.png",
-    vectorSrc: "https://c.animaapp.com/mishf4erVkDEuN/img/vector-3-1.svg",
-  },
-];
+
 
 const statImages = [
   "/build-section/card-1.svg",
@@ -39,34 +17,9 @@ export const BuildSection = () => {
           <div className="relative w-full max-w-[650px] h-[600px] lg:ml-12 mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
             <img
               className="absolute top-0 left-0 w-full h-full object-contain"
-              alt="World map"
-              src="https://c.animaapp.com/mishf4erVkDEuN/img/group-64.png"
+              alt="World map with locations"
+              src="/build-section/Map.svg"
             />
-
-            {locations.map((location) => (
-              <div
-                key={location.name}
-                className={`absolute ${location.top} ${location.left} w-[79px] h-20`}
-              >
-                <div className="absolute top-[38px] left-[18px] w-[42px] h-[42px] flex bg-[#200b36] rounded-[21px] border-[0.6px] border-solid border-[#3f166b] shadow-[inset_0px_2px_7.3px_#481d75,0px_3px_7px_#e8b0ff]">
-                  <img
-                    className="mt-[5px] w-[22.5px] h-[31px] ml-[9px]"
-                    alt={`${location.name} flag`}
-                    src={location.flagSrc}
-                  />
-                </div>
-
-                <img
-                  className="absolute top-0 left-0 w-[77px] h-9"
-                  alt="Location marker"
-                  src={location.vectorSrc}
-                />
-
-                <div className="absolute top-[7px] left-[17px] [font-family:'Cambay',Helvetica] font-bold text-black text-sm leading-[normal] tracking-[0]">
-                  {location.name}
-                </div>
-              </div>
-            ))}
           </div>
 
           {/* Content Section */}
@@ -121,7 +74,12 @@ export const BuildSection = () => {
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
-              className="w-[163px] lg:w-72 h-[97px] lg:h-40 rounded-[10px] border border-solid border-[#a770e0] overflow-hidden"
+              className="overflow-hidden"
+              style={{
+                width: '275px',
+                height: '160px',
+                aspectRatio: '55/32'
+              }}
             >
               <img 
                 src={`/build-section/${num}.png`}

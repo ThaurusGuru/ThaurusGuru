@@ -96,13 +96,13 @@ export const ComparisonTableSection = () => {
                 </div>
                 
                 {/* THAURUS GURU Header - Professional Purple with Elegant Glow */}
-                <div className="px-5 py-4 flex items-center justify-center bg-[linear-gradient(180deg,rgba(59,15,105,0.95)_0%,rgba(36,12,61,1)_100%)] border-l-2 border-[#b882fb] shadow-[0_0_40px_rgba(184,130,251,0.6),inset_0_0_20px_rgba(184,130,251,0.15)] relative overflow-hidden">
+                <div className="px-5 py-4 flex items-center justify-center border border-[#B982FB] shadow-[0_4px_22.1px_0_rgba(233,177,255,0.15)_inset,0_0_40px_rgba(184,130,251,0.6),inset_0_0_20px_rgba(184,130,251,0.15)] bg-[linear-gradient(180deg,rgba(59,15,105,0.95)_0%,rgba(36,12,61,1)_100%)] relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/40 z-0" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(184,130,251,0.25)_0%,transparent_70%)] z-[1]" />
                   <img
                     className="w-32 h-11 object-contain filter brightness-150 contrast-125 drop-shadow-[0_0_25px_rgba(255,255,255,1)] saturate-110 relative z-10"
                     alt="THAURUS GURU"
-                    src="/Thaurus-logo.png"
+                    src="/thaurus logo.svg"
                   />
                 </div>
 
@@ -157,7 +157,7 @@ export const ComparisonTableSection = () => {
                 </div>
 
                 {/* THAURUS GURU Column */}
-                <div className="shadow-[inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
+                <div className="border border-[#B982FB] shadow-[0_4px_22.1px_0_rgba(233,177,255,0.15)_inset,inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,130,251,0.3)_0%,transparent_50%)]" />
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(123,39,239,0.2)_0%,transparent_50%)]" />
                   <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(184,130,251,0.15)_0%,rgba(123,39,239,0.1)_50%,rgba(184,130,251,0.15)_100%)]" />
@@ -210,13 +210,13 @@ export const ComparisonTableSection = () => {
               </div>
               
               {/* THAURUS GURU Header - Professional Purple with Elegant Glow */}
-              <div className="px-4 py-3 flex items-center justify-center bg-[linear-gradient(180deg,rgba(59,15,105,0.95)_0%,rgba(36,12,61,1)_100%)] border-l-2 border-[#b882fb] shadow-[0_0_40px_rgba(184,130,251,0.6),inset_0_0_20px_rgba(184,130,251,0.15)] relative overflow-hidden">
+              <div className="px-4 py-3 flex items-center justify-center border border-[#B982FB] shadow-[0_4px_22.1px_0_rgba(233,177,255,0.15)_inset,0_0_40px_rgba(184,130,251,0.6),inset_0_0_20px_rgba(184,130,251,0.15)] bg-[linear-gradient(180deg,rgba(59,15,105,0.95)_0%,rgba(36,12,61,1)_100%)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/40 z-0" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(184,130,251,0.25)_0%,transparent_70%)] z-[1]" />
                 <img
                   className="w-32 h-11 object-contain filter brightness-150 contrast-125 drop-shadow-[0_0_25px_rgba(255,255,255,1)] saturate-110 relative z-10"
                   alt="THAURUS GURU"
-                  src="/Thaurus-logo.png"
+                  src="/thaurus logo.svg"
                 />
               </div>
 
@@ -271,7 +271,7 @@ export const ComparisonTableSection = () => {
               </div>
 
               {/* THAURUS GURU Column - Fully Immersive Elegant Glow */}
-              <div className="shadow-[inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
+              <div className="border border-[#B982FB] shadow-[0_4px_22.1px_0_rgba(233,177,255,0.15)_inset,inset_0px_0px_40px_#e8b0ff80,0_0_50px_rgba(184,130,251,0.5),0_0_100px_rgba(123,39,239,0.3)] bg-[linear-gradient(180deg,rgba(123,39,239,0.4)_0%,rgba(98,0,255,0.35)_30%,rgba(123,39,239,0.25)_70%,rgba(184,130,251,0.2)_100%)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,130,251,0.3)_0%,transparent_50%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(123,39,239,0.2)_0%,transparent_50%)]" />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(184,130,251,0.15)_0%,rgba(123,39,239,0.1)_50%,rgba(184,130,251,0.15)_100%)]" />

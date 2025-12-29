@@ -20,7 +20,7 @@ const featureCards = [
         Support
       </>
     ),
-    subtitle: "Try it now!",
+    subtitle: "Learn More",
   },
   {
     title: (
@@ -30,7 +30,7 @@ const featureCards = [
         Commisions
       </>
     ),
-    subtitle: "Learn More",
+    subtitle: "Start Trading today!",
   },
 ];
 
@@ -97,19 +97,18 @@ export const HeroSection = () => {
               {featureCards.map((card, index) => (
                 <div
                   key={index}
-                  className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] rounded-lg sm:rounded-xl overflow-hidden
-                  shadow-[0_8px_32px_0_rgba(96,32,163,0.35)]
+                  className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] 
                   hover:scale-105 transition-all duration-300"
                 >
                   {/* Background Image */}
                   <img
                     src="/hero/card.svg"
                     alt="Card Background"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-fill"
                   />
                   
                   {/* Text Overlay */}
-                  <div className="relative z-10 flex flex-col items-start justify-center gap-0.5 sm:gap-1 md:gap-2 p-1.5 sm:p-2 md:p-3 h-full">
+                  <div className="relative z-10 flex flex-col items-start justify-center gap-0.5 sm:gap-1 md:gap-2 p-1.5 sm:p-2 md:p-3 h-full ml-3">
                     <div className="[font-family:'Cambay',Helvetica] font-normal text-white text-[11px] sm:text-[14px] md:text-[15px] lg:text-[16px] leading-[13px] sm:leading-[16px] md:leading-[17px] lg:leading-[18px]">
                       {card.title}
                     </div>
