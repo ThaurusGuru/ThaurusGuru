@@ -35,7 +35,7 @@ export const SponsorSection = () => {
         </div>
         
         {/* Description text */}
-        <p className="w-[240px] md:max-w-[400px] [font-family:'Cambay',Helvetica] font-normal text-white text-[10px] md:text-xl tracking-[0] leading-[14px] md:leading-7 mb-6 md:mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] text-left -ml-16 md:ml-0">
+        <p className="w-[240px] md:w-[320px] [font-family:'Cambay',Helvetica] font-normal text-white text-[10px] md:text-xl tracking-[0] leading-[14px] md:leading-7 mb-6 md:mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] text-left -ml-16 md:ml-0">
           Top performers trust PML. With Thaurus Guru&apos;s support,
           you&apos;re part of a winning league.
         </p>
