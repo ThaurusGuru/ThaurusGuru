@@ -30,7 +30,7 @@ export const SponsorSection = () => {
           <img
             className="w-[70px] md:w-[140px] h-auto object-contain"
             alt="PML Logo"
-            src="/sponsor/pnml-logo.png"
+            src="/sponsor/pnml-logo.svg"
           />
         </div>
         

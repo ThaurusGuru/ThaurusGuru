@@ -103,7 +103,7 @@ export const HeroSection = () => {
                 >
                   {/* Background Image */}
                   <img
-                    src="/hero/card.png"
+                    src="/hero/card.svg"
                     alt="Card Background"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
