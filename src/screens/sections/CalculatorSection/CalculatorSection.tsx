@@ -118,11 +118,17 @@ export const CalculatorSection = () => {
 
             {/* Estimated Monthly Take-Home Chart */}
             <Card className="relative lg:absolute lg:top-[342px] lg:left-0 w-full h-[250px] md:h-[306px] rounded-[20px] border-none 
-              bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
-              backdrop-blur-md border border-purple-500/30
+              backdrop-blur-md
               shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
-              overflow-hidden">
+              overflow-hidden"
+            >
               <CardContent className="relative p-0 h-full">
+                {/* SVG Background */}
+                <img
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  alt="Card background"
+                  src="/calculator-section/estimate.svg"
+                />
                 {/* Glow effect */}
                 <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
                   blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
@@ -202,29 +208,29 @@ export const CalculatorSection = () => {
 
           {/* Calculator Input Card */}
           <Card className="relative w-full h-auto md:h-[648px] rounded-[20px] border-none 
-            bg-gradient-to-br from-[#4d1891]/20 to-[#1e0933]/20
-            backdrop-blur-md border border-purple-500/30
+            !bg-transparent
             shadow-[0_8px_32px_0_rgba(77,24,145,0.3)]
             overflow-hidden">
             <CardContent className="relative p-0 h-full">
+              {/* SVG Background */}
+              <img
+                className="absolute top-0 left-0 w-full h-full object-fill"
+                alt="Card background"
+                src="/calculator-section/Acc-card.svg"
+              />
+              
               {/* Glow effect */}
               <div className="absolute top-0 right-0 w-1/2 h-2/3 rounded-[20px] 
                 blur-[40px] bg-gradient-to-br from-[#dab6ff]/20 to-transparent" />
               
-              <img
-                className="hidden md:block absolute top-0.5 left-0 w-full h-[438px] object-cover"
-                alt="Mask group"
-                src="https://c.animaapp.com/mishf4erVkDEuN/img/mask-group-6.png"
-              />
-
               <div className="relative z-10 flex flex-col gap-6 md:gap-[38px] pt-6 md:pt-[40px] px-6 md:px-[62px] pb-6 md:pb-0">
                 {/* Account Size */}
                 <div className="flex items-center justify-between">
                   <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
                     Account Size
                   </h3>
-                  <div className="w-[78px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
-                    <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[#1b092e54] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <div className="w-[78px] h-9  rounded-[18px] flex items-center justify-center">
+                    <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px]  rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
                       <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                         ${accountSize.toLocaleString()}
                       </span>

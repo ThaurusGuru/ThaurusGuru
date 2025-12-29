@@ -315,6 +315,15 @@ export const Homepage = () => {
           <CalculatorSection />
         </section>
 
+        {/* Background decoration for Comparison section */}
+        <div className="relative w-full h-0">
+          <img
+            className="absolute top-[-300px] md:top-[-700px] left-1/2 -translate-x-1/2 w-[1400px] md:w-[1200px] h-[800px] md:h-[1452px] pointer-events-none opacity-90 md:opacity-100 z-0 object-cover"
+            alt="Background decoration"
+            src="/bg5.png"
+          />
+        </div>
+
         <section className="relative w-full">
           <ComparisonTableSection />
         </section>

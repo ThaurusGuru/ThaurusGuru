@@ -77,13 +77,6 @@ const tableData = [
 export const ComparisonTableSection = () => {
   return (
     <section className="relative w-full py-12 md:py-16 translate-y-[-1rem] animate-fade-in opacity-0 overflow-hidden">
-      {/* Background decoration - positioned exactly with heading */}
-      <img
-        className="absolute top-[-300px] md:top-[-700px] left-1/2 -translate-x-1/2 w-[1400px] md:w-[1200px] h-[800px] md:h-[1452px] pointer-events-none opacity-90 md:opacity-100 z-0 object-cover"
-        alt="Background decoration"
-        src="https://c.animaapp.com/mishf4erVkDEuN/img/group-110.png"
-      />
-
       <div className="container mx-auto px-4 max-w-[1160px] pt-16 md:pt-24 relative z-10">
         <h2 className="w-full max-w-[240px] md:max-w-none mx-auto text-center bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[24px] md:text-[42px] leading-[35px] md:leading-[78px] mb-20 md:mb-24 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           Compare. Evaluate. Choose Smarter.
