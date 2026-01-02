@@ -54,7 +54,7 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1b082e]/60" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto">
+      <div className="relative z-10 lg:max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="flex flex-col items-center lg:items-start order-1 lg:order-1">

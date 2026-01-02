@@ -1,10 +1,10 @@
 const statsData = [
   {
-    value: "$1.9M+",
+    value: "$400k+",
     label: "Paid to traders",
   },
   {
-    value: "6K+",
+    value: "600+",
     label: "Traders",
   },
   {
@@ -20,7 +20,7 @@ const statsData = [
 export const MainContentSection = () => {
   return (
     <section className="w-full py-8 md:py-12 relative">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:max-w-[1300px]">
         {/* Top Horizontal Line */}
         <img 
           src="/hero/Horizontal-line.jpg" 
