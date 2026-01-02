@@ -21,7 +21,7 @@ const navItems = [
   { label: "Home", href: "#" },
   { label: "Trading", href: "#" },
   { label: "FAQ", href: "#" },
-  { label: "Courses", href: "#" },
+  { label: "Affiliate", href: "#" },
   { label: "About Us", href: "#" },
   { label: "Contact Us", href: "#" },
   { label: "Blogs", href: "#" },

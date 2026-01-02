@@ -89,6 +89,8 @@
   filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.6));
 }
 
+
+/* Accordion Item Gradient Border */
 .accordion-item-gradient-border[data-state="open"] {
   position: relative;
   border-radius: 24px;
@@ -113,5 +115,80 @@
   .accordion-item-gradient-border[data-state="open"],
   .accordion-item-gradient-border[data-state="open"]::before {
     border-radius: 16px;
+  }
+}
+
+/* Calculator Card Gradient Borders */
+.calculator-card-border {
+  position: relative;
+  background: linear-gradient(0deg, rgba(36, 7, 66, 0.40) 71.68%, rgba(185, 130, 251, 0.15) 152.7%);
+}
+
+.calculator-card-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, #E9B1FF 0%, #9368C8 50%, #E9B1FF 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.earnings-result-card {
+  position: relative;
+  background: linear-gradient(0deg, rgba(36, 12, 61, 0.60) 59.48%, rgba(185, 130, 251, 0.23) 177.61%);
+}
+
+.earnings-result-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, #E9B1FF 0%, #9368C8 50%, #E9B1FF 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Bar Chart Card Gradient Border */
+.bar-chart-card-border {
+  position: relative;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(96, 32, 163, 0.20) 0%, rgba(36, 12, 61, 0.20) 100%);
+}
+
+.bar-chart-card-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, #E9B1FF 0%, #9368C8 50%, #E9B1FF 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .bar-chart-card-border {
+    border-radius: 15.755px;
+  }
+  
+  .bar-chart-card-border::before {
+    border-radius: 15.755px;
+    padding: 0.788px;
+  }
+  
+  .earnings-result-card {
+    padding: 24px 20px !important;
   }
 }

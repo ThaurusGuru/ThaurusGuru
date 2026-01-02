@@ -70,14 +70,12 @@ export const BuildSection = () => {
         </div>
 
         {/* Card Layout - 4 columns on desktop, 2x2 grid on mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-[18px] lg:gap-6 w-full lg:px-24 px-4 mt-12 justify-items-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-[18px] lg:gap-6 w-full max-w-[390px] md:max-w-none lg:px-24 px-4 mx-auto mt-12 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
-              className="overflow-hidden"
+              className="w-full overflow-hidden"
               style={{
-                width: '275px',
-                height: '160px',
                 aspectRatio: '55/32'
               }}
             >

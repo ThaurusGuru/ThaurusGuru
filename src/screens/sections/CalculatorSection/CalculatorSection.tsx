@@ -2,13 +2,6 @@ import { useState } from "react";
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 
-const chartLines = [
-  { top: "top-[130px]", left: "left-[107px]" },
-  { top: "top-[173px]", left: "left-[107px]" },
-  { top: "top-[216px]", left: "left-[107px]" },
-  { top: "top-[259px]", left: "left-[107px]" },
-];
-
 const yAxisLabels = ["$8,000", "$4,000", "$2,000", "$0"];
 
 export const CalculatorSection = () => {
@@ -23,20 +16,20 @@ export const CalculatorSection = () => {
     return Math.round(earnings).toLocaleString();
   };
 
-  // Calculate bar height for chart
+  // Calculate bar height for chart (proportional to max $8000)
   const calculateBarHeight = () => {
     const earnings = accountSize * (profitRate / 100) * (rewardSplit / 100);
-    const maxHeight = 132; // pixels
+    const maxHeight = 132; // pixels for desktop
     const maxEarnings = 8000;
     return Math.min((earnings / maxEarnings) * maxHeight, maxHeight);
   };
 
-  // Get responsive baseline for mobile vs desktop
-  const getBarBaseline = () => {
-    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
-      return 260; // desktop
-    }
-    return 210; // mobile
+  // Calculate bar height for mobile
+  const calculateBarHeightMobile = () => {
+    const earnings = accountSize * (profitRate / 100) * (rewardSplit / 100);
+    const maxHeight = 104; // pixels for mobile (scaled)
+    const maxEarnings = 8000;
+    return Math.min((earnings / maxEarnings) * maxHeight, maxHeight);
   };
 
   return (
@@ -46,8 +39,8 @@ export const CalculatorSection = () => {
           Want to know your potential reward?
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-6 md:gap-9 items-start -mb-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-          <div className="relative flex flex-col gap-6 lg:block">
+        <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-6 md:gap-9 items-start mb-8 md:-mb-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+          <div className="relative flex flex-col gap-6 lg:block w-full lg:w-[490px]">
             {/* Earnings Estimator Card */}
             <div className="relative w-full h-[250px] md:h-[306px]">
               <img
@@ -79,79 +72,111 @@ export const CalculatorSection = () => {
             </div>
 
             {/* Estimated Monthly Take-Home Chart */}
-            <div className="relative lg:absolute lg:top-[342px] lg:left-0 w-full h-[250px] md:h-[306px]">
-              {/* SVG Background */}
-              <img
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                alt="Card background"
-                src="/calculator-section/estimate.svg"
-              />
-              
-              <Badge className="absolute top-[20px] md:top-7 left-[20px] md:left-[35px] flex w-auto md:w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
+            <div className="bar-chart-card-border relative lg:absolute lg:top-[30px] lg:left-0 w-full max-w-[386px] lg:max-w-[490px] h-[241px] lg:h-[306px] rounded-[15.755px] lg:rounded-[20px] mx-auto lg:mx-0">
+              <Badge className="absolute top-[20px] lg:top-7 left-[20px] lg:left-[35px] flex w-auto lg:w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
                 <img
                   className="relative w-[22px] h-[22px]"
                   alt="Healthicons money"
                   src="https://c.animaapp.com/mishf4erVkDEuN/img/healthicons-money-bag-outline.svg"
                 />
-                <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-xs md:text-sm tracking-[0] leading-5 whitespace-nowrap">
+                <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-xs lg:text-sm tracking-[0] leading-5 whitespace-nowrap">
                   Estimated Monthly Take-Home
                 </span>
               </Badge>
 
-              {/* Chart Grid Lines - Mobile: scaled down, Desktop: original */}
-              <div className="absolute top-[100px] left-[60px] md:top-[130px] md:left-[107px] w-[240px] md:w-[338px] h-[100px] md:h-[132px] flex flex-col gap-[30px] md:gap-[43px]">
-                {chartLines.map((_, index) => (
-                  <img
+              {/* Chart Grid Lines */}
+              <div className="absolute top-[90px] left-[60px] lg:top-[130px] lg:left-[76px] w-[266px] lg:w-[338px] h-[104px] lg:h-[132px] flex flex-col justify-between">
+                {[0, 1, 2, 3].map((index) => (
+                  <div
                     key={`chart-line-${index}`}
-                    className="w-[240px] md:w-[338px] h-px object-cover"
-                    alt="Line"
-                    src="https://c.animaapp.com/mishf4erVkDEuN/img/line-56.svg"
+                    className="w-[266px] lg:w-[338px] h-[0.788px] lg:h-[1px]"
+                    style={{ background: 'rgba(255, 255, 255, 0.15)' }}
                   />
                 ))}
               </div>
 
-              {/* Dynamic Bar - White/Purple gradient - Responsive */}
+              {/* Dynamic Bar - White/Purple gradient - Desktop */}
               <div 
-                className="absolute left-[220px] md:left-[310px] w-[44px] md:w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
+                className="hidden lg:block absolute left-[310px] w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                 style={{
                   height: `${calculateBarHeight()}px`,
-                  top: `${getBarBaseline() - calculateBarHeight()}px`
+                  bottom: '42px'
                 }}
               />
 
-              {/* Static comparison bar - Dark purple - Responsive */}
+              {/* Dynamic Bar - White/Purple gradient - Mobile */}
               <div 
-                className="absolute left-[135px] md:left-[190px] w-[44px] md:w-[62px] h-[70px] md:h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
+                className="lg:hidden absolute left-[245px] w-[49px] rounded-[12px_12px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                 style={{
-                  top: `${getBarBaseline() - 70}px`
+                  height: `${calculateBarHeightMobile()}px`,
+                  bottom: '33px'
                 }}
               />
 
-              {/* Y-axis labels - Responsive */}
-              <div className="absolute top-[80px] left-[15px] md:top-[107px] md:left-[35px] h-[130px] md:h-[172px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-xs md:text-lg tracking-[0] leading-[30px] md:leading-[43px]">
+              {/* Static comparison bar - Dark purple - Desktop */}
+              <div 
+                className="hidden lg:block absolute left-[190px] w-[62px] h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
+                style={{
+                  bottom: '42px'
+                }}
+              />
+
+              {/* Static comparison bar - Dark purple - Mobile */}
+              <div 
+                className="lg:hidden absolute left-[150px] w-[49px] h-[73px] rounded-[12px_12px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
+                style={{
+                  bottom: '33px'
+                }}
+              />
+
+              {/* Y-axis labels */}
+              <div className="absolute top-[82px] left-[10px] lg:top-[107px] lg:left-[18px] h-[112px] lg:h-[145px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-[10px] lg:text-lg tracking-[0] leading-[30px] lg:leading-[43px]">
                 {yAxisLabels.map((label, index) => (
                   <div key={`y-label-${index}`}>{label}</div>
                 ))}
               </div>
 
-              {/* Value label for left bar - Responsive */}
-              <div className="absolute top-[100px] left-[125px] md:top-[127px] md:left-[184px] w-[60px] md:w-[73px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] z-20">
-                <div className="flex mt-[3px] w-[50px] md:w-16 h-[26px] md:h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+              {/* Value label for left bar - Desktop */}
+              <div className="hidden lg:flex absolute left-[184px] w-[73px] h-9 bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '145px' }}>
+                <div className="flex mt-[3px] w-16 h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                     $4,150
                   </span>
                 </div>
               </div>
 
-              {/* Value label for right bar - Dynamic - Responsive */}
+              {/* Value label for left bar - Mobile */}
+              <div className="lg:hidden absolute left-[140px] w-[60px] h-8 flex bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '114px' }}>
+                <div className="flex mt-[3px] w-[50px] h-[26px] ml-[5px] relative items-center justify-center gap-2.5 px-2 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                    $4,150
+                  </span>
+                </div>
+              </div>
+
+              {/* Value label for right bar - Dynamic - Desktop */}
               <div 
-                className="absolute left-[212px] md:left-[302px] w-[65px] md:w-[78px] h-8 md:h-9 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
+                className="hidden lg:flex absolute left-[302px] w-[78px] h-9 bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
                 style={{
-                  top: `${getBarBaseline() - calculateBarHeight() - 40}px`
+                  bottom: `${calculateBarHeight() + 10}px`
                 }}
               >
-                <div className="mt-[3px] w-[55px] md:w-[68px] ml-[5px] flex h-[26px] md:h-[30px] relative items-center justify-center gap-2.5 px-2 md:px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
-                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs md:text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                <div className="mt-[3px] w-[68px] ml-[5px] flex h-[30px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
+                    ${calculateEarnings()}
+                  </span>
+                </div>
+              </div>
+
+              {/* Value label for right bar - Dynamic - Mobile */}
+              <div 
+                className="lg:hidden absolute left-[238px] w-[65px] h-8 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
+                style={{
+                  bottom: `${calculateBarHeightMobile() + 8}px`
+                }}
+              >
+                <div className="mt-[3px] w-[55px] ml-[5px] flex h-[26px] relative items-center justify-center gap-2.5 px-2 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                  <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                     ${calculateEarnings()}
                   </span>
                 </div>
@@ -160,22 +185,15 @@ export const CalculatorSection = () => {
           </div>
 
           {/* Calculator Input Card */}
-          <div className="relative w-full h-auto md:h-[648px]">
-            {/* SVG Background */}
-            <img
-              className="absolute top-0 left-0 w-full h-full object-fill"
-              alt="Card background"
-              src="/calculator-section/Acc-card.svg"
-            />
-            
-            <div className="relative z-10 flex flex-col gap-6 md:gap-[38px] pt-6 md:pt-[40px] px-6 md:px-[62px] pb-6 md:pb-0">
+          <div className="calculator-card-border relative w-full max-w-[386px] lg:max-w-[634px] h-[510px] lg:h-[648px] mx-auto rounded-[20px] mb-6 lg:mb-0">
+            <div className="relative z-10 flex flex-col gap-6 lg:gap-[38px] pt-6 lg:pt-[40px] px-6 lg:px-[62px] pb-6 lg:pb-0">
               {/* Account Size */}
               <div className="flex items-center justify-between">
-                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
+                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base lg:text-lg tracking-[0] leading-5">
                   Account Size
                 </h3>
-                <div className="w-[78px] h-9  rounded-[18px] flex items-center justify-center">
-                  <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px]  rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
+                <div className="w-[78px] h-9 rounded-[18px] flex items-center justify-center">
+                  <div className="w-[68px] h-[30px] flex items-center justify-center gap-2.5 px-2.5 py-[5px] rounded-[30px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
                     <span className="font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                       ${accountSize.toLocaleString()}
                     </span>
@@ -207,7 +225,7 @@ export const CalculatorSection = () => {
 
               {/* Profit Rate */}
               <div className="flex items-center justify-between">
-                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
+                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base lg:text-lg tracking-[0] leading-5">
                   Profit Rate
                 </h3>
                 <div className="w-[63px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
@@ -243,7 +261,7 @@ export const CalculatorSection = () => {
 
               {/* Reward Split */}
               <div className="flex items-center justify-between">
-                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base md:text-lg tracking-[0] leading-5">
+                <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base lg:text-lg tracking-[0] leading-5">
                   Reward Split
                 </h3>
                 <div className="w-[68px] h-9 bg-[#4b1d7b] rounded-[18px] flex items-center justify-center">
@@ -277,22 +295,11 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Estimated Earnings Result */}
-              <div 
-                className="flex flex-col items-center gap-5 rounded-[20px] 
-                  border border-[#E9B1FF]
-                  relative overflow-hidden"
-                style={{
-                  width: '510px',
-                  height: '178px',
-                  padding: '28px 140px',
-                  background: 'linear-gradient(0deg, rgba(36, 12, 61, 0.60) 59.48%, rgba(185, 130, 251, 0.23) 177.61%)'
-                }}
-              >
-                
+              <div className="earnings-result-card w-full lg:w-[510px] h-auto lg:h-[178px] flex flex-col items-center justify-center gap-4 lg:gap-5 rounded-[20px] py-6 lg:py-7 px-5 lg:px-[70px]">
                 <p className="relative [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap z-10">
                   Your Estimated Earnings:
                 </p>
-                <p className="relative font-medium md:font-bold text-[#ab66ff] text-[34px] md:text-[30px] leading-[20px] md:leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10 -mt-2">
+                <p className="relative font-bold text-[#ab66ff] text-[32px] lg:text-[30px] leading-[36px] lg:leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10">
                   ${calculateEarnings()}
                 </p>
                 <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
@@ -301,8 +308,6 @@ export const CalculatorSection = () => {
                   shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] 
                   hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.7)] 
                   hover:scale-105 transition-all duration-300
-                  my-3
-                  -mt-3 mb-3
                   z-10
                   group">
                   <span className="w-[152px] h-[18px] lg:h-[20px] shrink-0 text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.25)] [font-family:'Cambay',Helvetica] font-bold text-[13px] lg:text-[16px] leading-[normal]">
