@@ -104,10 +104,17 @@ export const MediaSection = () => {
         {/* Reviews Image - Responsive */}
         <div className="relative">
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] flex justify-center">
+            {/* Mobile Review Image */}
+            <img
+              src="/reviews/mobile-review.svg"
+              alt="Customer Reviews"
+              className="block md:hidden w-full max-w-[390px] h-auto"
+            />
+            {/* Desktop Review Image */}
             <img
               src="/reviews/Text reviews.svg"
               alt="Customer Reviews"
-              className="w-full max-w-[390px] md:max-w-[1160px] h-auto"
+              className="hidden md:block w-full max-w-[1160px] h-auto"
             />
           </div>
         </div>

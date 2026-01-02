@@ -55,9 +55,9 @@ export const FAQsSection = () => {
             <div key={faq.id}>
               <AccordionItem
                 value={faq.id}
-                className="border-0 data-[state=open]:rounded-[16px] md:data-[state=open]:rounded-[24px] data-[state=open]:!border data-[state=open]:!border-solid data-[state=open]:!border-[#E9B1FF] data-[state=open]:[background:radial-gradient(50%_50%_at_50%_50%,rgba(96,32,163,0.43)_0%,rgba(36,12,61,0.43)_100%)]"
+                className="accordion-item-gradient-border"
               >
-                <AccordionTrigger className="flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
+                <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
                   {/* Mobile: Vertical layout, Desktop: Horizontal layout */}
                   <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-64 flex-1">
                     <span className="serial-number text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">

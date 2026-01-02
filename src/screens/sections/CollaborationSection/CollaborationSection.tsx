@@ -10,13 +10,13 @@ export const CollaborationSection = () => {
             alt="Thaurus Guru"
             className="w-[180px] md:w-[354.733px] h-auto"
           />
-          <span className="text-white text-center font-['SF_Pro_Display'] text-2xl md:text-[26.739px] font-medium">
+          <span className="text-white text-center font-['SF_Pro_Display'] text-2xl md:text-[46.739px] font-medium">
             x
           </span>
           <img
             src="/collaboration/scope.svg"
             alt="Scope360"
-            className="w-[130px] md:w-[210.805px] h-auto"
+            className="w-[180px] md:w-[312.733px] h-auto"
           />
         </div>
 

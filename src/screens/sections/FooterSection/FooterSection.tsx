@@ -40,7 +40,7 @@ export const FooterSection = () => {
   };
 
   return (
-    <footer className="relative w-full bg-transparent flex justify-center pt-12 md:pt-20">
+    <footer className="relative w-full bg-transparent flex justify-center md:pt-20">
       {/* Background Image - Full width, extended upward */}
       <div 
         className="absolute -top-24 md:-top-48 left-0 right-0 bottom-0 w-full pointer-events-none"
@@ -52,7 +52,7 @@ export const FooterSection = () => {
       />
 
       {/* Container */}
-      <div className="relative w-full max-w-[390px] md:max-w-[1314px] mx-4 md:mx-auto">
+      <div className="relative w-full max-w-[386px] md:max-w-[1314px] mx-auto">
         {/* SVG Border - Desktop only */}
         <svg 
           className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" 
@@ -70,12 +70,12 @@ export const FooterSection = () => {
         </svg>
 
         {/* Content */}
-        <div className="relative px-6 md:px-8 lg:px-20 pt-8 md:pt-16 pb-6 md:pb-8 mt-0 md:mt-8">
+        <div className="relative px-6 md:px-8 lg:px-20 md:pt-16 md:pb-8 mt-0 md:mt-8">
           <div className="max-w-7xl mx-auto">
             {/* Mobile: Card with border and rounded corners */}
-            <div className="md:hidden border border-[#B784FF] rounded-[24px] p-6 mb-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+            <div className="md:hidden border border-[#B784FF] rounded-[40px] p-4 translate-y-5 -mb-5 animate-fade-in opacity-0 [--animation-delay:200ms]">
               {/* Logo - Left aligned */}
-              <div className="flex flex-col items-start mb-6">
+              <div className="flex flex-col items-start mb-6 mt-6 ml-6">
                 <img
                   className="w-[120px] object-cover mb-4"
                   alt="Company logo"
@@ -90,13 +90,13 @@ export const FooterSection = () => {
               </div>
 
               {/* Accordion sections */}
-              <div className="flex flex-col mb-4">
-                {footerColumns.map((column, index) => (
+              <div className="flex flex-col mb-4 ml-6">
+                {footerColumns.map((column) => (
                   <div key={column.title}>
                     {/* Section header - Clickable */}
                     <button
                       onClick={() => toggleSection(column.title)}
-                      className="w-full flex items-center justify-between py-3 text-left group"
+                      className="w-full flex items-center gap-2 py-3 text-left group"
                     >
                       <h3 className="[font-family:'Cambay',Helvetica] font-normal text-white text-[16px] tracking-[0.16px] leading-normal">
                         {column.title}
@@ -129,22 +129,17 @@ export const FooterSection = () => {
                         ))}
                       </ul>
                     </div>
-
-                    {/* Divider between sections */}
-                    {index < footerColumns.length - 1 && (
-                      <Separator className="bg-white/10" />
-                    )}
                   </div>
                 ))}
               </div>
 
               {/* Disclaimer - Inside mobile card */}
               <Separator className="bg-white/20 mb-4" />
-              <div>
-                <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] tracking-[0.1px] leading-normal opacity-[0.57] mb-2">
+              <div className="max-w-[321px]">
+                <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-[0.57] mb-2" style={{ fontWeight: 300 }}>
                   Disclaimer
                 </h4>
-                <p className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] tracking-[0.1px] leading-[1.5] opacity-[0.57]">
+                <p className="[font-family:'Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-[0.57] pb-4" style={{ fontWeight: 300 }}>
                   Thaurusguru is a trading education and evaluation company that
                   does not in any way collect customer deposits or offer any
                   financial services to customers. Thaurusguru only provides
@@ -219,7 +214,7 @@ export const FooterSection = () => {
 
             <Separator className="bg-white/20 mb-4 md:mb-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]" />
 
-            <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+            <div className="hidden md:block translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
               <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-normal opacity-[0.57] mb-2">
                 Disclaimer
               </h4>
