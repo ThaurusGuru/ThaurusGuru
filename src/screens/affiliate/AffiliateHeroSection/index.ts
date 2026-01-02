@@ -1,0 +1,1 @@
+export { AffiliateHeroSection } from './AffiliateHeroSection';
