@@ -7,19 +7,19 @@ export const AffiliatePartnerSection = () => {
       description: "Get paid for every first purchase.",
     },
     {
-      icon: "/Affiliate/partner/mage_money-exchange.svg",
-      title: "Real-Time Tracking",
-      description: "Monitor your earnings instantly.",
+      icon: "/Affiliate/partner/image 1.svg",
+      title: "Give More, Convert More",
+      description: "Your referrals get a first-purchase discount.",
     },
     {
-      icon: "/Affiliate/partner/mage_money-exchange.svg",
-      title: "Marketing Materials",
-      description: "Access professional resources.",
+      icon: "/Affiliate/partner/img-2.svg",
+      title: "See Results Instantly",
+      description: "Track clicks, sales, and payouts in real time.",
     },
     {
-      icon: "/Affiliate/partner/mage_money-exchange.svg",
-      title: "Dedicated Support",
-      description: "Get help whenever you need.",
+      icon: "/Affiliate/partner/img-3.svg",
+      title: "Share. Scale. Earn.",
+      description: "Promote anywhere with your unique link.",
     },
   ];
 
@@ -62,16 +62,31 @@ export const AffiliatePartnerSection = () => {
               style={{
                 width: '72px',
                 height: '72px',
-                padding: '16px 21px',
                 borderRadius: '37px',
                 border: '0.6px solid #B988FA',
               }}
             >
-              <img 
-                src={card.icon} 
-                alt={card.title}
-                className="w-auto h-auto"
-              />
+              <div
+                style={{
+                  display: 'flex',
+                  width: '66px',
+                  height: '66px',
+                  padding: '18px',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '33px',
+                  border: '1px solid #B988FA',
+                  background: '#1B092E',
+                }}
+              >
+                <img 
+                  src={card.icon} 
+                  alt={card.title}
+                  className="w-auto h-auto"
+                />
+              </div>
             </div>
 
             {/* Title - 20px spacing */}

@@ -1,0 +1,1 @@
+export {AffiliateHowItWorks} from './AffiliateHowItWorks';
