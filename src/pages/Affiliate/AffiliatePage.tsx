@@ -6,6 +6,7 @@ import "../../index.css";
 import { AffiliateHowItWorks } from "../../screens/affiliate/Affiliate-How-it-works";
 import { AffiliateInfluencerPartnership } from "../../screens/affiliate/Affiliate-Influencer-Partnership";
 import { AffiliateSubAffiliate } from "../../screens/affiliate/Affiliate-Sub-Affiliate";
+import { AffiliateKeyBenefits } from "../../screens/affiliate/Affiliate-Key-Benefits";
 
 export const AffiliatePage = () => {
   return (
@@ -30,9 +31,20 @@ export const AffiliatePage = () => {
             zIndex: 0 
           }}
         />
+        {/* Background Image 3 */}
+        <img
+          src="/Affiliate/Bg3.png"
+          alt="Background"
+          className="absolute left-0 pointer-events-none"
+          style={{ 
+            top: '4200px', // Adjusted to start of Sub-Affiliate section
+            zIndex: 0 
+          }}
+        />
         <AffiliateHowItWorks/>
         <AffiliateInfluencerPartnership />
         <AffiliateSubAffiliate />
+        <AffiliateKeyBenefits />
       </main>
 
       {/* Footer */}
