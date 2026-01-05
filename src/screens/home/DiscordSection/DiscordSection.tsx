@@ -123,7 +123,7 @@ export const DiscordSection = () => {
           </div>
 
           {/* Join Button - Mobile responsive */}
-          <Button className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] mt-1 md:mt-0 flex items-center gap-[5px] px-3 md:px-4 py-[5px] h-[38px] md:h-[42px] bg-[#0e5fca] rounded-[20px] border border-solid border-white shadow-[0px_0px_0.27px_#728bac] hover:bg-[#0e5fca]/90 hover:scale-105 transition-all duration-300">
+          <Button className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] mt-6 md:mt-10 flex items-center gap-[5px] px-3 md:px-4 py-[5px] h-[38px] md:h-[42px] bg-[#0e5fca] rounded-[20px] border border-solid border-white shadow-[0px_0px_0.27px_#728bac] hover:bg-[#0e5fca]/90 hover:scale-105 transition-all duration-300">
             <img
               className="w-[32px] h-[32px] md:w-[37.59px] md:h-[37.59px]"
               alt="Discord icon"

@@ -40,7 +40,7 @@ export const CalculatorSection = () => {
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-6 md:gap-9 items-start mb-8 md:-mb-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-          <div className="relative flex flex-col gap-6 lg:block w-full lg:w-[490px]">
+          <div className="relative flex flex-col gap-6 lg:block w-full lg:w-[490px] mt-4">
             {/* Earnings Estimator Card */}
             <div className="relative w-full h-[250px] md:h-[306px]">
               <img
