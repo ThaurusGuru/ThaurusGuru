@@ -24,33 +24,97 @@ export const AffiliatePartnerSection = () => {
   ];
 
   return (
-    <section className="relative w-full px-7 mt-[156px]">
-      {/* Heading */}
-      <h2 
-        className="text-center font-normal"
-        style={{
-          fontFamily: '"M PLUS 2"',
-          fontSize: '42px',
-          fontWeight: '400',
-          lineHeight: '60px',
-          background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        }}
-      >
-        Become Thaurus Guru's Partner
-      </h2>
+    <>
+      <style>{`
+        @media (max-width: 568px) {
+          .partner-heading-mobile {
+            width: 239px !important;
+            text-align: center !important;
+            font-family: "M PLUS 2" !important;
+            font-size: 24px !important;
+            font-weight: 400 !important;
+            line-height: 35px !important;
+          }
+          
+          .partner-cards-mobile {
+            flex-direction: column !important;
+            align-items: center !important;
+            padding-left: 28px !important;
+            padding-right: 28px !important;
+          }
+
+          .partner-card-mobile {
+            width: 100% !important;
+            max-width: 320px !important;
+            height: 200px !important;
+            padding: 30px 20px !important;
+          }
+
+          .partner-icon-mobile {
+            width: 60px !important;
+            height: 60px !important;
+          }
+
+          .partner-icon-inner-mobile {
+            width: 54px !important;
+            height: 54px !important;
+            padding: 15px !important;
+            border-radius: 27px !important;
+          }
+
+          .partner-title-mobile {
+            font-size: 13px !important;
+            margin-top: 16px !important;
+          }
+
+          .partner-description-mobile {
+            width: 120px !important;
+            font-size: 11px !important;
+            line-height: 14px !important;
+            margin-top: 10px !important;
+          }
+
+          .partner-section-mobile {
+            padding-left: 28px !important;
+            padding-right: 28px !important;
+            margin-top: 100px !important;
+          }
+
+          .partner-cards-spacing-mobile {
+            margin-top: 60px !important;
+            gap: 20px !important;
+          }
+        }
+      `}</style>
+      
+      <section className="partner-section-mobile relative w-full px-7 mt-[156px]">
+        {/* Heading */}
+        <h2 
+          className="partner-heading-mobile text-center font-normal mx-auto"
+          style={{
+            fontFamily: '"M PLUS 2"',
+            fontSize: '42px',
+            fontWeight: '400',
+            lineHeight: '60px',
+            background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
+          Become Thaurus Guru's Partner
+        </h2>
 
       {/* Cards - 91px spacing */}
-      <div className="flex justify-center gap-[25px] mt-[91px]">
+      <div className="partner-cards-mobile partner-cards-spacing-mobile flex justify-center gap-[25px] mt-[91px]">
         {partnerCards.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col items-center pt-[43px]"
+            className="partner-card-mobile flex flex-col items-center"
             style={{
               width: '270px',
               height: '242px',
+              paddingTop: '43px',
               borderRadius: '20px',
               border: '1px solid #E9B1FF',
               background: 'linear-gradient(180deg, rgba(35, 11, 62, 0.20) 0%, rgba(93, 29, 164, 0.20) 100%)',
@@ -58,7 +122,7 @@ export const AffiliatePartnerSection = () => {
           >
             {/* Icon Circle */}
             <div
-              className="flex items-center justify-center"
+              className="partner-icon-mobile flex items-center justify-center"
               style={{
                 width: '72px',
                 height: '72px',
@@ -67,6 +131,7 @@ export const AffiliatePartnerSection = () => {
               }}
             >
               <div
+                className="partner-icon-inner-mobile"
                 style={{
                   display: 'flex',
                   width: '66px',
@@ -91,13 +156,14 @@ export const AffiliatePartnerSection = () => {
 
             {/* Title - 20px spacing */}
             <p
-              className="mt-[20px]"
+              className="partner-title-mobile mt-[20px]"
               style={{
                 color: '#FFF',
                 fontFamily: '"M PLUS 2"',
                 fontSize: '14px',
                 fontWeight: '400',
                 lineHeight: 'normal',
+                textAlign: 'center',
               }}
             >
               {card.title}
@@ -105,7 +171,7 @@ export const AffiliatePartnerSection = () => {
 
             {/* Description - 12px spacing */}
             <p
-              className="mt-[12px]"
+              className="partner-description-mobile mt-[12px]"
               style={{
                 width: '130px',
                 color: '#B988FA',
@@ -122,5 +188,6 @@ export const AffiliatePartnerSection = () => {
         ))}
       </div>
     </section>
+    </>
   );
 };
