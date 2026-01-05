@@ -10,14 +10,18 @@ export const CollaborationSection = () => {
             alt="Thaurus Guru"
             className="w-[180px] md:w-[354.733px] h-auto"
           />
-          <span className="text-white text-center font-['SF_Pro_Display'] text-2xl md:text-[46.739px] font-medium">
-            x
-          </span>
           <img
-            src="/collaboration/scope.svg"
-            alt="Scope360"
-            className="w-[180px] md:w-[312.733px] h-auto"
+            src="/collaboration/X.svg"
+            alt="X"
+            className="h-[16.739px] md:h-[20.739px] w-auto"
           />
+          <a href="https://scope360.io/" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:opacity-80 transition-opacity">
+            <img
+              src="/collaboration/scope.svg"
+              alt="Scope360"
+              className="w-[180px] md:w-[312.733px] h-auto"
+            />
+          </a>
         </div>
 
         {/* Heading - LARGER on mobile */}

@@ -97,6 +97,11 @@ export const PayoutsSection = () => {
       className="relative w-full pt-12 pb-4 md:py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: 'url(/payouts/payouts-bg.png)' }}
     >
+      {/* Top Gradient Blend */}
+      <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-b from-[#1b082e] to-transparent pointer-events-none z-10" />
+      
+      {/* Bottom Gradient Blend */}
+      <div className="absolute bottom-0 left-0 w-full h-[150px] bg-gradient-to-t from-[#1b082e] to-transparent pointer-events-none z-10" />
       {/* Desktop Version */}
       <div className="hidden md:block relative mx-auto max-w-[1316px] h-[592px]">
         <div className="absolute top-[116px] left-[calc(50.00%_-_658px)] w-[1316px] h-[360px] flex flex-col gap-[59px]">
@@ -140,7 +145,7 @@ export const PayoutsSection = () => {
                   Tunde Okafor
                 </div>
 
-                <div className="absolute top-[18px] left-px [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal]">
+                <div className="absolute top-[18px] left-px [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                   Just got paid $345
                 </div>
 
@@ -168,7 +173,7 @@ export const PayoutsSection = () => {
               Tunde Okafor
             </div>
 
-            <div className="absolute top-[18px] left-px [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal]">
+            <div className="absolute top-[18px] left-px [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
               Just got paid $345
             </div>
 
@@ -282,7 +287,7 @@ export const PayoutsSection = () => {
                   Tunde Okafor
                 </div>
 
-                <div className="[font-family:'Poppins',Helvetica] font-medium text-white text-[11px] tracking-[0] leading-[normal] mt-0.5">
+                <div className="[font-family:'Poppins',Helvetica] font-medium text-white text-[11px] tracking-[0] leading-[normal] mt-0.5 whitespace-nowrap">
                   Just got paid $345
                 </div>
 

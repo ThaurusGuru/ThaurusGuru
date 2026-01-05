@@ -99,7 +99,7 @@ export const HomePage = () => {
           />
         </div>
 
-        <section className="relative w-full -mb-12 md:-mb-16">
+        <section className="relative w-full -mb-12 md:-mb-16 mt-12 md:mt-20">
           <CollaborationSection />
         </section>
 
@@ -113,6 +113,10 @@ export const HomePage = () => {
             src="/discord-section/effect.png"
             alt=""
             className="absolute -top-[800px] left-0 w-auto h-[1500px] opacity-70 pointer-events-none z-0"
+            style={{
+              maskImage: 'linear-gradient(to bottom, transparent, black 15%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%)'
+            }}
           />
         </div>
 

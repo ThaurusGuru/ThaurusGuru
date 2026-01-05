@@ -51,7 +51,7 @@ export const HeroSection = () => {
           style={{ opacity: 1 }}
         />
         {/* Minimal gradient - only at bottom for smooth transition */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1b082e]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1b082e]" />
       </div>
 
       <div className="relative z-10 lg:max-w-[1300px] mx-auto">
