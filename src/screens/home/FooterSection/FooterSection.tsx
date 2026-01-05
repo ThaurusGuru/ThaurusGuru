@@ -48,6 +48,8 @@ export const FooterSection = () => {
           backgroundImage: 'url(/footer/footer-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          maskImage: 'linear-gradient(to bottom, transparent, black 15%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%)'
         }}
       />
 

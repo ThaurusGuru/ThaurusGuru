@@ -1,6 +1,6 @@
 export const CollaborationSection = () => {
   return (
-    <section className="relative w-full pt-12 md:pt-20 pb-12 md:pb-20 overflow-hidden">
+    <section className="relative w-full pt-12 md:pt-20 pb-12 md:pb-20">
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Logos with X separator - LARGER on mobile */}

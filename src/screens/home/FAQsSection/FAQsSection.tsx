@@ -55,7 +55,7 @@ export const FAQsSection = () => {
             <div key={faq.id}>
               <AccordionItem
                 value={faq.id}
-                className="accordion-item-gradient-border"
+                className={`accordion-item-gradient-border ${index === faqData.length - 1 ? "border-b-0" : ""}`}
               >
                 <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
                   {/* Mobile: Vertical layout, Desktop: Horizontal layout */}
