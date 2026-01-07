@@ -152,7 +152,7 @@ export const PricingSection = () => {
                 ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
                   ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18' 
-                  : 'text-gray-400 bg-transparent px-4 md:px-8'
+                  : 'text-white bg-transparent px-4 md:px-8'
               } ${index > 0 ? 'ml-4 md:ml-20' : ''}`}
             >
               {type.icon ? (
@@ -397,12 +397,12 @@ export const PricingSection = () => {
                 <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*4-4px)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-315px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
                 
                 {/* Row Backgrounds - FIXED HEIGHTS */}
-                <div className="absolute left-0 top-[95px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[153px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[211px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[269px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[327px] w-full h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[419px] w-full h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[107px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[165px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[223px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[281px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[339px] w-[calc(100%+64px)] h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[431px] w-[calc(100%+64px)] h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
                 
                 {/* Account Size Headers */}
                 <div className="grid grid-cols-[200px_repeat(5,1fr)] gap-4 mb-4 relative z-10">
