@@ -142,25 +142,21 @@ export const PricingSection = () => {
         </div>
 
         {/* Challenge Type Tabs - OUTSIDE table container */}
-        <div className="relative flex items-center mt-8 md:mt-16 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto">
+        <div className="relative flex items-center mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Tab Buttons */}
           {challengeTypes.map((type, index) => (
             <div
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`relative flex items-center justify-center gap-2 md:gap-3 py-4 md:py-6 cursor-pointer flex-shrink-0
+              className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
                 ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
-                  ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18' 
+                  ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.6px] pb-[calc(1.375rem+3.4px)] z-10' 
                   : 'text-white bg-transparent px-4 md:px-8'
               } ${index > 0 ? 'ml-4 md:ml-20' : ''}`}
             >
-              {type.icon ? (
+              {type.icon && (
                 <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
-              ) : (
-                <span className="[font-family:'Poppins',Helvetica] font-normal text-[20px] md:text-[26px] tracking-[0] leading-[normal]">
-                  {type.number}
-                </span>
               )}
               <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
                 {type.label}
@@ -171,7 +167,7 @@ export const PricingSection = () => {
 
         {/* Bordered Table Container - FIXED BORDER */}
         <div 
-          className="border border-[rgba(218,182,255,0.2)] rounded-[24px] rounded-tl-none p-4 md:p-8"
+          className="border border-[rgba(218,182,255,0.2)] rounded-[24px] rounded-tl-none p-4 md:p-8 bg-[#1a0a2e]"
           style={{
             width: window.innerWidth < 768 ? '100%' : 'auto',
             maxWidth: window.innerWidth < 768 ? '386px' : 'none',
@@ -462,7 +458,7 @@ export const PricingSection = () => {
                           {price}
                         </span>
                       </div>
-                      <Button className="h-10 w-[85%] rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity">
+                      <Button className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity">
                         Start Now
                       </Button>
                     </div>
@@ -474,8 +470,8 @@ export const PricingSection = () => {
                   <div></div>
                   <div className="col-span-5 w-full px-8 py-4 bg-white rounded-2xl border border-[#7a27ef]">
                     <div className="flex items-center justify-around flex-wrap gap-4">
-                      <img src="/pricing-section/confirmo.svg" alt="CONFIRMO" className="h-4 object-contain" />
-                      <img src="/pricing-section/flutterwave.svg" alt="Flutterwave" className="h-9 object-contain" />
+                      <img src="/pricing-section/confirmo.svg" alt="CONFIRMO" className="h-5 object-contain" />
+                      <img src="/pricing-section/flutterwave.svg" alt="Flutterwave" className="h-10 object-contain" />
                       <img src="/pricing-section/UPI.svg" alt="UPI" className="h-6 object-contain" />
                       <img src="/pricing-section/VISA.svg" alt="VISA" className="h-6 object-contain" />
                       <img src="/pricing-section/mastercard.svg" alt="Mastercard" className="h-6 object-contain" />
@@ -486,12 +482,12 @@ export const PricingSection = () => {
 
                 {/* Add-ons Section */}
                 <div className="mt-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-4 h-px bg-purple-500"></div>
+                  <div className="flex items-center gap-2 mb-6 -mx-8">
+                    <div className="w-8 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
                     <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base whitespace-nowrap">
                       Add-ons
                     </span>
-                    <div className="flex-1 h-px bg-purple-500"></div>
+                    <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
