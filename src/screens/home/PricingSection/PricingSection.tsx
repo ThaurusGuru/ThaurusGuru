@@ -142,7 +142,7 @@ export const PricingSection = () => {
         </div>
 
         {/* Challenge Type Tabs - OUTSIDE table container */}
-        <div className="relative flex items-center mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Tab Buttons */}
           {challengeTypes.map((type, index) => (
             <div
@@ -151,9 +151,9 @@ export const PricingSection = () => {
               className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
                 ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
-                  ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.6px] pb-[calc(1.375rem+3.4px)] z-10' 
+                  ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10 ${index === challengeTypes.length - 1 ? 'translate-x-[0.8px]' : ''}` 
                   : 'text-white bg-transparent px-4 md:px-8'
-              } ${index > 0 ? 'ml-4 md:ml-20' : ''}`}
+              } `}
             >
               {type.icon && (
                 <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
@@ -167,9 +167,11 @@ export const PricingSection = () => {
 
         {/* Bordered Table Container - FIXED BORDER */}
         <div 
-          className="border border-[rgba(218,182,255,0.2)] rounded-[24px] rounded-tl-none p-4 md:p-8 bg-[#1a0a2e]"
+          className={`w-full border border-[rgba(218,182,255,0.2)] rounded-[24px] bg-[#1a0a2e] 
+            ${activeTab === 0 ? 'rounded-tl-none' : ''} 
+            ${activeTab === 3 ? 'rounded-tr-none' : ''} 
+            p-4 md:p-8`}
           style={{
-            width: window.innerWidth < 768 ? '100%' : 'auto',
             maxWidth: window.innerWidth < 768 ? '386px' : 'none',
             margin: window.innerWidth < 768 ? '0 auto' : undefined,
             overflow: window.innerWidth < 768 ? 'hidden' : 'visible',
