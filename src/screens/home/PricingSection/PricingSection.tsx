@@ -151,7 +151,7 @@ export const PricingSection = () => {
               className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
                 ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
-                  ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[rgba(218,182,255,0.2)] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10 ${index === challengeTypes.length - 1 ? 'translate-x-[0.8px]' : ''}` 
+                  ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10 ${index === challengeTypes.length - 1 ? 'translate-x-[0.8px]' : ''}` 
                   : 'text-white bg-transparent px-4 md:px-8'
               } `}
             >
@@ -167,7 +167,7 @@ export const PricingSection = () => {
 
         {/* Bordered Table Container - FIXED BORDER */}
         <div 
-          className={`w-full border border-[rgba(218,182,255,0.2)] rounded-[24px] bg-[#1a0a2e] 
+          className={`w-full border border-[#DAB6FF] rounded-none bg-[#1a0a2e] 
             ${activeTab === 0 ? 'rounded-tl-none' : ''} 
             ${activeTab === 3 ? 'rounded-tr-none' : ''} 
             p-4 md:p-8`}
@@ -281,7 +281,7 @@ export const PricingSection = () => {
           <div className="md:hidden mt-8 opacity-0 animate-fade-in [--animation-delay:1600ms]">
             <div className="w-full mx-auto">
               <div
-                className="w-full max-w-[340px] mx-auto h-[696px] rounded-[20px] border border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] p-4"
+                className="w-full max-w-[340px] mx-auto h-auto rounded-[20px] border border-[#DAB6FF] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] p-4"
               >
                 {/* Account Size Header */}
                 <div className="text-center mb-4 pb-4">
@@ -297,7 +297,7 @@ export const PricingSection = () => {
                 </div>
 
                 {/* Table Data - Fixed height container with scroll */}
-                <div className="w-full h-[400px] overflow-y-auto mb-4">
+                <div className="w-full mb-4">
                   <div className="space-y-4">
                     {tableRows.slice(0, -1).map((row, rowIndex) => {
                       // Last two rows (Payout Split and Leverage) have height 80px
@@ -306,7 +306,7 @@ export const PricingSection = () => {
                       return (
                         <div 
                           key={rowIndex} 
-                          className={`w-full ${isLargeRow ? 'h-[80px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3`}
+                          className={`w-full ${isLargeRow ? 'h-[100px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3`}
                           style={{
                             background: 'linear-gradient(90deg, #1F0A34 0%, #29094B 50%, #1B092E 100%)'
                           }}
@@ -388,26 +388,26 @@ export const PricingSection = () => {
               {/* Table Grid */}
               <div className="relative">
                 {/* Column Background Wrappers */}
-                <div className="absolute left-[212px] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*1)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*2)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*3)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(212px+((100%-200px-64px)/5+16px)*4-4px)] -top-5 w-[calc((100%-200px-64px)/5+2px)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
                 
                 {/* Row Backgrounds - FIXED HEIGHTS */}
-                <div className="absolute -left-8 top-[107px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[165px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[223px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[281px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[339px] w-[calc(100%+64px)] h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[431px] w-[calc(100%+64px)] h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[113px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[171px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[229px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[287px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[345px] w-[calc(100%+64px)] h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute -left-8 top-[457px] w-[calc(100%+64px)] h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
                 
                 {/* Account Size Headers */}
-                <div className="grid grid-cols-[200px_repeat(5,1fr)] gap-4 mb-4 relative z-10">
+                <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-4 relative z-10">
                   <div></div>
                   {accountSizes.map((size, index) => (
                     <div key={index} className="rounded-2xl p-4 text-center">
-                      <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-2xl tracking-[0] leading-[normal] mb-1">
+                      <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-[34px] tracking-[0] leading-normal mb-1">
                         {size}
                       </p>
                       <div className="flex items-center justify-center gap-1">
@@ -422,9 +422,9 @@ export const PricingSection = () => {
 
                 {/* Table Rows - FIXED: Using exact heights to match backgrounds */}
                 {tableRows.map((row, rowIndex) => (
-                  <div key={rowIndex} className="grid grid-cols-[200px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
-                    <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[80px]' : 'h-[46px]'}`}>
-                      <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal]">
+                  <div key={rowIndex} className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
+                    <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
+                      <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                         {row.label}
                       </span>
                       {row.hasInfo && (
@@ -432,8 +432,8 @@ export const PricingSection = () => {
                       )}
                     </div>
                     {accountSizes.map((_, colIndex) => (
-                      <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[80px]' : 'h-[46px]'}`}>
-                        <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm ${rowIndex >= 4 ? 'leading-[1.4]' : 'leading-relaxed'}`}>
+                      <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
+                        <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${rowIndex >= 4 ? 'leading-[1.4]' : 'leading-relaxed'}`}>
                           {row.label === "Price" ? (
                             ""
                           ) : (
@@ -451,7 +451,7 @@ export const PricingSection = () => {
                 ))}
 
                 {/* Pricing Row */}
-                <div className="grid grid-cols-[200px_repeat(5,1fr)] gap-4 -mt-20 relative z-10">
+                <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 -mt-20 relative z-10">
                   <div></div>
                   {prices.map((price, index) => (
                     <div key={index} className="flex flex-col items-center gap-4">
@@ -468,7 +468,7 @@ export const PricingSection = () => {
                 </div>
 
                 {/* Payment Providers Section */}
-                <div className="grid grid-cols-[200px_repeat(5,1fr)] gap-4 mt-16 ">
+                <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mt-16 ">
                   <div></div>
                   <div className="col-span-5 w-full px-8 py-4 bg-white rounded-2xl border border-[#7a27ef]">
                     <div className="flex items-center justify-around flex-wrap gap-4">
