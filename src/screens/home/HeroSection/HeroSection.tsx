@@ -93,7 +93,7 @@ export const HeroSection = () => {
             <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] 
               grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 mt-4 sm:mt-6 md:mt-8 lg:mt-10 
               w-full max-w-[280px] sm:max-w-[360px] md:max-w-[460px]
-              mx-auto lg:mx-0">
+              mx-auto lg:mx-0 lg:-ml-2">
               {featureCards.map((card, index) => (
                 <div
                   key={index}

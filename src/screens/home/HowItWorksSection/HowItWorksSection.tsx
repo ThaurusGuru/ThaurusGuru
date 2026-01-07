@@ -44,7 +44,7 @@ const stepsData = [
 export const HowItWorksSection = () => {
   return (
     <section className="w-full py-12 md:py-20 px-4 flex flex-col gap-8 md:gap-16">
-      <h2 className="max-w-[263px] md:max-w-[832px] mx-auto 
+      <h2 className="max-w-[263px] md:max-w-[832px] lg:max-w-none mx-auto 
         text-center font-normal text-[24px] md:text-[42px] leading-normal
         bg-gradient-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent
         [font-family:'M_PLUS_2',Helvetica]

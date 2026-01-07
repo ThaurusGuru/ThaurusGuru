@@ -20,14 +20,19 @@ const statsData = [
 export const MainContentSection = () => {
   return (
     <section className="w-full py-8 md:py-12 relative">
-      <div className="container mx-auto px-4 lg:max-w-[1300px]">
-        {/* Top Horizontal Line */}
+      {/* Top Horizontal Line - Full width */}
+      <div className="relative w-full h-[3px] mb-2 md:mb-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
         <img 
           src="/hero/Horizontal-line.jpg" 
           alt="Horizontal line" 
-          className="w-full h-[3px] -mb-6 md:mb-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] object-cover"
+          className="w-full h-full object-cover mix-blend-screen"
+          style={{ opacity: 0.8 }}
         />
+        {/* Gradient fade on edges */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b082e] via-transparent to-[#1b082e]" style={{ width: '100%' }} />
+      </div>
 
+      <div className="container mx-auto px-4 lg:max-w-[1300px]">
         {/* Stats Grid Container */}
         <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-0 py-2 lg:py-0 pt-4 md:pt-0">
           {statsData.map((stat, index) => (
@@ -105,13 +110,18 @@ export const MainContentSection = () => {
             style={{ transform: 'translateX(-50%)' }}
           />
         </div>
+      </div>
 
-        {/* Bottom Horizontal Line */}
+      {/* Bottom Horizontal Line - Full width */}
+      <div className="relative w-full h-[3px] mt-2 md:mt-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
         <img 
           src="/hero/Horizontal-line.jpg" 
           alt="Horizontal line" 
-          className="w-full h-[3px] md:mt-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] object-cover"
+          className="w-full h-full object-cover mix-blend-screen"
+          style={{ opacity: 0.8 }}
         />
+        {/* Gradient fade on edges */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b082e] via-transparent to-[#1b082e]" style={{ width: '100%' }} />
       </div>
     </section>
   );
