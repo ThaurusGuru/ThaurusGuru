@@ -104,7 +104,7 @@ export const MainContentSection = () => {
             style={{ transform: 'translateX(-50%)' }}
           />
           <img
-            src="/hero/vertical-line-3.jpg"
+            src="/hero/vertical-line-2.jpg"
             alt="Vertical line 3"
             className="hidden lg:block absolute left-3/4 -top-16 h-98 w-auto object-cover pointer-events-none"
             style={{ transform: 'translateX(-50%)' }}
