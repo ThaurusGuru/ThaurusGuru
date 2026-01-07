@@ -132,28 +132,36 @@ export const PayoutsSection = () => {
           {notificationCards.map((card, index) => (
             <div
               key={`notification-card-${index}`}
-              className={`absolute ${card.top} ${card.left} w-[220px] h-16 flex gap-[11.7px] bg-[#00000000] rounded-[14px] ${card.rotation} shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]`}
+              className={`absolute ${card.top} ${card.left} flex w-[220px] h-[64px] justify-center items-start gap-[14.868px] rounded-[14px] ${card.rotation}`}
+              style={{
+                padding: '12.145px 16.639px 11.855px 16.494px',
+                background: 'rgba(27, 9, 46, 0.6)',
+                boxShadow: '10px 10px 16px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.40), inset 1px 0 0 rgba(255, 255, 255, 0.32), inset 0 -1px 1px rgba(0, 0, 0, 0.13), inset -1px 0 1px rgba(0, 0, 0, 0.11)',
+                backdropFilter: 'blur(2.0px) brightness(110%)',
+                WebkitBackdropFilter: 'blur(2.0px) brightness(110%)'
+              }}
             >
               <img
-                className="mt-[9.0px] w-[46.3px] h-[46.3px] ml-[13.3px] rounded-md object-cover"
+                className="w-[46.3px] h-[46.3px] rounded-md object-cover flex-shrink-0"
                 alt="Rectangle"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-145-3.png"
               />
 
-              <div className="mt-[12.7px] w-[132px] h-[39px] relative">
-                <div className="absolute top-px left-0 [font-family:'Blinker',Helvetica] font-normal text-[#b982fb] text-sm tracking-[0] leading-[normal]">
-                  Tunde Okafor
+              <div className="flex-1 relative">
+                <div className="flex items-center gap-1">
+                  <span className="[font-family:'Blinker',Helvetica] font-normal text-[#b982fb] text-sm tracking-[0] leading-[normal]">
+                    Tunde Okafor
+                  </span>
+                  <span className="[font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
+                    IN
+                  </span>
                 </div>
 
-                <div className="absolute top-[18px] left-px [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
+                <div className="absolute top-[18px] left-0 [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                   Just got paid $345
                 </div>
 
-                <div className="absolute -top-px left-[82px] [font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
-                  IN
-                </div>
-
-                <div className="absolute top-px left-28 [font-family:'Blinker',Helvetica] font-normal text-[#8b8b8b] text-[10px] tracking-[0] leading-[normal] whitespace-nowrap">
+                <div className="absolute top-0 right-0 [font-family:'Blinker',Helvetica] font-normal text-[#8b8b8b] text-[10px] tracking-[0] leading-[normal] whitespace-nowrap">
                   now
                 </div>
               </div>
@@ -161,27 +169,37 @@ export const PayoutsSection = () => {
           ))}
         </div>
 
-        <div className="absolute top-[86px] left-[1068px] w-[220px] h-16 flex gap-[11.7px] bg-[#00000000] rounded-[14px] rotate-[15deg] shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)]">
+        <div 
+          className="absolute top-[86px] left-[1068px] flex w-[220px] h-[64px] justify-center items-start gap-[14.868px] rounded-[14px] rotate-[15deg]"
+          style={{
+            padding: '12.145px 16.639px 11.855px 16.494px',
+            background: 'rgba(27, 9, 46, 0.6)',
+            boxShadow: '10px 10px 16px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.40), inset 1px 0 0 rgba(255, 255, 255, 0.32), inset 0 -1px 1px rgba(0, 0, 0, 0.13), inset -1px 0 1px rgba(0, 0, 0, 0.11)',
+            backdropFilter: 'blur(2.0px) brightness(110%)',
+            WebkitBackdropFilter: 'blur(2.0px) brightness(110%)'
+          }}
+        >
           <img
-            className="mt-[9.0px] w-[46.3px] h-[46.3px] ml-[13.3px] rounded-md object-cover"
+            className="w-[46.3px] h-[46.3px] rounded-md object-cover flex-shrink-0"
             alt="Rectangle"
             src="https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-145-3.png"
           />
 
-          <div className="mt-[12.7px] w-[132px] h-[39px] relative">
-            <div className="absolute top-px left-0 [font-family:'Blinker',Helvetica] font-normal text-[#b982fb] text-sm tracking-[0] leading-[normal]">
-              Tunde Okafor
+          <div className="flex-1 relative">
+            <div className="flex items-center gap-1">
+              <span className="[font-family:'Blinker',Helvetica] font-normal text-[#b982fb] text-sm tracking-[0] leading-[normal]">
+                Tunde Okafor
+              </span>
+              <span className="[font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
+                IN
+              </span>
             </div>
 
-            <div className="absolute top-[18px] left-px [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
+            <div className="absolute top-[18px] left-0 [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
               Just got paid $345
             </div>
 
-            <div className="absolute -top-px left-[82px] [font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
-              IN
-            </div>
-
-            <div className="absolute top-px left-28 [font-family:'Blinker',Helvetica] text-[#8b8b8b] text-[10px] whitespace-nowrap font-normal tracking-[0] leading-[normal]">
+            <div className="absolute top-0 right-0 [font-family:'Blinker',Helvetica] text-[#8b8b8b] text-[10px] whitespace-nowrap font-normal tracking-[0] leading-[normal]">
               now
             </div>
           </div>
@@ -274,25 +292,33 @@ export const PayoutsSection = () => {
           {mobileNotifications.map((card, index) => (
             <div
               key={`mobile-notification-${index}`}
-              className={`absolute ${card.top} ${card.isRight ? card.left : card.left} w-[160px] h-[50px] flex gap-2.5 bg-[#00000000] rounded-[14px] ${card.rotation} shadow-[10px_10px_16px_#00000040,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] z-20`}
+              className={`absolute ${card.top} ${card.isRight ? card.left : card.left} flex w-[160px] h-[50px] justify-center items-start gap-2.5 rounded-[14px] ${card.rotation} z-20`}
+              style={{
+                padding: '8px 12px',
+                background: 'rgba(27, 9, 46, 0.6)',
+                boxShadow: '10px 10px 16px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.40), inset 1px 0 0 rgba(255, 255, 255, 0.32), inset 0 -1px 1px rgba(0, 0, 0, 0.13), inset -1px 0 1px rgba(0, 0, 0, 0.11)',
+                backdropFilter: 'blur(2.0px) brightness(110%)',
+                WebkitBackdropFilter: 'blur(2.0px) brightness(110%)'
+              }}
             >
               <img
-                className="mt-2 w-9 h-9 ml-3 rounded-md object-cover flex-shrink-0"
+                className="w-9 h-9 rounded-md object-cover flex-shrink-0"
                 alt="Profile"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/rectangle-145-3.png"
               />
 
-              <div className="mt-2.5 flex-1 relative">
-                <div className="[font-family:'Blinker',Helvetica] font-normal text-[#b982fb] text-[11px] tracking-[0] leading-[normal]">
-                  Tunde Okafor
+              <div className="flex-1 relative">
+                <div className="flex items-center gap-1">
+                  <span className="[font-family:'Blinker',Helvetica] font-normal text-[#b982fb] text-[11px] tracking-[0] leading-[normal]">
+                    Tunde Okafor
+                  </span>
+                  <span className="[font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
+                    IN
+                  </span>
                 </div>
 
                 <div className="[font-family:'Poppins',Helvetica] font-medium text-white text-[11px] tracking-[0] leading-[normal] mt-0.5 whitespace-nowrap">
                   Just got paid $345
-                </div>
-
-                <div className="absolute top-0 right-6 [font-family:'Amiri_Quran_Colored-Regular',Helvetica] font-normal text-[#b982fb] text-[8px] tracking-[0] leading-[normal]">
-                  IN
                 </div>
 
                 <div className="absolute top-0 right-1 [font-family:'Blinker',Helvetica] font-normal text-[#8b8b8b] text-[9px] tracking-[0] leading-[normal] whitespace-nowrap">

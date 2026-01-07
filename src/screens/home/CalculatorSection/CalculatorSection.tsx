@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 
@@ -8,6 +8,26 @@ export const CalculatorSection = () => {
   const [accountSize, setAccountSize] = useState(25000);
   const [profitRate, setProfitRate] = useState(12);
   const [rewardSplit, setRewardSplit] = useState(80);
+  const [dotPosition, setDotPosition] = useState(0);
+
+  // Account size options
+  const accountSizes = [5000, 10000, 25000, 50000, 100000];
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Update dot position when account size changes
+  useEffect(() => {
+    const index = accountSizes.indexOf(accountSize);
+    const button = buttonRefs.current[index];
+    if (button) {
+      const parent = button.closest('.flex.items-center.justify-between');
+      if (parent) {
+        const parentRect = parent.getBoundingClientRect();
+        const buttonRect = button.getBoundingClientRect();
+        const relativeLeft = buttonRect.left - parentRect.left + buttonRect.width / 2;
+        setDotPosition(relativeLeft);
+      }
+    }
+  }, [accountSize, accountSizes]);
 
   // Calculate estimated earnings
   const calculateEarnings = () => {
@@ -201,27 +221,70 @@ export const CalculatorSection = () => {
                 </div>
               </div>
 
-              {/* Account Size Slider */}
-              <div className="relative w-full h-3.5">
-                <div className="absolute top-1 left-0 w-full h-1.5 bg-[#1a0533] rounded-full" />
-                <div 
-                  className="absolute top-1 left-0 h-1.5 bg-gradient-to-r from-[#7a27ef] to-[#ab66ff] rounded-full transition-all duration-200"
-                  style={{ width: `${((accountSize - 5000) / 95000) * 100}%` }}
-                />
-                <input
-                  type="range"
-                  min="5000"
-                  max="100000"
-                  step="5000"
-                  value={accountSize}
-                  onChange={(e) => setAccountSize(Number(e.target.value))}
-                  className="absolute top-0 left-0 w-full h-3.5 opacity-0 cursor-pointer z-10"
-                />
-                <div 
-                  className="absolute top-0 w-3.5 h-3.5 bg-white rounded-[7px] border border-solid border-[#290d46] cursor-pointer transition-all duration-200 pointer-events-none"
-                  style={{ left: `calc(${((accountSize - 5000) / 95000) * 100}% - 7px)` }}
-                />
+              {/* Account Size Button Selection */}
+              <div className="relative w-full px-2">
+                <div className="flex items-center justify-between relative" style={{ position: 'relative' }}>
+                  {accountSizes.map((size, index) => (
+                    <div
+                      key={size}
+                      className="flex flex-col items-center gap-3"
+                    >
+                      <button
+                        ref={(el) => { buttonRefs.current[index] = el; }}
+                        onClick={() => setAccountSize(size)}
+                        className="rounded-full border-2 transition-all duration-300 cursor-pointer flex items-center justify-center"
+                        style={{
+                          width: '24px',
+                          height: '24px',
+                          borderColor: accountSize === size ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.3)',
+                          position: 'relative',
+                        }}
+                      >
+                      </button>
+                      <span
+                        className="font-['Poppins',Helvetica] text-center whitespace-nowrap"
+                        style={{
+                          color: '#FFF',
+                          fontSize: '14px',
+                          fontStyle: 'normal',
+                          fontWeight: 500,
+                          lineHeight: '20px',
+                        }}
+                      >
+                        {size >= 1000 ? `${size / 1000}k` : size}
+                      </span>
+                    </div>
+                  ))}
+
+                  {/* Single glowing dot that travels between circles */}
+                  <div
+                    className="absolute rounded-full bg-white pointer-events-none"
+                    style={{
+                      width: '17.143px',
+                      height: '17.143px',
+                      aspectRatio: '17.14/17.14',
+                      left: `${dotPosition - 8.5715}px`,
+                      top: '3.4285px',
+                      boxShadow: '0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 40px 10px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.9)',
+                      animation: 'glow-pulse 2s ease-in-out infinite',
+                      transition: 'left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                      zIndex: 20,
+                    }}
+                  />
+                </div>
               </div>
+
+              {/* Add keyframes for glow animation */}
+              <style>{`
+                @keyframes glow-pulse {
+                  0%, 100% {
+                    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 40px 10px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.9);
+                  }
+                  50% {
+                    box-shadow: 0 0 30px 8px rgba(255, 255, 255, 1), 0 0 60px 15px rgba(255, 255, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 1);
+                  }
+                }
+              `}</style>
 
               {/* Profit Rate */}
               <div className="flex items-center justify-between">

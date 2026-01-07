@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import { Button } from "../../../components/ui/button";
-
-
+import { X } from "lucide-react";
 
 const statImages = [
   "/build-section/card-1.svg",
@@ -9,6 +9,28 @@ const statImages = [
 ];
 
 export const BuildSection = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+    
+    if (selectedImage) {
+      window.addEventListener('keydown', handleEsc);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   return (
     <section className="relative w-full -mt-24 md:mt-0 pb-4 md:py-8">
       <div className="container mx-auto px-4">
@@ -36,7 +58,8 @@ export const BuildSection = () => {
                   key={index}
                   src={imageSrc}
                   alt={`Stat card ${index + 1}`}
-                  className="w-[105.35px] lg:w-[184px] h-auto"
+                  className="w-[105.35px] lg:w-[184px] h-auto cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setSelectedImage(imageSrc)}
                 />
               ))}
             </div>
@@ -74,10 +97,11 @@ export const BuildSection = () => {
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
-              className="w-full overflow-hidden"
+              className="w-full overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
               style={{
                 aspectRatio: '55/32'
               }}
+              onClick={() => setSelectedImage(`/build-section/${num}.png`)}
             >
               <img 
                 src={`/build-section/${num}.png`}
@@ -88,6 +112,35 @@ export const BuildSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedImage(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            aria-label="Close"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+
+          {/* Image Container */}
+          <div 
+            className="relative max-w-[95vw] max-h-[95vh] p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Full screen view"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
