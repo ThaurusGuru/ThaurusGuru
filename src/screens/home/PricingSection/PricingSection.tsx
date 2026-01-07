@@ -182,7 +182,7 @@ export const PricingSection = () => {
           {/* Promotional Banner - Hidden on mobile */}
           <div className="hidden md:flex items-center justify-end mt-6 mb-8">
             <div 
-              className="w-[888px] h-[53px] rounded-[10px] flex items-center justify-center gap-3 px-6 border-2 border-dashed border-[#b882fb]"
+              className="w-[848px] h-[53px] rounded-[10px] flex items-center justify-center gap-3 px-6 border-2 border-dashed border-[#b882fb]"
               style={{
                 background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
               }}
