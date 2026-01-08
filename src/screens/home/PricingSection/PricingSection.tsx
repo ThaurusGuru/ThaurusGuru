@@ -20,12 +20,20 @@ const challengeTypes = [
 const accountSizes = ["$5K", "$10K", "$25K", "$50K", "$100K"];
 
 const tableRows = [
-  { label: "Profit Target (Phase 1)", hasInfo: true },
-  { label: "Max Daily Drawdown", hasInfo: true },
-  { label: "Max Overall Drawdown", hasInfo: true },
-  { label: "Minimum Trading Days", hasInfo: true },
-  { label: "Payout Split", hasInfo: true },
-  { label: "Leverage", hasInfo: true },
+  { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
+  { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
+  { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
+  { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
+  { 
+    label: "Payout Split", 
+    hasInfo: true, 
+    tooltip: "80%/20% - Bi-Weekly\n80%/20% - Weekly (add-on)" 
+  },
+  { 
+    label: "Leverage", 
+    hasInfo: true, 
+    tooltip: "FX 1:50, Indices 1:10,\nMetals 1:10, Energies 1:10\n& Crypto 1:1" 
+  },
   { label: "Price", hasInfo: false },
 ];
 
@@ -39,6 +47,30 @@ const columnData = [
 ];
 
 const prices = ["$89", "$129", "$249", "$369", "$589"];
+
+// Tooltip Component
+const InfoTooltip = ({ content }: { content: string }) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  return (
+    <div className="relative inline-block">
+      <InfoIcon 
+        className="w-3 h-3 md:w-4 md:h-4 text-[#9d62d9] md:text-white flex-shrink-0 cursor-help" 
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+      />
+      {isVisible && (
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-50 w-max max-w-[250px] px-3 py-2 bg-[#2a0f4a] border border-[#9d62d9] rounded-lg shadow-lg">
+          <div className="text-white text-xs [font-family:'Poppins',Helvetica] whitespace-pre-line leading-relaxed">
+            {content}
+          </div>
+          {/* Arrow */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#9d62d9]"></div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const PricingSection = () => {
   const [activeTab, setActiveTab] = React.useState(0);
@@ -151,7 +183,7 @@ export const PricingSection = () => {
               className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
                 ${index > 0 ? 'hidden md:flex' : 'flex'}
                 ${activeTab === index 
-                  ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10 ${index === challengeTypes.length - 1 ? 'translate-x-[0.8px]' : ''}` 
+                  ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10` 
                   : 'text-white bg-transparent px-4 md:px-8'
               } `}
             >
@@ -167,15 +199,17 @@ export const PricingSection = () => {
 
         {/* Bordered Table Container - FIXED BORDER */}
         <div 
-          className={`w-full border border-[#DAB6FF] rounded-none bg-[#1a0a2e] 
-            ${activeTab === 0 ? 'rounded-tl-none' : ''} 
-            ${activeTab === 3 ? 'rounded-tr-none' : ''} 
+          className={`w-full border border-[#DAB6FF] bg-[#1a0a2e] 
+            ${activeTab === 0 ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
+            ${activeTab === 1 ? 'rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
+            ${activeTab === 2 ? 'rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
+            ${activeTab === 3 ? 'rounded-tl-[20px] rounded-tr-none rounded-bl-[20px] rounded-br-[20px]' : ''} 
             p-4 md:p-8`}
           style={{
-            maxWidth: window.innerWidth < 768 ? '386px' : 'none',
-            margin: window.innerWidth < 768 ? '0 auto' : undefined,
-            overflow: window.innerWidth < 768 ? 'hidden' : 'visible',
-            marginTop: '-4px' // Seamless connection with tab
+            maxWidth: typeof window !== 'undefined' && window.innerWidth < 768 ? '386px' : 'none',
+            margin: typeof window !== 'undefined' && window.innerWidth < 768 ? '0 auto' : undefined,
+            overflow: typeof window !== 'undefined' && window.innerWidth < 768 ? 'hidden' : 'visible',
+            marginTop: '-4px'
           }}
         >
           
@@ -300,7 +334,6 @@ export const PricingSection = () => {
                 <div className="w-full mb-4">
                   <div className="space-y-4">
                     {tableRows.slice(0, -1).map((row, rowIndex) => {
-                      // Last two rows (Payout Split and Leverage) have height 80px
                       const isLargeRow = rowIndex >= 4;
                       
                       return (
@@ -316,22 +349,20 @@ export const PricingSection = () => {
                             <span className="[font-family:'Poppins',Helvetica] font-normal text-[#975CE9] text-[16px] tracking-[0] leading-[normal]">
                               {row.label}
                             </span>
-                            {row.hasInfo && (
-                              <InfoIcon className="w-3 h-3 text-[#975CE9] flex-shrink-0" />
+                            {row.hasInfo && row.tooltip && (
+                              <InfoTooltip content={row.tooltip} />
                             )}
                           </div>
                           
                           {/* Right: Value */}
                           <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] text-right">
                             {rowIndex === 4 ? (
-                              // Payout Split - Multi-line format
                               <>
                                 80%/20% - Bi-Weekly<br />
                                 80%/20% - Weekly<br />
                                 (add-on)
                               </>
                             ) : rowIndex === 5 ? (
-                              // Leverage - Multi-line format
                               <>
                                 FX 1:50 , Indices 1:10,<br />
                                 Metals 1:10, Energies<br />
@@ -388,19 +419,19 @@ export const PricingSection = () => {
               {/* Table Grid */}
               <div className="relative">
                 {/* Column Background Wrappers */}
-                <div className="absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-360px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
                 
                 {/* Row Backgrounds - FIXED HEIGHTS */}
-                <div className="absolute -left-8 top-[113px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[171px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[229px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[287px] w-[calc(100%+64px)] h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[345px] w-[calc(100%+64px)] h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute -left-8 top-[457px] w-[calc(100%+64px)] h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[113px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[171px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[229px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[287px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[345px] w-full h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[457px] w-full h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
                 
                 {/* Account Size Headers */}
                 <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-4 relative z-10">
@@ -427,8 +458,8 @@ export const PricingSection = () => {
                       <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                         {row.label}
                       </span>
-                      {row.hasInfo && (
-                        <InfoIcon className="w-4 h-4 text-white flex-shrink-0" />
+                      {row.hasInfo && row.tooltip && (
+                        <InfoTooltip content={row.tooltip} />
                       )}
                     </div>
                     {accountSizes.map((_, colIndex) => (
@@ -482,33 +513,33 @@ export const PricingSection = () => {
                   </div>
                 </div>
 
-                {/* Add-ons Section */}
+                {/* Add-ons Section - DESKTOP: Single Line */}
                 <div className="mt-8">
-                  <div className="flex items-center gap-2 mb-6 -mx-8">
+                  <div className="flex items-center gap-2 mb-6">
                     <div className="w-8 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
                     <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base whitespace-nowrap">
                       Add-ons
                     </span>
                     <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
                   </div>
-                  <div className="space-y-4">
+                  <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <img src="/pricing-section/icon-1.svg" alt="News trading" className="w-10 h-10" />
-                      <span className="text-white [font-family:'Cambay',Helvetica] text-base leading-[52px]">
+                      <img src="/pricing-section/icon-1.svg" alt="News trading" className="w-10 h-10 flex-shrink-0" />
+                      <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
                         <span className="font-bold">News trading</span>
                         <span className="font-normal"> (+10% from challenge price)</span>
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <img src="/pricing-section/icon-2.svg" alt="Weekend Trading" className="w-10 h-10" />
-                      <span className="text-white [font-family:'Cambay',Helvetica] text-base leading-[52px]">
+                      <img src="/pricing-section/icon-2.svg" alt="Weekend Trading" className="w-10 h-10 flex-shrink-0" />
+                      <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
                         <span className="font-bold">Weekend Trading</span>
                         <span className="font-normal"> (+10% from challenge price)</span>
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <img src="/pricing-section/icon-3.svg" alt="Weekly Payout" className="w-10 h-10" />
-                      <span className="text-white [font-family:'Cambay',Helvetica] text-base leading-[52px]">
+                      <img src="/pricing-section/icon-3.svg" alt="Weekly Payout" className="w-10 h-10 flex-shrink-0" />
+                      <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
                         <span className="font-bold">Weekly Payout</span>
                         <span className="font-normal"> (+40% from challenge price)</span>
                       </span>

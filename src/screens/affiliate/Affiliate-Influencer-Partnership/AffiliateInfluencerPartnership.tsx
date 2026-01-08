@@ -141,7 +141,7 @@ export const AffiliateInfluencerPartnership = () => {
           }}
         >
           {/* Header */}
-          <div className="influencer-header-mobile absolute top-[-17px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+          <div className="influencer-header-mobile absolute top-[-32px] md:top-[-50px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
              <div className="relative flex items-center justify-center">
                <img src="/Affiliate/exclusive.svg" alt="Exclusive" style={{ width: '386px', height: '74px' }} />
                <p
@@ -251,7 +251,7 @@ export const AffiliateInfluencerPartnership = () => {
           }}
         >
           {/* Header */}
-          <div className="influencer-header-mobile absolute top-[-17px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+          <div className="influencer-header-mobile absolute top-[-32px] md:top-[-50px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
              <div className="relative flex items-center justify-center">
                <img src="/Affiliate/nonexclusive.svg" alt="Non-Exclusive" style={{ width: '386px', height: '61.367px' }} />
                <p
