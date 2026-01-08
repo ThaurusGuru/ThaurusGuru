@@ -47,14 +47,14 @@ export const CollaborationSection = () => {
           <img
             src="/collaboration/browser.svg"
             alt="Trading Dashboard"
-            className="relative w-[238.834px] md:w-full h-[153.817px] md:h-auto rounded-lg shadow-2xl z-10 mx-auto"
+            className="relative w-[238.834px] md:w-[700px] h-auto rounded-lg shadow-2xl z-10 mx-auto"
           />
           
           {/* Scope image - positioned on the right side */}
           <img
             src="/collaboration/scopeelement (1).svg"
             alt="Scope Analytics"
-            className="absolute top-[70%] -right-2 md:-right-8 -translate-y-1/2 w-[74.412px] md:w-[300px] h-[106.781px] md:h-auto rounded-lg shadow-2xl z-20"
+            className="absolute top-[60%] -right-2 md:right-[190px] -translate-y-1/2 w-[74.412px] md:w-[180px] h-auto rounded-lg shadow-2xl z-20"
           />
         </div>
       </div>
