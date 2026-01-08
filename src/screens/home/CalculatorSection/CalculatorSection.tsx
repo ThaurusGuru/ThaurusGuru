@@ -64,7 +64,7 @@ export const CalculatorSection = () => {
             {/* Earnings Estimator Card */}
             <div className="relative w-full h-[250px] md:h-[306px]">
               <img
-                className="absolute top-0 left-0 w-full h-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-contain"
                 alt="Mask group"
                 src="/calculator-section/earning-card.svg"
               />
@@ -206,7 +206,7 @@ export const CalculatorSection = () => {
 
           {/* Calculator Input Card */}
           <div className="calculator-card-border relative w-full max-w-[386px] lg:max-w-[634px] h-[510px] lg:h-[648px] mx-auto rounded-[20px] mb-6 lg:mb-0">
-            <div className="relative z-10 flex flex-col gap-6 lg:gap-[38px] pt-6 lg:pt-[40px] px-6 lg:px-[62px] pb-6 lg:pb-0">
+            <div className="relative z-10 flex flex-col gap-6 lg:gap-[28px] pt-6 lg:pt-[40px] px-6 lg:px-[62px] pb-6 lg:pb-0">
               {/* Account Size */}
               <div className="flex items-center justify-between">
                 <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base lg:text-lg tracking-[0] leading-5">
