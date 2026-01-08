@@ -115,7 +115,7 @@ export const AffiliateHeroSection = () => {
       {/* Hero Image - 220px from top */}
       <div className="absolute top-[180px] left-1/2 -translate-x-1/2 w-full h-auto pointer-events-none z-0">
         <img
-          src="/Affiliate/Hero/Hero section.svg"
+          src="Affiliate/Hero section.svg"
           alt="Affiliate Hero"
           className="w-full h-auto object-contain"
         />
