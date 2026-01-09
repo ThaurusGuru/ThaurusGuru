@@ -5,12 +5,12 @@ import { Button } from "../ui/button";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Trading", href: "#" },
-  { label: "FAQ", href: "#" },
   { label: "Affiliate", href: "/affiliate" },
+  { label: "Scaling Plan", href: "/scaling-plan" },
   { label: "About Us", href: "/about-us" },
-  { label: "Contact Us", href: "#" },
-  { label: "Blogs", href: "#" },
+  { label: "Contact Us", href: "/contact-us" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export const Header = () => {

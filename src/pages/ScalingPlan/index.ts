@@ -1,0 +1,1 @@
+export { ScalingPlanPage } from "./ScalingPlanPage";
