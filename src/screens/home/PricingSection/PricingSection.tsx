@@ -24,15 +24,15 @@ const tableRows = [
   { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
   { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
   { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
-  { 
-    label: "Payout Split", 
-    hasInfo: true, 
-    tooltip: "80%/20% - Bi-Weekly\n80%/20% - Weekly (add-on)" 
+  {
+    label: "Profit Split",
+    hasInfo: true,
+    tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)"
   },
-  { 
-    label: "Leverage", 
-    hasInfo: true, 
-    tooltip: "FX 1:50, Indices 1:10,\nMetals 1:10, Energies 1:10\n& Crypto 1:1" 
+  {
+    label: "Leverage",
+    hasInfo: true,
+    tooltip: "" // This will be calculated dynamically
   },
   { label: "Price", hasInfo: false },
 ];
@@ -42,8 +42,8 @@ const columnData = [
   { value: "4%" },
   { value: "10%" },
   { value: "4" },
-  { value: "80%/20% - Bi-Weekly\n80%/20% - Weekly (add-on)" },
-  { value: "FX 1:50 , Indices 1:10, Metals 1:10, Energies 1:10 & Crypto 1:1" },
+  { value: "" }, // Profit Split - calculated dynamically
+  { value: "" }, // Leverage - calculated dynamically
 ];
 
 const prices = ["$89", "$129", "$249", "$369", "$589"];
@@ -75,6 +75,117 @@ const InfoTooltip = ({ content }: { content: string }) => {
 export const PricingSection = () => {
   const [activeTab, setActiveTab] = React.useState(0);
   const [activeAccountIndex, setActiveAccountIndex] = React.useState(0);
+  const [activeModel, setActiveModel] = React.useState<'classic' | 'pro' | 'payg'>('classic');
+
+  // Function to get profit split based on model and challenge type
+  const getProfitSplit = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number): string => {
+    if (model === 'payg') {
+      return 'Up to 80%';
+    }
+
+    // For Classic and Pro models
+    if (tabIndex === 0) { // Instant
+      return model === 'classic' ? 'Up to 85%' : 'Up to 85%';
+    } else if (tabIndex === 1) { // One Step
+      return model === 'classic' ? 'Up to 90%' : 'Up to 90%';
+    } else if (tabIndex === 2) { // Two Step
+      return model === 'classic' ? 'Up to 95%' : 'Up to 95%';
+    } else if (tabIndex === 3) { // Three Step (Classic only)
+      return 'Up to 90%';
+    }
+
+    return 'Up to 80%';
+  }, []);
+
+  // Function to get leverage main text based on model and challenge type
+  const getLeverageText = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number): string => {
+    if (model === 'payg') {
+      return '1:100';
+    }
+
+    if (tabIndex === 0) { // Instant
+      return model === 'classic' ? '1:30' : '1:30';
+    } else if (tabIndex === 1) { // One Step
+      return model === 'classic' ? '1:50' : '1:50';
+    } else if (tabIndex === 2) { // Two Step
+      return model === 'classic' ? '1:100' : '1:100';
+    } else if (tabIndex === 3) { // Three Step (Classic only)
+      return '1:100';
+    }
+
+    return '1:30';
+  }, []);
+
+  // Function to get leverage tooltip text based on model and challenge type
+  const getLeverageTooltip = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number): string => {
+    if (model === 'payg') {
+      return '1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10';
+    }
+
+    if (tabIndex === 0) { // Instant
+      return model === 'classic'
+        ? 'FX 1:30, Metals/Energies 1:10, Indices 1:10, Crypto 1:1'
+        : 'FX 1:30, Metals/Energies 1:10, Indices 1:10, Crypto 1:1';
+    } else if (tabIndex === 1) { // One Step
+      return model === 'classic'
+        ? 'FX 1:50 , Indices 1:10, Metals 1:10, Energies 1:10 & Crypto 1:1'
+        : 'FX 1:50 , Indices 1:10, Metals 1:10, Energies 1:10 & Crypto 1:1';
+    } else if (tabIndex === 2) { // Two Step
+      return model === 'classic'
+        ? '1:100 FX, 1:20 Indices, 1:30 Metals, 1:5 Crypto, Energies 1:10'
+        : '1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10';
+    } else if (tabIndex === 3) { // Three Step (Classic only)
+      return '1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10';
+    }
+
+    return 'FX 1:30, Metals/Energies 1:10, Indices 1:10, Crypto 1:1';
+  }, []);
+
+  // Function to get add-ons based on model and challenge type
+  const getAddOns = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
+    // Instant, Instant PRO, and Pay As You Go - No Add-ons
+    if (tabIndex === 0 || model === 'payg') {
+      return [];
+    }
+
+    // Classic Three Step - 4 add-ons
+    if (model === 'classic' && tabIndex === 3) {
+      return [
+        { icon: '/pricing-section/icon-1.svg', title: 'News trading', price: '' },
+        { icon: '/pricing-section/icon-2.svg', title: 'Weekend Trading', price: '' },
+        { icon: '/pricing-section/icon-3.svg', title: 'Weekly Payout', price: '' },
+        { icon: '/pricing-section/icon-1.svg', title: 'No minimum trading days', price: '' },
+      ];
+    }
+
+    // Classic One-Two Step and PRO One-Two Step - 3 add-ons
+    if ((model === 'classic' && (tabIndex === 1 || tabIndex === 2)) ||
+        (model === 'pro' && (tabIndex === 1 || tabIndex === 2))) {
+      return [
+        { icon: '/pricing-section/icon-1.svg', title: 'News Trading', price: '' },
+        { icon: '/pricing-section/icon-2.svg', title: 'Weekend Trading', price: '' },
+        { icon: '/pricing-section/icon-3.svg', title: 'Weekly Payout', price: '' },
+      ];
+    }
+
+    return [];
+  }, []);
+
+  // Filter challenge types based on active model
+  const availableChallengeTypes = React.useMemo(() => {
+    if (activeModel === 'pro') {
+      // Hide Three Step (index 3) when PRO is active
+      return challengeTypes.filter((_, index) => index !== 3);
+    }
+    return challengeTypes;
+  }, [activeModel]);
+
+  // Reset active tab if Three Step was selected and user switches to PRO
+  React.useEffect(() => {
+    if (activeModel === 'pro' && activeTab === 3) {
+      setActiveTab(0); // Reset to Instant
+    }
+  }, [activeModel, activeTab]);
 
   return (
     <section className="relative w-full py-6 md:py-10 px-4 translate-y-[-1rem] animate-fade-in opacity-0">
@@ -125,19 +236,30 @@ export const PricingSection = () => {
           <div className="flex flex-col md:flex-row gap-3 md:gap-4">
             {/* First Row on Mobile: CLASSIC and PRO */}
             <div className="flex gap-3 md:gap-4">
-              <Button className="flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px] 
-                rounded-[10px] border border-solid border-[#a770e0] 
-                bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] 
-                [font-family:'Cambay',Helvetica] font-bold text-white 
-                text-base md:text-xl 
-                hover:opacity-90 transition-opacity">
+              <Button
+                onClick={() => setActiveModel('classic')}
+                className={`flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px]
+                rounded-[10px] border border-solid
+                [font-family:'Cambay',Helvetica] font-bold text-white
+                text-base md:text-xl
+                hover:opacity-90 transition-opacity
+                ${activeModel === 'classic'
+                  ? 'border-[#a770e0] bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)]'
+                  : 'border-[#4f1b85] bg-[#1b0732]'
+                }`}>
                 CLASSIC
               </Button>
-              <Button className="flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px] 
-                bg-[#1b0732] rounded-[10px] border border-solid border-[#4f1b85] 
-                [font-family:'Cambay',Helvetica] font-bold text-white 
-                text-base md:text-xl 
-                hover:opacity-90 transition-opacity">
+              <Button
+                onClick={() => setActiveModel('pro')}
+                className={`flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px]
+                rounded-[10px] border border-solid
+                [font-family:'Cambay',Helvetica] font-bold text-white
+                text-base md:text-xl
+                hover:opacity-90 transition-opacity
+                ${activeModel === 'pro'
+                  ? 'border-[#a770e0] bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)]'
+                  : 'border-[#4f1b85] bg-[#1b0732]'
+                }`}>
                 PRO
               </Button>
             </div>
@@ -165,7 +287,9 @@ export const PricingSection = () => {
               
               {/* Mobile & Desktop: Same SVG button, responsive sizing */}
               <img
-                className="w-auto max-w-[200px] md:w-[228px] h-[44px] md:h-[52px] object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setActiveModel('payg')}
+                className={`w-auto max-w-[200px] md:w-[228px] h-[44px] md:h-[52px] object-contain cursor-pointer hover:opacity-90 transition-opacity
+                ${activeModel === 'payg' ? 'ring-2 ring-[#a770e0] rounded-[10px]' : ''}`}
                 alt="Pay As You Go"
                 src="/pricing-section/payg-btn.svg"
               />
@@ -176,25 +300,30 @@ export const PricingSection = () => {
         {/* Challenge Type Tabs - OUTSIDE table container */}
         <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Tab Buttons */}
-          {challengeTypes.map((type, index) => (
-            <div
-              key={index}
-              onClick={() => setActiveTab(index)}
-              className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
-                ${index > 0 ? 'hidden md:flex' : 'flex'}
-                ${activeTab === index 
-                  ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10` 
-                  : 'text-white bg-transparent px-4 md:px-8'
-              } `}
-            >
-              {type.icon && (
-                <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
-              )}
-              <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
-                {type.label}
-              </span>
-            </div>
-          ))}
+          {availableChallengeTypes.map((type, index) => {
+            // Get the original index from challengeTypes array
+            const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
+
+            return (
+              <div
+                key={index}
+                onClick={() => setActiveTab(originalIndex)}
+                className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
+                  ${index > 0 ? 'hidden md:flex' : 'flex'}
+                  ${activeTab === originalIndex
+                    ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10`
+                    : 'text-white bg-transparent px-4 md:px-8'
+                } ${(type.label === 'Three Step' || (type.label === 'Two Step' && activeModel === 'pro')) ? 'ml-[0.8px]' : ''}`}
+              >
+                {type.icon && (
+                  <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
+                )}
+                <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+                  {type.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
 
         {/* Bordered Table Container - FIXED BORDER */}
@@ -202,7 +331,7 @@ export const PricingSection = () => {
           className={`w-full border border-[#DAB6FF] bg-[#1a0a2e] 
             ${activeTab === 0 ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
             ${activeTab === 1 ? 'rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
-            ${activeTab === 2 ? 'rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
+            ${activeTab === 2 ? `rounded-tl-[20px] ${activeModel === 'pro' ? 'rounded-tr-none' : 'rounded-tr-[20px]'} rounded-bl-[20px] rounded-br-[20px]` : ''} 
             ${activeTab === 3 ? 'rounded-tl-[20px] rounded-tr-none rounded-bl-[20px] rounded-br-[20px]' : ''} 
             p-4 md:p-8`}
           style={{
@@ -253,21 +382,26 @@ export const PricingSection = () => {
             
             {/* Challenge Type Buttons */}
             <div className="w-full flex gap-2 justify-center">
-              {challengeTypes.slice(1).map((type, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index + 1)}
-                  className={`flex flex-col justify-center items-center w-[112px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border transition-all
-                    ${activeTab === index + 1
-                      ? 'bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] border-[#a770e0]'
-                      : 'bg-[#1b0732] border-[#4f1b85]'
-                    }`}
-                >
-                  <span className="[font-family:'Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
-                    {type.number} {type.label}
-                  </span>
-                </button>
-              ))}
+              {availableChallengeTypes.slice(1).map((type, index) => {
+                // Get the original index from challengeTypes array
+                const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
+
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTab(originalIndex)}
+                    className={`flex flex-col justify-center items-center w-[112px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border transition-all
+                      ${activeTab === originalIndex
+                        ? 'bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] border-[#a770e0]'
+                        : 'bg-[#1b0732] border-[#4f1b85]'
+                      }`}
+                  >
+                    <span className="[font-family:'Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                      {type.number} {type.label}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
             
             {/* Account Size Buttons */}
@@ -335,10 +469,15 @@ export const PricingSection = () => {
                   <div className="space-y-4">
                     {tableRows.slice(0, -1).map((row, rowIndex) => {
                       const isLargeRow = rowIndex >= 4;
-                      
+
+                      // Get dynamic tooltip for leverage
+                      const dynamicTooltip = rowIndex === 5
+                        ? getLeverageTooltip(activeModel, activeTab)
+                        : row.tooltip;
+
                       return (
-                        <div 
-                          key={rowIndex} 
+                        <div
+                          key={rowIndex}
                           className={`w-full ${isLargeRow ? 'h-[100px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3`}
                           style={{
                             background: 'linear-gradient(90deg, #1F0A34 0%, #29094B 50%, #1B092E 100%)'
@@ -349,25 +488,19 @@ export const PricingSection = () => {
                             <span className="[font-family:'Poppins',Helvetica] font-normal text-[#975CE9] text-[16px] tracking-[0] leading-[normal]">
                               {row.label}
                             </span>
-                            {row.hasInfo && row.tooltip && (
-                              <InfoTooltip content={row.tooltip} />
+                            {row.hasInfo && dynamicTooltip && (
+                              <InfoTooltip content={dynamicTooltip} />
                             )}
                           </div>
-                          
+
                           {/* Right: Value */}
                           <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] text-right">
                             {rowIndex === 4 ? (
-                              <>
-                                80%/20% - Bi-Weekly<br />
-                                80%/20% - Weekly<br />
-                                (add-on)
-                              </>
+                              // Profit Split - Dynamic based on model and tab
+                              getProfitSplit(activeModel, activeTab)
                             ) : rowIndex === 5 ? (
-                              <>
-                                FX 1:50 , Indices 1:10,<br />
-                                Metals 1:10, Energies<br />
-                                1:10 & Crypto 1:1
-                              </>
+                              // Leverage - Dynamic based on model and tab
+                              getLeverageText(activeModel, activeTab)
                             ) : (
                               columnData[rowIndex].value.split('\n').map((line, i) => (
                                 <React.Fragment key={i}>
@@ -419,11 +552,11 @@ export const PricingSection = () => {
               {/* Table Grid */}
               <div className="relative">
                 {/* Column Background Wrappers */}
-                <div className="absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
-                <div className="absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] h-[calc(100%-220px)] rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0"></div>
+                <div className={`absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
                 
                 {/* Row Backgrounds - FIXED HEIGHTS */}
                 <div className="absolute left-0 top-[113px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
@@ -452,34 +585,47 @@ export const PricingSection = () => {
                 </div>
 
                 {/* Table Rows - FIXED: Using exact heights to match backgrounds */}
-                {tableRows.map((row, rowIndex) => (
-                  <div key={rowIndex} className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
-                    <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
-                      <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
-                        {row.label}
-                      </span>
-                      {row.hasInfo && row.tooltip && (
-                        <InfoTooltip content={row.tooltip} />
-                      )}
-                    </div>
-                    {accountSizes.map((_, colIndex) => (
-                      <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
-                        <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${rowIndex >= 4 ? 'leading-[1.4]' : 'leading-relaxed'}`}>
-                          {row.label === "Price" ? (
-                            ""
-                          ) : (
-                            columnData[rowIndex].value.split('\n').map((line, i) => (
-                              <React.Fragment key={i}>
-                                {line}
-                                {i < columnData[rowIndex].value.split('\n').length - 1 && <br />}
-                              </React.Fragment>
-                            ))
-                          )}
+                {tableRows.map((row, rowIndex) => {
+                  // Get dynamic tooltip for leverage
+                  const dynamicTooltip = rowIndex === 5
+                    ? getLeverageTooltip(activeModel, activeTab)
+                    : row.tooltip;
+
+                  return (
+                    <div key={rowIndex} className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
+                      <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
+                        <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
+                          {row.label}
                         </span>
+                        {row.hasInfo && dynamicTooltip && (
+                          <InfoTooltip content={dynamicTooltip} />
+                        )}
                       </div>
-                    ))}
-                  </div>
-                ))}
+                      {accountSizes.map((_, colIndex) => (
+                        <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
+                          <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${rowIndex >= 4 ? 'leading-[1.4]' : 'leading-relaxed'}`}>
+                            {row.label === "Price" ? (
+                              ""
+                            ) : rowIndex === 4 ? (
+                              // Profit Split - Dynamic based on model and tab
+                              getProfitSplit(activeModel, activeTab)
+                            ) : rowIndex === 5 ? (
+                              // Leverage - Dynamic based on model and tab
+                              getLeverageText(activeModel, activeTab)
+                            ) : (
+                              columnData[rowIndex].value.split('\n').map((line, i) => (
+                                <React.Fragment key={i}>
+                                  {line}
+                                  {i < columnData[rowIndex].value.split('\n').length - 1 && <br />}
+                                </React.Fragment>
+                              ))
+                            )}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
 
                 {/* Pricing Row */}
                 <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 -mt-20 relative z-10">
@@ -513,38 +659,44 @@ export const PricingSection = () => {
                   </div>
                 </div>
 
-                {/* Add-ons Section - DESKTOP: Single Line */}
+                {/* Add-ons Section - DESKTOP: Dynamic based on model and tab */}
                 <div className="mt-8">
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="w-8 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
-                    <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base whitespace-nowrap">
-                      Add-ons
-                    </span>
-                    <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
-                  </div>
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <img src="/pricing-section/icon-1.svg" alt="News trading" className="w-10 h-10 flex-shrink-0" />
-                      <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
-                        <span className="font-bold">News trading</span>
-                        <span className="font-normal"> (+10% from challenge price)</span>
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <img src="/pricing-section/icon-2.svg" alt="Weekend Trading" className="w-10 h-10 flex-shrink-0" />
-                      <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
-                        <span className="font-bold">Weekend Trading</span>
-                        <span className="font-normal"> (+10% from challenge price)</span>
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <img src="/pricing-section/icon-3.svg" alt="Weekly Payout" className="w-10 h-10 flex-shrink-0" />
-                      <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
-                        <span className="font-bold">Weekly Payout</span>
-                        <span className="font-normal"> (+40% from challenge price)</span>
-                      </span>
-                    </div>
-                  </div>
+                  {(() => {
+                    const addOns = getAddOns(activeModel, activeTab);
+
+                    if (addOns.length === 0) {
+                      return (
+                        <div className="flex items-center justify-center py-4">
+                          <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base">
+                            No Add-ons
+                          </span>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <>
+                        <div className="flex items-center gap-2 mb-6">
+                          <div className="w-8 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
+                          <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base whitespace-nowrap">
+                            Add-ons
+                          </span>
+                          <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
+                        </div>
+                        <div className={`flex items-center ${addOns.length === 4 ? 'justify-around' : 'justify-between'} gap-3`}>
+                          {addOns.map((addon, index) => (
+                            <div key={index} className="flex items-center gap-3">
+                              <img src={addon.icon} alt={addon.title} className="w-10 h-10 flex-shrink-0" />
+                              <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
+                                <span className="font-bold">{addon.title}</span>
+                                {addon.price && <span className="font-normal"> {addon.price}</span>}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
             </CardContent>
@@ -562,38 +714,44 @@ export const PricingSection = () => {
             </div>
           </div>
 
-          {/* Mobile: Add-ons Section */}
+          {/* Mobile: Add-ons Section - Dynamic based on model and tab */}
           <div className="md:hidden mt-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-px bg-purple-500"></div>
-              <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-sm whitespace-nowrap">
-                Add-ons
-              </span>
-              <div className="flex-1 h-px bg-purple-500"></div>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <img src="/pricing-section/icon-1.svg" alt="News trading" className="w-8 h-8 flex-shrink-0" />
-                <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
-                  <span className="font-bold">News trading</span>
-                  <span className="font-normal"> (+10% from challenge price)</span>
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <img src="/pricing-section/icon-2.svg" alt="Weekend Trading" className="w-8 h-8 flex-shrink-0" />
-                <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
-                  <span className="font-bold">Weekend Trading</span>
-                  <span className="font-normal"> (+10% from challenge price)</span>
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <img src="/pricing-section/icon-3.svg" alt="Weekly Payout" className="w-8 h-8 flex-shrink-0" />
-                <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
-                  <span className="font-bold">Weekly Payout</span>
-                  <span className="font-normal"> (+40% from challenge price)</span>
-                </span>
-              </div>
-            </div>
+            {(() => {
+              const addOns = getAddOns(activeModel, activeTab);
+
+              if (addOns.length === 0) {
+                return (
+                  <div className="flex items-center justify-center py-4">
+                    <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-sm">
+                      No Add-ons
+                    </span>
+                  </div>
+                );
+              }
+
+              return (
+                <>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-2 h-px bg-purple-500"></div>
+                    <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-sm whitespace-nowrap">
+                      Add-ons
+                    </span>
+                    <div className="flex-1 h-px bg-purple-500"></div>
+                  </div>
+                  <div className="space-y-3">
+                    {addOns.map((addon, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <img src={addon.icon} alt={addon.title} className="w-8 h-8 flex-shrink-0" />
+                        <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
+                          <span className="font-bold">{addon.title}</span>
+                          {addon.price && <span className="font-normal"> {addon.price}</span>}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </div>
       </div>
