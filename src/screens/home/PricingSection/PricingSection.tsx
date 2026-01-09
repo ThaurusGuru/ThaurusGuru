@@ -552,19 +552,20 @@ export const PricingSection = () => {
               {/* Table Grid */}
               <div className="relative">
                 {/* Column Background Wrappers */}
-                <div className={`absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
-                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
-                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
-                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
-                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-190px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*1)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*2)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
+                <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
                 
                 {/* Row Backgrounds - FIXED HEIGHTS */}
-                <div className="absolute left-0 top-[113px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[171px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[229px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[287px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[345px] w-full h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[457px] w-full h-[100px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[122px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[178px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[236px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[294px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[356px] w-full h-[70px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[442px] w-full h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                <div className="absolute left-0 top-[535px] w-full h-[90px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
                 
                 {/* Account Size Headers */}
                 <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-4 relative z-10">
@@ -593,7 +594,7 @@ export const PricingSection = () => {
 
                   return (
                     <div key={rowIndex} className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
-                      <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
+                      <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[80px] translate-y-[-4px]' : 'h-[46px]'}`}>
                         <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                           {row.label}
                         </span>
@@ -602,8 +603,8 @@ export const PricingSection = () => {
                         )}
                       </div>
                       {accountSizes.map((_, colIndex) => (
-                        <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[100px]' : 'h-[46px]'}`}>
-                          <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${rowIndex >= 4 ? 'leading-[1.4]' : 'leading-relaxed'}`}>
+                        <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[80px]' : 'h-[46px]'}`}>
+                          <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${rowIndex >= 4 ? 'leading-[1.4] translate-y-[-4px]' : 'leading-relaxed'}`}>
                             {row.label === "Price" ? (
                               ""
                             ) : rowIndex === 4 ? (
@@ -637,7 +638,7 @@ export const PricingSection = () => {
                           {price}
                         </span>
                       </div>
-                      <Button className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity">
+                      <Button className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity mt-[6px]">
                         Start Now
                       </Button>
                     </div>
@@ -665,13 +666,7 @@ export const PricingSection = () => {
                     const addOns = getAddOns(activeModel, activeTab);
 
                     if (addOns.length === 0) {
-                      return (
-                        <div className="flex items-center justify-center py-4">
-                          <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base">
-                            No Add-ons
-                          </span>
-                        </div>
-                      );
+                      return null;
                     }
 
                     return (
@@ -720,13 +715,7 @@ export const PricingSection = () => {
               const addOns = getAddOns(activeModel, activeTab);
 
               if (addOns.length === 0) {
-                return (
-                  <div className="flex items-center justify-center py-4">
-                    <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-sm">
-                      No Add-ons
-                    </span>
-                  </div>
-                );
+                return null;
               }
 
               return (

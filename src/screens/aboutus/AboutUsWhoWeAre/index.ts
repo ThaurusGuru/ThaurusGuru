@@ -1,0 +1,1 @@
+export { AboutUsWhoWeAre } from "./AboutUsWhoWeAre";
