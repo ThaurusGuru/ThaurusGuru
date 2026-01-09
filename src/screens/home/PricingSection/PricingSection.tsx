@@ -311,7 +311,7 @@ export const PricingSection = () => {
                 className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
                   ${index > 0 ? 'hidden md:flex' : 'flex'}
                   ${activeTab === originalIndex
-                    ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10`
+                    ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10 ml-[6px] md:ml-0`
                     : 'text-white bg-transparent px-4 md:px-8'
                 } ${(type.label === 'Three Step' || (type.label === 'Two Step' && activeModel === 'pro')) ? 'ml-[0.8px]' : ''}`}
               >
@@ -338,7 +338,7 @@ export const PricingSection = () => {
             maxWidth: typeof window !== 'undefined' && window.innerWidth < 768 ? '386px' : 'none',
             margin: typeof window !== 'undefined' && window.innerWidth < 768 ? '0 auto' : undefined,
             overflow: typeof window !== 'undefined' && window.innerWidth < 768 ? 'hidden' : 'visible',
-            marginTop: '-4px'
+            marginTop: typeof window !== 'undefined' && window.innerWidth < 768 ? '-1px' : '-4px'
           }}
         >
           
