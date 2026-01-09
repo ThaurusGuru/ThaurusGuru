@@ -206,7 +206,7 @@ export const CalculatorSection = () => {
 
           {/* Calculator Input Card */}
           <div className="calculator-card-border relative w-full max-w-[386px] lg:max-w-[634px] h-[510px] lg:h-[648px] mx-auto rounded-[20px] mb-6 lg:mb-0">
-            <div className="relative z-10 flex flex-col gap-6 lg:gap-[28px] pt-6 lg:pt-[40px] px-6 lg:px-[62px] pb-6 lg:pb-0">
+            <div className="relative z-10 flex flex-col gap-4 lg:gap-[28px] pt-6 lg:pt-[40px] px-6 lg:px-[62px] pb-6 lg:pb-0">
               {/* Account Size */}
               <div className="flex items-center justify-between">
                 <h3 className="[font-family:'Poppins',Helvetica] font-medium text-white text-base lg:text-lg tracking-[0] leading-5">
@@ -358,11 +358,11 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Estimated Earnings Result */}
-              <div className="earnings-result-card w-full lg:w-[510px] h-auto lg:h-[178px] flex flex-col items-center justify-center gap-4 lg:gap-5 rounded-[20px] py-6 lg:py-7 px-5 lg:px-[70px]">
+              <div className="earnings-result-card w-full lg:w-[510px] h-auto lg:h-[178px] flex flex-col items-center justify-center gap-2 lg:gap-5 rounded-[20px] py-4 lg:py-7 px-5 lg:px-[70px] mt-4 lg:mt-0">
                 <p className="relative [font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap z-10">
                   Your Estimated Earnings:
                 </p>
-                <p className="relative font-bold text-[#ab66ff] text-[32px] lg:text-[30px] leading-[36px] lg:leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10">
+                <p className="relative font-bold text-[#ab66ff] text-[28px] lg:text-[30px] leading-[32px] lg:leading-[36px] whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0] z-10">
                   ${calculateEarnings()}
                 </p>
                 <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
