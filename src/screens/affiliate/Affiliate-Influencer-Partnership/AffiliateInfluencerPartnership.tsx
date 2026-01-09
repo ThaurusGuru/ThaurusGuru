@@ -43,7 +43,7 @@ export const AffiliateInfluencerPartnership = () => {
             line-height: 20px !important;
           }
 
-          .influencer-section-container-mobile {
+          .influencer-section-container-mobile:not(.event-budget-glow) {
             display: flex !important;
             height: 28.293px !important;
             padding: 8px 20px !important;
@@ -54,6 +54,10 @@ export const AffiliateInfluencerPartnership = () => {
             align-self: stretch !important;
             background: linear-gradient(90deg, rgba(27, 9, 46, 0.50) 0%, rgba(81, 30, 148, 0.50) 50%, rgba(27, 9, 46, 0.50) 100%) !important;
             margin: 14px 0 !important;
+          }
+
+          .event-budget-glow {
+            margin: 14px 10px !important;
           }
 
           .influencer-first-row-mobile {
@@ -123,17 +127,18 @@ export const AffiliateInfluencerPartnership = () => {
             lineHeight: '26px',
           }}
         >
-          Available only for influencers with more than 6,000 followers and an average engagement of 800-2000 views per post. If these conditions are not met, the partner will be assigned to Affiliate Model 1
+          A dedicated partnership package designed exclusively for influencers.
+We tailor the collaboration to your audience, content style, and personal brand — providing custom tools, exclusive benefits, and flexible conditions to maximize impact and long-term value.
         </p>
 
       {/* Tables Container */}
       <div className="influencer-tables-container-mobile flex flex-wrap justify-center gap-[136px] mt-[121px]">
         {/* Table 1 - Exclusive */}
         <div
-          className="influencer-table-mobile flex flex-col relative"
+          className="influencer-table-mobile flex flex-col relative pt-8 md:pt-0"
           style={{
             width: '512px',
-            height: '834px',
+            height: '720px',
             borderRadius: '20px',
             border: '1px solid #E9B1FF',
             background: 'rgba(36, 7, 66, 0.40)',
@@ -141,9 +146,12 @@ export const AffiliateInfluencerPartnership = () => {
           }}
         >
           {/* Header */}
-          <div className="influencer-header-mobile absolute top-[-32px] md:top-[-50px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+          <div className="influencer-header-mobile absolute top-[-32px] md:top-[-41px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
              <div className="relative flex items-center justify-center">
-               <img src="/Affiliate/exclusive.svg" alt="Exclusive" style={{ width: '386px', height: '74px' }} />
+               {/* Mobile: SVG */}
+               <img src="/Affiliate/exclusive.svg" alt="Exclusive" className="md:hidden" style={{ width: '386px', height: '74px' }} />
+               {/* Desktop: PNG */}
+               <img src="/Affiliate/exclusive.png" alt="Exclusive" className="hidden md:block" style={{ width: 'auto', height: 'auto', maxWidth: '600px' }} />
                <p
                  className="influencer-header-text-mobile absolute"
                  style={{
@@ -196,17 +204,16 @@ export const AffiliateInfluencerPartnership = () => {
           {/* Feature Rows */}
           {[
             "Giveaway for the partner's community",
-            "Dedicated 10% Discount Code",
-            "Participation in monthly competitions for affiliates\n(Prizes in accounts or in $)",
+            "Participation in monthly competitions for affiliates",
             "Custom graphics on demand from our inhouse designers",
             "24/7 Priority Support",
-            "-",
-            "-",
-            "-"
+            "1 x 10k 2-Step PRO Challenge Account",
+            "Verified status on key socials (X, Instagram, etc.)",
+            "Event Budget — We cover the event budget, you build the right audience"
           ].map((text, index) => (
             <div
               key={index}
-              className="influencer-section-container-mobile"
+              className={`influencer-section-container-mobile ${index === 6 ? 'event-budget-glow relative overflow-hidden' : ''}`}
               style={{
                 display: 'flex',
                 minHeight: '49px',
@@ -215,21 +222,41 @@ export const AffiliateInfluencerPartnership = () => {
                 alignItems: 'center',
                 gap: '10px',
                 alignSelf: 'stretch',
-                background: 'linear-gradient(90deg, rgba(27, 9, 46, 0.50) 0%, rgba(81, 30, 148, 0.50) 50%, rgba(27, 9, 46, 0.50) 100%)',
+                background: index === 6 
+                  ? 'linear-gradient(180deg, rgba(123, 39, 239, 0.4) 0%, rgba(98, 0, 255, 0.35) 30%, rgba(123, 39, 239, 0.25) 70%, rgba(184, 130, 251, 0.2) 100%)'
+                  : 'linear-gradient(90deg, rgba(27, 9, 46, 0.50) 0%, rgba(81, 30, 148, 0.50) 50%, rgba(27, 9, 46, 0.50) 100%)',
                 marginTop: '26px',
+                marginLeft: index === 6 ? '10px' : '0',
+                marginRight: index === 6 ? '10px' : '0',
+                border: index === 6 ? '1px solid #B982FB' : 'none',
+                boxShadow: index === 6 ? '0 4px 22.1px 0 rgba(233, 177, 255, 0.15) inset, inset 0px 0px 40px #e8b0ff80, 0 0 50px rgba(184, 130, 251, 0.5), 0 0 100px rgba(123, 39, 239, 0.3)' : 'none',
+                borderRadius: index === 6 ? '8px' : '0',
               }}
             >
+              {/* Multiple gradient overlay layers for Event Budget */}
+              {index === 6 && (
+                <>
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,130,251,0.3)_0%,transparent_50%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(123,39,239,0.2)_0%,transparent_50%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(184,130,251,0.15)_0%,rgba(123,39,239,0.1)_50%,rgba(184,130,251,0.15)_100%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_40%,rgba(233,177,255,0.15)_50%,transparent_60%)] bg-size-[200%_100%] animate-[shimmer_3s_ease-in-out_infinite]" />
+                </>
+              )}
+              
               <p
                 className="influencer-feature-text-mobile"
                 style={{
-                  color: '#B988FA',
+                  color: index === 6 ? '#FFF' : '#B988FA',
                   textAlign: 'center',
                   fontFamily: 'Cambay',
                   fontSize: '16px',
                   fontStyle: 'normal',
-                  fontWeight: '400',
+                  fontWeight: index === 6 ? '600' : '400',
                   lineHeight: '22px',
-                  whiteSpace: 'pre-wrap'
+                  whiteSpace: 'pre-wrap',
+                  position: 'relative',
+                  zIndex: 10,
+                  textShadow: index === 6 ? '0 2px 4px rgba(0, 0, 0, 0.5)' : 'none',
                 }}
               >
                 {text}
@@ -240,10 +267,10 @@ export const AffiliateInfluencerPartnership = () => {
 
         {/* Table 2 - Non-Exclusive */}
         <div
-          className="influencer-table-mobile flex flex-col relative"
+          className="influencer-table-mobile flex flex-col relative pt-8 md:pt-0"
           style={{
             width: '512px',
-            height: '834px',
+            height: '720px',
             borderRadius: '20px',
             border: '1px solid #E9B1FF',
             background: 'rgba(36, 7, 66, 0.40)',
@@ -251,9 +278,12 @@ export const AffiliateInfluencerPartnership = () => {
           }}
         >
           {/* Header */}
-          <div className="influencer-header-mobile absolute top-[-32px] md:top-[-50px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+          <div className="influencer-header-mobile absolute top-[-32px] md:top-[-41px] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
              <div className="relative flex items-center justify-center">
-               <img src="/Affiliate/nonexclusive.svg" alt="Non-Exclusive" style={{ width: '386px', height: '61.367px' }} />
+               {/* Mobile: SVG */}
+               <img src="/Affiliate/nonexclusive.svg" alt="Non-Exclusive" className="md:hidden" style={{ width: '386px', height: '61.367px' }} />
+               {/* Desktop: PNG */}
+               <img src="/Affiliate/exclusive.png" alt="Non-Exclusive" className="hidden md:block" style={{ width: 'auto', height: 'auto', maxWidth: '600px' }} />
                <p
                  className="influencer-header-text-mobile absolute"
                  style={{
@@ -306,13 +336,12 @@ export const AffiliateInfluencerPartnership = () => {
           {/* Feature Rows */}
           {[
             "Giveaway for the partner's community",
-            "Dedicated 10% Discount Code",
-            "Participation in monthly competitions for affiliates\n(Prizes in accounts or in $)",
+            "Participation in monthly competitions for affiliates",
             "Custom graphics on demand from our inhouse designers",
             "24/7 Priority Support",
-            "1 x 50k 2-Step PRO Challenge Account",
-            "Verified status on key socials (X, Instagram, etc.)",
-            "Event Budget — We cover the event budget, you build the right audience"
+            "-",
+            "-",
+            "-"
           ].map((text, index) => (
             <div
               key={index}

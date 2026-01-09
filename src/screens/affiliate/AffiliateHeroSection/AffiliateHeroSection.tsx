@@ -4,29 +4,47 @@ export const AffiliateHeroSection = () => {
       tier: "Tier 1",
       reach: "0-99 users",
       commission: "12.5%",
+      sections: [
+        { label: "Type", value: "Affiliate partner" },
+        { label: "Challenge Account", value: "-" },
+        { label: "Discount Code", value: "Exclusive" },
+        { label: "Competitions", value: "Monthly" },
+        { label: "Social verification", value: "-" },
+        { label: "Creatives", value: "-" },
+        { label: "Support", value: "Dedicated affiliate manager" },
+        { label: "Payout Access", value: "First withdrawal on demand" },
+      ]
     },
     {
       tier: "Tier 2",
-      reach: "100-299 users",
-      commission: "13.5%",
+      reach: "100-199 users",
+      commission: "15%",
+      sections: [
+        { label: "Type", value: "Affiliate partner" },
+        { label: "Challenge Account", value: "$25K 2-Step PRO" },
+        { label: "Discount Code", value: "Exclusive" },
+        { label: "Competitions", value: "Monthly" },
+        { label: "Social verification", value: "Verified on X" },
+        { label: "Creatives", value: "Custom graphics on demand" },
+        { label: "Support", value: "24/7 priority support" },
+        { label: "Payout Access", value: "First withdrawal on demand" },
+      ]
     },
     {
       tier: "Tier 3",
-      reach: "300+ users",
-      commission: "15%",
+      reach: "200+ users",
+      commission: "17.5%",
+      sections: [
+        { label: "Type", value: "Affiliate partner" },
+        { label: "Challenge Account", value: "$50K 2-Step PRO" },
+        { label: "Discount Code", value: "Exclusive" },
+        { label: "Competitions", value: "Monthly" },
+        { label: "Social verification", value: "Verified on X, Instagram" },
+        { label: "Creatives", value: "Custom graphics on demand" },
+        { label: "Support", value: "24/7 priority support" },
+        { label: "Payout Access", value: "First withdrawal on demand" },
+      ]
     },
-  ];
-
-  // Mock data for the remaining 8 sections
-  const mockSections = [
-    { label: "Payout Frequency", value: "Monthly" },
-    { label: "Cookie Duration", value: "90 Days" },
-    { label: "Marketing Support", value: "Available" },
-    { label: "Dedicated Manager", value: "Yes" },
-    { label: "Tracking Dashboard", value: "Real-time" },
-    { label: "Payment Methods", value: "Multiple" },
-    { label: "Minimum Payout", value: "$100" },
-    { label: "Bonus Incentives", value: "Included" },
   ];
 
   return (
@@ -221,7 +239,7 @@ export const AffiliateHeroSection = () => {
                 className="relative flex-shrink-0"
                 style={{
                   width: '368px',
-                  height: '840px',
+                  height: '880px',
                   borderRadius: '20px',
                   border: '1px dashed #B988FA',
                   background: 'linear-gradient(180deg, rgba(96, 40, 158, 0.40) 0%, rgba(29, 10, 50, 0.40) 25%, rgba(27, 9, 46, 0.40) 50%, rgba(30, 8, 53, 0.40) 75%, rgba(51, 9, 97, 0.40) 100%)',
@@ -313,8 +331,8 @@ export const AffiliateHeroSection = () => {
                     </p>
                   </div>
 
-                  {/* 8 Mock Sections */}
-                  {mockSections.map((section, idx) => (
+                  {/* Additional Sections */}
+                  {data.sections.map((section, idx) => (
                     <div key={idx} className="mt-[25px]">
                       <p className="tier-label-mobile"
                         style={{

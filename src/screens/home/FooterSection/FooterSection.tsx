@@ -73,6 +73,15 @@ export const FooterSection = () => {
 
         {/* Content */}
         <div className="relative px-6 md:px-8 lg:px-20 md:pt-16 md:pb-8 mt-0 md:mt-8">
+          {/* Big Thaurus Logo - Above everything - Hidden on mobile */}
+          <div className="hidden md:flex justify-center items-center mb-8 md:mb-12 translate-y-[-1rem] animate-fade-in opacity-0">
+            <img
+              src="/thaurus-big-logo.svg"
+              alt="Thaurus Guru"
+              className="w-full max-w-[300px] md:max-w-[800px] lg:max-w-[1200px] h-auto object-contain"
+            />
+          </div>
+
           <div className="max-w-7xl mx-auto">
             {/* Mobile: Card with border and rounded corners */}
             <div className="md:hidden border border-[#B784FF] rounded-[40px] p-4 translate-y-5 -mb-5 animate-fade-in opacity-0 [--animation-delay:200ms]">

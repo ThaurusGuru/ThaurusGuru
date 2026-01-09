@@ -76,10 +76,6 @@ export const AffiliateKeyBenefits = () => {
               icon: '/Affiliate/key-benfits/icon-2.svg',
               text: 'Lifetime Commissions (We are the only company that offers lifetime commissions)',
             },
-            {
-              icon: '/Affiliate/key-benfits/icon-3.svg',
-              text: 'No Minimum Withdrawal (For your comfort, there is no minimum withdrawal amount)',
-            },
             { icon: '/Affiliate/key-benfits/icon-4.svg', text: 'First Withdrawal on Demand' },
             { icon: '/Affiliate/key-benfits/icon-5.svg', text: 'VIP Affiliate Support 24/7' },
             { icon: '/Affiliate/key-benfits/icon-6.svg', text: 'Sub-Affiliate available' },
