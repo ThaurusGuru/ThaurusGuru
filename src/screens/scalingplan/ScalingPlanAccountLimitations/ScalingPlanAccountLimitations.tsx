@@ -26,20 +26,13 @@ export const ScalingPlanAccountLimitations = () => {
 
           {/* Table */}
           <div 
-            className="relative overflow-hidden"
-            style={{
-              marginTop: '34px',
-              width: '810px',
-              height: '308px',
-              borderRadius: '5px',
-              border: '1px solid #B988FA',
-            }}
+            className="w-full md:w-[810px] min-h-[308px] overflow-x-auto md:overflow-hidden rounded-[5px] border border-[#B988FA] mt-[34px]"
           >
             <table className="w-full h-full border-collapse">
               <thead>
                 <tr style={{ height: '61.6px', borderBottom: '1px solid #34006B' }}>
-                  <th style={headerStyle}>Account Type</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Maximum Scaling Level</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px]">Account Type</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Maximum Scaling Level</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,8 +46,8 @@ export const ScalingPlanAccountLimitations = () => {
                     height: '61.6px', 
                     borderBottom: idx < 3 ? '1px solid #34006B' : 'none' 
                   }}>
-                    <td style={cellStyle}>{row.type}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.level}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] whitespace-nowrap">{row.type}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.level}</td>
                   </tr>
                 ))}
               </tbody>
@@ -66,24 +59,3 @@ export const ScalingPlanAccountLimitations = () => {
   );
 };
 
-const headerStyle: React.CSSProperties = {
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: '"M PLUS 2", Helvetica',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  lineHeight: '30px',
-  padding: '0 10px',
-};
-
-const cellStyle: React.CSSProperties = {
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: '"M PLUS 2", Helvetica',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 400,
-  lineHeight: '30px',
-  padding: '0 10px',
-};

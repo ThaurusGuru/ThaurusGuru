@@ -41,23 +41,16 @@ export const ScalingPlanHowItWorks = () => {
 
           {/* Table */}
           <div 
-            className="relative overflow-hidden"
-            style={{
-              marginTop: '49px',
-              width: '810px',
-              height: '308px',
-              borderRadius: '5px',
-              border: '1px solid #B988FA',
-            }}
+            className="w-full md:w-[810px] min-h-[308px] overflow-x-auto md:overflow-hidden rounded-[5px] border border-[#B988FA] mt-[49px]"
           >
             <table className="w-full h-full border-collapse">
               <thead>
                 <tr style={{ height: '61.6px', borderBottom: '1px solid #34006B' }}>
-                  <th style={headerStyle}>Level</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Allocation<br/>Growth</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Profit<br/>Target</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Consistency<br/>Requirement</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Profit<br/>Split</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px]">Level</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Allocation<br/>Growth</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Profit<br/>Target</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Consistency<br/>Requirement</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Profit<br/>Split</th>
                 </tr>
               </thead>
               <tbody>
@@ -71,11 +64,11 @@ export const ScalingPlanHowItWorks = () => {
                     height: '61.6px', 
                     borderBottom: idx < 3 ? '1px solid #34006B' : 'none' 
                   }}>
-                    <td style={cellStyle}>{row.level}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.growth}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.target}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.consistency}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.split}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] whitespace-nowrap">{row.level}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.growth}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.target}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.consistency}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.split}</td>
                   </tr>
                 ))}
               </tbody>
@@ -104,24 +97,3 @@ export const ScalingPlanHowItWorks = () => {
   );
 };
 
-const headerStyle: React.CSSProperties = {
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: '"M PLUS 2", Helvetica',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  lineHeight: '30px',
-  padding: '0 10px',
-};
-
-const cellStyle: React.CSSProperties = {
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: '"M PLUS 2", Helvetica',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 400,
-  lineHeight: '30px',
-  padding: '0 10px',
-};

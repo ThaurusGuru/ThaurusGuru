@@ -43,23 +43,16 @@ export const ScalingPlanExample = () => {
 
           {/* Table */}
           <div 
-            className="relative overflow-hidden"
-            style={{
-              marginTop: '36px',
-              width: '810px',
-              height: '370px',
-              borderRadius: '5px',
-              border: '1px solid #B988FA',
-            }}
+            className="w-full md:w-[810px] min-h-[370px] overflow-x-auto md:overflow-hidden rounded-[5px] border border-[#B988FA] mt-[36px]"
           >
             <table className="w-full h-full border-collapse">
               <thead>
                 <tr style={{ height: '61.6px', borderBottom: '1px solid #34006B' }}>
-                  <th style={headerStyle}>Starting Balance</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Level 1</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Level 2</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Level 3</th>
-                  <th style={{...headerStyle, borderLeft: '1px solid #34006B'}}>Level 4</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px]">Starting Balance</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Level 1</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Level 2</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Level 3</th>
+                  <th className="text-white text-center font-['M_PLUS_2',Helvetica] text-[13px] md:text-[16px] font-semibold leading-[30px] px-2 md:px-[10px] border-l border-[#34006B]">Level 4</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,11 +67,11 @@ export const ScalingPlanExample = () => {
                     height: '61.6px', 
                     borderBottom: idx < 4 ? '1px solid #34006B' : 'none' 
                   }}>
-                    <td style={cellStyle}>{row.start}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.l1}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.l2}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.l3}</td>
-                    <td style={{...cellStyle, borderLeft: '1px solid #34006B'}}>{row.l4}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] whitespace-nowrap">{row.start}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.l1}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.l2}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.l3}</td>
+                    <td className="text-white text-center font-['M_PLUS_2',Helvetica] text-[12px] md:text-[16px] font-normal leading-[30px] px-2 md:px-[10px] border-l border-[#34006B] whitespace-nowrap">{row.l4}</td>
                   </tr>
                 ))}
               </tbody>
@@ -154,7 +147,7 @@ export const ScalingPlanExample = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="w-full flex justify-start" style={{ marginTop: '120px', paddingLeft: '300px', marginBottom: '200px' }}>
+          <div className="w-full flex justify-center md:justify-start mt-[120px] md:pl-[300px] mb-[200px]">
             <button
               style={{
                 display: 'inline-flex',
@@ -218,24 +211,3 @@ export const ScalingPlanExample = () => {
   );
 };
 
-const headerStyle: React.CSSProperties = {
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: '"M PLUS 2", Helvetica',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  lineHeight: '30px',
-  padding: '0 10px',
-};
-
-const cellStyle: React.CSSProperties = {
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: '"M PLUS 2", Helvetica',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 400,
-  lineHeight: '30px',
-  padding: '0 10px',
-};
