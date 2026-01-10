@@ -46,105 +46,59 @@ const faqData = [
 
 export const FAQWhySection = () => {
   return (
-    <section className="relative w-full flex flex-col items-center overflow-visible px-4 mb-20 animate-fade-in opacity-0 [--animation-delay:200ms]">
-      <div className="relative w-full max-w-[1440px] flex flex-col items-center px-0">
-        <div className="flex flex-col items-start w-full max-w-[1100px]">
-          {/* Main Hero Header */}
-          <h1 
-            className="font-['M_PLUS_2',Helvetica]"
-            style={{
-              marginTop: '245px',
-              textAlign: 'center',
-              width: '100%',
-              fontSize: '42px',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              lineHeight: '60px',
-              background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Frequently Asked Questions
-          </h1>
-
-          {/* Category Heading */}
-          <h2 
-            className="font-['M_PLUS_2',Helvetica] pl-4 md:pl-16"
-            style={{
-              marginTop: '80px',
-              textAlign: 'left',
-              width: '100%',
-              fontSize: '32px',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              lineHeight: '50px',
-              background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Why Thaurus Guru?
-          </h2>
-
-          <div className="w-full mt-10">
-            <Accordion
-              type="single"
-              collapsible
-              defaultValue="item-2"
-              className="flex flex-col"
+    <div className="w-full mt-4">
+      <Accordion
+        type="single"
+        collapsible
+        defaultValue="item-2"
+        className="flex flex-col"
+      >
+        {faqData.map((faq, index) => (
+          <div key={faq.id}>
+            <AccordionItem
+              value={faq.id}
+              className={`accordion-item-gradient-border ${index === faqData.length - 1 ? "border-b-0" : ""}`}
             >
-              {faqData.map((faq, index) => (
-                <div key={faq.id}>
-                  <AccordionItem
-                    value={faq.id}
-                    className={`accordion-item-gradient-border ${index === faqData.length - 1 ? "border-b-0" : ""}`}
-                  >
-                    <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
-                      <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-64 flex-1">
-                        <span className="serial-number text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">
-                          {faq.number}
-                        </span>
-                        <span className="question-text w-full md:w-[490px] md:min-w-[490px] md:max-w-[490px] text-white font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors text-left uppercase">
-                          {faq.question}
-                        </span>
-                      </div>
-                      
-                      <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-                        <span className="text-white text-xl md:text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
-                        <span className="text-white text-xl md:text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
-                      </div>
-                    </AccordionTrigger>
-
-                    {faq.answer && (
-                      <AccordionContent className="pl-4 md:pl-16 pr-4 md:pr-8 pb-4 md:pb-6">
-                        <div className="flex flex-col md:flex-row gap-3 md:gap-64">
-                          <div className="hidden md:block md:w-[18px]" />
-                          <p className="flex-1 text-[#88729E] font-['Inter'] text-[12px] md:text-[14px] font-normal leading-[150%] whitespace-pre-line">
-                            {faq.answer}
-                          </p>
-                          <div className="hidden md:block md:w-6" />
-                        </div>
-                      </AccordionContent>
-                    )}
-                  </AccordionItem>
-                  
-                  {index < faqData.length - 1 && (
-                    <div className="w-full flex justify-center my-0">
-                      <div 
-                        className="w-full md:w-[1160px] h-px"
-                        style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}
-                      />
-                    </div>
-                  )}
+              <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
+                <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-64 flex-1">
+                  <span className="serial-number text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">
+                    {faq.number}
+                  </span>
+                  <span className="question-text w-full md:w-[490px] md:min-w-[490px] md:max-w-[490px] text-white font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors text-left uppercase">
+                    {faq.question}
+                  </span>
                 </div>
-              ))}
-            </Accordion>
+                
+                <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
+                  <span className="text-white text-xl md:text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
+                  <span className="text-white text-xl md:text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
+                </div>
+              </AccordionTrigger>
+
+              {faq.answer && (
+                <AccordionContent className="pl-4 md:pl-16 pr-4 md:pr-8 pb-4 md:pb-6">
+                  <div className="flex flex-col md:flex-row gap-3 md:gap-64">
+                    <div className="hidden md:block md:w-[18px]" />
+                    <p className="flex-1 text-[#88729E] font-['Inter'] text-[12px] md:text-[14px] font-normal leading-[150%] whitespace-pre-line">
+                      {faq.answer}
+                    </p>
+                    <div className="hidden md:block md:w-6" />
+                  </div>
+                </AccordionContent>
+              )}
+            </AccordionItem>
+            
+            {index < faqData.length - 1 && (
+              <div className="w-full flex justify-center my-0">
+                <div 
+                  className="w-full md:w-[1160px] h-px"
+                  style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}
+                />
+              </div>
+            )}
           </div>
-        </div>
-      </div>
-    </section>
+        ))}
+      </Accordion>
+    </div>
   );
 };

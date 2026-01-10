@@ -250,106 +250,76 @@ const fundingData = [
 
 export const FAQFundingSection = () => {
   return (
-    <section className="relative w-full flex flex-col items-center overflow-visible px-4 mb-20 animate-fade-in opacity-0 [--animation-delay:200ms]">
-      <div className="relative w-full max-w-[1440px] flex flex-col items-center px-0">
-        <div className="flex flex-col items-start w-full max-w-[1100px]">
-          {/* Main Category Heading - Kept consistent with established design */}
-          <h2 
-            className="font-['M_PLUS_2',Helvetica] pl-4 md:pl-16"
-            style={{
-              marginTop: '80px',
-              textAlign: 'left',
-              width: '100%',
-              fontSize: '32px',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              lineHeight: '50px',
-              background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
+    <div className="w-full mt-4">
+      <Accordion type="single" collapsible className="flex flex-col gap-4">
+        {fundingData.map((category, catIndex) => (
+          <AccordionItem
+            key={catIndex}
+            value={`category-${catIndex}`}
+            className="border-b border-[#34006B]/40"
           >
-            Funding Models
-          </h2>
+            <AccordionTrigger className="group flex items-center justify-start gap-4 py-6 px-4 md:px-16 hover:no-underline [&[data-state=open]_.cat-title]:text-[#E9B1FF] transition-all [&>svg]:hidden">
+              <span className="cat-title text-white font-['Inter'] text-[20px] md:text-[24px] font-bold text-left tracking-wide">
+                {category.category}
+              </span>
+              <div className="shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-90">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="#E9B1FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </AccordionTrigger>
 
-          <div className="w-full mt-10">
-            {/* Level 1: Categories - Simple Sleek Dropdown Design */}
-            <Accordion type="single" collapsible className="flex flex-col gap-4">
-              {fundingData.map((category, catIndex) => (
-                <AccordionItem
-                  key={catIndex}
-                  value={`category-${catIndex}`}
-                  className="border-b border-[#34006B]/40"
-                >
-                  <AccordionTrigger className="group flex items-center justify-start gap-4 py-6 px-4 md:px-16 hover:no-underline [&[data-state=open]_.cat-title]:text-[#E9B1FF] transition-all [&>svg]:hidden">
-                    <span className="cat-title text-white font-['Inter'] text-[20px] md:text-[24px] font-bold text-left tracking-wide">
-                      {category.category}
-                    </span>
-                    <div className="shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-90">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="#E9B1FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                  </AccordionTrigger>
-
-                  <AccordionContent className="pb-8 bg-[#240742]/10">
-                    {/* Level 2: Specific Questions - Premium Home-Page FAQ Design */}
-                    <Accordion type="single" collapsible className="flex flex-col">
-                      {category.items.map((item, itemIndex) => (
-                        <div key={itemIndex}>
-                          <AccordionItem
-                            value={`item-${itemIndex}`}
-                            className={`accordion-item-gradient-border ${itemIndex === category.items.length - 1 ? "border-b-0" : ""}`}
-                          >
-                            <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-5 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-num]:text-[#7A27EF] [&>svg]:hidden">
-                              <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-40 flex-1">
-                                <span className="serial-num text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">
-                                  {item.number}
-                                </span>
-                                <span className="question-text w-full md:w-[600px] text-white font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors text-left uppercase">
-                                  {item.question}
-                                </span>
-                              </div>
-                              
-                              {/* Plus/Cross Icon from Home FAQ */}
-                              <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-                                <span className="text-white text-xl md:text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
-                                <span className="text-white text-xl md:text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
-                              </div>
-                            </AccordionTrigger>
-
-                            {item.answer && (
-                              <AccordionContent className="pl-4 md:pl-16 pr-4 md:pr-8 pb-4 md:pb-6">
-                                <div className="flex flex-col md:flex-row gap-3 md:gap-40">
-                                  <div className="hidden md:block md:w-[18px]" />
-                                  <p className="flex-1 text-[#88729E] font-['Inter'] text-[12px] md:text-[15px] font-normal leading-relaxed whitespace-pre-line">
-                                    {item.answer}
-                                  </p>
-                                </div>
-                              </AccordionContent>
-                            )}
-                          </AccordionItem>
-                          
-                          {/* Inner Gradient Divider */}
-                          {itemIndex < category.items.length - 1 && (
-                            <div className="w-full flex justify-center my-0">
-                              <div 
-                                className="w-full md:w-[1160px] h-px"
-                                style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}
-                              />
-                            </div>
-                          )}
+            <AccordionContent className="pb-8 bg-[#240742]/10">
+              <Accordion type="single" collapsible className="flex flex-col">
+                {category.items.map((item, itemIndex) => (
+                  <div key={itemIndex}>
+                    <AccordionItem
+                      value={`item-${itemIndex}`}
+                      className={`accordion-item-gradient-border ${itemIndex === category.items.length - 1 ? "border-b-0" : ""}`}
+                    >
+                      <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-5 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-num]:text-[#7A27EF] [&>svg]:hidden">
+                        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-40 flex-1">
+                          <span className="serial-num text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">
+                            {item.number}
+                          </span>
+                          <span className="question-text w-full md:w-[600px] text-white font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors text-left uppercase">
+                            {item.question}
+                          </span>
                         </div>
-                      ))}
-                    </Accordion>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </div>
-    </section>
+                        
+                        <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
+                          <span className="text-white text-xl md:text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
+                          <span className="text-white text-xl md:text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
+                        </div>
+                      </AccordionTrigger>
+
+                      {item.answer && (
+                        <AccordionContent className="pl-4 md:pl-16 pr-4 md:pr-8 pb-4 md:pb-6">
+                          <div className="flex flex-col md:flex-row gap-3 md:gap-40">
+                            <div className="hidden md:block md:w-[18px]" />
+                            <p className="flex-1 text-[#88729E] font-['Inter'] text-[12px] md:text-[15px] font-normal leading-relaxed whitespace-pre-line">
+                              {item.answer}
+                            </p>
+                          </div>
+                        </AccordionContent>
+                      )}
+                    </AccordionItem>
+                    
+                    {itemIndex < category.items.length - 1 && (
+                      <div className="w-full flex justify-center my-0">
+                        <div 
+                          className="w-full md:w-[1160px] h-px"
+                          style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 };
