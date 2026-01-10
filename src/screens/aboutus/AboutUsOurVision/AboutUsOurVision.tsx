@@ -1,15 +1,15 @@
 export const AboutUsOurVision = () => {
   return (
-    <section className="relative w-full flex flex-col items-center overflow-visible" style={{ marginTop: '150px' }}>
-      <div className="relative w-full max-w-[1440px] flex flex-col items-start px-0 overflow-visible">
-        {/* Background SVG Line */}
+    <section className="relative w-full flex flex-col items-center overflow-visible mt-[100px] md:mt-[150px]">
+      <div className="relative w-full max-w-[1440px] flex flex-col items-start px-0 overflow-visible min-h-[650px] md:min-h-[774px]">
+        {/* Background SVG Line - Desktop */}
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           width="1149" 
           height="774" 
           viewBox="0 0 1149 774" 
           fill="none"
-          className="absolute -top-40 left-[145.5px] z-0 pointer-events-none"
+          className="absolute -top-40 left-[145.5px] z-0 pointer-events-none hidden md:block"
           style={{ width: '1148px', height: '774px' }}
         >
           <path 
@@ -26,19 +26,33 @@ export const AboutUsOurVision = () => {
           </defs>
         </svg>
 
-        {/* --- Vision Section (Left) --- */}
-        
-        {/* Decorative Circle at end of dashed line */}
-        <div 
-          style={{
-            position: 'absolute',
-            left: '135px', // 146 - 11
-            top: '25px',
-            width: '22px',
-            height: '22px',
-            zIndex: 10
-          }}
+        {/* Background SVG Line - Mobile */}
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="366" 
+          height="629" 
+          viewBox="0 0 366 629" 
+          fill="none"
+          className="absolute top-[-45px] left-4 z-0 pointer-events-none block md:hidden"
+          style={{ width: '365px', height: '629px' }}
         >
+          <path 
+            d="M0.5 0V271.5C0.5 282.546 9.45431 291.5 20.5 291.5H345.5C356.546 291.5 365.5 300.454 365.5 311.5V629" 
+            stroke="url(#paint0_linear_1724_3053)"
+          />
+          <defs>
+            <linearGradient id="paint0_linear_1724_3053" x1="183" y1="-24" x2="183" y2="629.407" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1B092F"/>
+              <stop offset="0.5" stop-color="#5400C2"/>
+              <stop offset="1" stop-color="#1B092F"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* --- Vision Section (Left on Desktop, Top on Mobile) --- */}
+        
+        {/* Decorative Circle & Dashed Line - Left/Top */}
+        <div className="absolute left-[7px] md:left-[135px] top-[25px] z-10">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
             <g filter="url(#circle_filter0_d)">
               <circle cx="11" cy="11" r="9" fill="#8800FF"/>
@@ -71,43 +85,17 @@ export const AboutUsOurVision = () => {
           </svg>
         </div>
         
-        {/* Dashed Line going left */}
+        {/* Dashed Line going right/left */}
         <div 
-          style={{
-            position: 'absolute',
-            left: '146px',
-            top: '36px',
-            width: '64px',
-            height: '1px',
-            borderTop: '1px dashed #8401F7'
-          }}
+          className="absolute left-[25px] md:left-[146px] top-[36px] border-t border-dashed border-[#8401F7] w-[40px] md:w-[64px]"
         />
 
         {/* Vision Badge Container */}
         <div
-          style={{
-            marginLeft: '210px',
-            display: 'inline-flex',
-            padding: '16px 26px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '10px',
-            borderRadius: '20px',
-            border: '2px solid #7C00FF',
-          }}
+          className="ml-[65px] md:ml-[210px] inline-flex rounded-[20px] border-2 border-[#7C00FF] p-[10px_20px] md:p-[16px_26px] items-center justify-center gap-[10px]"
         >
           <span
-            className="[font-family:'M_PLUS_2',Helvetica]"
-            style={{
-              width: '164px',
-              height: '36px',
-              color: '#FFF',
-              fontSize: '32px',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              lineHeight: '34px',
-              textAlign: 'center',
-            }}
+            className="font-['M_PLUS_2',Helvetica] text-[#FFF] text-[20px] md:text-[32px] font-normal leading-[34px] text-center w-[120px] md:w-[164px]"
           >
             Our Vision
           </span>
@@ -115,62 +103,35 @@ export const AboutUsOurVision = () => {
 
         {/* Vision Description */}
         <div
-          className="[font-family:'Cambay',Helvetica]"
-          style={{
-            marginTop: '51px',
-            marginLeft: '210px',
-            width: '467px',
-            color: '#FFF',
-            fontSize: '14px',
-            fontStyle: 'normal',
-            fontWeight: 400,
-            lineHeight: 'normal',
-          }}
+          className="font-['Cambay',Helvetica] text-[#FFF] text-[12px] md:text-[14px] font-normal leading-relaxed mt-[20px] md:mt-[51px] ml-[65px] md:ml-[210px] w-[210px] md:w-[467px]"
         >
           <p style={{ marginBottom: '8px' }}>• Build a global community of confident, disciplined traders</p>
           <p style={{ marginBottom: '8px' }}>• Combine trading expertise with smart, modern technology</p>
           <p>• Enable traders to unlock their full potential and grow consistently</p>
         </div>
 
-        {/* --- Mission Section (Right) --- */}
+        {/* --- Mission Section (Bottom/Right on Desktop, Bottom/Right on Mobile) --- */}
 
         {/* Our Mission Container */}
         <div
-          className="self-end relative"
-          style={{
-            marginTop: '169px',
-            marginRight: '437px',
-            display: 'inline-flex',
-            padding: '16px 26px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '10px',
-            borderRadius: '20px',
-            border: '2px solid #7C00FF',
-          }}
+          className="relative self-start md:self-end md:relative mt-[130px] md:mt-[169px] ml-[120px] md:ml-0 md:mr-[437px] inline-flex flex-col items-start"
         >
-          {/* Dashed Line going right */}
-          <div 
-            style={{
-              position: 'absolute',
-              left: '100%',
-              top: '36px',
-              width: '291px',
-              height: '1px',
-              borderTop: '1px dashed #8401F7'
-            }}
-          />
-          {/* Decorative Circle at end of dashed line */}
-          <div 
-            style={{
-              position: 'absolute',
-              left: 'calc(100% + 291px - 11px)',
-              top: 'calc(36px - 11px)',
-              width: '22px',
-              height: '22px',
-              zIndex: 10
-            }}
-          >
+          <div className="inline-flex rounded-[20px] border-2 border-[#7C00FF] p-[10px_20px] md:p-[16px_26px] items-center justify-center gap-[10px]">
+            <span
+              className="font-['M_PLUS_2',Helvetica] text-[#FFF] text-[20px] md:text-[32px] font-normal leading-tight text-center w-[120px] md:w-[186px]"
+            >
+              Our Mission
+            </span>
+          </div>
+          
+          {/* Dashed Line going right - Desktop only */}
+          <div className="hidden md:block absolute left-[100%] top-[36px] w-[291px] border-t border-dashed border-[#8401F7]" />
+          
+          {/* Dashed Line going right - Mobile */}
+          <div className="block md:hidden absolute left-[100%] top-[20px] w-[100px] border-t border-dashed border-[#8401F7]" />
+
+          {/* Decorative Circle & Dashed Line - Right/Bottom */}
+          <div className="absolute left-[calc(100%+100px-11px)] md:left-[calc(100%+291px-11px)] top-[9px] md:top-[25px] z-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
               <g filter="url(#circle_filter0_d_mission)">
                 <circle cx="11" cy="11" r="9" fill="#8800FF"/>
@@ -202,36 +163,11 @@ export const AboutUsOurVision = () => {
               </defs>
             </svg>
           </div>
-          <span
-            className="[font-family:'M_PLUS_2',Helvetica]"
-            style={{
-              width: '186px',
-              height: '36px',
-              color: '#FFF',
-              fontSize: '32px',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              lineHeight: '34px',
-              textAlign: 'center',
-            }}
-          >
-            Our Mission
-          </span>
         </div>
 
         {/* Mission Description */}
         <div
-          className="self-end [font-family:'Cambay',Helvetica]"
-          style={{
-            marginTop: '44px',
-            marginRight: '210px',
-            width: '465px',
-            color: '#FFF',
-            fontSize: '14px',
-            fontStyle: 'normal',
-            fontWeight: 400,
-            lineHeight: 'normal',
-          }}
+          className="self-start md:self-end font-['Cambay',Helvetica] text-[#FFF] text-[12px] md:text-[14px] font-normal leading-relaxed mt-[20px] md:mt-[44px] ml-[120px] md:mr-[210px] w-[210px] md:w-[465px]"
         >
           <p style={{ marginBottom: '8px' }}>
             • Empower traders with advanced tools and practical education

@@ -1,15 +1,10 @@
 export const AboutUsWhyChoose = () => {
   return (
-    <section className="relative w-full flex flex-col items-center" style={{ marginTop: '160px' }}>
+    <section className="relative w-full flex flex-col items-center mt-[80px] md:mt-[160px]">
       {/* Why Choose Thaurus Guru? Heading */}
       <h2
-        className="[font-family:'M_PLUS_2',Helvetica]"
+        className="font-['M_PLUS_2',Helvetica] text-[24px] md:text-[42px] leading-[35px] md:leading-[60px] text-center"
         style={{
-          textAlign: 'center',
-          fontSize: '42px',
-          fontStyle: 'normal',
-          fontWeight: 400,
-          lineHeight: '60px',
           background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
@@ -21,24 +16,14 @@ export const AboutUsWhyChoose = () => {
 
       {/* Description - 40px below */}
       <p
-        className="[font-family:'Cambay',Helvetica]"
-        style={{
-          marginTop: '40px',
-          width: '575px',
-          maxWidth: '90vw',
-          textAlign: 'center',
-          fontSize: '14px',
-          fontStyle: 'normal',
-          fontWeight: 400,
-          lineHeight: 'normal',
-        }}
+        className="font-['Cambay',Helvetica] mt-[20px] md:mt-[40px] w-[320px] md:w-[575px] text-center text-[12px] md:text-[14px] font-normal leading-normal"
       >
-        <span style={{ color: '#FFF' }}>Comprehensive Trading Programs:</span>
-        <span style={{ color: '#C293F1' }}> Our Challenge, Verification, and Live Trading phases are tailored to support traders at every level of their journey.</span>
+        <span className="text-[#FFF]">Comprehensive Trading Programs:</span>
+        <span className="text-[#C293F1]"> Our Challenge, Verification, and Live Trading phases are tailored to support traders at every level of their journey.</span>
       </p>
 
-      {/* Cards Container - 75px below */}
-      <div className="flex flex-row items-center justify-center" style={{ marginTop: '75px', gap: '95px' }}>
+      {/* Cards Container - 75px below on desktop, 40px on mobile */}
+      <div className="flex flex-col md:flex-row items-center justify-center mt-[40px] md:mt-[75px] gap-[20px] md:gap-[95px]">
         
         {/* Card 1: Advanced Tools and Resources */}
         <div

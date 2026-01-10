@@ -1,47 +1,50 @@
 export const AboutUsWhoWeAre = () => {
   return (
-    <section className="relative w-full px-4 md:px-8 flex flex-col items-center" style={{ marginTop: '200px' }}>
+    <section className="relative w-full px-4 md:px-8 flex flex-col items-center mt-[100px] md:mt-[200px]">
       {/* Main Box */}
       <div
-        className="relative flex items-center"
+        className="relative flex flex-col md:flex-row items-center justify-center md:items-center"
         style={{
-          width: '1146px',
-          maxWidth: '90vw',
-          height: '260px',
+          width: '100%',
+          maxWidth: '1146px',
+          height: 'auto',
+          minHeight: window.innerWidth < 768 ? '245px' : '260px',
           borderRadius: '20px',
           border: '1px solid #7C00FF',
           boxShadow: '0 4px 44px 0 #2C0E50',
+          padding: window.innerWidth < 768 ? '20px' : '0 85px 0 71px',
         }}
       >
-        {/* Content Container - horizontal layout */}
-        <div className="flex items-start w-full" style={{ paddingLeft: '71px', paddingRight: '85px' }}>
-          {/* Heading - "Who We Are?" on the left */}
+        <div className="flex flex-col md:flex-row items-center md:items-start w-full gap-4 md:gap-0">
+          {/* Heading - "Who We Are?" */}
           <h2
-            className="[font-family:'M_PLUS_2',Helvetica] shrink-0"
+            className="font-['M_PLUS_2',Helvetica] shrink-0 text-center md:text-left"
             style={{
-              fontSize: '42px',
+              fontSize: window.innerWidth < 768 ? '24px' : '42px',
               fontStyle: 'normal',
               fontWeight: 400,
-              lineHeight: '60px',
+              lineHeight: window.innerWidth < 768 ? '60px' : '60px',
               background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
+              width: window.innerWidth < 768 ? '386px' : 'auto',
+              maxWidth: '100%',
             }}
           >
             Who We Are?
           </h2>
 
-          {/* Description - on the right side with gap */}
+          {/* Description */}
           <p
-            className="[font-family:'Cambay',Helvetica] mt-4"
+            className="font-['Cambay',Helvetica] text-center md:text-left mt-[17px] md:mt-4"
             style={{
-              marginLeft: '85px',
-              width: '669px',
+              marginLeft: window.innerWidth < 768 ? '0' : '85px',
+              width: window.innerWidth < 768 ? '320px' : '669px',
               maxWidth: '100%',
-              fontSize: '14px',
+              fontSize: window.innerWidth < 768 ? '12px' : '14px',
               fontStyle: 'normal',
-              lineHeight: '24px',
+              lineHeight: 'normal',
             }}
           >
             <span style={{ color: '#C293F1', fontWeight: 400 }}>Thaurus Guru is </span>
