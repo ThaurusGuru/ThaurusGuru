@@ -99,7 +99,9 @@ export const ScalingPlanExample = () => {
               lineHeight: '26px',
             }}
           >
-            The same percentage growth is applied at each level: ×1.3 → ×1.3 → ×1.3 → ×1.365
+            The same percentage growth is applied at each level:
+            <br />
+            ×1.3 → ×1.3 → ×1.3 → ×1.365
           </p>
 
           {/* Requirements Summary */}
