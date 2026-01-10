@@ -1,0 +1,127 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../../../components/ui/accordion";
+
+const faqData = [
+  {
+    number: "01",
+    question: "WHAT IS THE SCALING PLAN?",
+    answer: "The ThaurusGuru Scaling Plan allows funded traders to gradually increase their account size as they demonstrate consistent, disciplined, and profitable performance. The plan rewards long-term stability rather than short-term luck.\n\nThe scaling process includes four levels, each with performance requirements and increasing funding allocations.",
+  },
+  {
+    number: "02",
+    question: "HOW DOES THE ACCOUNT ALLOCATION GROW?",
+    answer: "Your allocation increases each time you complete the scaling requirements for the next level.\n(Example starting with $100,000):\n• Level 0: $100,000\n• Level 1: $130,000\n• Level 2: $169,000\n• Level 3: $219,700\n• Level 4: $300,000 (maximum allocation)",
+  },
+  {
+    number: "03",
+    question: "WHAT ARE THE REQUIREMENTS TO MOVE TO THE NEXT LEVEL?",
+    answer: "Each scaling step requires you to meet both the profit target and the consistency requirement for your current level:\n• Level 1: 10% Profit Target\n• Level 2: 15% Profit Target | 30% Consistency Limit\n• Level 3: 20% Profit Target | 25% Consistency Limit\n• Level 4: 30% Profit Target | 20% Consistency Limit\n\nConsistency means ensuring your biggest profitable day does not exceed the allowed percentage of your total profits for that scaling cycle.",
+  },
+  {
+    number: "04",
+    question: "DO I NEED TO PAY FOR THE UPGRADE?",
+    answer: "No. Scaling upgrades at ThaurusGuru are completely free. Once you meet the requirements, your funded account is automatically moved to the next allocation level.",
+  },
+  {
+    number: "05",
+    question: "ARE THERE ACCOUNT TYPE LIMITATIONS?",
+    answer: "Yes. Scaling applies only to Classic One-Step, Two-Step, and Three-Step models.\n\nPRO accounts, Instant accounts, and Pay As You Go models do not include scaling.",
+  },
+  {
+    number: "06",
+    question: "EXAMPLES: HOW DOES SCALING LOOK IN PRACTICE?",
+    answer: "Example (Starting with $100,000):\n1. Generate 10% profit → move to $130,000\n2. Generate 15% with 30% consistency → move to $169,000\n3. Generate 20% with 25% consistency → move to $219,700\n4. Generate 30% with 20% consistency → reach $300,000 maximum",
+  },
+  {
+    number: "07",
+    question: "WHAT IF I BREAK THE RULES DURING THE SCALING PROCESS?",
+    answer: "A rule breach (drawdown, margin, news, etc.) resets the scaling cycle for the current level. You must complete the requirements again. However, your existing level is not downgraded unless the account is terminated.",
+  },
+];
+
+export const FAQScalingSection = () => {
+  return (
+    <section className="relative w-full flex flex-col items-center overflow-visible px-4 mb-20">
+      <div className="relative w-full max-w-[1440px] flex flex-col items-center px-0">
+        <div className="flex flex-col items-start w-full max-w-[1100px]">
+          {/* Category Heading */}
+          <h2 
+            className="font-['M_PLUS_2',Helvetica] pl-4 md:pl-16"
+            style={{
+              marginTop: '80px',
+              textAlign: 'left',
+              width: '100%',
+              fontSize: '32px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '50px',
+              background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Scaling Plan
+          </h2>
+
+          <div className="w-full mt-10">
+            <Accordion
+              type="single"
+              collapsible
+              className="flex flex-col"
+            >
+              {faqData.map((faq, index) => (
+                <div key={index}>
+                  <AccordionItem
+                    value={`scaling-${index}`}
+                    className={`accordion-item-gradient-border ${index === faqData.length - 1 ? "border-b-0" : ""}`}
+                  >
+                    <AccordionTrigger className="group flex items-center justify-between gap-3 md:gap-8 pl-4 md:pl-16 pr-4 md:pr-8 py-4 md:py-6 hover:no-underline [&[data-state=open]_.question-text]:text-[#7A27EF] [&[data-state=open]_.serial-number]:text-[#7A27EF] [&>svg]:hidden">
+                      <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-40 flex-1">
+                        <span className="serial-number text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors">
+                          {faq.number}
+                        </span>
+                        <span className="question-text w-full md:w-[600px] text-white font-['Inter'] text-[14px] md:text-[18px] font-semibold leading-[135%] transition-colors text-left uppercase">
+                          {faq.question}
+                        </span>
+                      </div>
+                      
+                      <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
+                        <span className="text-white text-xl md:text-2xl font-light leading-none group-data-[state=open]:hidden">+</span>
+                        <span className="text-white text-xl md:text-2xl font-light leading-none hidden group-data-[state=open]:block">×</span>
+                      </div>
+                    </AccordionTrigger>
+
+                    {faq.answer && (
+                      <AccordionContent className="pl-4 md:pl-16 pr-4 md:pr-8 pb-4 md:pb-6">
+                        <div className="flex flex-col md:flex-row gap-3 md:gap-40">
+                          <div className="hidden md:block md:w-[18px]" />
+                          <p className="flex-1 text-[#88729E] font-['Inter'] text-[12px] md:text-[15px] font-normal leading-relaxed whitespace-pre-line">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </AccordionContent>
+                    )}
+                  </AccordionItem>
+                  
+                  {index < faqData.length - 1 && (
+                    <div className="w-full flex justify-center my-0">
+                      <div 
+                        className="w-full md:w-[1160px] h-px"
+                        style={{ background: 'linear-gradient(90deg, #1B092E 0%, #9368C8 50%, #1B092E 100%)' }}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -1,0 +1,1 @@
+export { FAQRulesSection } from "./FAQRulesSection";

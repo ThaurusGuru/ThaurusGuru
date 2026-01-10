@@ -45,7 +45,7 @@ export const HeroSection = () => {
       {/* Hero Background Image with line effects */}
       <div className="absolute inset-0 right-0 bottom-[-100px] w-full h-full pointer-events-none">
         <img
-          src="/hero/hero-bg.png"
+          src="/hero/hero-bg.avif" 
           alt="Hero Background"
           className="absolute top-0 left-0 w-full h-full object-cover object-top mix-blend-screen"
           style={{ opacity: 1 }}

@@ -1,0 +1,1 @@
+export { FAQPayoutsSection } from "./FAQPayoutsSection";

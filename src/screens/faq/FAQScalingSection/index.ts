@@ -1,0 +1,1 @@
+export { FAQScalingSection } from "./FAQScalingSection";
