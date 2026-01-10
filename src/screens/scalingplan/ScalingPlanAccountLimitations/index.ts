@@ -1,0 +1,1 @@
+export { ScalingPlanAccountLimitations } from "./ScalingPlanAccountLimitations";

@@ -1,0 +1,1 @@
+export { ScalingPlanHero } from "./ScalingPlanHero";

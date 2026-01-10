@@ -1,20 +1,24 @@
 import { Header } from "../../components/Header";
 import { FooterSection } from "../../screens/home/FooterSection";
+import { ScalingPlanHero } from "../../screens/scalingplan/ScalingPlanHero";
+import { ScalingPlanHowItWorks } from "../../screens/scalingplan/ScalingPlanHowItWorks";
+import { ScalingPlanAccountLimitations } from "../../screens/scalingplan/ScalingPlanAccountLimitations";
+import { ScalingPlanExample } from "../../screens/scalingplan/ScalingPlanExample";
 import "../../index.css";
 
 export const ScalingPlanPage = () => {
   return (
     <div className="bg-[#1b082e] w-full min-w-0 lg:min-w-[1440px] relative overflow-hidden">
       <Header />
-      <main className="relative w-full pt-32 pb-20">
-        <section className="max-w-[1440px] mx-auto px-6 lg:px-11">
-          <h1 className="text-4xl font-bold text-white mb-8">Scaling Plan</h1>
-          <p className="text-white/70 text-lg">
-            Our scaling plan details will be implemented here soon.
-          </p>
-        </section>
+      <main className="relative w-full">
+        <ScalingPlanHero />
+        <ScalingPlanHowItWorks />
+        <ScalingPlanAccountLimitations />
+        <ScalingPlanExample />
       </main>
-      <FooterSection />
+      <footer className="relative w-full">
+        <FooterSection />
+      </footer>
     </div>
   );
 };
