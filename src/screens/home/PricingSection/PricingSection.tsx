@@ -483,7 +483,7 @@ export const PricingSection = () => {
         {/* Challenge Type Tabs - OUTSIDE table container */}
         {/* Show tabs only when NOT in PAYG mode */}
         {activeModel !== 'payg' && (
-          <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {/* Tab Buttons */}
             {availableChallengeTypes.map((type, index) => {
               // Get the original index from challengeTypes array
@@ -766,14 +766,15 @@ export const PricingSection = () => {
                   let currentTop = 122; // Starting position
                   const rowBackgrounds = [];
 
-                  // Generate backgrounds for all rows except the last one (Price)
-                  for (let i = 0; i < tableRows.length - 1; i++) {
+                  // Generate backgrounds for all rows including Price
+                  for (let i = 0; i < tableRows.length; i++) {
                     const row = tableRows[i];
                     const isProfitSplit = row.label === "Profit Split";
                     const isPayoutSplit = row.label === "Payout Split";
                     const isLeverage = row.label === "Leverage";
-                    const isLargeRow = isProfitSplit || isPayoutSplit || isLeverage;
-                    const rowHeight = isLargeRow ? 80 : 46;
+                    const isPrice = row.label === "Price";
+                    const isLargeRow = isProfitSplit || isPayoutSplit || isLeverage || isPrice;
+                    const rowHeight = isPrice ? 90 : (isLargeRow ? 80 : 46);
 
                     rowBackgrounds.push(
                       <div
@@ -811,7 +812,7 @@ export const PricingSection = () => {
                 </div>
 
                 {/* Table Rows - FIXED: Using exact heights to match backgrounds */}
-                {tableRows.map((row, rowIndex) => {
+                {tableRows.filter(row => row.label !== "Price").map((row, rowIndex) => {
                   // Determine if this is Profit Split, Payout Split, or Leverage row
                   const isProfitSplit = row.label === "Profit Split";
                   const isPayoutSplit = row.label === "Payout Split";
@@ -836,16 +837,14 @@ export const PricingSection = () => {
                       {accountSizes.map((_, colIndex) => (
                         <div key={colIndex} className={`flex items-center justify-center rounded-xl ${isLargeRow ? 'h-[80px]' : 'h-[46px]'}`}>
                           <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${isLargeRow ? 'leading-[1.4] translate-y-[-4px]' : 'leading-relaxed'}`}>
-                            {row.label === "Price" ? (
-                              ""
-                            ) : isProfitSplit ? (
+                            {isProfitSplit ? (
                               // Profit Split - Dynamic based on model and tab
                               getProfitSplit(activeModel, activeTab)
                             ) : isLeverage ? (
                               // Leverage - Dynamic based on model and tab
                               getLeverageText(activeModel, activeTab)
                             ) : (
-                              columnData[rowIndex].value.split('\n').map((line, i) => (
+                              columnData[rowIndex]?.value.split('\n').map((line, i) => (
                                 <React.Fragment key={i}>
                                   {line}
                                   {i < columnData[rowIndex].value.split('\n').length - 1 && <br />}
@@ -860,18 +859,31 @@ export const PricingSection = () => {
                 })}
 
                 {/* Pricing Row */}
-                <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 -mt-20 relative z-10">
-                  <div></div>
+                <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
+                  <div className="flex items-center gap-2 px-4 rounded-xl h-[90px]">
+                    <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
+                      Price
+                    </span>
+                  </div>
                   {prices.map((price, index) => (
-                    <div key={index} className="flex flex-col items-center gap-4">
+                    <div key={index} className="flex items-center justify-center rounded-xl h-[90px]">
                       <div className="h-16 rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-4 w-[65%]">
                         <span className="bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent [font-family:'Poppins',Helvetica] font-semibold text-3xl tracking-[0] leading-normal">
                           {price}
                         </span>
                       </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Start Now Buttons Row */}
+                <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 relative z-10">
+                  <div></div>
+                  {prices.map((_, index) => (
+                    <div key={index} className="flex items-center justify-center">
                       <Button
                         onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
-                        className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity mt-[6px]"
+                        className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity"
                       >
                         Start Now
                       </Button>
