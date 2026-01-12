@@ -468,14 +468,30 @@ export const PricingSection = () => {
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/group-66.png"
               />
               
-              {/* Mobile & Desktop: Same SVG button, responsive sizing */}
-              <img
+              {/* Mobile & Desktop: Custom Styled Button */}
+              <button
                 onClick={() => setActiveModel('payg')}
-                className={`w-auto max-w-[200px] md:w-[228px] h-[44px] md:h-[52px] object-contain cursor-pointer hover:opacity-90 transition-opacity
-                ${activeModel === 'payg' ? 'ring-2 ring-[#a770e0] rounded-[10px]' : ''}`}
-                alt="Pay As You Go"
-                src="/pricing-section/payg-btn.svg"
-              />
+                className={`
+                  flex w-[228px] h-[52px] px-[46px] py-[13px] 
+                  justify-center items-center gap-[20px] 
+                  rounded-[10px] border-2 border-[#6E40E1]
+                  transition-all duration-200 active:scale-95 cursor-pointer
+                  ${activeModel === 'payg' ? 'ring-2 ring-[#a770e0]' : ''}
+                `}
+                style={{
+                  background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)'
+                }}
+              >
+                <span 
+                  className="w-[154px] h-[26px] shrink-0 text-[#FFF] text-center
+                  [font-family:'Cambay',Helvetica] font-bold text-[20px] leading-normal"
+                  style={{
+                    textShadow: '0 2px 4px rgba(0, 0, 0, 0.25)'
+                  }}
+                >
+                  PAY AS YOU GO
+                </span>
+              </button>
             </div>
           </div>
         </div>
