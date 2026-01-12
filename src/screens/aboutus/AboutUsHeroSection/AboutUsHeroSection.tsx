@@ -24,7 +24,7 @@ export const AboutUsHeroSection = () => {
               bg-gradient-to-r from-[#2c115c] via-[#47107b] to-[#4d0d8d]
               shadow-lg shadow-purple-500/30">
           <span className="[font-family:'Blinker',Helvetica] font-medium text-white text-[10px] sm:text-xs tracking-[0] leading-[normal] whitespace-nowrap">
-            Get funded today!
+            Thaurus Guru
           </span>
         </Badge>
 

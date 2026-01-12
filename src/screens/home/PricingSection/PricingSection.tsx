@@ -19,32 +19,207 @@ const challengeTypes = [
 
 const accountSizes = ["$5K", "$10K", "$25K", "$50K", "$100K"];
 
-const tableRows = [
-  { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
-  { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
-  { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
-  { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
-  {
-    label: "Profit Split",
-    hasInfo: true,
-    tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)"
-  },
-  {
-    label: "Leverage",
-    hasInfo: true,
-    tooltip: "" // This will be calculated dynamically
-  },
-  { label: "Price", hasInfo: false },
-];
+// Dynamic table rows based on model and challenge type
+const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
+  const baseRows = [
+    {
+      label: "Profit Split",
+      hasInfo: true,
+      tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)"
+    },
+    {
+      label: "Leverage",
+      hasInfo: true,
+      tooltip: "" // This will be calculated dynamically
+    },
+    { label: "Price", hasInfo: false },
+  ];
 
-const columnData = [
-  { value: "8%" },
-  { value: "4%" },
-  { value: "10%" },
-  { value: "4" },
-  { value: "" }, // Profit Split - calculated dynamically
-  { value: "" }, // Leverage - calculated dynamically
-];
+  // Classic model variations
+  if (model === 'classic') {
+    if (tabIndex === 0) { // Instant
+      return [
+        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "3%" },
+        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "5%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "7 trading days minimum" },
+        ...baseRows
+      ];
+    } else if (tabIndex === 1) { // Step-1
+      return [
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
+        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
+        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
+        ...baseRows
+      ];
+    } else if (tabIndex === 2) { // Step-2
+      return [
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
+        { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "4%" },
+        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
+        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "3 trading days minimum" },
+        ...baseRows
+      ];
+    } else if (tabIndex === 3) { // Step-3
+      return [
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "6%" },
+        { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "4%" },
+        { label: "Profit Target (Phase 3)", hasInfo: true, tooltip: "2%" },
+        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
+        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "3 trading days minimum" },
+        ...baseRows
+      ];
+    }
+  }
+
+  // PRO model variations
+  if (model === 'pro') {
+    if (tabIndex === 0) { // Instant
+      return [
+        { label: "Max Drawdown (Trailing)", hasInfo: true, tooltip: "4%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "7 trading days minimum" },
+        ...baseRows
+      ];
+    } else if (tabIndex === 1) { // Step-1
+      return [
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "10%" },
+        { label: "Max Drawdown (Trailing)", hasInfo: true, tooltip: "5%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
+        ...baseRows
+      ];
+    } else if (tabIndex === 2) { // Step-2
+      return [
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "10%" },
+        { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "4%" },
+        { label: "Max Drawdown (Trailing)", hasInfo: true, tooltip: "5%" },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "3 trading days minimum" },
+        ...baseRows
+      ];
+    }
+  }
+
+  // PAYG model - only has one section: Three Step
+  if (model === 'payg') {
+    return [
+      { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "2%" },
+      { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "4%" },
+      { label: "Profit Target (Phase 3)", hasInfo: true, tooltip: "6%" },
+      { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
+      { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 per phase" },
+      { label: "Time Limit", hasInfo: true, tooltip: "30 days" },
+      { label: "Payout Split", hasInfo: true, tooltip: "80%" },
+      ...baseRows.slice(1) // Only Leverage and Price, no Profit Split
+    ];
+  }
+
+  // Default fallback
+  return [
+    { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
+    { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
+    { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
+    { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
+    ...baseRows
+  ];
+};
+
+// Dynamic column data based on model and challenge type
+const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
+  if (model === 'classic') {
+    if (tabIndex === 0) { // Instant
+      return [
+        { value: "3%" }, // Max Daily Drawdown
+        { value: "5%" }, // Max Overall Drawdown
+        { value: "7" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    } else if (tabIndex === 1) { // Step-1
+      return [
+        { value: "8%" }, // Profit Target (Phase 1)
+        { value: "4%" }, // Max Daily Drawdown
+        { value: "10%" }, // Max Overall Drawdown
+        { value: "4" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    } else if (tabIndex === 2) { // Step-2
+      return [
+        { value: "8%" }, // Profit Target (Phase 1)
+        { value: "4%" }, // Profit Target (Phase 2)
+        { value: "4%" }, // Max Daily Drawdown
+        { value: "10%" }, // Max Overall Drawdown
+        { value: "3" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    } else if (tabIndex === 3) { // Step-3
+      return [
+        { value: "6%" }, // Profit Target (Phase 1)
+        { value: "4%" }, // Profit Target (Phase 2)
+        { value: "2%" }, // Profit Target (Phase 3)
+        { value: "4%" }, // Max Daily Drawdown
+        { value: "10%" }, // Max Overall Drawdown
+        { value: "3" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    }
+  }
+
+  if (model === 'pro') {
+    if (tabIndex === 0) { // Instant
+      return [
+        { value: "4%" }, // Max Drawdown (Trailing)
+        { value: "7" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    } else if (tabIndex === 1) { // Step-1
+      return [
+        { value: "10%" }, // Profit Target (Phase 1)
+        { value: "5%" }, // Max Drawdown (Trailing)
+        { value: "4" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    } else if (tabIndex === 2) { // Step-2
+      return [
+        { value: "10%" }, // Profit Target (Phase 1)
+        { value: "4%" }, // Profit Target (Phase 2)
+        { value: "5%" }, // Max Drawdown (Trailing)
+        { value: "3" }, // Minimum Trading Days
+        { value: "" }, // Profit Split - calculated dynamically
+        { value: "" }, // Leverage - calculated dynamically
+      ];
+    }
+  }
+
+  // PAYG model - only one section: Three Step
+  if (model === 'payg') {
+    return [
+      { value: "2%" }, // Profit Target (Phase 1)
+      { value: "4%" }, // Profit Target (Phase 2)
+      { value: "6%" }, // Profit Target (Phase 3)
+      { value: "4%" }, // Max Daily Drawdown
+      { value: "4 per phase" }, // Minimum Trading Days
+      { value: "30" }, // Time Limit
+      { value: "80%" }, // Payout Split
+      { value: "" }, // Leverage - calculated dynamically
+    ];
+  }
+
+  // Default fallback
+  return [
+    { value: "8%" },
+    { value: "4%" },
+    { value: "10%" },
+    { value: "4" },
+    { value: "" }, // Profit Split - calculated dynamically
+    { value: "" }, // Leverage - calculated dynamically
+  ];
+};
 
 const prices = ["$89", "$129", "$249", "$369", "$589"];
 
@@ -76,6 +251,10 @@ export const PricingSection = () => {
   const [activeTab, setActiveTab] = React.useState(0);
   const [activeAccountIndex, setActiveAccountIndex] = React.useState(0);
   const [activeModel, setActiveModel] = React.useState<'classic' | 'pro' | 'payg'>('classic');
+
+  // Get dynamic table rows and column data
+  const tableRows = React.useMemo(() => getTableRows(activeModel, activeTab), [activeModel, activeTab]);
+  const columnData = React.useMemo(() => getColumnData(activeModel, activeTab), [activeModel, activeTab]);
 
   // Function to get profit split based on model and challenge type
   const getProfitSplit = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number): string => {
@@ -176,15 +355,19 @@ export const PricingSection = () => {
     if (activeModel === 'pro') {
       // Hide Three Step (index 3) when PRO is active
       return challengeTypes.filter((_, index) => index !== 3);
+    } else if (activeModel === 'payg') {
+      // PAYG only shows "Three Step" - no tabs needed
+      return [];
     }
     return challengeTypes;
   }, [activeModel]);
 
-  // Reset active tab if Three Step was selected and user switches to PRO
+  // Reset active tab when switching models
   React.useEffect(() => {
     if (activeModel === 'pro' && activeTab === 3) {
       setActiveTab(0); // Reset to Instant
     }
+    // PAYG doesn't use tabs, no need to reset
   }, [activeModel, activeTab]);
 
   return (
@@ -298,41 +481,56 @@ export const PricingSection = () => {
         </div>
 
         {/* Challenge Type Tabs - OUTSIDE table container */}
-        <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          {/* Tab Buttons */}
-          {availableChallengeTypes.map((type, index) => {
-            // Get the original index from challengeTypes array
-            const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
+        {/* Show tabs only when NOT in PAYG mode */}
+        {activeModel !== 'payg' && (
+          <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 opacity-0 animate-fade-in [--animation-delay:1000ms] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            {/* Tab Buttons */}
+            {availableChallengeTypes.map((type, index) => {
+              // Get the original index from challengeTypes array
+              const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
 
-            return (
-              <div
-                key={index}
-                onClick={() => setActiveTab(originalIndex)}
-                className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
-                  ${index > 0 ? 'hidden md:flex' : 'flex'}
-                  ${activeTab === originalIndex
-                    ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10 ml-[6px] md:ml-0`
-                    : 'text-white bg-transparent px-4 md:px-8'
-                } ${(type.label === 'Three Step' || (type.label === 'Two Step' && activeModel === 'pro')) ? 'ml-[0.8px]' : ''}`}
-              >
-                {type.icon && (
-                  <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
-                )}
-                <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
-                  {type.label}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+              return (
+                <div
+                  key={index}
+                  onClick={() => setActiveTab(originalIndex)}
+                  className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
+                    ${index > 0 ? 'hidden md:flex' : 'flex'}
+                    ${activeTab === originalIndex
+                      ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10 ml-[6px] md:ml-0`
+                      : 'text-white bg-transparent px-4 md:px-8'
+                  } ${(type.label === 'Three Step' || (type.label === 'Two Step' && activeModel === 'pro')) ? 'ml-[0.8px]' : ''}`}
+                >
+                  {type.icon && (
+                    <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
+                  )}
+                  <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+                    {type.label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* PAYG Header - Show when in PAYG mode */}
+        {activeModel === 'payg' && (
+          <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1">
+            <div className="relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 flex-shrink-0 text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10">
+              <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+                Three Step
+              </span>
+            </div>
+          </div>
+        )}
 
         {/* Bordered Table Container - FIXED BORDER */}
-        <div 
-          className={`w-full border border-[#DAB6FF] bg-[#1a0a2e] 
-            ${activeTab === 0 ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
-            ${activeTab === 1 ? 'rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''} 
-            ${activeTab === 2 ? `rounded-tl-[20px] ${activeModel === 'pro' ? 'rounded-tr-none' : 'rounded-tr-[20px]'} rounded-bl-[20px] rounded-br-[20px]` : ''} 
-            ${activeTab === 3 ? 'rounded-tl-[20px] rounded-tr-none rounded-bl-[20px] rounded-br-[20px]' : ''} 
+        <div
+          className={`w-full border border-[#DAB6FF] bg-[#1a0a2e]
+            ${activeModel === 'payg' ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
+            ${activeModel !== 'payg' && activeTab === 0 ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
+            ${activeModel !== 'payg' && activeTab === 1 ? 'rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
+            ${activeModel !== 'payg' && activeTab === 2 ? `rounded-tl-[20px] ${activeModel === 'pro' ? 'rounded-tr-none' : 'rounded-tr-[20px]'} rounded-bl-[20px] rounded-br-[20px]` : ''}
+            ${activeModel !== 'payg' && activeTab === 3 ? 'rounded-tl-[20px] rounded-tr-none rounded-bl-[20px] rounded-br-[20px]' : ''}
             p-4 md:p-8`}
           style={{
             maxWidth: typeof window !== 'undefined' && window.innerWidth < 768 ? '386px' : 'none',
@@ -468,17 +666,21 @@ export const PricingSection = () => {
                 <div className="w-full mb-4">
                   <div className="space-y-4">
                     {tableRows.slice(0, -1).map((row, rowIndex) => {
-                      const isLargeRow = rowIndex >= 4;
+                      // Determine if this is Profit Split, Payout Split, or Leverage row
+                      const isProfitSplit = row.label === "Profit Split";
+                      const isPayoutSplit = row.label === "Payout Split";
+                      const isLeverage = row.label === "Leverage";
+                      const isLargeRow = isProfitSplit || isPayoutSplit || isLeverage;
 
                       // Get dynamic tooltip for leverage
-                      const dynamicTooltip = rowIndex === 5
+                      const dynamicTooltip = isLeverage
                         ? getLeverageTooltip(activeModel, activeTab)
                         : row.tooltip;
 
                       return (
                         <div
                           key={rowIndex}
-                          className={`w-full ${isLargeRow ? 'h-[100px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3`}
+                          className={`w-full ${isLargeRow ? 'h-[100px]' : 'h-[40px]'} flex flex-row items-center justify-between px-3 rounded-[8px]`}
                           style={{
                             background: 'linear-gradient(90deg, #1F0A34 0%, #29094B 50%, #1B092E 100%)'
                           }}
@@ -495,10 +697,10 @@ export const PricingSection = () => {
 
                           {/* Right: Value */}
                           <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] text-right">
-                            {rowIndex === 4 ? (
+                            {isProfitSplit ? (
                               // Profit Split - Dynamic based on model and tab
                               getProfitSplit(activeModel, activeTab)
-                            ) : rowIndex === 5 ? (
+                            ) : isLeverage ? (
                               // Leverage - Dynamic based on model and tab
                               getLeverageText(activeModel, activeTab)
                             ) : (
@@ -531,7 +733,8 @@ export const PricingSection = () => {
                       {prices[activeAccountIndex]}
                     </span>
                   </div>
-                  <Button 
+                  <Button
+                    onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
                     className="flex w-full max-w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
                     style={{
                       background: 'linear-gradient(90deg, #FFF 0%, #DAB6FF 100%)'
@@ -558,14 +761,36 @@ export const PricingSection = () => {
                 <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*3)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
                 <div className={`absolute left-[calc(246px+((100%-310px)/5+16px)*4)] -top-5 w-[calc((100%-310px)/5)] ${getAddOns(activeModel, activeTab).length === 0 ? 'h-[calc(100%-90px)]' : 'h-[calc(100%-220px)]'} rounded-[20px] border border-solid border-[rgba(218,182,255,0.10)] bg-[linear-gradient(180deg,rgba(96,40,158,0.40)_0%,rgba(29,10,50,0.40)_25%,rgba(27,9,46,0.40)_50%,rgba(30,8,53,0.40)_75%,rgba(51,9,97,0.40)_100%)] pointer-events-none z-0`}></div>
                 
-                {/* Row Backgrounds - FIXED HEIGHTS */}
-                <div className="absolute left-0 top-[122px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[178px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[236px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[294px] w-full h-[46px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[356px] w-full h-[70px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[442px] w-full h-[80px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
-                <div className="absolute left-0 top-[535px] w-full h-[90px] bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"></div>
+                {/* Row Backgrounds - DYNAMICALLY GENERATED */}
+                {(() => {
+                  let currentTop = 122; // Starting position
+                  const rowBackgrounds = [];
+
+                  // Generate backgrounds for all rows except the last one (Price)
+                  for (let i = 0; i < tableRows.length - 1; i++) {
+                    const row = tableRows[i];
+                    const isProfitSplit = row.label === "Profit Split";
+                    const isPayoutSplit = row.label === "Payout Split";
+                    const isLeverage = row.label === "Leverage";
+                    const isLargeRow = isProfitSplit || isPayoutSplit || isLeverage;
+                    const rowHeight = isLargeRow ? 80 : 46;
+
+                    rowBackgrounds.push(
+                      <div
+                        key={i}
+                        className="absolute left-0 w-full bg-[linear-gradient(90deg,#1F0A34_0%,#29094B_50%,#1B092E_100%)] pointer-events-none -z-10"
+                        style={{
+                          top: `${currentTop}px`,
+                          height: `${rowHeight}px`
+                        }}
+                      />
+                    );
+
+                    currentTop += rowHeight + 12; // Add row height + margin (mb-3 = 12px)
+                  }
+
+                  return rowBackgrounds;
+                })()}
                 
                 {/* Account Size Headers */}
                 <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-4 relative z-10">
@@ -587,14 +812,20 @@ export const PricingSection = () => {
 
                 {/* Table Rows - FIXED: Using exact heights to match backgrounds */}
                 {tableRows.map((row, rowIndex) => {
+                  // Determine if this is Profit Split, Payout Split, or Leverage row
+                  const isProfitSplit = row.label === "Profit Split";
+                  const isPayoutSplit = row.label === "Payout Split";
+                  const isLeverage = row.label === "Leverage";
+                  const isLargeRow = isProfitSplit || isPayoutSplit || isLeverage;
+
                   // Get dynamic tooltip for leverage
-                  const dynamicTooltip = rowIndex === 5
+                  const dynamicTooltip = isLeverage
                     ? getLeverageTooltip(activeModel, activeTab)
                     : row.tooltip;
 
                   return (
                     <div key={rowIndex} className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
-                      <div className={`flex items-center gap-2 px-4 rounded-xl ${rowIndex >= 4 ? 'h-[80px] translate-y-[-4px]' : 'h-[46px]'}`}>
+                      <div className={`flex items-center gap-2 px-4 rounded-xl ${isLargeRow ? 'h-[80px] translate-y-[-4px]' : 'h-[46px]'}`}>
                         <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                           {row.label}
                         </span>
@@ -603,14 +834,14 @@ export const PricingSection = () => {
                         )}
                       </div>
                       {accountSizes.map((_, colIndex) => (
-                        <div key={colIndex} className={`flex items-center justify-center rounded-xl ${rowIndex >= 4 ? 'h-[80px]' : 'h-[46px]'}`}>
-                          <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${rowIndex >= 4 ? 'leading-[1.4] translate-y-[-4px]' : 'leading-relaxed'}`}>
+                        <div key={colIndex} className={`flex items-center justify-center rounded-xl ${isLargeRow ? 'h-[80px]' : 'h-[46px]'}`}>
+                          <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${isLargeRow ? 'leading-[1.4] translate-y-[-4px]' : 'leading-relaxed'}`}>
                             {row.label === "Price" ? (
                               ""
-                            ) : rowIndex === 4 ? (
+                            ) : isProfitSplit ? (
                               // Profit Split - Dynamic based on model and tab
                               getProfitSplit(activeModel, activeTab)
-                            ) : rowIndex === 5 ? (
+                            ) : isLeverage ? (
                               // Leverage - Dynamic based on model and tab
                               getLeverageText(activeModel, activeTab)
                             ) : (
@@ -638,7 +869,10 @@ export const PricingSection = () => {
                           {price}
                         </span>
                       </div>
-                      <Button className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity mt-[6px]">
+                      <Button
+                        onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
+                        className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity mt-[6px]"
+                      >
                         Start Now
                       </Button>
                     </div>
