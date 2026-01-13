@@ -85,8 +85,17 @@ export const FooterSection = () => {
           <div className="max-w-7xl mx-auto">
             {/* Mobile: Card with border and rounded corners */}
             <div className="md:hidden border border-[#B784FF] rounded-[40px] p-4 translate-y-5 -mb-5 animate-fade-in opacity-0 [--animation-delay:200ms]">
+              {/* Big Thaurus Logo - Mobile - Centered at top */}
+              <div className="flex justify-center items-center mb-8 mt-6">
+                <img
+                  src="/thaurus-big-logo.svg"
+                  alt="Thaurus Guru"
+                  className="w-full max-w-[280px] h-auto object-contain"
+                />
+              </div>
+              
               {/* Logo - Left aligned */}
-              <div className="flex flex-col items-start mb-6 mt-6 ml-6">
+              <div className="flex flex-col items-start mb-6 ml-6">
                 <img
                   className="w-[120px] object-cover mb-4"
                   alt="Company logo"

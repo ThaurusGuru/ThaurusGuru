@@ -21,7 +21,7 @@ export const MainContentSection = () => {
   return (
     <section className="w-full py-8 md:py-12 relative">
       {/* Top Horizontal Line - Full width */}
-      <div className="relative w-full h-[3px] mb-2 md:mb-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
+      <div className="relative w-full h-[3px] -mb-6 md:mb-10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
         <img 
           src="/hero/Horizontal-line.jpg" 
           alt="Horizontal line" 
@@ -34,7 +34,7 @@ export const MainContentSection = () => {
 
       <div className="container mx-auto px-4 lg:max-w-[1300px]">
         {/* Stats Grid Container */}
-        <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-0 py-2 lg:py-0 pt-4 md:pt-0">
+        <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-0 py-2 lg:py-0 pt-8 md:pt-0">
           {statsData.map((stat, index) => (
             <div
               key={index}

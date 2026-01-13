@@ -4,72 +4,100 @@ const tableData = [
   {
     feature: "Profit Share",
     values: [
+      "up to 95%",
       "80%",
-      "50% (up to 100%)",
-      "80% (up to 95%)",
-      "80% (up to 100%)",
-      "80%",
-      "80% (up to 90%)",
+      "up to 100%",
+      "up to 100%",
+      "up to 95%",
+      "up to 100%",
     ],
   },
   {
-    feature: "Profit Target",
+    feature: "Profit Target (1-step)",
     values: [
-      "8%/4%",
-      "10% (1-step)",
-      "8%/5%",
-      "8%/5%",
-      "8%/5%",
-      "10% (1-step)",
+      "8%",
+      "11%",
+      "10%",
+      "10%",
+      "10%",
+      "10%",
     ],
   },
   {
-    feature: "Salary",
-    values: ["No", "No", "No", "No", "No", "No"],
+    feature: "Profit Target (2-step)",
+    values: [
+      "8% / 4%",
+      "10% / 5%",
+      "10% / 5%",
+      "10% / 6%",
+      "8% / 5%",
+      "10% / 5%",
+    ],
+  },
+  {
+    feature: "Profit Target (3-step)",
+    values: [
+      "6% / 4% / 2%",
+      "4% / 4% / 6%",
+      "6% / 6% / 6%",
+      "-",
+      "-",
+      "6% / 6% / 6%",
+    ],
   },
   {
     feature: "Drawdown",
     values: [
-      "Balance (4% daily/ 10% max)",
-      "Balance (4% daily / 6% max)",
-      "Balance (5% daily/ 10% max)",
-      "Balance (5% daily/ 10% max)",
-      "Equity - Dynamic (5% daily / 10% max)",
-      "Balance (4% daily / 6% max)",
+      "4% DD / 10% ML (static)",
+      "3% DD / 6% ML (static / Trailing)",
+      "4% DD / 6% ML (static)",
+      "3% DD / 6% ML (static)",
+      "3% DD / 6% ML (static)",
+      "3% DD / 6% ML (static)",
     ],
   },
   {
-    feature: "Competitions",
-    values: ["No", "Yes", "Yes", "No", "No", "Yes"],
-  },
-  {
-    feature: "News Trading",
-    values: ["No (5 min buffer)", "Yes", "Yes", "Yes", "Yes", "Yes"],
-  },
-  {
-    feature: "Weekend Trading on MT4/MT5",
-    values: ["Yes (add-on)", "Yes", "Yes", "Yes", "No (cTrader only)", "Yes"],
-  },
-  {
-    feature: "Locations",
+    feature: "Payout Cycle",
     values: [
-      "Global (Slovakia/ Mauritius)",
-      "Global",
-      "Global (UAE)",
-      "Global (UAE)",
-      "Global (UK)",
-      "Global",
+      "Weekly Bi-Weekly",
+      "Weekly Bi-Weekly",
+      "Weekly Bi-Weekly",
+      "Weekly Bi-Weekly",
+      "Bi-Weekly",
+      "Bi-Weekly",
     ],
   },
   {
-    feature: "Free Refund",
+    feature: "commissions",
     values: [
-      "After 2nd payout",
-      "100% upon passing",
-      "1st withdrawal",
-      "4th withdrawal",
+      "NO",
+      "Yes",
+      "Yes",
+      "Yes",
+      "Yes",
+      "Yes",
+    ],
+  },
+  {
+    feature: "add-ons",
+    values: [
+      "Yes",
+      "Yes",
+      "Yes",
+      "Yes",
+      "Yes",
+      "Yes",
+    ],
+  },
+  {
+    feature: "Pay As You Go",
+    values: [
+      "Yes",
       "No",
-      "100% upon passing",
+      "No",
+      "No",
+      "No",
+      "No",
     ],
   },
 ];
@@ -106,10 +134,24 @@ export const ComparisonTableSection = () => {
                   />
                 </div>
 
-                {/* 5%ers Header */}
+                {/* ForTraders Header */}
                 <div className="px-5 py-4 flex items-center justify-center bg-[#0a0515]">
                   <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                    5%ers
+                    ForTraders
+                  </span>
+                </div>
+
+                {/* GoatFunded Header */}
+                <div className="px-5 py-4 flex items-center justify-center bg-[#1a0a2e]">
+                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
+                    GoatFunded
+                  </span>
+                </div>
+
+                {/* FundingPips Header */}
+                <div className="px-5 py-4 flex items-center justify-center bg-[#0a0515]">
+                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
+                    FundingPips
                   </span>
                 </div>
 
@@ -120,24 +162,10 @@ export const ComparisonTableSection = () => {
                   </span>
                 </div>
 
-                {/* Funding Pips Header */}
+                {/* The5ers Header */}
                 <div className="px-5 py-4 flex items-center justify-center bg-[#0a0515]">
                   <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                    Funding Pips
-                  </span>
-                </div>
-
-                {/* Alpha Capital Group Header */}
-                <div className="px-5 py-4 flex items-center justify-center bg-[#1a0a2e]">
-                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                    Alpha Capital Group
-                  </span>
-                </div>
-
-                {/* FXIFY Header */}
-                <div className="px-5 py-4 flex items-center justify-center bg-[#0a0515]">
-                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                    FXIFY
+                    The5ers
                   </span>
                 </div>
               </div>
@@ -220,10 +248,24 @@ export const ComparisonTableSection = () => {
                 />
               </div>
 
-              {/* 5%ers Header */}
+              {/* ForTraders Header */}
               <div className="px-4 py-3 flex items-center justify-center bg-[#0a0515]">
                 <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                  5%ers
+                  ForTraders
+                </span>
+              </div>
+
+              {/* GoatFunded Header */}
+              <div className="px-4 py-3 flex items-center justify-center bg-[#1a0a2e]">
+                <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
+                  GoatFunded
+                </span>
+              </div>
+
+              {/* FundingPips Header */}
+              <div className="px-4 py-3 flex items-center justify-center bg-[#0a0515]">
+                <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
+                  FundingPips
                 </span>
               </div>
 
@@ -234,24 +276,10 @@ export const ComparisonTableSection = () => {
                 </span>
               </div>
 
-              {/* Funding Pips Header */}
+              {/* The5ers Header */}
               <div className="px-4 py-3 flex items-center justify-center bg-[#0a0515]">
                 <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                  Funding Pips
-                </span>
-              </div>
-
-              {/* Alpha Capital Group Header */}
-              <div className="px-4 py-3 flex items-center justify-center bg-[#1a0a2e]">
-                <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                  Alpha Capital Group
-                </span>
-              </div>
-
-              {/* FXIFY Header */}
-              <div className="px-4 py-3 flex items-center justify-center bg-[#0a0515]">
-                <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-base text-center">
-                  FXIFY
+                  The5ers
                 </span>
               </div>
             </div>

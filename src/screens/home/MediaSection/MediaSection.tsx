@@ -59,7 +59,7 @@ export const MediaSection = () => {
         </h2>
 
         {/* Screenshots carousel section */}
-        <div className="relative mb-12 md:mb-20">
+        <div className="relative mb-12 md:mb-20 px-12 md:px-0">
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] relative">
             {/* Screenshots container */}
             <div className="overflow-hidden mx-auto max-w-[180px] md:max-w-none">
