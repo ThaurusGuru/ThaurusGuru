@@ -1,38 +1,7 @@
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
-
-const featureCards = [
-  {
-    title: (
-      <>
-        Meta
-        <br />
-        Trader 5
-      </>
-    ),
-    subtitle: "Now available",
-  },
-  {
-    title: (
-      <>
-        24/7
-        <br />
-        Support
-      </>
-    ),
-    subtitle: "Learn More",
-  },
-  {
-    title: (
-      <>
-        Zero
-        <br />
-        Commisions
-      </>
-    ),
-    subtitle: "Start Trading today!",
-  },
-];
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const reviewImages = [
   "/hero/Trustpilot.svg",
@@ -40,6 +9,47 @@ const reviewImages = [
 ];
 
 export const HeroSection = () => {
+  const { t } = useTranslation();
+
+  const featureCards = [
+    {
+      title: (
+        <>
+          {t('hero.metaTraderLine1')}
+          <br />
+          {t('hero.metaTraderLine2')}
+        </>
+      ),
+      subtitle: t('hero.nowAvailable'),
+      link: null,
+      logo: "/meta-trader.png",
+    },
+    {
+      title: (
+        <>
+          {t('hero.supportLine1')}
+          <br />
+          {t('hero.supportLine2')}
+        </>
+      ),
+      subtitle: t('hero.learnMore'),
+      link: "/contact-us",
+      logo: undefined,
+    },
+    {
+      title: (
+        <>
+          {t('hero.zeroLine1')}
+          <br />
+          {t('hero.zeroLine2')}
+        </>
+      ),
+      subtitle: t('hero.startTradingToday'),
+      link: null,
+      logo: undefined,
+    },
+  ];
+
   return (
     <section className="relative w-full px-4 md:px-8 lg:px-[105px] pt-[130px] md:pt-[180px] lg:pt-[220px] pb-[40px] md:pb-[80px] lg:pb-[100px] overflow-hidden">
       {/* Hero Background Image with line effects */}
@@ -58,15 +68,25 @@ export const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="flex flex-col items-center lg:items-start order-1 lg:order-1">
-            {/* Badge with violet gradient and white border */}
+            {/* Badge with violet gradient, white border and premium animations */}
             <Badge className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] 
-              inline-flex items-center justify-center self-center lg:self-start gap-2.5 px-4 sm:px-5 py-1.5 sm:py-2 h-auto 
-              rounded-full border border-white/60 sm:border-2
+              inline-flex items-center justify-center self-center lg:self-start gap-3 px-6 sm:px-10 py-3 sm:py-4 h-auto 
+              rounded-full border-2 border-white/90
               bg-gradient-to-r from-[#2c115c] via-[#47107b] to-[#4d0d8d]
-              shadow-lg shadow-purple-500/30">
-              <span className="[font-family:'Blinker',Helvetica] font-medium text-white text-[10px] sm:text-xs tracking-[0] leading-[normal] whitespace-nowrap">
-                Get funded today!
+              shadow-[0_0_30px_rgba(168,85,247,0.5)]
+              hover:scale-110 hover:shadow-[0_0_40px_rgba(168,85,247,0.7)]
+              transition-all duration-300
+              relative overflow-hidden group cursor-pointer">
+              {/* Constant Shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+              
+              <span className="relative z-10 [font-family:'Blinker',Helvetica] font-bold text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] tracking-[1px] leading-[normal] whitespace-nowrap uppercase drop-shadow-md">
+                {t('hero.badge')}
               </span>
+              
+              {/* Dual Pulse effect */}
+              <div className="absolute inset-0 rounded-full animate-ping opacity-30 border-2 border-purple-400 pointer-events-none" />
+              <div className="absolute inset-[-4px] rounded-full animate-pulse opacity-10 bg-purple-500/20 blur-sm pointer-events-none" />
             </Badge>
 
             {/* Main Heading - Mobile centered, Desktop left-aligned */}
@@ -75,9 +95,9 @@ export const HeroSection = () => {
               text-[24px] sm:text-[40px] md:text-[52px] lg:text-[62px] 
               tracking-[-0.02em] leading-[1.4] sm:leading-[1.15]
               text-center lg:text-left w-full max-w-[235px] sm:max-w-none">
-              Master the Markets
+              {t('hero.titleLine1')}
               <br />
-              with Thaurus Guru
+              {t('hero.titleLine2')}
             </h1>
 
             {/* Description - Centered block with justified text on mobile, left on desktop */}
@@ -86,7 +106,7 @@ export const HeroSection = () => {
               text-[12px] sm:text-[14px] md:text-[15px] tracking-[0] leading-[1.5] sm:leading-relaxed 
               w-full max-w-[249px] sm:max-w-[400px] lg:max-w-[540px]
               text-justify mx-auto lg:text-left lg:mx-0">
-              Unlock your trading potential with powerful AI tools and funded challenges. Learn, trade, and grow with expert support at every step.
+              {t('hero.description')}
             </p>
 
             {/* Feature Cards Row - Centered on mobile, left on desktop */}
@@ -94,30 +114,59 @@ export const HeroSection = () => {
               grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 mt-4 sm:mt-6 md:mt-8 lg:mt-10 
               w-full max-w-[280px] sm:max-w-[360px] md:max-w-[460px]
               mx-auto lg:mx-0 lg:-ml-2">
-              {featureCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] 
-                  hover:scale-105 transition-all duration-300"
-                >
-                  {/* Background Image */}
-                  <img
-                    src="/hero/card.svg"
-                    alt="Card Background"
-                    className="absolute inset-0 w-full h-full object-fill"
-                  />
-                  
-                  {/* Text Overlay */}
-                  <div className="relative z-10 flex flex-col items-start justify-center gap-0.5 sm:gap-1 md:gap-2 p-1.5 sm:p-2 md:p-3 h-full ml-3">
-                    <div className="[font-family:'Cambay',Helvetica] font-normal text-white text-[11px] sm:text-[14px] md:text-[15px] lg:text-[16px] leading-[13px] sm:leading-[16px] md:leading-[17px] lg:leading-[18px]">
-                      {card.title}
+              {featureCards.map((card, index) => {
+                const CardContent = (
+                  <>
+                    {/* Background Image */}
+                    <img
+                      src="/hero/card.svg"
+                      alt="Card Background"
+                      className="absolute inset-0 w-full h-full object-fill"
+                    />
+                    
+                    {/* Text Overlay */}
+                    <div className="relative z-10 flex items-center p-1.5 sm:p-2 md:p-3 h-full ml-3">
+                      <div className="flex flex-col items-start justify-center gap-0.5 sm:gap-1 md:gap-2">
+                        <div className="flex items-center gap-2">
+                          <div className="[font-family:'Cambay',Helvetica] font-normal text-white text-[11px] sm:text-[14px] md:text-[15px] lg:text-[16px] leading-[13px] sm:leading-[16px] md:leading-[17px] lg:leading-[18px]">
+                            {card.title}
+                          </div>
+                          {/* Logo - if available, positioned on the right of the title */}
+                          {card.logo && (
+                            <img
+                              src={card.logo}
+                              alt="Logo"
+                              className="w-[15px] h-[15px] sm:w-[22px] sm:h-[22px] md:w-[26px] md:h-[26px] object-contain shrink-0"
+                            />
+                          )}
+                        </div>
+                        <div className="[font-family:'Cambay',Helvetica] text-[#9D63D9] font-normal text-[5px] sm:text-[7px] md:text-[8px] leading-normal">
+                          {card.subtitle}
+                        </div>
+                      </div>
                     </div>
-                    <div className="[font-family:'Cambay',Helvetica] text-[#9D63D9] font-normal text-[5px] sm:text-[7px] md:text-[8px] leading-normal">
-                      {card.subtitle}
-                    </div>
+                  </>
+                );
+
+                return card.link ? (
+                  <Link
+                    key={index}
+                    to={card.link}
+                    className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] 
+                    hover:scale-105 transition-all duration-300 cursor-pointer block"
+                  >
+                    {CardContent}
+                  </Link>
+                ) : (
+                  <div
+                    key={index}
+                    className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] 
+                    hover:scale-105 transition-all duration-300"
+                  >
+                    {CardContent}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* CTA Buttons - Centered on mobile, left on desktop */}
@@ -131,7 +180,7 @@ export const HeroSection = () => {
                 hover:scale-105 transition-all duration-300
                 group">
                 <span className="w-[152px] h-[18px] lg:h-[20px] shrink-0 text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.25)] [font-family:'Cambay',Helvetica] font-bold text-[13px] lg:text-[16px] leading-[normal]">
-                  Start your Challenge
+                  {t('hero.startYourChallenge')}
                 </span>
                 <div className="flex w-[28px] lg:w-[34px] h-[20px] lg:h-[23px] px-[7px] py-px items-center gap-[10px] shrink-0 rounded-[30px] bg-white group-hover:scale-110 transition-transform">
                   <img 
@@ -152,7 +201,7 @@ export const HeroSection = () => {
                 hover:shadow-[0_4px_24px_0_rgba(122,39,239,0.3)]
                 transition-all duration-300">
                 <span className="[font-family:'Cambay',Helvetica] font-bold text-white text-[12px] sm:text-[13px] md:text-[15px] tracking-[0] leading-[normal]">
-                  Try pay as you go challenge
+                  {t('hero.tryPayAsYouGo')}
                 </span>
               </Button>
             </div>

@@ -34,7 +34,7 @@ export const HomePage = () => {
           <MainContentSection />
         </section>
 
-        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms] z-10">
+        <section id="how-it-works" className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms] z-10">
           <HowItWorksSection />
         </section>
 
@@ -47,11 +47,11 @@ export const HomePage = () => {
           />
         </div>
 
-        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] z-10">
+        <section id="trading-rules" className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] z-10">
           <PricingSection />
         </section>
 
-        <section className="relative w-full">
+        <section id="reward" className="relative w-full">
           <PayoutsSection />
         </section>
 

@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export const AboutUsWhoWeAre = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full px-4 md:px-8 flex flex-col items-center mt-[100px] md:mt-[200px]">
       {/* Main Box */}
@@ -32,7 +36,7 @@ export const AboutUsWhoWeAre = () => {
               maxWidth: '100%',
             }}
           >
-            Who We Are?
+            {t('aboutUs.whoWeAre')}
           </h2>
 
           {/* Description */}
@@ -47,9 +51,9 @@ export const AboutUsWhoWeAre = () => {
               lineHeight: 'normal',
             }}
           >
-            <span style={{ color: '#C293F1', fontWeight: 400 }}>Thaurus Guru is </span>
-            <span style={{ color: '#FFF', fontWeight: 700 }}>a leading proprietary trading firm</span>
-            <span style={{ color: '#C293F1', fontWeight: 400 }}> dedicated to identifying and nurturing talented traders. With the backing of our experienced team and advanced technologies, we offer a structured pathway to help traders prove their skills, achieve consistency, and trade with our capital.</span>
+            <span style={{ color: '#C293F1', fontWeight: 400 }}>{t('aboutUs.whoWeAreDesc1')}</span>
+            <span style={{ color: '#FFF', fontWeight: 700 }}>{t('aboutUs.whoWeAreDesc2')}</span>
+            <span style={{ color: '#C293F1', fontWeight: 400 }}>{t('aboutUs.whoWeAreDesc3')}</span>
           </p>
         </div>
       </div>

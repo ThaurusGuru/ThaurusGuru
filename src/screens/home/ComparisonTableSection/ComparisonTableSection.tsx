@@ -1,8 +1,13 @@
+import React from "react";
 import { Card, CardContent } from "../../../components/ui/card";
+import { useTranslation } from "react-i18next";
 
-const tableData = [
+export const ComparisonTableSection = () => {
+  const { t } = useTranslation();
+
+  const tableData = [
   {
-    feature: "Profit Share",
+    feature: t('comparison.profitShare'),
     values: [
       "up to 95%",
       "80%",
@@ -13,7 +18,7 @@ const tableData = [
     ],
   },
   {
-    feature: "Profit Target (1-step)",
+    feature: t('comparison.profitTarget1Step'),
     values: [
       "8%",
       "11%",
@@ -24,7 +29,7 @@ const tableData = [
     ],
   },
   {
-    feature: "Profit Target (2-step)",
+    feature: t('comparison.profitTarget2Step'),
     values: [
       "8% / 4%",
       "10% / 5%",
@@ -35,7 +40,7 @@ const tableData = [
     ],
   },
   {
-    feature: "Profit Target (3-step)",
+    feature: t('comparison.profitTarget3Step'),
     values: [
       "6% / 4% / 2%",
       "4% / 4% / 6%",
@@ -46,7 +51,7 @@ const tableData = [
     ],
   },
   {
-    feature: "Drawdown",
+    feature: t('comparison.drawdown'),
     values: [
       "4% DD / 10% ML (static)",
       "3% DD / 6% ML (static / Trailing)",
@@ -57,7 +62,7 @@ const tableData = [
     ],
   },
   {
-    feature: "Payout Cycle",
+    feature: t('comparison.payoutCycle'),
     values: [
       "Weekly Bi-Weekly",
       "Weekly Bi-Weekly",
@@ -68,7 +73,7 @@ const tableData = [
     ],
   },
   {
-    feature: "commissions",
+    feature: t('comparison.commissions'),
     values: [
       "NO",
       "Yes",
@@ -79,7 +84,7 @@ const tableData = [
     ],
   },
   {
-    feature: "add-ons",
+    feature: t('comparison.addOns'),
     values: [
       "Yes",
       "Yes",
@@ -90,7 +95,7 @@ const tableData = [
     ],
   },
   {
-    feature: "Pay As You Go",
+    feature: t('comparison.payAsYouGo'),
     values: [
       "Yes",
       "No",
@@ -102,12 +107,11 @@ const tableData = [
   },
 ];
 
-export const ComparisonTableSection = () => {
   return (
     <section className="relative w-full py-12 md:py-16 translate-y-[-1rem] animate-fade-in opacity-0 overflow-hidden">
       <div className="container mx-auto px-4 max-w-[1160px] pt-16 md:pt-24 relative z-10">
         <h2 className="w-full max-w-[240px] md:max-w-none mx-auto text-center bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[24px] md:text-[42px] leading-[35px] md:leading-[78px] mb-20 md:mb-24 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-          Compare. Evaluate. Choose Smarter.
+          {t('comparison.title')}
         </h2>
 
         {/* Mobile: Horizontal scroll wrapper - MORE ZOOMED */}
@@ -119,7 +123,7 @@ export const ComparisonTableSection = () => {
                 {/* Feature Column Header - Purple */}
                 <div className="px-5 py-5 flex items-center justify-center bg-[#1a0a2e]">
                   <span className="[font-family:'Poppins',Helvetica] font-medium text-[#c8a2ef] text-base">
-                    Feature
+                    {t('common.feature')}
                   </span>
                 </div>
                 
@@ -179,7 +183,12 @@ export const ComparisonTableSection = () => {
                       key={rowIndex}
                       className="px-5 py-5 h-[76px] flex items-center justify-center [font-family:'Poppins',Helvetica] font-medium text-[#c8a2ef] text-[15px] text-center"
                     >
-                      {row.feature}
+                      {row.feature.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          {i < row.feature.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                      ))}
                     </div>
                   ))}
                 </div>
@@ -293,7 +302,12 @@ export const ComparisonTableSection = () => {
                     key={rowIndex}
                     className="px-4 py-5 h-[76px] flex items-center justify-center [font-family:'Poppins',Helvetica] font-medium text-[#c8a2ef] text-base text-center"
                   >
-                    {row.feature}
+                    {row.feature.split('\n').map((line, i) => (
+                      <React.Fragment key={i}>
+                        {line}
+                        {i < row.feature.split('\n').length - 1 && <br />}
+                      </React.Fragment>
+                    ))}
                   </div>
                 ))}
               </div>

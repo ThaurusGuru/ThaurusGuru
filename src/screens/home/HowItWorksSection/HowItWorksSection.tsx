@@ -1,47 +1,49 @@
 import React from "react";
 import { Card, CardContent } from "../../../components/ui/card";
-
-const stepsData = [
-  {
-    number: "1",
-    title: "Sign Up & Pick Your Challenge",
-    description: "Choose the funding program that fits your trading style.",
-    icon: (
-      <img
-        className="absolute -top-6 sm:-top-9 left-2 w-32 sm:w-44 h-32 sm:h-44"
-        alt="Icon"
-        src="/How-it-works/icon.svg"
-      />
-    ),
-  },
-  {
-    number: "2",
-    title: "Prove Your Skills",
-    description:
-      "Trade in a real-market environment and hit the profit targets.",
-    icon: (
-      <img
-        className="absolute -top-6 sm:-top-9 left-2 w-32 sm:w-44 h-32 sm:h-44"
-        alt="Icon"
-        src="/How-it-works/icon-2.svg"
-      />
-    ),
-  },
-  {
-    number: "3",
-    title: "Get Funded",
-    description: "Pass the evaluation and start trading with our capital.",
-    icon: (
-      <img
-        className="absolute -top-6 sm:-top-9 left-2 w-32 sm:w-44 h-32 sm:h-44"
-        alt="Icon"
-        src="/How-it-works/icon-3.svg"
-      />
-    ),
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const HowItWorksSection = () => {
+  const { t } = useTranslation();
+
+  const stepsData = [
+    {
+      number: "1",
+      title: t('howItWorks.step1Title'),
+      description: t('howItWorks.step1Description'),
+      icon: (
+        <img
+          className="absolute -top-6 sm:-top-9 left-2 w-32 sm:w-44 h-32 sm:h-44"
+          alt="Icon"
+          src="/How-it-works/icon.svg"
+        />
+      ),
+    },
+    {
+      number: "2",
+      title: t('howItWorks.step2Title'),
+      description: t('howItWorks.step2Description'),
+      icon: (
+        <img
+          className="absolute -top-6 sm:-top-9 left-2 w-32 sm:w-44 h-32 sm:h-44"
+          alt="Icon"
+          src="/How-it-works/icon-2.svg"
+        />
+      ),
+    },
+    {
+      number: "3",
+      title: t('howItWorks.step3Title'),
+      description: t('howItWorks.step3Description'),
+      icon: (
+        <img
+          className="absolute -top-6 sm:-top-9 left-2 w-32 sm:w-44 h-32 sm:h-44"
+          alt="Icon"
+          src="/How-it-works/icon-3.svg"
+        />
+      ),
+    },
+  ];
+
   return (
     <section className="w-full py-12 md:py-20 px-4 flex flex-col gap-8 md:gap-16">
       <h2 className="max-w-[263px] md:max-w-[832px] lg:max-w-none mx-auto 
@@ -49,7 +51,7 @@ export const HowItWorksSection = () => {
         bg-gradient-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent
         [font-family:'M_PLUS_2',Helvetica]
         translate-y-[-1rem] animate-fade-in opacity-0">
-        How Thaurus Guru&apos;s Prop Trading Works?
+        {t('howItWorks.title')}
       </h2>
 
       <div className="max-w-[1160px] mx-auto w-full">

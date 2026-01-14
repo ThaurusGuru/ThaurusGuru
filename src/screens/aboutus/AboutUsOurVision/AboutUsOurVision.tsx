@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export const AboutUsOurVision = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full flex flex-col items-center overflow-visible mt-[100px] md:mt-[150px]">
       <div className="relative w-full max-w-[1440px] flex flex-col items-start px-0 overflow-visible min-h-[650px] md:min-h-[774px]">
@@ -97,7 +101,7 @@ export const AboutUsOurVision = () => {
           <span
             className="font-['M_PLUS_2',Helvetica] text-[#FFF] text-[20px] md:text-[32px] font-normal leading-[34px] text-center w-[120px] md:w-[164px]"
           >
-            Our Vision
+            {t('aboutUs.ourVision')}
           </span>
         </div>
 
@@ -105,9 +109,9 @@ export const AboutUsOurVision = () => {
         <div
           className="font-['Cambay',Helvetica] text-[#FFF] text-[12px] md:text-[14px] font-normal leading-relaxed mt-[20px] md:mt-[51px] ml-[65px] md:ml-[210px] w-[210px] md:w-[467px]"
         >
-          <p style={{ marginBottom: '8px' }}>• Build a global community of confident, disciplined traders</p>
-          <p style={{ marginBottom: '8px' }}>• Combine trading expertise with smart, modern technology</p>
-          <p>• Enable traders to unlock their full potential and grow consistently</p>
+          <p style={{ marginBottom: '8px' }}>• {t('aboutUs.ourVisionPoint1')}</p>
+          <p style={{ marginBottom: '8px' }}>• {t('aboutUs.ourVisionPoint2')}</p>
+          <p>• {t('aboutUs.ourVisionPoint3')}</p>
         </div>
 
         {/* --- Mission Section (Bottom/Right on Desktop, Bottom/Right on Mobile) --- */}
@@ -120,7 +124,7 @@ export const AboutUsOurVision = () => {
             <span
               className="font-['M_PLUS_2',Helvetica] text-[#FFF] text-[20px] md:text-[32px] font-normal leading-tight text-center w-[120px] md:w-[186px]"
             >
-              Our Mission
+              {t('aboutUs.ourMission')}
             </span>
           </div>
           
@@ -170,13 +174,13 @@ export const AboutUsOurVision = () => {
           className="self-start md:self-end font-['Cambay',Helvetica] text-[#FFF] text-[12px] md:text-[14px] font-normal leading-relaxed mt-[20px] md:mt-[44px] ml-[120px] md:mr-[210px] w-[210px] md:w-[465px]"
         >
           <p style={{ marginBottom: '8px' }}>
-            • Empower traders with advanced tools and practical education
+            • {t('aboutUs.ourMissionPoint1')}
           </p>
           <p style={{ marginBottom: '8px' }}>
-            • Provide real-time market insights through our AI finance specialist, Berry
+            • {t('aboutUs.ourMissionPoint2')}
           </p>
           <p>
-            • Offer structured programs focused on consistency and long-term success
+            • {t('aboutUs.ourMissionPoint3')}
           </p>
         </div>
       </div>

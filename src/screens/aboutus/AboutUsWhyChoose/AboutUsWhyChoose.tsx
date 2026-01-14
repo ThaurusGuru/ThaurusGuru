@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export const AboutUsWhyChoose = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full flex flex-col items-center mt-[80px] md:mt-[160px]">
       {/* Why Choose Thaurus Guru? Heading */}
@@ -11,15 +15,15 @@ export const AboutUsWhyChoose = () => {
           WebkitTextFillColor: 'transparent',
         }}
       >
-        Why Choose Thaurus Guru?
+        {t('aboutUs.whyChoose')}
       </h2>
 
       {/* Description - 40px below */}
       <p
         className="font-['Cambay',Helvetica] mt-[20px] md:mt-[40px] w-[320px] md:w-[575px] text-center text-[12px] md:text-[14px] font-normal leading-normal"
       >
-        <span className="text-[#FFF]">Comprehensive Trading Programs:</span>
-        <span className="text-[#C293F1]"> Our Challenge, Verification, and Live Trading phases are tailored to support traders at every level of their journey.</span>
+        <span className="text-[#FFF]">{t('aboutUs.whyChooseDesc1')}</span>
+        <span className="text-[#C293F1]">{t('aboutUs.whyChooseDesc2')}</span>
       </p>
 
       {/* Cards Container - 75px below on desktop, 40px on mobile */}
@@ -51,10 +55,10 @@ export const AboutUsWhyChoose = () => {
               </div>
             </div>
             <span className="[font-family:'M_PLUS_2',Helvetica]" style={{ marginTop: '123px', color: '#FFF', textAlign: 'center', fontSize: '14px', fontWeight: 400 }}>
-              Advanced Tools and Resources
+              {t('aboutUs.advancedTools')}
             </span>
             <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '167px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
-              Access real-time analysis, news, and signals from Berry, our AI finance specialist.
+              {t('aboutUs.advancedToolsDesc')}
             </span>
           </div>
         </div>
@@ -85,10 +89,10 @@ export const AboutUsWhyChoose = () => {
               </div>
             </div>
             <span className="[font-family:'M_PLUS_2',Helvetica]" style={{ marginTop: '123px', color: '#FFF', textAlign: 'center', fontSize: '14px', fontWeight: 400 }}>
-              Community and Networking
+              {t('aboutUs.communityNetworking')}
             </span>
             <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '167px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
-              Join a thriving community of traders and gain insights from industry professionals.
+              {t('aboutUs.communityNetworkingDesc')}
             </span>
           </div>
         </div>
@@ -119,10 +123,10 @@ export const AboutUsWhyChoose = () => {
               </div>
             </div>
             <span className="[font-family:'M_PLUS_2',Helvetica]" style={{ marginTop: '123px', color: '#FFF', textAlign: 'center', fontSize: '14px', fontWeight: 400 }}>
-              Support and Mentorship
+              {t('aboutUs.supportMentorship')}
             </span>
             <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '200px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
-              Benefit from our extensive educational materials and one-on-one mentoring sessions.
+              {t('aboutUs.supportMentorshipDesc')}
             </span>
           </div>
         </div>

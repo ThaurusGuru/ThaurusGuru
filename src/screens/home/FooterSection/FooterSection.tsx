@@ -1,35 +1,37 @@
 import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Separator } from "../../../components/ui/separator";
-
-const footerColumns = [
-  {
-    title: "Contact",
-    links: ["Support", "Chat", "Contact", "FAQs"],
-  },
-  {
-    title: "Quick Links",
-    links: ["About Us", "Career", "Purchase Assessment"],
-  },
-  {
-    title: "Trading",
-    links: [
-      "How it Works",
-      "One step",
-      "Two step",
-      "Three step",
-      "Instant Funding",
-      "Try Pay as you go",
-    ],
-  },
-  {
-    title: "Community",
-    links: ["Join Discord", "Instagram Community"],
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const FooterSection = () => {
+  const { t } = useTranslation();
   const [openSections, setOpenSections] = useState<string[]>([]);
+
+  const footerColumns = [
+    {
+      title: t('footer.contact'),
+      links: [t('footer.support'), t('footer.chat'), t('footer.contactLink'), t('footer.faqsLink')],
+    },
+    {
+      title: t('footer.quickLinks'),
+      links: [t('footer.aboutUs'), t('footer.career'), t('footer.purchaseAssessment')],
+    },
+    {
+      title: t('footer.trading'),
+      links: [
+        t('footer.howItWorks'),
+        t('footer.oneStep'),
+        t('footer.twoStep'),
+        t('footer.threeStep'),
+        t('footer.instantFunding'),
+        t('footer.tryPayAsYouGo'),
+      ],
+    },
+    {
+      title: t('footer.community'),
+      links: [t('footer.joinDiscord'), t('footer.instagramCommunity')],
+    },
+  ];
 
   const toggleSection = (title: string) => {
     setOpenSections((prev) =>
@@ -157,32 +159,10 @@ export const FooterSection = () => {
               <Separator className="bg-white/20 mb-4" />
               <div className="max-w-[321px]">
                 <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-[0.57] mb-2" style={{ fontWeight: 300 }}>
-                  Disclaimer
+                  {t('footer.disclaimer')}
                 </h4>
                 <p className="[font-family:'Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-[0.57] pb-4" style={{ fontWeight: 300 }}>
-                  Thaurusguru is a trading education and evaluation company that
-                  does not in any way collect customer deposits or offer any
-                  financial services to customers. Thaurusguru only provides
-                  services of simulated trading and educational tools for traders.
-                  All trading accounts provided to customers are part of a virtual
-                  demo environment using purely virtual money. The information on
-                  this site is not directed at residents in any country or
-                  jurisdiction where such distribution or use would be contrary to
-                  local laws or regulations. All information on this website is
-                  solely for educational purposes related to trading on financial
-                  markets. Any opinions, news, research, analysis, prices, or other
-                  information contained on this website is provided as general
-                  market commentary and does not constitute any investment advice.
-                  Thaurusguru does not provide any investment recommendation,
-                  business recommendation, investment opportunity analysis or
-                  similar general recommendation regarding the trading of investment
-                  instruments. The offered technical solution for the Thaurusguru
-                  platforms and data feed is powered by Thaurus Ltd, a licensed
-                  investment broker. Certain restrictions for access to services
-                  shall apply to Customers being residents or nationals of the
-                  United States of America, North Korea, Iran, Russia and others,
-                  depending on the actual list of acceptable jurisdictions. Please
-                  check the updated list.
+                  {t('footer.disclaimerText')}
                 </p>
               </div>
             </div>
@@ -236,32 +216,10 @@ export const FooterSection = () => {
 
             <div className="hidden md:block translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
               <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-normal opacity-[0.57] mb-2">
-                Disclaimer
+                {t('footer.disclaimer')}
               </h4>
               <p className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-[1.5] md:leading-normal opacity-[0.57]">
-                Thaurusguru is a trading education and evaluation company that
-                does not in any way collect customer deposits or offer any
-                financial services to customers. Thaurusguru only provides
-                services of simulated trading and educational tools for traders.
-                All trading accounts provided to customers are part of a virtual
-                demo environment using purely virtual money. The information on
-                this site is not directed at residents in any country or
-                jurisdiction where such distribution or use would be contrary to
-                local laws or regulations. All information on this website is
-                solely for educational purposes related to trading on financial
-                markets. Any opinions, news, research, analysis, prices, or other
-                information contained on this website is provided as general
-                market commentary and does not constitute any investment advice.
-                Thaurusguru does not provide any investment recommendation,
-                business recommendation, investment opportunity analysis or
-                similar general recommendation regarding the trading of investment
-                instruments. The offered technical solution for the Thaurusguru
-                platforms and data feed is powered by Thaurus Ltd, a licensed
-                investment broker. Certain restrictions for access to services
-                shall apply to Customers being residents or nationals of the
-                United States of America, North Korea, Iran, Russia and others,
-                depending on the actual list of acceptable jurisdictions. Please
-                check the updated list.
+                {t('footer.disclaimerText')}
               </p>
             </div>
           </div>

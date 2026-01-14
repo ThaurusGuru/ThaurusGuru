@@ -1,71 +1,70 @@
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent } from "../../../components/ui/card";
-
-const featureCards = [
-  {
-    icon: "https://c.animaapp.com/mishf4erVkDEuN/img/majesticons-chat-line.svg",
-    title: "Market Chats",
-    description: "Discuss insights across major markets and asset classes.",
-    channels: [
-      "# 💬 forex-chat",
-      "# 💬 gold-chat",
-      "# 💬 indices-chat",
-      "# 💬 stocks-chat",
-      "# 💬 oil-chat",
-      "# 💬 crypto-chat",
-    ],
-    hasImage: true,
-    imageUrl: "https://c.animaapp.com/mishf4erVkDEuN/img/group-112.png",
-  },
-  {
-    icon: "https://c.animaapp.com/mishf4erVkDEuN/img/ant-design-stock-outlined.svg",
-    title: "Trade Ideas",
-    description:
-      "Explore high-quality trade setups shared by the Thaurus Guru community.",
-    channels: ["# 📈 trade-ideas"],
-    hasImage: false,
-  },
-  {
-    icon: "https://c.animaapp.com/mishf4erVkDEuN/img/fluent-people-community-16-regular.svg",
-    title: "Community Hub",
-    description:
-      "Ask questions, learn, share, and connect with traders worldwide.",
-    channels: [
-      "# ❓ ask-questions",
-      "# 💬 general-chat",
-      "# 🌍 regional-chat",
-      "# 🏆 competition-chat",
-      "# 📈 trade-ideas",
-      "# 💡 suggestions",
-      "# 💸 payout-proof",
-      "# 😂 memes",
-    ],
-    hasImage: false,
-  },
-  {
-    icon: "https://c.animaapp.com/mishf4erVkDEuN/img/fluent-speaker-1-28-regular.svg",
-    title: "Announcements",
-    description:
-      "Stay informed with the latest updates, features, and news from Thaurus Guru.",
-    channels: ["# 📢 announcements"],
-    hasImage: false,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const DiscordSection = () => {
+  const { t } = useTranslation();
+
+  const featureCards = [
+    {
+      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/majesticons-chat-line.svg",
+      title: t('discord.marketChats'),
+      description: t('discord.marketChatsDesc'),
+      channels: [
+        "# 💬 forex-chat",
+        "# 💬 gold-chat",
+        "# 💬 indices-chat",
+        "# 💬 stocks-chat",
+        "# 💬 oil-chat",
+        "# 💬 crypto-chat",
+      ],
+      hasImage: true,
+      imageUrl: "https://c.animaapp.com/mishf4erVkDEuN/img/group-112.png",
+    },
+    {
+      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/ant-design-stock-outlined.svg",
+      title: t('discord.tradeIdeas'),
+      description: t('discord.tradeIdeasDesc'),
+      channels: ["# 📈 trade-ideas"],
+      hasImage: false,
+    },
+    {
+      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/fluent-people-community-16-regular.svg",
+      title: t('discord.communityHub'),
+      description: t('discord.communityHubDesc'),
+      channels: [
+        "# ❓ ask-questions",
+        "# 💬 general-chat",
+        "# 🌍 regional-chat",
+        "# 🏆 competition-chat",
+        "# 📈 trade-ideas",
+        "# 💡 suggestions",
+        "# 💸 payout-proof",
+        "# 😂 memes",
+      ],
+      hasImage: false,
+    },
+    {
+      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/fluent-speaker-1-28-regular.svg",
+      title: t('discord.announcements'),
+      description: t('discord.announcementsDesc'),
+      channels: ["# 📢 announcements"],
+      hasImage: false,
+    },
+  ];
+
   return (
     <section className="relative w-full py-12 md:py-16 px-4">
       <div className="max-w-[1202px] mx-auto">
         <div className="flex flex-col items-center gap-3 md:gap-4">
           {/* Heading - Mobile responsive */}
           <h2 className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[24px] md:text-[42px] text-center tracking-[0.24px] md:tracking-[0.42px] leading-[normal]">
-            Join The Thaurus Community!
+            {t('discord.title')}
           </h2>
 
           {/* Description - Mobile responsive */}
           <p className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] max-w-[290px] md:max-w-[365px] [font-family:'Poppins',Helvetica] font-normal text-[#C293F1] md:text-white text-xs md:text-base text-center tracking-[0.12px] md:tracking-[0.16px] leading-4 md:leading-[26px]">
-            Step into the heart of the action with our exclusive trading
-            community.
+            {t('discord.description')}
           </p>
 
           {/* Discord Screenshot - Responsive size */}
@@ -130,7 +129,7 @@ export const DiscordSection = () => {
               src="https://c.animaapp.com/mishf4erVkDEuN/img/social-media-day-png-highquality-transparent-icons-popular-apps-.png"
             />
             <span className="[font-family:'Montserrat',Helvetica] font-bold text-white text-[13px] md:text-[15px] tracking-[0] leading-[normal] whitespace-nowrap">
-              Join For Free
+              {t('discord.joinForFree')}
             </span>
           </Button>
         </div>

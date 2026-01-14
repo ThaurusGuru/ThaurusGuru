@@ -1,23 +1,27 @@
+import { useTranslation } from "react-i18next";
+
 const statsData = [
   {
     value: "$400k+",
-    label: "Paid to traders",
+    labelKey: "mainContent.paidToTraders",
   },
   {
     value: "600+",
-    label: "Traders",
+    labelKey: "mainContent.traders",
   },
   {
     value: "130+",
-    label: "Countries Served",
+    labelKey: "mainContent.countriesServed",
   },
   {
     value: "2023",
-    label: "Established",
+    labelKey: "mainContent.established",
   },
 ];
 
 export const MainContentSection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="w-full py-8 md:py-12 relative">
       {/* Top Horizontal Line - Full width */}
@@ -57,7 +61,7 @@ export const MainContentSection = () => {
               <p className="[font-family:'Montserrat',Helvetica] font-medium text-white/80 
                 text-xs sm:text-sm md:text-base lg:text-xl 
                 text-center tracking-[0] leading-normal">
-                {stat.label}
+                {t(stat.labelKey)}
               </p>
             </div>
           ))}

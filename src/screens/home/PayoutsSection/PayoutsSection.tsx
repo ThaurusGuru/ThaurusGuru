@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const horizontalLines = [
   { top: "top-[60px]" },
@@ -92,6 +93,8 @@ const mobileNotifications = [
 ];
 
 export const PayoutsSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section 
       className="relative w-full pt-12 pb-4 md:py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
@@ -206,7 +209,7 @@ export const PayoutsSection = () => {
         </div>
 
         <h2 className="absolute top-[60px] left-[calc(50.00%_-_251px)] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[42px] tracking-[0] leading-[normal] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-          Payouts and Certificates
+          {t('payouts.title')}
         </h2>
 
         {certificates.map((cert, index) => (
@@ -227,7 +230,7 @@ export const PayoutsSection = () => {
       {/* Mobile Version */}
       <div className="md:hidden relative mx-auto px-4 w-full min-h-[900px] pb-20">
         <h2 className="text-center mb-20 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-3xl tracking-[0] leading-[normal] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-          Payouts and Certificates
+          {t('payouts.title')}
         </h2>
 
         <div className="relative w-full">

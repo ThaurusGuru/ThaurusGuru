@@ -1,6 +1,9 @@
 import { Badge } from "../../../components/ui/badge";
+import { useTranslation } from "react-i18next";
 
 export const AboutUsHeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full min-h-[600px] flex flex-col items-center overflow-hidden">
       {/* Background Image */}
@@ -44,11 +47,11 @@ export const AboutUsHeroSection = () => {
             WebkitTextFillColor: 'transparent'
           }}
         >
-          About Us
+          {t('aboutUs.title')}
         </h1>
 
         {/* Description - 29px below heading */}
-        <p 
+        <p
           className="[font-family:'Cambay',Helvetica]"
           style={{
             marginTop: '29px',
@@ -62,7 +65,7 @@ export const AboutUsHeroSection = () => {
             lineHeight: 'normal'
           }}
         >
-          At Thaurus Guru, we're passionate about empowering traders and propelling them to success in the financial markets. Our mission is to provide traders with the tools, resources, and support they need to excel and achieve their trading goals.
+          {t('aboutUs.heroDescription')}
         </p>
       </div>
     </section>
