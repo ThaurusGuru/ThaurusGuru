@@ -1,54 +1,54 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// import { useState } from "react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const screenshots = [
-  {
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213314-1.png",
-    alt: "Screenshot 1",
-  },
-  {
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213441-1.png",
-    alt: "Screenshot 2",
-  },
-  {
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213358-1.png",
-    alt: "Screenshot 3",
-  },
-  {
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213415-1.png",
-    alt: "Screenshot 4",
-  },
-  {
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213258-1.png",
-    alt: "Screenshot 5",
-  },
-];
+// const screenshots = [
+//   {
+//     src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213314-1.png",
+//     alt: "Screenshot 1",
+//   },
+//   {
+//     src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213441-1.png",
+//     alt: "Screenshot 2",
+//   },
+//   {
+//     src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213358-1.png",
+//     alt: "Screenshot 3",
+//   },
+//   {
+//     src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213415-1.png",
+//     alt: "Screenshot 4",
+//   },
+//   {
+//     src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213258-1.png",
+//     alt: "Screenshot 5",
+//   },
+// ];
 
 export const MediaSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const screenshotsPerView = window.innerWidth < 768 ? 1 : 4;
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const screenshotsPerView = window.innerWidth < 768 ? 1 : 4;
 
-  const nextSlide = () => {
-    if (currentIndex < screenshots.length - screenshotsPerView) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
+  // const nextSlide = () => {
+  //   if (currentIndex < screenshots.length - screenshotsPerView) {
+  //     setCurrentIndex(currentIndex + 1);
+  //   }
+  // };
 
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
+  // const prevSlide = () => {
+  //   if (currentIndex > 0) {
+  //     setCurrentIndex(currentIndex - 1);
+  //   }
+  // };
 
   // Calculate transform based on screen size
-  const getTransform = () => {
-    if (window.innerWidth < 768) {
-      // Mobile: card width (180px) + gap (16px)
-      return `translateX(-${currentIndex * (180 + 16)}px)`;
-    }
-    // Desktop: card width (216px) + gap (24px)
-    return `translateX(-${currentIndex * (216 + 24)}px)`;
-  };
+  // const getTransform = () => {
+  //   if (window.innerWidth < 768) {
+  //     // Mobile: card width (180px) + gap (16px)
+  //     return `translateX(-${currentIndex * (180 + 16)}px)`;
+  //   }
+  //   // Desktop: card width (216px) + gap (24px)
+  //   return `translateX(-${currentIndex * (216 + 24)}px)`;
+  // };
 
   return (
     <section className="relative w-full py-12 md:py-16 px-4">
