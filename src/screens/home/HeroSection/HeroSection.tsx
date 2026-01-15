@@ -2,6 +2,7 @@ import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Trading3DElement } from "../../../components/Trading3DElement";
 
 const reviewImages = [
   "/hero/Trustpilot.svg",
@@ -220,40 +221,12 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Video/Dashboard */}
+          {/* Right Column - 3D Animation */}
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] 
             flex items-center justify-center lg:justify-end order-2 lg:order-2 mt-6 lg:mt-0">
             <div className="relative w-full max-w-[270px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] 
-              h-[162px] sm:h-[240px] md:h-[320px] lg:h-[340px] rounded-xl sm:rounded-2xl overflow-hidden">
-              {/* Pure Glass effect container */}
-              <div className="absolute inset-0 
-                bg-white/[0.03] backdrop-blur-2xl 
-                border border-white/20 
-                shadow-[0_8px_32px_0_rgba(31,38,135,0.37),inset_0_1px_1px_rgba(255,255,255,0.1)]">
-              </div>
-              
-              {/* Content - Video placeholder */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                {/* Video play button */}
-                <div className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 rounded-full 
-                  bg-white/10 backdrop-blur-md 
-                  border border-white/30
-                  flex items-center justify-center
-                  hover:bg-white/20 hover:scale-110 transition-all duration-300
-                  cursor-pointer
-                  shadow-[0_4px_24px_0_rgba(255,255,255,0.1)]">
-                  <div className="w-0 h-0 
-                    border-t-[8px] sm:border-t-[9px] md:border-t-[10px] border-t-transparent 
-                    border-l-[12px] sm:border-l-[14px] md:border-l-[16px] border-l-white 
-                    border-b-[8px] sm:border-b-[9px] md:border-b-[10px] border-b-transparent 
-                    ml-1" />
-                </div>
-              </div>
-
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 
-                bg-gradient-to-r from-transparent via-white/5 to-transparent 
-                -skew-x-12 animate-shimmer" />
+              h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
+              <Trading3DElement />
             </div>
           </div>
         </div>
