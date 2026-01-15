@@ -222,6 +222,8 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
 };
 
 const prices = ["$89", "$129", "$249", "$369", "$589"];
+const paygPrices = ["$30", "$60", "$120", "$210", "$300"];
+const paygDiscounts = ["$10", "$20", "$40", "$70", "$100"];
 
 // Tooltip Component
 const InfoTooltip = ({ content }: { content: string }) => {
@@ -236,7 +238,7 @@ const InfoTooltip = ({ content }: { content: string }) => {
       />
       {isVisible && (
         <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-50 w-max max-w-[250px] px-3 py-2 bg-[#2a0f4a] border border-[#9d62d9] rounded-lg shadow-lg">
-          <div className="text-white text-xs [font-family:'Poppins',Helvetica] whitespace-pre-line leading-relaxed">
+          <div className="text-white text-xs font-['Poppins',Helvetica] whitespace-pre-line leading-relaxed">
             {content}
           </div>
           {/* Arrow */}
@@ -371,7 +373,7 @@ export const PricingSection = () => {
   }, [activeModel, activeTab]);
 
   return (
-    <section className="relative w-full py-6 md:py-10 px-4 translate-y-[-1rem] animate-fade-in opacity-0">
+    <section id="pricing-section" className="relative w-full py-6 md:py-10 px-4 translate-y-[-1rem] animate-fade-in opacity-0">
       <div className="max-w-[1160px] mx-auto">
         {/* Top Badges - Mobile: Horizontal Scroll, Desktop: Normal */}
         <div className="mb-4 md:mb-6 opacity-0 animate-fade-in [--animation-delay:200ms]">
@@ -379,7 +381,7 @@ export const PricingSection = () => {
             {processSteps.map((step, index) => (
               <Badge
                 key={index}
-                className="flex-shrink-0 h-auto px-2 md:px-[17px] py-1 md:py-[5px] rounded-[14px] border-[0.6px] border-white shadow-[inset_0px_4px_4px_#00000040] bg-[linear-gradient(90deg,rgba(112,35,192,1)_0%,rgba(53,16,90,1)_100%)] text-white text-[8px] md:text-xs [font-family:'Blinker',Helvetica] font-normal whitespace-nowrap"
+                className="flex-shrink-0 h-auto px-2 md:px-[17px] py-1 md:py-[5px] rounded-[14px] border-[0.6px] border-white shadow-[inset_0px_4px_4px_#00000040] bg-[linear-gradient(90deg,rgba(112,35,192,1)_0%,rgba(53,16,90,1)_100%)] text-white text-[8px] md:text-xs font-['Blinker',Helvetica] font-normal whitespace-nowrap"
               >
                 {step.label}
               </Badge>
@@ -390,7 +392,7 @@ export const PricingSection = () => {
         {/* Heading - Mobile: 363px width, 24px size */}
         <h2 className="mt-6 md:mt-10 mb-3 md:mb-6 
           w-full max-w-[363px] md:max-w-none
-          [font-family:'M_PLUS_2',Helvetica] font-normal 
+          font-['M_PLUS_2',Helvetica] font-normal 
           text-[24px] md:text-[42px] 
           tracking-[0] leading-[normal] 
           bg-gradient-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent 
@@ -401,7 +403,7 @@ export const PricingSection = () => {
         {/* Subheading - Mobile: 287px width, 12px size */}
         <p className="mb-6 md:mb-8 
           w-full max-w-[287px] md:max-w-none
-          [font-family:'Cambay',Helvetica] font-normal text-[#c193f1] 
+          font-['Cambay',Helvetica] font-normal text-[#c193f1] 
           text-[12px] md:text-base 
           tracking-[0] leading-[18px] md:leading-[normal] 
           opacity-0 animate-fade-in [--animation-delay:600ms]">
@@ -410,7 +412,7 @@ export const PricingSection = () => {
 
         {/* Model Selection - Mobile Responsive Layout */}
         <div className="mb-6 opacity-0 animate-fade-in [--animation-delay:800ms]">
-          <p className="[font-family:'Cambay',Helvetica] font-bold text-white 
+          <p className="font-['Cambay',Helvetica] font-bold text-white 
             text-base md:text-xl tracking-[0] leading-[normal] mb-3 md:mb-4">
             Model
           </p>
@@ -423,7 +425,7 @@ export const PricingSection = () => {
                 onClick={() => setActiveModel('classic')}
                 className={`flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px]
                 rounded-[10px] border border-solid
-                [font-family:'Cambay',Helvetica] font-bold text-white
+                font-['Cambay',Helvetica] font-bold text-white
                 text-base md:text-xl
                 hover:opacity-90 transition-opacity
                 ${activeModel === 'classic'
@@ -436,7 +438,7 @@ export const PricingSection = () => {
                 onClick={() => setActiveModel('pro')}
                 className={`flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px]
                 rounded-[10px] border border-solid
-                [font-family:'Cambay',Helvetica] font-bold text-white
+                font-['Cambay',Helvetica] font-bold text-white
                 text-base md:text-xl
                 hover:opacity-90 transition-opacity
                 ${activeModel === 'pro'
@@ -458,7 +460,7 @@ export const PricingSection = () => {
               
               {/* Desktop: Try Now Text */}
               <p className="hidden md:block absolute top-[-36px] left-[-47px] rotate-[-15deg] 
-                [font-family:'Cambay',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal]">
+                font-['Cambay',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal]">
                 Try now
               </p>
               {/* Desktop: Arrow */}
@@ -470,6 +472,7 @@ export const PricingSection = () => {
               
               {/* Mobile & Desktop: Custom Styled Button */}
               <button
+                data-model="payg"
                 onClick={() => setActiveModel('payg')}
                 className={`
                   flex w-[228px] h-[52px] px-[46px] py-[13px] 
@@ -484,7 +487,7 @@ export const PricingSection = () => {
               >
                 <span 
                   className="w-[154px] h-[26px] shrink-0 text-[#FFF] text-center
-                  [font-family:'Cambay',Helvetica] font-bold text-[20px] leading-normal"
+                  font-['Cambay',Helvetica] font-bold text-[20px] leading-normal"
                   style={{
                     textShadow: '0 2px 4px rgba(0, 0, 0, 0.25)'
                   }}
@@ -519,7 +522,7 @@ export const PricingSection = () => {
                   {type.icon && (
                     <img src="/pricing-section/instant_flash.svg" alt="Instant" className="w-[20px] md:w-[26px] h-[20px] md:h-[26px]" />
                   )}
-                  <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+                  <span className="font-['Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
                     {type.label}
                   </span>
                 </div>
@@ -532,7 +535,7 @@ export const PricingSection = () => {
         {activeModel === 'payg' && (
           <div className="w-full relative flex items-center justify-between mt-8 md:mt-16 pt-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <div className="relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 flex-shrink-0 text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10 ml-[6px] md:ml-0">
-              <span className="[font-family:'Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+              <span className="font-['Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
                 Three Step
               </span>
             </div>
@@ -564,7 +567,7 @@ export const PricingSection = () => {
                 background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
               }}
             >
-              <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[22px] leading-[28px]">
+              <span className="text-white font-['Poppins',Helvetica] font-normal text-[22px] leading-[28px]">
                 15% Off + BOGO on 1,2,3 Step Challenges
               </span>
               <img 
@@ -572,7 +575,7 @@ export const PricingSection = () => {
                 alt="Arrow" 
                 className="w-6 h-6"
               />
-              <span className="text-[#A861FF] [font-family:'Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
+              <span className="text-[#A861FF] font-['Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
                 CODE - XMAS
               </span>
             </div>
@@ -586,10 +589,10 @@ export const PricingSection = () => {
                 background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
               }}
             >
-              <span className="text-white [font-family:'Poppins',Helvetica] font-normal text-[14px] text-center leading-[20px]">
+              <span className="text-white font-['Poppins',Helvetica] font-normal text-[14px] text-center leading-[20px]">
                 15% Off + BOGO on 1,2,3 Step Challenges
               </span>
-              <span className="text-[#A861FF] [font-family:'Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
+              <span className="text-[#A861FF] font-['Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
                 CODE - XMAS
               </span>
             </div>
@@ -610,7 +613,7 @@ export const PricingSection = () => {
                         : 'bg-[#1b0732] border-[#4f1b85]'
                       }`}
                   >
-                    <span className="[font-family:'Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                    <span className="font-['Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
                       {type.number} {type.label}
                     </span>
                   </button>
@@ -637,7 +640,7 @@ export const PricingSection = () => {
                         }
                   }
                 >
-                  <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                  <span className="font-['Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
                     {size}
                   </span>
                 </button>
@@ -647,12 +650,18 @@ export const PricingSection = () => {
 
           {/* Platform Badge */}
           <div className="flex items-center justify-start mt-6 md:mt-12 -mb-6 md:-mb-10 opacity-0 animate-fade-in [--animation-delay:1400ms]">
-            <div className="flex items-center gap-2 md:gap-2.5 mt-4 md:mt-8 px-2 md:px-[10px] py-1 md:py-[5px] rounded-[20px] border border-solid border-[#d9b6fe1a] shadow-[inset_0px_4px_4px_#00000040] bg-[linear-gradient(180deg,rgba(96,40,158,0.4)_0%,rgba(29,10,50,0.4)_25%,rgba(27,9,46,0.4)_50%,rgba(30,8,53,0.4)_75%,rgba(51,9,97,0.4)_100%)]">
-              <span className="[font-family:'Blinker',Helvetica] font-normal text-white text-[10px] md:text-xs tracking-[0] leading-[normal]">
+            <div 
+              className="inline-flex items-center justify-center gap-[10px] px-[20px] py-[12px] rounded-[26px] border border-solid border-[rgba(218,182,255,0.10)]"
+              style={{
+                background: 'linear-gradient(180deg, #60289E 0%, #1D0A32 99.73%, #1B092E 199.46%, #1E0835 299.18%, #330961 398.91%)',
+                boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25) inset'
+              }}
+            >
+              <span className="font-['Blinker',Helvetica] font-normal text-white text-[14px] md:text-[16px] tracking-[0] leading-[normal]">
                 Platform - Meta Trader 5
               </span>
               <img
-                className="w-5 md:w-6 h-5 md:h-6 object-cover"
+                className="w-6 md:w-7 h-6 md:h-7 object-cover"
                 alt="MT5"
                 src="https://c.animaapp.com/mishf4erVkDEuN/img/image-2-3.png"
               />
@@ -667,11 +676,11 @@ export const PricingSection = () => {
               >
                 {/* Account Size Header */}
                 <div className="text-center mb-4 pb-4">
-                  <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-[34px] tracking-[0] leading-[normal] mb-1">
+                  <p className="font-['Poppins',Helvetica] font-semibold text-white text-[34px] tracking-[0] leading-[normal] mb-1">
                     {accountSizes[activeAccountIndex]}
                   </p>
                   <div className="flex items-center justify-center gap-1">
-                    <span className="[font-family:'Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
+                    <span className="font-['Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
                       Account Size
                     </span>
                     <InfoIcon className="w-3 h-3 text-[#9d62d9]" />
@@ -703,7 +712,7 @@ export const PricingSection = () => {
                         >
                           {/* Left: Label with info icon */}
                           <div className="flex items-center gap-1">
-                            <span className="[font-family:'Poppins',Helvetica] font-normal text-[#975CE9] text-[16px] tracking-[0] leading-[normal]">
+                            <span className="font-['Poppins',Helvetica] font-normal text-[#975CE9] text-[16px] tracking-[0] leading-[normal]">
                               {row.label}
                             </span>
                             {row.hasInfo && dynamicTooltip && (
@@ -712,7 +721,7 @@ export const PricingSection = () => {
                           </div>
 
                           {/* Right: Value */}
-                          <span className="[font-family:'Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] text-right">
+                          <span className="font-['Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] text-right">
                             {isProfitSplit ? (
                               // Profit Split - Dynamic based on model and tab
                               getProfitSplit(activeModel, activeTab)
@@ -734,20 +743,42 @@ export const PricingSection = () => {
                   </div>
                 </div>
 
-                {/* Price & Button */}
+                  {/* Price & Button */}
                 <div className="mt-auto space-y-3">
-                  <div className="w-[110px] h-[68px] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center mx-auto my-6">
-                    <span 
-                      className="[font-family:'Poppins',Helvetica] font-semibold text-[38px] tracking-[0] leading-[normal]"
-                      style={{
-                        background: 'linear-gradient(115deg, #9E59FF 15.77%, #E9B1FF 93.98%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
-                      }}
-                    >
-                      {prices[activeAccountIndex]}
-                    </span>
+                  <div className="flex flex-col items-center gap-1 my-6">
+                    {activeModel === 'payg' ? (
+                      <>
+                        <div className="w-[125px] h-[68px] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center">
+                          <span 
+                            className="font-['Poppins',Helvetica] font-semibold text-[32px] tracking-[0] d-flex items-center"
+                            style={{
+                              color: '#9e59ff'
+                            }}
+                          >
+                            {paygDiscounts[activeAccountIndex]}
+                            <span className="text-[16px] font-normal leading-normal ml-0.5 text-white">/phase</span>
+                          </span>
+                        </div>
+                        <p className="font-['Poppins',Helvetica] text-[18px] font-medium tracking-[0] leading-normal mt-2">
+                          <span className="text-white">Total </span>
+                          <span className="font-bold text-[#9e59ff]">{paygPrices[activeAccountIndex]}</span>
+                        </p>
+                      </>
+                    ) : (
+                      <div className="w-[110px] h-[68px] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center">
+                        <span 
+                          className="font-['Poppins',Helvetica] font-semibold text-[38px] tracking-[0] leading-[normal]"
+                          style={{
+                            background: 'linear-gradient(115deg, #9E59FF 15.77%, #E9B1FF 93.98%)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text'
+                          }}
+                        >
+                          {prices[activeAccountIndex]}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <Button
                     onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
@@ -756,7 +787,7 @@ export const PricingSection = () => {
                       background: 'linear-gradient(90deg, #FFF 0%, #DAB6FF 100%)'
                     }}
                   >
-                    <span className="w-[77px] h-[20px] shrink-0 text-black [font-family:'Cambay',Helvetica] font-bold text-[16px] leading-[normal]">
+                    <span className="w-[77px] h-[20px] shrink-0 text-black font-['Cambay',Helvetica] font-bold text-[16px] leading-[normal]">
                       Start Now
                     </span>
                   </Button>
@@ -814,11 +845,11 @@ export const PricingSection = () => {
                   <div></div>
                   {accountSizes.map((size, index) => (
                     <div key={index} className="rounded-2xl p-4 text-center">
-                      <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-[34px] tracking-[0] leading-normal mb-1">
+                      <p className="font-['Poppins',Helvetica] font-semibold text-white text-[34px] tracking-[0] leading-normal mb-1">
                         {size}
                       </p>
                       <div className="flex items-center justify-center gap-1">
-                        <span className="[font-family:'Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
+                        <span className="font-['Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
                           Account Size
                         </span>
                         <InfoIcon className="w-4 h-4 text-[#9d62d9]" />
@@ -843,7 +874,7 @@ export const PricingSection = () => {
                   return (
                     <div key={rowIndex} className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
                       <div className={`flex items-center gap-2 px-4 rounded-xl ${isLargeRow ? 'h-[80px] translate-y-[-4px]' : 'h-[46px]'}`}>
-                        <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
+                        <span className="font-['Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                           {row.label}
                         </span>
                         {row.hasInfo && dynamicTooltip && (
@@ -852,7 +883,7 @@ export const PricingSection = () => {
                       </div>
                       {accountSizes.map((_, colIndex) => (
                         <div key={colIndex} className={`flex items-center justify-center rounded-xl ${isLargeRow ? 'h-[80px]' : 'h-[46px]'}`}>
-                          <span className={`[font-family:'Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${isLargeRow ? 'leading-[1.4] translate-y-[-4px]' : 'leading-relaxed'}`}>
+                          <span className={`font-['Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full ${isLargeRow ? 'leading-[1.4] translate-y-[-4px]' : 'leading-relaxed'}`}>
                             {isProfitSplit ? (
                               // Profit Split - Dynamic based on model and tab
                               getProfitSplit(activeModel, activeTab)
@@ -877,17 +908,35 @@ export const PricingSection = () => {
                 {/* Pricing Row */}
                 <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
                   <div className="flex items-center gap-2 px-4 rounded-xl h-[90px]">
-                    <span className="[font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
+                    <span className="font-['Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
                       Price
                     </span>
                   </div>
-                  {prices.map((price, index) => (
-                    <div key={index} className="flex items-center justify-center rounded-xl h-[90px]">
-                      <div className="h-16 rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-4 w-[65%]">
-                        <span className="bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent [font-family:'Poppins',Helvetica] font-semibold text-3xl tracking-[0] leading-normal">
-                          {price}
-                        </span>
-                      </div>
+                  {(activeModel === 'payg' ? paygPrices : prices).map((price, index) => (
+                    <div key={index} className={`flex flex-col items-center justify-center rounded-xl h-[90px] ${activeModel === 'payg' ? 'gap-1' : 'gap-1.5'}`}>
+                      {activeModel === 'payg' ? (
+                        <>
+                          <div className="h-12 w-[110px] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-2">
+                            <span 
+                              className="font-['Poppins',Helvetica] font-semibold text-xl tracking-[0] d-flex items-center"
+                              style={{ color: '#9e59ff' }}
+                            >
+                              {paygDiscounts[index]}
+                              <span className="text-[12px] font-normal leading-normal ml-0.5 text-white">/phase</span>
+                            </span>
+                          </div>
+                          <p className="font-['Poppins',Helvetica] text-[15px] font-medium tracking-[0] leading-normal">
+                             <span className="text-white">Total </span>
+                             <span className="font-bold text-[#9e59ff]">{price}</span>
+                          </p>
+                        </>
+                      ) : (
+                        <div className="h-16 w-[65%] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-4">
+                          <span className={`bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent font-['Poppins',Helvetica] font-semibold text-3xl tracking-[0] leading-normal`}>
+                            {price}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -899,7 +948,7 @@ export const PricingSection = () => {
                     <div key={index} className="flex items-center justify-center">
                       <Button
                         onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
-                        className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] [font-family:'Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity"
+                        className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] font-['Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity"
                       >
                         Start Now
                       </Button>
@@ -935,7 +984,7 @@ export const PricingSection = () => {
                       <>
                         <div className="flex items-center gap-2 mb-6">
                           <div className="w-8 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
-                          <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-base whitespace-nowrap">
+                          <span className="text-[#9d62d9] font-['Cambay',Helvetica] font-normal text-base whitespace-nowrap">
                             Add-ons
                           </span>
                           <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
@@ -944,7 +993,7 @@ export const PricingSection = () => {
                           {addOns.map((addon, index) => (
                             <div key={index} className="flex items-center gap-3">
                               <img src={addon.icon} alt={addon.title} className="w-10 h-10 flex-shrink-0" />
-                              <span className="text-white [font-family:'Cambay',Helvetica] text-base whitespace-nowrap">
+                              <span className="text-white font-['Cambay',Helvetica] text-base whitespace-nowrap">
                                 <span className="font-bold">{addon.title}</span>
                                 {addon.price && <span className="font-normal"> {addon.price}</span>}
                               </span>
@@ -984,7 +1033,7 @@ export const PricingSection = () => {
                 <>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-px bg-purple-500"></div>
-                    <span className="text-[#9d62d9] [font-family:'Cambay',Helvetica] font-normal text-sm whitespace-nowrap">
+                    <span className="text-[#9d62d9] font-['Cambay',Helvetica] font-normal text-sm whitespace-nowrap">
                       Add-ons
                     </span>
                     <div className="flex-1 h-px bg-purple-500"></div>
@@ -993,7 +1042,7 @@ export const PricingSection = () => {
                     {addOns.map((addon, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <img src={addon.icon} alt={addon.title} className="w-8 h-8 flex-shrink-0" />
-                        <span className="text-white [font-family:'Cambay',Helvetica] text-[12px] leading-[48px]">
+                        <span className="text-white font-['Cambay',Helvetica] text-[12px] leading-[48px]">
                           <span className="font-bold">{addon.title}</span>
                           {addon.price && <span className="font-normal"> {addon.price}</span>}
                         </span>

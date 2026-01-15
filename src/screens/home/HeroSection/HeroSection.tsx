@@ -12,6 +12,23 @@ const reviewImages = [
 export const HeroSection = () => {
   const { t } = useTranslation();
 
+  const scrollToPricing = (activatePayg = false) => {
+    const pricingSection = document.getElementById('pricing-section');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      if (activatePayg) {
+        // Wait for scroll to complete, then trigger PAYG
+        setTimeout(() => {
+          const paygButton = document.querySelector('[data-model="payg"]') as HTMLButtonElement;
+          if (paygButton) {
+            paygButton.click();
+          }
+        }, 800);
+      }
+    }
+  };
+
   const featureCards = [
     {
       title: (
@@ -173,7 +190,9 @@ export const HeroSection = () => {
             {/* CTA Buttons - Centered on mobile, left on desktop */}
             <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] 
               flex flex-col sm:flex-row flex-wrap items-center lg:items-start gap-3 md:gap-4 mt-5 sm:mt-6 md:mt-8 lg:mt-10 w-full">
-              <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
+              <Button 
+                onClick={() => scrollToPricing(false)}
+                className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
                 border border-[#7A27EF]
                 bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)]
                 shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] 
@@ -193,6 +212,7 @@ export const HeroSection = () => {
               </Button>
 
               <Button
+                onClick={() => scrollToPricing(true)}
                 variant="outline"
                 className="w-full sm:w-auto max-w-[196px] sm:max-w-none h-10 sm:h-11 md:h-12 px-5 md:px-7 rounded-md sm:rounded-lg 
                 bg-gradient-to-r from-[rgba(0,0,0,0.20)] to-[rgba(122,39,239,0.20)] backdrop-blur-sm
@@ -223,7 +243,7 @@ export const HeroSection = () => {
 
           {/* Right Column - 3D Animation */}
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] 
-            flex items-center justify-center lg:justify-end order-2 lg:order-2 mt-6 lg:mt-0">
+            flex items-center justify-center lg:justify-end order-2 lg:order-2 mt-6 lg:-mt-16">
             <div className="relative w-full max-w-[270px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] 
               h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
               <Trading3DElement />

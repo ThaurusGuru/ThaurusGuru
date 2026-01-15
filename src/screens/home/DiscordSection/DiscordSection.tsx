@@ -79,11 +79,12 @@ export const DiscordSection = () => {
 
           {/* Feature Cards - Overlapping bottom of Discord image */}
           <div className="relative z-10 w-full max-w-[390px] md:max-w-[1200px] px-4 md:px-56">
-            {/* Dark background with gradient blend */}
+            {/* Dark background wrapping the cards */}
             <div 
-              className="absolute inset-0 -top-12 md:-top-20 rounded-b-[12px]"
+              className="absolute inset-0 top-6 md:top-8 rounded-xl pointer-events-none"
               style={{
-                background: 'linear-gradient(to bottom, transparent 0%, #1B092E 40%, #1B092E 100%)'
+                background: '#1B092E',
+                boxShadow: '0 0 40px 20px #1B092E'
               }}
             />
             
@@ -96,8 +97,10 @@ export const DiscordSection = () => {
                   style={{
                     animationDelay: `${600 + index * 100}ms`,
                     backgroundImage: 'url(/collaboration/Rectangle-bg.svg)',
+                    backgroundColor: 'rgba(27, 9, 46, 0.4)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
+                    backgroundBlendMode: 'overlay'
                   }}
                 >
                   <CardContent className="px-5 py-3 md:px-6 md:py-5 h-full flex flex-col relative">

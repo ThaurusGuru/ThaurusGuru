@@ -13,7 +13,7 @@ export const AboutUsOurVision = () => {
           height="774" 
           viewBox="0 0 1149 774" 
           fill="none"
-          className="absolute -top-40 left-[145.5px] z-0 pointer-events-none hidden md:block"
+          className="absolute -top-25 left-[145.5px] z-0 pointer-events-none hidden md:block"
           style={{ width: '1148px', height: '774px' }}
         >
           <path 

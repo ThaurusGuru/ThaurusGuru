@@ -29,6 +29,29 @@ export const Header = () => {
     setIsMobileLangOpen(false);
   };
 
+  // Handle smooth scroll to sections with header offset
+  const handleHashNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes('#')) {
+      e.preventDefault();
+      const hash = href.split('#')[1];
+      const element = document.getElementById(hash);
+      
+      if (element) {
+        const headerOffset = 100; // Account for fixed header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
+
   // Navigation items with translations
   const navItems = [
     { 
@@ -144,6 +167,7 @@ export const Header = () => {
                     <Link
                       key={sIdx}
                       to={sub.href}
+                      onClick={(e) => handleHashNavigation(e, sub.href)}
                       className="group/sub px-4 py-2.5 rounded-lg
                       font-['Cambay',Helvetica] font-normal text-white/80 text-sm
                       hover:bg-white/10 hover:text-white hover:pl-5
@@ -302,8 +326,8 @@ export const Header = () => {
                         <li key={sIdx}>
                           <Link
                             to={sub.href}
+                            onClick={(e) => handleHashNavigation(e, sub.href)}
                             className="block px-8 py-2.5 font-['Cambay',Helvetica] font-normal text-white/60 text-xs hover:text-white transition-colors"
-                            onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {sub.label}
                           </Link>

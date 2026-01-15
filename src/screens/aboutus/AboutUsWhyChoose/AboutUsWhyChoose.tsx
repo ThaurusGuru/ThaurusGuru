@@ -20,10 +20,9 @@ export const AboutUsWhyChoose = () => {
 
       {/* Description - 40px below */}
       <p
-        className="font-['Cambay',Helvetica] mt-[20px] md:mt-[40px] w-[320px] md:w-[575px] text-center text-[12px] md:text-[14px] font-normal leading-normal"
+        className="font-['Cambay',Helvetica] mt-[20px] md:mt-[40px] w-[320px] md:w-[575px] text-center text-[12px] md:text-[14px] font-normal leading-normal text-[#FFF]"
       >
-        <span className="text-[#FFF]">{t('aboutUs.whyChooseDesc1')}</span>
-        <span className="text-[#C293F1]">{t('aboutUs.whyChooseDesc2')}</span>
+        {t('aboutUs.whyChooseDesc')}
       </p>
 
       {/* Cards Container - 75px below on desktop, 40px on mobile */}
@@ -34,7 +33,7 @@ export const AboutUsWhyChoose = () => {
           className="relative p-px rounded-[20px] overflow-hidden"
           style={{
             width: '270px',
-            height: '242px',
+            height: '272px',
             background: 'linear-gradient(180deg, rgba(233, 177, 255, 0.15) 0%, rgba(233, 177, 255, 0.5) 40%, rgba(233, 177, 255, 0.4) 60%, rgba(233, 177, 255, 0.05) 100%)',
           }}
         >
@@ -55,10 +54,10 @@ export const AboutUsWhyChoose = () => {
               </div>
             </div>
             <span className="[font-family:'M_PLUS_2',Helvetica]" style={{ marginTop: '123px', color: '#FFF', textAlign: 'center', fontSize: '14px', fontWeight: 400 }}>
-              {t('aboutUs.advancedTools')}
+              {t('aboutUs.accessibleOpportunities')}
             </span>
-            <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '167px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
-              {t('aboutUs.advancedToolsDesc')}
+            <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '235px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
+              {t('aboutUs.accessibleOpportunitiesDesc')}
             </span>
           </div>
         </div>
@@ -68,7 +67,7 @@ export const AboutUsWhyChoose = () => {
           className="relative p-px rounded-[20px] overflow-hidden"
           style={{
             width: '270px',
-            height: '242px',
+            height: '272px',
             background: 'linear-gradient(180deg, rgba(233, 177, 255, 0.15) 0%, rgba(233, 177, 255, 0.5) 40%, rgba(233, 177, 255, 0.4) 60%, rgba(233, 177, 255, 0.05) 100%)',
           }}
         >
@@ -89,10 +88,10 @@ export const AboutUsWhyChoose = () => {
               </div>
             </div>
             <span className="[font-family:'M_PLUS_2',Helvetica]" style={{ marginTop: '123px', color: '#FFF', textAlign: 'center', fontSize: '14px', fontWeight: 400 }}>
-              {t('aboutUs.communityNetworking')}
+              {t('aboutUs.rapidPayouts')}
             </span>
-            <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '167px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
-              {t('aboutUs.communityNetworkingDesc')}
+            <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '210px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
+              {t('aboutUs.rapidPayoutsDesc')}
             </span>
           </div>
         </div>
@@ -102,7 +101,7 @@ export const AboutUsWhyChoose = () => {
           className="relative p-px rounded-[20px] overflow-hidden"
           style={{
             width: '270px',
-            height: '242px',
+            height: '272px',
             background: 'linear-gradient(180deg, rgba(233, 177, 255, 0.15) 0%, rgba(233, 177, 255, 0.5) 40%, rgba(233, 177, 255, 0.4) 60%, rgba(233, 177, 255, 0.05) 100%)',
           }}
         >
@@ -123,10 +122,10 @@ export const AboutUsWhyChoose = () => {
               </div>
             </div>
             <span className="[font-family:'M_PLUS_2',Helvetica]" style={{ marginTop: '123px', color: '#FFF', textAlign: 'center', fontSize: '14px', fontWeight: 400 }}>
-              {t('aboutUs.supportMentorship')}
+              {t('aboutUs.supportAndMentorship')}
             </span>
             <span className="[font-family:'Cambay',Helvetica]" style={{ marginTop: '20px', width: '200px', color: '#B988FA', textAlign: 'center', fontSize: '12px', lineHeight: '16px' }}>
-              {t('aboutUs.supportMentorshipDesc')}
+              {t('aboutUs.supportAndMentorshipDesc')}
             </span>
           </div>
         </div>

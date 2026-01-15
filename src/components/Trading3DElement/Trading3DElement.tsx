@@ -20,62 +20,62 @@ export const Trading3DElement = () => {
           {/* Bar 1 - Shortest */}
           <div className="relative animate-bar-float-1" style={{ animationDelay: "0s" }}>
             {/* Top Stick */}
-            <div className="absolute top-[-35px] md:top-[-45px] left-1/2 -translate-x-1/2 w-[3px] h-[35px] md:h-[45px] bg-gradient-to-t from-[#9A51FF] to-transparent" />
+            <div className="absolute top-[-35px] md:top-[-45px] left-1/2 -translate-x-1/2 w-[3px] h-[35px] md:h-[45px] bg-linear-to-t from-[#9A51FF] to-transparent" />
             
             <div className="w-[55px] md:w-[65px] lg:w-[80px] h-[140px] md:h-[160px] lg:h-[180px] rounded-[8px] md:rounded-[10px] lg:rounded-[12px] relative overflow-hidden
               bg-gradient-to-b from-[#9A51FF] via-[#7A27EF] to-[#5D1DA0]
               shadow-[0_0_30px_rgba(154,81,255,0.6),0_0_60px_rgba(122,39,239,0.4)]
               backdrop-blur-sm
-              before:absolute before:inset-0 before:bg-gradient-to-t before:from-white/10 before:to-transparent
+              before:absolute before:inset-0 before:bg-linear-to-t before:from-white/10 before:to-transparent
               after:absolute after:inset-[1px] after:rounded-[7px] md:after:rounded-[9px] lg:after:rounded-[11px] after:border after:border-white/20">
               {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer" />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer" />
               {/* Top glow */}
-              <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-b from-white/30 to-transparent rounded-t-[8px] md:rounded-t-[10px] lg:rounded-t-[12px]" />
+              <div className="absolute top-0 left-0 right-0 h-[30%] bg-linear-to-b from-white/30 to-transparent rounded-t-[8px] md:rounded-t-[10px] lg:rounded-t-[12px]" />
             </div>
             
             {/* Bottom Stick */}
-            <div className="absolute bottom-[-35px] md:bottom-[-45px] left-1/2 -translate-x-1/2 w-[3px] h-[35px] md:h-[45px] bg-gradient-to-b from-[#5D1DA0] to-transparent" />
+            <div className="absolute bottom-[-35px] md:bottom-[-45px] left-1/2 -translate-x-1/2 w-[3px] h-[35px] md:h-[45px] bg-linear-to-b from-[#5D1DA0] to-transparent" />
           </div>
 
           {/* Bar 2 - Tallest (Center) */}
           <div className="relative animate-bar-float-2" style={{ animationDelay: "0.3s" }}>
             {/* Top Stick */}
-            <div className="absolute top-[-50px] md:top-[-60px] left-1/2 -translate-x-1/2 w-[4px] h-[50px] md:h-[60px] bg-gradient-to-t from-[#E9B1FF] to-transparent shadow-[0_0_10px_rgba(233,177,255,0.6)]" />
+            <div className="absolute top-[-50px] md:top-[-60px] left-1/2 -translate-x-1/2 w-[4px] h-[50px] md:h-[60px] bg-linear-to-t from-[#E9B1FF] to-transparent shadow-[0_0_10px_rgba(233,177,255,0.6)]" />
             
             <div className="w-[60px] md:w-[75px] lg:w-[95px] h-[210px] md:h-[240px] lg:h-[270px] rounded-[10px] md:rounded-[12px] lg:rounded-[16px] relative overflow-hidden
-              bg-gradient-to-b from-[#E9B1FF] via-[#9A51FF] to-[#7A27EF]
+              bg-linear-to-b from-[#E9B1FF] via-[#9A51FF] to-[#7A27EF]
               shadow-[0_0_40px_rgba(233,177,255,0.7),0_0_80px_rgba(154,81,255,0.5)]
               backdrop-blur-sm
-              before:absolute before:inset-0 before:bg-gradient-to-t before:from-white/15 before:to-transparent
+              before:absolute before:inset-0 before:bg-linear-to-t before:from-white/15 before:to-transparent
               after:absolute after:inset-[1px] after:rounded-[9px] md:after:rounded-[11px] lg:after:rounded-[15px] after:border after:border-white/30">
               {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer" style={{ animationDelay: "0.5s" }} />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer" style={{ animationDelay: "0.5s" }} />
               {/* Top glow */}
-              <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-b from-white/40 to-transparent rounded-t-[10px] md:rounded-t-[12px] lg:rounded-t-[16px]" />
+              <div className="absolute top-0 left-0 right-0 h-[30%] bg-linear-to-b from-white/40 to-transparent rounded-t-[10px] md:rounded-t-[12px] lg:rounded-t-[16px]" />
               {/* Pulse effect */}
               <div className="absolute inset-0 bg-white/10 animate-pulse" style={{ animationDuration: "3s" }} />
             </div>
             
             {/* Bottom Stick */}
-            <div className="absolute bottom-[-50px] md:bottom-[-60px] left-1/2 -translate-x-1/2 w-[4px] h-[50px] md:h-[60px] bg-gradient-to-b from-[#7A27EF] to-transparent shadow-[0_0_10px_rgba(122,39,239,0.6)]" />
+            <div className="absolute bottom-[-50px] md:bottom-[-60px] left-1/2 -translate-x-1/2 w-[4px] h-[50px] md:h-[60px] bg-linear-to-b from-[#7A27EF] to-transparent shadow-[0_0_10px_rgba(122,39,239,0.6)]" />
           </div>
 
           {/* Bar 3 - Medium */}
           <div className="relative animate-bar-float-3" style={{ animationDelay: "0.6s" }}>
             {/* Top Stick */}
-            <div className="absolute top-[-40px] md:top-[-50px] left-1/2 -translate-x-1/2 w-[3px] h-[40px] md:h-[50px] bg-gradient-to-t from-[#A855F7] to-transparent" />
+            <div className="absolute top-[-40px] md:top-[-50px] left-1/2 -translate-x-1/2 w-[3px] h-[40px] md:h-[50px] bg-linear-to-t from-[#A855F7] to-transparent" />
             
             <div className="w-[55px] md:w-[65px] lg:w-[80px] h-[165px] md:h-[185px] lg:h-[205px] rounded-[8px] md:rounded-[10px] lg:rounded-[12px] relative overflow-hidden
-              bg-gradient-to-b from-[#A855F7] via-[#7A27EF] to-[#6B21A8]
+              bg-linear-to-b from-[#A855F7] via-[#7A27EF] to-[#6B21A8]
               shadow-[0_0_30px_rgba(168,85,247,0.6),0_0_60px_rgba(122,39,239,0.4)]
               backdrop-blur-sm
-              before:absolute before:inset-0 before:bg-gradient-to-t before:from-white/10 before:to-transparent
+              before:absolute before:inset-0 before:bg-linear-to-t before:from-white/10 before:to-transparent
               after:absolute after:inset-[1px] after:rounded-[7px] md:after:rounded-[9px] lg:after:rounded-[11px] after:border after:border-white/20">
               {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer" style={{ animationDelay: "1s" }} />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer" style={{ animationDelay: "1s" }} />
               {/* Top glow */}
-              <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-b from-white/30 to-transparent rounded-t-[8px] md:rounded-t-[10px] lg:rounded-t-[12px]" />
+              <div className="absolute top-0 left-0 right-0 h-[30%] bg-linear-to-b from-white/30 to-transparent rounded-t-[8px] md:rounded-t-[10px] lg:rounded-t-[12px]" />
             </div>
             
             {/* Bottom Stick */}

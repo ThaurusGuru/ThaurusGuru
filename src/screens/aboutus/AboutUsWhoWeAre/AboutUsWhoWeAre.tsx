@@ -49,11 +49,11 @@ export const AboutUsWhoWeAre = () => {
               fontSize: window.innerWidth < 768 ? '12px' : '14px',
               fontStyle: 'normal',
               lineHeight: 'normal',
+              color: '#FFF',
+              fontWeight: 400
             }}
           >
-            <span style={{ color: '#C293F1', fontWeight: 400 }}>{t('aboutUs.whoWeAreDesc1')}</span>
-            <span style={{ color: '#FFF', fontWeight: 700 }}>{t('aboutUs.whoWeAreDesc2')}</span>
-            <span style={{ color: '#C293F1', fontWeight: 400 }}>{t('aboutUs.whoWeAreDesc3')}</span>
+            {t('aboutUs.whoWeAreDesc')}
           </p>
         </div>
       </div>

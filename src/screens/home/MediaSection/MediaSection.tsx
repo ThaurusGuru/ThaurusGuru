@@ -51,8 +51,11 @@ export const MediaSection = () => {
   // };
 
   return (
-    <section className="relative w-full py-12 md:py-16 px-4">
-      <div className="max-w-[1160px] mx-auto">
+    <section className="relative w-full py-12 md:py-16 px-4 bg-[#1b082e]">
+      {/* Background decoration matching other sections if needed, or just solid dark */}
+      {/* <div className="absolute inset-0 bg-[url('/path/to/bg.svg')] bg-cover opacity-50 pointer-events-none" /> */}
+      
+      <div className="max-w-[1160px] mx-auto relative z-10">
         {/* Heading - Responsive */}
         <h2 className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[24px] md:text-[42px] tracking-[0.24px] md:tracking-[0.42px] leading-normal mb-8 md:mb-16 text-center">
           Testimonials
