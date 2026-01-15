@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 const statsData = [
   {
     value: "$400k+",
-    labelKey: "mainContent.paidToTraders",
+    labelKey: "Paid to Traders",
   },
   {
     value: "600+",

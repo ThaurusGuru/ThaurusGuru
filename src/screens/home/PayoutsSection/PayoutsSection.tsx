@@ -42,7 +42,7 @@ const payoutData = [
   { name: "Angelina Kruglenko", amount: "1,112.00", date: "30.10.2025", country: "UA" },
   { name: "Sade Adeniyi", amount: "608.83", date: "13.11.2025", country: "NG" },
   { name: "Arjun Malhotra", amount: "307.20", date: "17.12.2025", country: "IN" },
-  { name: "Daria Kerchanova", amount: "3,012.78", date: "13.11.2025", country: "RU" },
+  { name: "Daria Kerchanova", amount: "3,012.78", date: "13.11.2025", country: "UA" },
   { name: "Zdenek Samoroc", amount: "402.40", date: "30.10.2025", country: "CZ" },
   { name: "Sadiq Abubakar", amount: "1,164.80", date: "17.12.2025", country: "NG" },
   { name: "FUNDEAD FX", amount: "16,508.00", date: "09.10.2025", country: "US" },

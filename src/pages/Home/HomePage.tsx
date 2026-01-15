@@ -108,7 +108,7 @@ export const HomePage = () => {
         </section>
 
         {/* Background effect spanning from Discord to Media section */}
-        <div className="relative w-full h-0">
+        {/* <div className="relative w-full h-0">
           <img
             src="/discord-section/effect.png"
             alt=""
@@ -118,7 +118,7 @@ export const HomePage = () => {
               WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%)'
             }}
           />
-        </div>
+        </div> */}
 
         <section className="relative w-full">
           <MediaSection />

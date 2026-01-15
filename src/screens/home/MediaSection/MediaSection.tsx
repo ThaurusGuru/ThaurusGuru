@@ -54,15 +54,15 @@ export const MediaSection = () => {
     <section className="relative w-full py-12 md:py-16 px-4">
       <div className="max-w-[1160px] mx-auto">
         {/* Heading - Responsive */}
-        <h2 className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[24px] md:text-[42px] tracking-[0.24px] md:tracking-[0.42px] leading-normal mb-8 md:mb-16 text-center md:text-left">
-          Thaurus Trust Wall
+        <h2 className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[24px] md:text-[42px] tracking-[0.24px] md:tracking-[0.42px] leading-normal mb-8 md:mb-16 text-center">
+          Testimonials
         </h2>
 
         {/* Screenshots carousel section */}
         <div className="relative mb-12 md:mb-20 px-12 md:px-0">
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] relative">
             {/* Screenshots container */}
-            <div className="overflow-hidden mx-auto max-w-[180px] md:max-w-none">
+            {/* <div className="overflow-hidden mx-auto max-w-[180px] md:max-w-none">
               <div 
                 className="flex gap-4 md:gap-6 transition-transform duration-500 ease-out"
                 style={{ transform: getTransform() }}
@@ -80,10 +80,10 @@ export const MediaSection = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Navigation arrows - Mobile: inside container, Desktop: outside */}
-            <button
+            {/* <button
               onClick={prevSlide}
               disabled={currentIndex === 0}
               className="absolute left-[-20px] md:left-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#7a27ef]/80 to-[#4d1891]/80 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg hover:scale-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 z-10"
@@ -97,7 +97,7 @@ export const MediaSection = () => {
               className="absolute right-[-20px] md:right-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#7a27ef]/80 to-[#4d1891]/80 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg hover:scale-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 z-10"
             >
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
-            </button>
+            </button> */}
           </div>
         </div>
 

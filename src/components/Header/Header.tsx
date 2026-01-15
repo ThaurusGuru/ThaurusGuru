@@ -46,7 +46,7 @@ export const Header = () => {
     { label: t('header.affiliate'), href: "/affiliate" },
     { label: t('header.contactUs'), href: "/contact-us" },
     { label: t('header.blogs'), href: "/blogs" },
-    { label: t('header.scalingPlan'), href: "/scaling-plan" },
+    
   ];
 
   return (
