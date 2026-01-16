@@ -24,7 +24,7 @@ const faqData = [
   {
     number: "04",
     question: "WHAT IS PROHIBITED FOR MY TRADING?",
-    answer: "Prohibited trading refers to any activity that manipulates execution, exploits technical limitations, or artificially boosts results. This includes:\n• ultra-short scalping (under 30 seconds)\n• toxic or unrealistic order flow\n• latency or arbitrage trading\n• hedging or mirrored trading across accounts\n• copy-trading or signal mirroring\n• excessive lot size spikes\n• using bots/EAs without approval\n• news manipulation\n• exploiting price feed delays or server behaviour\n\nAny prohibited activity will result in disqualification.",
+    answer: "Prohibited trading refers to any activity that manipulates execution, exploits technical limitations, or artificially boosts results. This includes:\n• ultra-short scalping (under 60 seconds)\n• toxic or unrealistic order flow\n• latency or arbitrage trading\n• hedging or mirrored trading across accounts\n• copy-trading or signal mirroring\n• excessive lot size spikes\n• using bots/EAs without approval\n• news manipulation\n• exploiting price feed delays or server behaviour\n\nAny prohibited activity will result in disqualification.",
   },
   {
     number: "05",

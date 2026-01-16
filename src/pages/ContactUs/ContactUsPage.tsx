@@ -75,23 +75,41 @@ export const ContactUsPage = () => {
             </button>
 
             {/* Location Cards */}
-            <div className="flex flex-col gap-[25px] mb-[64px]">
+            <div className="flex flex-col gap-[25px] mb-[64px] w-full max-w-[473px]">
               {[
                 { 
                   title: "Management Operational Hours", 
-                  hours: "Monday - Friday 9:00AM - 5:00PM ETC"
+                  content: "Monday - Friday",
+                  subtext: "9:00AM - 5:00PM ETC",
+                  icon: null,
+                  isEmail: false
                 },
                 { 
-                  title: "Support Team Operational Hours", 
-                  hours: "24/7"
+                  title: "Email Us", 
+                  content: "support@thaurusguru.com",
+                  subtext: "Available 24/7",
+                  icon: null,
+                  isEmail: true
                 }
               ].map((loc, idx) => (
-                <div key={idx} className="w-full max-w-[473px] p-[28px_40px] flex items-center justify-center gap-[10px] rounded-[15px] border border-solid border-[#7A27EF] bg-[linear-gradient(334deg,rgba(36,7,66,0.40)_36.22%,rgba(162,86,255,0.15)_151.62%)]">
-                  <div className="w-full max-w-[324px] text-white font-['Cambay'] text-center">
-                    <p className="text-[18px] font-normal leading-normal mb-2">{loc.title}</p>
-                    <p className="text-[14px] font-normal leading-normal" style={{ color: '#9F5AFF' }}>
-                      {loc.hours}
+                <div key={idx} className="w-full p-[28px_40px] flex flex-col items-center justify-center rounded-[15px] border border-solid border-[#7A27EF] bg-[linear-gradient(334deg,rgba(36,7,66,0.40)_36.22%,rgba(162,86,255,0.15)_151.62%)]">
+                  <div className="w-full text-white font-['Cambay'] text-center">
+                    {/* Header (White) */}
+                    <p className="text-[18px] font-normal leading-normal mb-2 text-white">
+                      {loc.title}
                     </p>
+                    
+                    {/* Content (Purple) */}
+                    <p className={`${loc.isEmail ? 'text-[20px] font-medium' : 'text-[14px] font-normal'} text-[#9F5AFF] leading-normal font-['Inter']`}>
+                      {loc.content}
+                    </p>
+
+                    {/* Subtext (Purple) */}
+                    {loc.subtext && (
+                      <p className="text-[14px] font-normal leading-normal mt-1 text-[#9F5AFF]">
+                        {loc.subtext}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}

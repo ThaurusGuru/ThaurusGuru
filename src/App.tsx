@@ -6,6 +6,7 @@ import { ScalingPlanPage } from "./pages/ScalingPlan";
 import { ContactUsPage } from "./pages/ContactUs";
 import { BlogsPage } from "./pages/Blogs";
 import { FAQPage } from "./pages/FAQ";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicy";
 import "./index.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUsPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       </Routes>
     </BrowserRouter>
   );

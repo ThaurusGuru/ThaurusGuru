@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronRight } from "lucide-react";
-import { Separator } from "../../../components/ui/separator";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export const FooterSection = () => {
@@ -143,7 +143,7 @@ export const FooterSection = () => {
                           <li key={linkIndex}>
                             <a
                               href="#"
-                              className="[font-family:'Poppins',Helvetica] font-normal text-[#b882fb] text-xs tracking-[0.12px] leading-normal hover:text-white transition-colors"
+                              className="font-['Poppins',Helvetica] font-normal text-[#b882fb] text-xs tracking-[0.12px] leading-normal hover:text-white transition-colors"
                             >
                               {link}
                             </a>
@@ -155,13 +155,20 @@ export const FooterSection = () => {
                 ))}
               </div>
 
-              {/* Disclaimer - Inside mobile card */}
-              <Separator className="bg-white/20 mb-4" />
-              <div className="max-w-[321px]">
-                <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-[0.57] mb-2" style={{ fontWeight: 300 }}>
-                  {t('footer.disclaimer')}
-                </h4>
-                <p className="[font-family:'Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-[0.57] pb-4" style={{ fontWeight: 300 }}>
+              {/* Bottom Bar - Mobile */}
+              <div className="mt-8 mb-4 border-t border-white/10 pt-6 flex flex-col items-center gap-6">
+                <p className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 text-center">
+                  © 2023 - 2025 Thaurus Ltd. All rights reserved.
+                </p>
+                <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4">
+                  <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Cookies Settings</a>
+                  <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Tournaments Terms & Conditions</a>
+                  <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Terms & Conditions</a>
+                  <Link to="/privacy-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Privacy Policy</Link>
+                  <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Press Kit</a>
+                </div>
+                {/* Restored Disclaimer Text - Mobile */}
+                <p className="font-['Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-40 text-center px-4 pb-4">
                   {t('footer.disclaimerText')}
                 </p>
               </div>
@@ -212,13 +219,22 @@ export const FooterSection = () => {
               ))}
             </div>
 
-            <Separator className="bg-white/20 mb-4 md:mb-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]" />
-
-            <div className="hidden md:block translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
-              <h4 className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-normal opacity-[0.57] mb-2">
-                {t('footer.disclaimer')}
-              </h4>
-              <p className="[font-family:'Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-[1.5] md:leading-normal opacity-[0.57]">
+            {/* Bottom Bar - Desktop */}
+            <div className="hidden md:flex flex-row items-center justify-between mt-12 pt-8 border-t border-white/10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+              <p className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60">
+                © 2023 - 2025 Thaurus Ltd. All rights reserved.
+              </p>
+              <div className="flex flex-row items-center gap-8">
+                <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Cookies Settings</a>
+                <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Tournaments Terms & Conditions</a>
+                <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Terms & Conditions</a>
+                <Link to="/privacy-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Privacy Policy</Link>
+                <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Press Kit</a>
+              </div>
+            </div>
+            {/* Restored Disclaimer Text - Desktop */}
+            <div className="hidden md:block mt-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1200ms]">
+              <p className="font-['Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-[1.5] md:leading-normal opacity-40">
                 {t('footer.disclaimerText')}
               </p>
             </div>
