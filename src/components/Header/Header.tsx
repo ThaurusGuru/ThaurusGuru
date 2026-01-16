@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDownIcon, GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import { Button } from "../ui/button";
@@ -18,6 +18,50 @@ export const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
+
+  // Refs for timeout IDs
+  const activeDropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const langDropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (activeDropdownTimeout.current) clearTimeout(activeDropdownTimeout.current);
+      if (langDropdownTimeout.current) clearTimeout(langDropdownTimeout.current);
+    };
+  }, []);
+
+  // Handle active dropdown with delay
+  const handleActiveDropdown = (label: string | null) => {
+    if (activeDropdownTimeout.current) clearTimeout(activeDropdownTimeout.current);
+
+    if (label) {
+      // Small delay before showing
+      activeDropdownTimeout.current = setTimeout(() => {
+        setActiveDropdown(label);
+      }, 150);
+    } else {
+      // Delay before hiding to allow moving mouse to the dropdown
+      activeDropdownTimeout.current = setTimeout(() => {
+        setActiveDropdown(null);
+      }, 300);
+    }
+  };
+
+  // Handle language dropdown with delay
+  const handleLangDropdown = (isOpen: boolean) => {
+    if (langDropdownTimeout.current) clearTimeout(langDropdownTimeout.current);
+
+    if (isOpen) {
+      langDropdownTimeout.current = setTimeout(() => {
+        setIsLangDropdownOpen(true);
+      }, 150);
+    } else {
+      langDropdownTimeout.current = setTimeout(() => {
+        setIsLangDropdownOpen(false);
+      }, 300);
+    }
+  };
 
   // Get current language label
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
@@ -114,8 +158,8 @@ export const Header = () => {
             <li 
               key={index} 
               className="relative"
-              onMouseEnter={() => item.subItems && setActiveDropdown(item.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => item.subItems && handleActiveDropdown(item.label)}
+              onMouseLeave={() => item.subItems && handleActiveDropdown(null)}
             >
               <div className="flex items-center gap-1 group/item cursor-pointer">
                 {item.href.startsWith('/') ? (
@@ -188,8 +232,8 @@ export const Header = () => {
           {/* Language selector with dropdown */}
           <div 
             className="relative"
-            onMouseEnter={() => setIsLangDropdownOpen(true)}
-            onMouseLeave={() => setIsLangDropdownOpen(false)}
+            onMouseEnter={() => handleLangDropdown(true)}
+            onMouseLeave={() => handleLangDropdown(false)}
           >
             <button className="inline-flex items-center gap-1.5 
               px-3 py-1.5 rounded-lg
