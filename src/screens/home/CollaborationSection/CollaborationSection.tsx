@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export const CollaborationSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative w-full pt-12 md:pt-20 pb-12 md:pb-20">
       
@@ -15,7 +18,7 @@ export const CollaborationSection = () => {
             alt="X"
             className="h-[16.739px] md:h-[20.739px] w-auto"
           />
-          <a href="https://scope360.io/" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:opacity-80 transition-opacity">
+          <a href="https://scope360.io/?utm_source=thaurus&utm_medium=banner&utm_campaign=discount" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:opacity-80 transition-opacity">
             <img
               src="/collaboration/scope.svg"
               alt="Scope360"
@@ -26,12 +29,12 @@ export const CollaborationSection = () => {
 
         {/* Heading - LARGER on mobile */}
         <h2 className="w-full max-w-[320px] md:max-w-[678px] mx-auto text-[#F7F8F8] text-center font-['Blinker'] text-2xl md:text-[48px] font-normal leading-9 md:leading-[56px] mb-4 md:mb-6">
-          The Best Trading Journal
+          {t('collaboration.heading')}
         </h2>
 
         {/* Description */}
         <p className="w-full max-w-[290px] md:max-w-[1086px] mx-auto text-[#F7F8F8] text-center font-['Cambay'] text-sm md:text-xl font-normal leading-6 md:leading-7 tracking-[-0.3px] mb-8 md:mb-12">
-          We've partnered with the Scope360° to provide you with institutional-grade tools for analyzing your trading. Track your performance, manage risk and scale your funding with precision analytics.
+          {t('collaboration.description')}
         </p>
 
         {/* Dashboard images */}
@@ -43,19 +46,21 @@ export const CollaborationSection = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[1200px] h-auto pointer-events-none z-0 opacity-100"
           />
           
-          {/* Main dashboard image */}
-          <img
-            src="/collaboration/browser.svg"
-            alt="Trading Dashboard"
-            className="relative w-[238.834px] md:w-[700px] h-auto rounded-lg shadow-2xl z-10 mx-auto"
-          />
-          
-          {/* Scope image - positioned on the right side */}
-          <img
-            src="/collaboration/scopeelement (1).svg"
-            alt="Scope Analytics"
-            className="absolute top-[60%] -right-2 md:right-[190px] -translate-y-1/2 w-[74.412px] md:w-[180px] h-auto rounded-lg shadow-2xl z-20"
-          />
+          <a href="https://scope360.io/?utm_source=thaurus&utm_medium=banner&utm_campaign=discount" target="_blank" rel="noopener noreferrer" className="block relative z-10 hover:opacity-95 transition-opacity">
+            {/* Main dashboard image */}
+            <img
+              src="/collaboration/browser.svg"
+              alt="Trading Dashboard"
+              className="w-[238.834px] md:w-[700px] h-auto rounded-lg shadow-2xl mx-auto"
+            />
+            
+            {/* Scope image - positioned on the right side */}
+            <img
+              src="/collaboration/scopeelement (1).svg"
+              alt="Scope Analytics"
+              className="absolute top-[60%] -right-2 md:right-[190px] -translate-y-1/2 w-[74.412px] md:w-[180px] h-auto rounded-lg shadow-2xl z-20"
+            />
+          </a>
         </div>
       </div>
     </section>

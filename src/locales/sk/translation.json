@@ -74,43 +74,22 @@
   "pricing": {
     "title": "Vyberte si svoju výzvu",
     "heading": "Vyberte si svoju Prop Trading výzvu a získajte financovanie ešte dnes",
-    "subheading": "Vytvorte si svoju obchodnú cestu s flexibilnými výzvami navrhnutými pre každý štýl.",
-    "model": "Model",
-    "classic": "KLASICKÝ",
-    "pro": "PRO",
-    "payAsYouGo": "PAY AS YOU GO",
-    "tryNow": "Vyskúšajte teraz",
-    "pickYourChallenge": "Vyberte si svoju výzvu",
-    "selectYourCapital": "Vyberte si svoj kapitál",
-    "startTradingWithOurFunds": "Začnite obchodovať s našimi prostriedkami",
-    "instant": "Okamžité",
-    "oneStep": "Jeden krok",
-    "twoStep": "Dva kroky",
-    "threeStep": "Tri kroky",
-    "accountSize": "Veľkosť účtu",
-    "profitTarget": "Cieľ zisku",
-    "profitTargetPhase1": "Cieľ zisku (Fáza 1)",
-    "profitTargetPhase2": "Cieľ zisku (Fáza 2)",
-    "profitTargetPhase3": "Cieľ zisku (Fáza 3)",
-    "maxDailyDrawdown": "Max. denný drawdown",
-    "maxOverallDrawdown": "Max. celkový drawdown",
-    "maxDrawdownTrailing": "Max. drawdown (sledovací)",
-    "minimumTradingDays": "Minimálny počet obchodných dní",
-    "timeLimit": "Časový limit",
-    "profitSplit": "Rozdelenie zisku",
-    "payoutSplit": "Rozdelenie výplaty",
-    "leverage": "Páka",
-    "price": "Cena",
-    "startNow": "Začať teraz",
-    "getChallenge": "Získať výzvu",
-    "platform": "Platforma - Meta Trader 5",
-    "promoOffer": "15% zľava + BOGO na 1,2,3 krokové výzvy",
-    "promoCode": "KÓD - XMAS",
-    "addOns": "Doplnky",
-    "newsTrading": "Obchodovanie správ",
-    "weekendTrading": "Víkendové obchodovanie",
-    "weeklyPayout": "Týždenná výplata",
-    "noMinimumTradingDays": "Žiadne minimálne obchodné dni"
+    "subheading": "Vybudujte si svoju obchodnú cestu s flexibilnými výzvami navrhnutými pre každý štýl."
+  },
+  "build": {
+    "heading1": "Vytvorené profesionálmi.",
+    "heading2": "Podporené transparentnosťou.",
+    "description": "Náš tím tvoria skúsení technologickí podnikatelia a globálni obchodníci, ktorí sú odhodlaní k neochvejnej transparentnosti a profesionalite."
+  },
+  "calculator": {
+    "heading": "Chcete vedieť svoju potenciálnu odmenu?"
+  },
+  "sponsor": {
+    "description": "Najlepší obchodníci dôverujú PML. S podporou Thaurus Guru ste súčasťou víťaznej ligy."
+  },
+  "collaboration": {
+    "heading": "Najlepší obchodný denník",
+    "description": "Spojili sme sa so Scope360°, aby sme vám poskytli nástroje inštitucionálnej úrovne na analýzu vášho obchodovania. Sledujte svoju výkonnosť, spravujte riziko a škálujte svoje financovanie s presnou analytikou."
   },
   "payouts": {
     "title": "Výplaty a certifikáty",

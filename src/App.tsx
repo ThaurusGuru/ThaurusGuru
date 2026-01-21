@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import { HomePage } from "./pages/Home";
 import { AffiliatePage } from "./pages/Affiliate";
 import { AboutUsPage } from "./pages/AboutUs";
@@ -14,6 +15,7 @@ import "./index.css";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/affiliate" element={<AffiliatePage />} />

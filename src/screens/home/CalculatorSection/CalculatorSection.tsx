@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const yAxisLabels = ["$8,000", "$4,000", "$2,000", "$0"];
 
 export const CalculatorSection = () => {
+  const { t } = useTranslation();
   const [accountSize, setAccountSize] = useState(25000);
   const [profitRate, setProfitRate] = useState(12);
   const [rewardSplit, setRewardSplit] = useState(80);
@@ -56,7 +58,7 @@ export const CalculatorSection = () => {
     <section className="relative w-full pt-12 pb-0 md:pt-20 md:pb-0 translate-y-[-1rem] animate-fade-in opacity-0">
       <div className="container mx-auto px-4 max-w-[1160px]">
         <h2 className="w-full max-w-[238px] md:max-w-none mx-auto text-center mb-8 md:mb-16 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-[24px] md:text-[42px] tracking-[0] leading-[35px] md:leading-[78px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-          Want to know your potential reward?
+          {t('calculator.heading')}
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-[490px_1fr] gap-6 md:gap-9 items-start mb-8 md:-mb-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">

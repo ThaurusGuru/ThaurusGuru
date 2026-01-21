@@ -3,6 +3,7 @@ import React from "react";
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent } from "../../../components/ui/card";
+import { useTranslation } from "react-i18next";
 
 const processSteps = [
   { label: "Pick your challenge" },
@@ -250,6 +251,7 @@ const InfoTooltip = ({ content }: { content: string }) => {
 };
 
 export const PricingSection = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = React.useState(0);
   const [activeAccountIndex, setActiveAccountIndex] = React.useState(0);
   const [activeModel, setActiveModel] = React.useState<'classic' | 'pro' | 'payg'>('classic');
@@ -397,7 +399,7 @@ export const PricingSection = () => {
           tracking-[0] leading-[normal] 
           bg-gradient-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent 
           opacity-0 animate-fade-in [--animation-delay:400ms]">
-          Choose Your Prop Trading Challenge &amp; Get Funded Today
+          {t('pricing.heading')}
         </h2>
 
         {/* Subheading - Mobile: 287px width, 12px size */}
@@ -407,7 +409,7 @@ export const PricingSection = () => {
           text-[12px] md:text-base 
           tracking-[0] leading-[18px] md:leading-[normal] 
           opacity-0 animate-fade-in [--animation-delay:600ms]">
-          Build your trading path with flexible challenges designed for every style.
+          {t('pricing.subheading')}
         </p>
 
         {/* Model Selection - Mobile Responsive Layout */}
@@ -454,14 +456,14 @@ export const PricingSection = () => {
               {/* Mobile: Try Now SVG Image */}
               <img
                 className="md:hidden absolute top-[-32px] left-[calc(50%+40px)] -translate-x-1/2 w-auto h-[85px] object-contain"
-                alt="Try now"
+                alt={t('Try Now')}
                 src="/pricing-section/try-now-mobile.svg"
               />
               
               {/* Desktop: Try Now Text */}
               <p className="hidden md:block absolute top-[-36px] left-[-47px] rotate-[-15deg] 
                 font-['Cambay',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal]">
-                Try now
+                {t('Try Now')}
               </p>
               {/* Desktop: Arrow */}
               <img
@@ -681,7 +683,7 @@ export const PricingSection = () => {
                   </p>
                   <div className="flex items-center justify-center gap-1">
                     <span className="font-['Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
-                      Account Size
+                      {t('pricing.accountSize')}
                     </span>
                     <InfoIcon className="w-3 h-3 text-[#9d62d9]" />
                   </div>
@@ -909,7 +911,7 @@ export const PricingSection = () => {
                 <div className="grid grid-cols-[230px_repeat(5,1fr)] gap-4 mb-3 relative z-10">
                   <div className="flex items-center gap-2 px-4 rounded-xl h-[90px]">
                     <span className="font-['Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] whitespace-nowrap">
-                      Price
+                      {t('pricing.price')}
                     </span>
                   </div>
                   {(activeModel === 'payg' ? paygPrices : prices).map((price, index) => (

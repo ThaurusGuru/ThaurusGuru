@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "../../../components/ui/button";
 import { X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const statImages = [
   "/build-section/card-1.svg",
@@ -9,6 +10,7 @@ const statImages = [
 ];
 
 export const BuildSection = () => {
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Handle ESC key to close modal
@@ -47,9 +49,9 @@ export const BuildSection = () => {
           {/* Content Section */}
           <div className="flex flex-col gap-8 items-center lg:items-start">
             <h2 className="w-full lg:max-w-[590px] text-center lg:text-left -mt-8 md:mt-0 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(233,177,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'M_PLUS_2',Helvetica] font-normal text-transparent text-[30px] md:text-[42px] tracking-[0] leading-[40px] md:leading-[58px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-              Built by Professionals.
+              {t('build.heading1')}
               <br />
-              Backed by Transparency.
+              {t('build.heading2')}
             </h2>
 
             <div className="flex gap-[11px] justify-center lg:justify-start lg:gap-[15px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
@@ -65,9 +67,7 @@ export const BuildSection = () => {
             </div>
 
             <p className="w-full max-w-[346px] lg:max-w-[579px] text-center lg:text-left [font-family:'Cambay',Helvetica] font-normal lg:font-medium text-white text-[12px] lg:text-lg tracking-[0.12px] lg:tracking-[0.20px] leading-[16px] lg:leading-7 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-              Our team is composed of seasoned tech entrepreneurs and global
-              traders, all committed to unwavering transparency and
-              professionalism.
+              {t('build.description')}
             </p>
 
             <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]

@@ -80,43 +80,22 @@
   "pricing": {
     "title": "Choose Your Challenge",
     "heading": "Choose Your Prop Trading Challenge & Get Funded Today",
-    "subheading": "Build your trading path with flexible challenges designed for every style.",
-    "model": "Model",
-    "classic": "CLASSIC",
-    "pro": "PRO",
-    "payAsYouGo": "PAY AS YOU GO",
-    "tryNow": "Try now",
-    "pickYourChallenge": "Pick your challenge",
-    "selectYourCapital": "Select your capital",
-    "startTradingWithOurFunds": "Start trading with our funds",
-    "instant": "Instant",
-    "oneStep": "One Step",
-    "twoStep": "Two Step",
-    "threeStep": "Three Step",
-    "accountSize": "Account Size",
-    "profitTarget": "Profit Target",
-    "profitTargetPhase1": "Profit Target (Phase 1)",
-    "profitTargetPhase2": "Profit Target (Phase 2)",
-    "profitTargetPhase3": "Profit Target (Phase 3)",
-    "maxDailyDrawdown": "Max Daily Drawdown",
-    "maxOverallDrawdown": "Max Overall Drawdown",
-    "maxDrawdownTrailing": "Max Drawdown (Trailing)",
-    "minimumTradingDays": "Minimum Trading Days",
-    "timeLimit": "Time Limit",
-    "profitSplit": "Profit Split",
-    "payoutSplit": "Payout Split",
-    "leverage": "Leverage",
-    "price": "Price",
-    "startNow": "Start Now",
-    "getChallenge": "Get Challenge",
-    "platform": "Platform - Meta Trader 5",
-    "promoOffer": "15% Off + BOGO on 1,2,3 Step Challenges",
-    "promoCode": "CODE - XMAS",
-    "addOns": "Add-ons",
-    "newsTrading": "News Trading",
-    "weekendTrading": "Weekend Trading",
-    "weeklyPayout": "Weekly Payout",
-    "noMinimumTradingDays": "No minimum trading days"
+    "subheading": "Build your trading path with flexible challenges designed for every style."
+  },
+  "build": {
+    "heading1": "Built by Professionals.",
+    "heading2": "Backed by Transparency.",
+    "description": "Our team is composed of seasoned tech entrepreneurs and global traders, all committed to unwavering transparency and professionalism."
+  },
+  "calculator": {
+    "heading": "Want to know your potential reward?"
+  },
+  "sponsor": {
+    "description": "Top performers trust PML. With Thaurus Guru's support, you're part of a winning league"
+  },
+  "collaboration": {
+    "heading": "The Best Trading Journal",
+    "description": "We've partnered with the Scope360° to provide you with institutional-grade tools for analyzing your trading. Track your performance, manage risk and scale your funding with precision analytics."
   },
   "payouts": {
     "title": "Payouts and Certificates",

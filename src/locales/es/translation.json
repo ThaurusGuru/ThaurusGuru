@@ -73,44 +73,23 @@
   },
   "pricing": {
     "title": "Elige tu desafío",
-    "heading": "Elige tu desafío de Prop Trading y obtén financiación hoy",
-    "subheading": "Construye tu camino de trading con desafíos flexibles diseñados para cada estilo.",
-    "model": "Modelo",
-    "classic": "CLÁSICO",
-    "pro": "PRO",
-    "payAsYouGo": "PAY AS YOU GO",
-    "tryNow": "Prueba ahora",
-    "pickYourChallenge": "Elige tu desafío",
-    "selectYourCapital": "Selecciona tu capital",
-    "startTradingWithOurFunds": "Empieza a operar con nuestros fondos",
-    "instant": "Instantáneo",
-    "oneStep": "Un paso",
-    "twoStep": "Dos pasos",
-    "threeStep": "Tres pasos",
-    "accountSize": "Tamaño de cuenta",
-    "profitTarget": "Objetivo de beneficio",
-    "profitTargetPhase1": "Objetivo de beneficio (Fase 1)",
-    "profitTargetPhase2": "Objetivo de beneficio (Fase 2)",
-    "profitTargetPhase3": "Objetivo de beneficio (Fase 3)",
-    "maxDailyDrawdown": "Drawdown diario máx.",
-    "maxOverallDrawdown": "Drawdown total máx.",
-    "maxDrawdownTrailing": "Drawdown máx. (trailing)",
-    "minimumTradingDays": "Días mínimos de trading",
-    "timeLimit": "Límite de tiempo",
-    "profitSplit": "División de beneficios",
-    "payoutSplit": "División de pagos",
-    "leverage": "Apalancamiento",
-    "price": "Precio",
-    "startNow": "Comenzar ahora",
-    "getChallenge": "Obtener desafío",
-    "platform": "Plataforma - Meta Trader 5",
-    "promoOffer": "15% descuento + BOGO en desafíos de 1,2,3 pasos",
-    "promoCode": "CÓDIGO - XMAS",
-    "addOns": "Complementos",
-    "newsTrading": "Trading de noticias",
-    "weekendTrading": "Trading de fin de semana",
-    "weeklyPayout": "Pago semanal",
-    "noMinimumTradingDays": "Sin días mínimos de trading"
+    "heading": "Elige tu desafío de Prop Trading y obtén financiamiento hoy mismo",
+    "subheading": "Construye tu camino comercial con desafíos flexibles diseñados para cada estilo."
+  },
+  "build": {
+    "heading1": "Construido por profesionales.",
+    "heading2": "Respaldado por la transparencia.",
+    "description": "Nuestro equipo está compuesto por experimentados emprendedores tecnológicos y operadores globales, todos comprometidos con una transparencia y un profesionalismo inquebrantables."
+  },
+  "calculator": {
+    "heading": "¿Quieres conocer tu recompensa potencial?"
+  },
+  "sponsor": {
+    "description": "Los mejores confían en PML. Con el apoyo de Thaurus Guru, formas parte de una liga ganadora."
+  },
+  "collaboration": {
+    "heading": "El mejor diario de trading",
+    "description": "Nos hemos asociado con Scope360° para brindarte herramientas de grado institucional para analizar tu trading. Realiza un seguimiento de tu rendimiento, gestiona el riesgo y escala tu financiación con analíticas de precisión."
   },
   "payouts": {
     "title": "Pagos y Certificados",

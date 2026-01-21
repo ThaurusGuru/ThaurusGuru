@@ -1,6 +1,8 @@
 import { Button } from "../../../components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export const SponsorSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative w-full min-h-[250px] md:min-h-[892px] py-8 md:py-16 overflow-visible">
       {/* Main background image - bg-pml.png - covers entire section */}
@@ -36,8 +38,7 @@ export const SponsorSection = () => {
         
         {/* Description text */}
         <p className="w-[240px] md:w-[320px] [font-family:'Cambay',Helvetica] font-normal text-white text-[10px] md:text-xl tracking-[0] leading-[14px] md:leading-7 mb-6 md:mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] text-left -ml-32 md:ml-0">
-          Top performers trust PML. With Thaurus Guru&apos;s support,
-          you&apos;re part of a winning league.
+          {t('sponsor.description')}
         </p>
         
         {/* CTA Button */}
