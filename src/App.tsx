@@ -7,6 +7,8 @@ import { ContactUsPage } from "./pages/ContactUs";
 import { BlogsPage } from "./pages/Blogs";
 import { FAQPage } from "./pages/FAQ";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicy";
+import { TermsAndConditionsPage } from "./pages/TermsAndConditions";
+import { CookiesPolicyPage } from "./pages/CookiesPolicy";
 import "./index.css";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+        <Route path="/cookies-policy" element={<CookiesPolicyPage />} />
       </Routes>
     </BrowserRouter>
   );

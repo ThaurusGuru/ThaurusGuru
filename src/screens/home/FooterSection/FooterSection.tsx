@@ -161,9 +161,9 @@ export const FooterSection = () => {
                   © 2023 - 2025 Thaurus Ltd. All rights reserved.
                 </p>
                 <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4">
-                  <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Cookies Settings</a>
+                  <Link to="/cookies-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Cookies Policy</Link>
                   <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Tournaments Terms & Conditions</a>
-                  <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Terms & Conditions</a>
+                  <Link to="/terms-and-conditions" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Terms & Conditions</Link>
                   <Link to="/privacy-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Privacy Policy</Link>
                   <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Press Kit</a>
                 </div>
@@ -225,9 +225,9 @@ export const FooterSection = () => {
                 © 2023 - 2025 Thaurus Ltd. All rights reserved.
               </p>
               <div className="flex flex-row items-center gap-8">
-                <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Cookies Settings</a>
+                <Link to="/cookies-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Cookies Policy</Link>
                 <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Tournaments Terms & Conditions</a>
-                <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Terms & Conditions</a>
+                <Link to="/terms-and-conditions" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Terms & Conditions</Link>
                 <Link to="/privacy-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Privacy Policy</Link>
                 <a href="#" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Press Kit</a>
               </div>
