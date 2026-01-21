@@ -120,33 +120,7 @@ export const ContactUsPage = () => {
               {MapContent}
             </div>
 
-            {/* Affiliate Form Container */}
-            <div className="w-full max-w-[473px] min-h-[646px] p-[54px_40px] rounded-[15px] border border-solid border-[#7A27EF] bg-[linear-gradient(334deg,rgba(36,7,66,0.40)_36.22%,rgba(162,86,255,0.15)_151.62%)]">
-              <h3 className="w-full max-w-[318px] text-white font-['Cambay'] text-[24px] font-normal leading-[32px] uppercase mb-[38px] text-center xl:text-left mx-auto xl:mx-0">
-                Contact Us if you want to become an affiliate
-              </h3>
-
-              <form className="flex flex-col gap-[15px] items-center xl:items-start">
-                {[
-                  { label: "Name", type: "text" },
-                  { label: "Surname", type: "text" },
-                  { label: "Email", type: "email" },
-                  { label: "Subject", type: "text" },
-                  { label: "Message", type: "textarea" }
-                ].map((field, idx) => (
-                  <div key={idx} className="flex flex-col gap-[4px] w-full max-w-[318px]">
-                    <label className="text-white font-['Cambay'] text-[16px] font-normal leading-[22px] capitalize">
-                      {field.label}
-                    </label>
-                    {field.type === "textarea" ? (
-                      <textarea className="w-full h-[100px] rounded-[2px] border border-solid border-[#7A27EF] bg-[rgba(115,0,255,0.20)] text-white p-2 outline-none resize-none" />
-                    ) : (
-                      <input type={field.type} className="w-full h-[38px] rounded-[2px] border border-solid border-[#7A27EF] bg-[rgba(115,0,255,0.20)] text-white px-2 outline-none" />
-                    )}
-                  </div>
-                ))}
-              </form>
-            </div>
+            
 
             {/* Mobile-Only Socials: Placed below form on mobile */}
             <div className="xl:hidden w-full mt-16">
