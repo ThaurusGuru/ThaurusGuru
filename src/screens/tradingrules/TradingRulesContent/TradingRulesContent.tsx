@@ -1,28 +1,4 @@
 import { useState } from "react";
-import { InfoIcon } from "lucide-react";
-
-// Tooltip Component
-const InfoTooltip = ({ content }: { content: string }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  return (
-    <div className="relative inline-block">
-      <InfoIcon 
-        className="w-4 h-4 text-white flex-shrink-0 cursor-help" 
-        onMouseEnter={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
-      />
-      {isVisible && (
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-50 w-max max-w-[250px] px-3 py-2 bg-[#2a0f4a] border border-[#9d62d9] rounded-lg shadow-lg">
-          <div className="text-white text-xs font-['Poppins',Helvetica] whitespace-pre-line leading-relaxed">
-            {content}
-          </div>
-          <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#9d62d9]"></div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 export const TradingRulesContent = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -33,24 +9,16 @@ export const TradingRulesContent = () => {
     { id: "prohibited", label: "What is prohibited?" }
   ];
 
-  // Table rows for Challenge Overview
-  const tableRows = [
-    { label: "Profit Target", tooltip: "See targets by account type below" },
-    { label: "Max Daily Drawdown", tooltip: "Protects from excessive daily losses" },
-    { label: "Max Overall Drawdown", tooltip: "Total limit for losses" },
-    { label: "Minimum Trading Days", tooltip: "Required trading days" },
-  ];
-
   return (
     <div className="relative w-full py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1160px] mx-auto">
         {/* Tabs */}
         <div className="w-full relative flex items-center justify-between pt-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mb-[-4px]">
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <div
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex items-center justify-center gap-3 py-5.5 cursor-pointer flex-shrink-0
+              className={`relative flex items-center justify-center gap-3 py-5.5 cursor-pointer shrink-0
                 ${activeTab === tab.id
                   ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-18 translate-y-[-2.9px] pb-[calc(1.375rem+3.4px)] z-10`
                   : 'text-white bg-transparent px-8'
