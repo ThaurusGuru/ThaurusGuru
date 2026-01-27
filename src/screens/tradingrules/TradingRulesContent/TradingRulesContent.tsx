@@ -181,6 +181,79 @@ export const TradingRulesContent = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Consistency Rule Section */}
+              <div className="w-[1050px] mx-auto rounded-[20px] border border-[#4A1C7A] p-[44px] mb-12">
+                <h3 className="text-white font-['Poppins'] text-[26px] font-normal leading-[40px] text-left mb-4">
+                  Consistency Rule
+                </h3>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-3">
+                  Applies to Instant, Instant PRO and PRO funded Accounts.
+                </p>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-3">
+                  You may not complete trading performance under the following MAXIMUM 40% of MINIMUM (MIN) thresholds:
+                </p>
+                <ul className="text-white font-['Poppins'] text-[16px] font-normal leading-[28px] space-y-2 list-disc pl-5 mb-3">
+                  <li>The Rule: Your single best trading-day (highest profit) cannot exceed a specific percentage of your total profit for that payout cycle.</li>
+                </ul>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-2">
+                  <span className="font-semibold">PAYG / October Funded Accounts:</span> With 10% per best day.
+                </p>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px]">
+                  PRO Funded Accounts 30% per best-day.
+                </p>
+              </div>
+
+              {/* 40% Margin Rule Section */}
+              <div className="w-[1050px] mx-auto rounded-[20px] border border-[#4A1C7A] p-[44px] mb-12">
+                <h3 className="text-white font-['Poppins'] text-[26px] font-normal leading-[40px] text-left mb-4">
+                  40% Margin Rule
+                </h3>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-3">
+                  To prevent overleveraging (i.e., engaged in an old percent "gambling," trades, purely, mean/rough usage respect to all accounts):
+                </p>
+                <ul className="text-white font-['Poppins'] text-[16px] font-normal leading-[28px] space-y-2 list-disc pl-5 mb-3">
+                  <li>The Rule: You cannot be allowed to use more than 40% of your available margin (e.g single-trade or multiple trades on the same instrument) in the same direction.</li>
+                </ul>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px]">
+                  Breach: Exceeding this limit is considered a significant breach and will result in account termination.
+                </p>
+              </div>
+
+              {/* Available Add-ons Section */}
+              <div className="w-[1050px] mx-auto rounded-[20px] border border-[#4A1C7A] p-[44px] mb-12">
+                <h3 className="text-white font-['Poppins'] text-[26px] font-normal leading-[40px] text-left mb-4">
+                  Available Add-ons
+                </h3>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-4">
+                  You can customize your evaluation by purchasing optional add-ons (availability depends on the challenge model):
+                </p>
+                <ul className="text-white font-['Poppins'] text-[16px] font-normal leading-[28px] space-y-2 list-none pl-0">
+                  <li><span className="font-semibold">1. News Trading:</span> Eliminates the moratorium period and allow freer trading/light impact news without restrictions.</li>
+                  <li><span className="font-semibold">2. Weekend Holding:</span> Allows you to hold open positions over the weekend.</li>
+                  <li><span className="font-semibold">3. Weekly Payout:</span> Allows you to request payouts every 7 days (instead of bi-every 14 days you reach the funded stage bi-Minimum Trading Days (increases the regulatory minimum trading days requirement) (where applicable).</li>
+                </ul>
+              </div>
+
+              {/* Risk Management Guidelines Section */}
+              <div className="w-[1050px] mx-auto rounded-[20px] border border-[#4A1C7A] p-[44px] mb-12">
+                <h3 className="text-white font-['Poppins'] text-[26px] font-normal leading-[40px] text-left mb-4">
+                  Risk Management Guidelines
+                </h3>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-4">
+                  To ensure professional capital preservation, we enforce strict per-per-trade limits:
+                </p>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px] mb-3">
+                  <span className="font-semibold">Reminder:</span>
+                </p>
+                <ul className="text-white font-['Poppins'] text-[16px] font-normal leading-[28px] space-y-2 list-disc pl-5 mb-3">
+                  <li>Challenge Accounts: Minimum 01 (lot per) trade.</li>
+                  <li>Funded Accounts: Minimum 01 lot per trade.</li>
+                </ul>
+                <p className="text-white font-['Poppins'] text-[16px] font-normal leading-[26px]">
+                  Warning: Those limits are critical for long-term consistency. Any violation of this may result in the immediate closure of your account.
+                </p>
+              </div>
             </div>
           )}
 
