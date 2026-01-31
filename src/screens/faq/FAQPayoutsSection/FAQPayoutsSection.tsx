@@ -8,23 +8,23 @@ import {
 const faqData = [
   {
     number: "01",
-    question: "HOW DOES THE PAYOUT SYSTEM WORK FOR A THAURUSGURU ACCOUNT?",
-    answer: "Payouts at ThaurusGuru are processed directly from your funded account profits. Once you reach your first eligible payout date, you can request a withdrawal from your dashboard.\n\nThere are two payout schedules:\n• Standard Payout: every 14 days\n• Weekly Payout: available only if you selected the Weekly Payout Add-On\n\nYou keep your share of the profit according to your account type, and the payout is sent via Crypto or Bank Transfer.",
+    question: "How Does the Payout System Work?",
+    answer: "Payouts at ThaurusGuru are processed directly from your funded account profits. To request a withdrawal, your account must meet eligibility criteria:\n\n1. The First Payout: Eligible 21 Working Days after executing the first trade on your funded account.\n2. Subsequent Payouts:\nStandard Schedule: Every 14 days (Bi-Weekly).\nWeekly Payout Add-On: Every 7 days (Weekly).\n\nRules: Minimum withdrawal $100 USD. Profit Split: 80% Trader / 20% ThaurusGuru. Methods: Crypto (USDT, USDC) or Bank Transfer.",
   },
   {
     number: "02",
     question: "WHAT’S THE PROCESS FOR HANDLING A PAYOUT?",
-    answer: "The payout process is simple and automated:\n1. Generate profit and meet minimum trading days (if applicable).\n2. Submit request from client dashboard.\n3. Risk Department review.\n4. Approved payout is sent within the official window.\n\nProcessing speeds depend on the selected payment method.",
+    answer: "The payout process is simple and automated:\n• Generate profit and meet minimum trading days.\n• Submit payout request directly from your client dashboard.\n• Risk Department review.\n• If approved, your payout is sent within the official processing window.\n\nPayouts are typically processed quickly, depending on the chosen payment method.",
   },
   {
     number: "03",
     question: "WHEN WILL I RECEIVE MY REGISTRATION FEE REFUND?",
-    answer: "Your registration fee is refunded on your second payout for standard Classic Challenges. The refund is credited alongside your second payout.\n\nEligible for refund: Classic 1-Step, 2-Step, 3-Step.\nNot eligible: Instant Funding, Pay As You Go, PRO Challenges.",
+    answer: "Your registration fee is refunded on your first payout, provided you purchased a standard Classic Challenge.\n\nEligible for refund on 1st payout:\n• Classic 2-Step\n• Classic 3-Step\n\nNot eligible for refund: Pay As You Go.\nNote: For some models, the refund is credited alongside your second payout.",
   },
   {
     number: "04",
     question: "WHAT PAYMENT METHODS ARE AVAILABLE FOR PAYOUTS?",
-    answer: "Payouts are available through:\n\nCrypto: Fastest global option, ideal for international banking limitations.\n\nBank Transfer: Available in supported regions (ideal for EU/UK/Middle East).\n\nYour payout method can be selected directly from your dashboard.",
+    answer: "Payouts are available through:\n\n• Crypto: Fastest and most reliable option, works globally.\n• Bank Transfer: Available in regions where international transfers are supported (ideal for EU/UK/Middle East).\n\nYour payout method can be selected directly from your dashboard.",
   },
 ];
 

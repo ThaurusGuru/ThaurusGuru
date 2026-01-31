@@ -14,27 +14,27 @@ const faqData = [
   {
     number: "02",
     question: "Why partner with ThaurusGuru?",
-    answer: "ThaurusGuru provides a sustainable, transparent, and performance-driven affiliate ecosystem. According to the official presentation, partners benefit from:\n• high and scalable commissions\n• long-term cooperation instead of short-term hype\n• a professional prop trading brand backed by Thaurus LTD (licensed broker)\n• exclusive affiliate rewards and giveaways\n• design support and personal communication with the affiliate team\n• advanced tracking and fair, transparent conditions",
+    answer: "ThaurusGuru provides a sustainable, transparent, and performance-driven affiliate ecosystem. Partners benefit from:\n• High and scalable commissions\n• Long-term cooperation instead of short-term hype\n• A professional prop trading brand backed by Thaurus LTD (licensed broker)\n• Exclusive affiliate rewards and giveaways\n• Design support and personal communication with the affiliate team\n• Advanced tracking and fair, transparent conditions",
   },
   {
     number: "03",
     question: "What commission models are available?",
-    answer: "ThaurusGuru offers two flexible commission models:\n\nAffiliate Model — Tier System: Perfect for creators of any size. Naturally progress through tiers that unlock higher potential as your audience grows. No strict requirements.\n\nInfluencer Model: Designed for established creators. Provides higher earning opportunities, additional perks, personalized support, and exclusive creative tools.",
+    answer: "ThaurusGuru offers two flexible commission models:\n\n1. Affiliate Model — Tier System: Perfect for creators of any size. As your audience grows, you naturally progress through multiple tiers that unlock higher earning potential. No strict requirements.\n\n2. Influencer Model: Designed for established creators with an established audience. Provides even higher earning opportunities, additional perks, personalized support, and exclusive creative tools.",
   },
   {
     number: "04",
     question: "How do I start as an affiliate?",
-    answer: "The onboarding process consists of four simple steps:\n1. Activate Your Affiliate Account: Contact support to verify and enable access.\n2. Promote Your Link: Share your unique referral link across any platform.\n3. Track Performance: Monitor clicks, purchases, and earnings through your dashboard.\n4. Claim Rewards: Request payouts directly from the rewards page once eligible.",
+    answer: "The onboarding process consists of four simple steps:\n\n1. Activate Your Affiliate Account: Contact support to verify and enable affiliate access.\n2. Promote Your Link: Share your unique referral link across any platform or channel.\n3. Track Performance: Monitor clicks, purchases, and earnings through your dashboard.\n4. Claim Rewards: Request payouts directly from the rewards page once eligible.",
   },
   {
     number: "05",
     question: "How does the tier system work?",
-    answer: "As you refer more users, you progress through higher tiers. Each tier provides increased commission levels, higher-value giveaways, and enhanced promotional support. Progression depends solely on the number of active users referred.",
+    answer: "As you refer more users, you progress through higher tiers. Each tier provides:\n• Increased commission levels\n• Higher-value giveaways\n• Enhanced promotional support\n\nProgression depends solely on the number of active users referred.",
   },
   {
     number: "06",
     question: "What is the influencer model?",
-    answer: "The influencer model is a premium collaboration tier for larger creators. It provides higher lifetime commissions, personal arrangements, monthly giveaways, and support from the design team. Influencers must meet engagement and follower requirements before joining.",
+    answer: "The influencer model is a premium collaboration tier for larger creators. It provides:\n• Higher lifetime commissions\n• Personal arrangements\n• Monthly giveaways\n• Support from the design team\n\nInfluencers must meet engagement and follower requirements before joining.",
   },
   {
     number: "07",

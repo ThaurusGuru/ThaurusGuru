@@ -9,32 +9,32 @@ const faqData = [
   {
     number: "01",
     question: "Crypto (USDC, BTC, ETH and others via Confirmo)",
-    answer: "Crypto is the primary global payment method and the recommended option for most traders. Payments are processed through Confirmo, a secure crypto gateway.\n\nBest for: All regions worldwide, Traders using USDT, BTC, ETH and other major coins, Fast and reliable transactions.\n\nAdvantages:\n• Instant confirmation\n• No bank restrictions\n• Works in countries where card payments fail\n• Low fees and high availability\n\nCrypto (via Confirmo) is the most universal, stable, and accessible method for all traders.",
+    answer: "Crypto is the primary global payment method and the recommended option for most traders. Payments are processed through Confirmo, a secure crypto gateway.\n\nBest for:\n• All regions worldwide\n• Traders using USDT, BTC, ETH and other major coins\n• Fast and reliable transactions\n\nAdvantages:\n• Instant confirmation\n• No bank restrictions\n• Works in countries where card payments fail\n• Low fees and high availability\n\nCrypto (via Confirmo) is the most universal, stable, and accessible method for all traders.",
   },
   {
     number: "02",
     question: "Bank Transfer",
-    answer: "Available in regions that support international bank payments.\n\nBest for: Europe, UK, Middle East.\n\nNotes:\n• Processing time: 1–5 business days\n• May include additional bank fees\n• Currency exchange handled by your bank\n\nBank transfer is recommended for traders who prefer traditional financial channels.",
+    answer: "Available in regions that support international bank payments.\n\nBest for:\n• Europe\n• UK\n• Middle East\n\nNotes:\n• Processing time: 1–5 business days\n• May include additional bank fees\n• Currency exchange handled by your bank\n\nBank transfer is recommended for traders who prefer traditional financial channels.",
   },
   {
     number: "03",
     question: "Card Payments (Debit & Credit)",
-    answer: "Supported worldwide depending on issuing bank restrictions.\n\nBest for: Europe, Asia, Middle East.\n\nNotes:\n• Requires 3D Secure verification in many regions\n• Some banks may decline international transactions\n• Fastest non-crypto alternative\n\nCard payments are convenient but may fail in countries with strict financial regulations.",
+    answer: "Supported worldwide depending on issuing bank restrictions.\n\nBest for:\n• Europe\n• Asia\n• Middle East\n\nNotes:\n• Requires 3D Secure verification in many regions\n• Some banks may decline international transactions\n• Fastest non-crypto alternative\n\nCard payments are convenient but may fail in countries with strict financial regulations.",
   },
   {
     number: "04",
     question: "UPI (India)",
-    answer: "Available exclusively for India-based clients. Best for PhonePe, Google Pay, and Paytm.\n\nUPI is the most convenient payment option for Indian traders.",
+    answer: "Available exclusively for India-based clients.\n\nBest for:\n• PhonePe\n• Google Pay\n• Paytm\n\nUPI is the most convenient payment option for Indian traders.",
   },
   {
     number: "05",
     question: "Flutterwave (Africa)",
-    answer: "Built specifically for African regions (Nigeria, South Africa, etc.).\n\nFlutterwave ensures Africa-based traders can pay quickly and reliably without needing international cards.",
+    answer: "Built specifically for African regions.\n\nSupported regions include:\n• Nigeria\n• South Africa (and others depending on Flutterwave support)\n\nFlutterwave ensures Africa-based traders can pay quickly and reliably without needing international cards.",
   },
   {
     number: "06",
     question: "Which Method Should You Choose?",
-    answer: "Europe / UK: Crypto (Confirmo), Card, Bank Transfer\nIndia: UPI, Crypto (Confirmo)\nAfrica: Flutterwave, Crypto (Confirmo)\nMiddle East: Crypto (Confirmo), Card",
+    answer: "• Europe / UK: Crypto (Confirmo), Card, Bank Transfer\n• India: UPI, Crypto (Confirmo)\n• Africa: Flutterwave, Crypto (Confirmo)\n• Middle East: Crypto (Confirmo), Card",
   },
 ];
 

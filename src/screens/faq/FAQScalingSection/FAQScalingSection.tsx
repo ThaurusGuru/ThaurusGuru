@@ -9,37 +9,37 @@ const faqData = [
   {
     number: "01",
     question: "WHAT IS THE SCALING PLAN?",
-    answer: "The ThaurusGuru Scaling Plan allows funded traders to gradually increase their account size as they demonstrate consistent, disciplined, and profitable performance. The plan rewards long-term stability rather than short-term luck.\n\nThe scaling process includes four levels, each with performance requirements and increasing funding allocations.",
+    answer: "The ThaurusGuru Scaling Plan allows funded traders to gradually increase their account size as they demonstrate consistent, disciplined, and profitable performance. The plan is designed to reward long-term stability rather than short-term luck, creating a realistic path toward managing larger capital.\n\nThe scaling process includes four levels, each with performance requirements and increasing funding allocations.",
   },
   {
     number: "02",
     question: "HOW DOES THE ACCOUNT ALLOCATION GROW?",
-    answer: "Your allocation increases each time you complete the scaling requirements for the next level.\n(Example starting with $100,000):\n• Level 0: $100,000\n• Level 1: $130,000\n• Level 2: $169,000\n• Level 3: $219,700\n• Level 4: $300,000 (maximum allocation)",
+    answer: "Your allocation increases each time you complete the scaling requirements for the next level. Using the standard $100,000 account as an example:\n\nLevel 0: $100,000\nLevel 1: $130,000\nLevel 2: $169,000\nLevel 3: $219,700\nLevel 4: $300,000 (maximum allocation)\n\nEach stage represents a structured growth step based on approved scaling coefficients.",
   },
   {
     number: "03",
     question: "WHAT ARE THE REQUIREMENTS TO MOVE TO THE NEXT LEVEL?",
-    answer: "Each scaling step requires you to meet both the profit target and the consistency requirement for your current level:\n• Level 1: 10% Profit Target\n• Level 2: 15% Profit Target | 30% Consistency Limit\n• Level 3: 20% Profit Target | 25% Consistency Limit\n• Level 4: 30% Profit Target | 20% Consistency Limit\n\nConsistency means ensuring your biggest profitable day does not exceed the allowed percentage of your total profits for that scaling cycle.",
+    answer: "To advance through the scaling plan, you must achieve a specific Profit Target while adhering to a Consistency Limit for your current stage:\n\n• Level 1: 10% Profit Target (No consistency limit)\n• Level 2: 15% Profit Target | 30% Consistency Limit\n• Level 3: 20% Profit Target | 25% Consistency Limit\n• Level 4: 30% Profit Target | 20% Consistency Limit\n\nConsistency: This rule ensures your single largest profitable day does not exceed the allowed percentage of your total profits generated during that scaling cycle.",
   },
   {
     number: "04",
     question: "DO I NEED TO PAY FOR THE UPGRADE?",
-    answer: "No. Scaling upgrades at ThaurusGuru are completely free. Once you meet the requirements, your funded account is automatically moved to the next allocation level.",
+    answer: "No. Scaling upgrades at ThaurusGuru are completely free. Once you meet the profit and consistency requirements, your funded account is automatically moved to the next allocation level.",
   },
   {
     number: "05",
     question: "ARE THERE ACCOUNT TYPE LIMITATIONS?",
-    answer: "Yes. Scaling applies only to Classic One-Step, Two-Step, and Three-Step models.\n\nPRO accounts, Instant accounts, and Pay As You Go models do not include scaling.",
+    answer: "Yes. Scaling applies only to: Classic Two-Step, Classic Three-Step.\n\nPay As You Go, Instant, and PRO models (if applicable) do not include scaling.",
   },
   {
     number: "06",
     question: "EXAMPLES: HOW DOES SCALING LOOK IN PRACTICE?",
-    answer: "Example (Starting with $100,000):\n1. Generate 10% profit → move to $130,000\n2. Generate 15% with 30% consistency → move to $169,000\n3. Generate 20% with 25% consistency → move to $219,700\n4. Generate 30% with 20% consistency → reach $300,000 maximum",
+    answer: "Example 1 (Starting with $100,000):\n1. Generate 10% profit → move to $130,000\n2. Generate 15% with 30% consistency → move to $169,000\n3. Generate 20% with 25% consistency → move to $219,700\n4. Generate 30% with 20% consistency → reach $300,000 maximum",
   },
   {
     number: "07",
     question: "WHAT IF I BREAK THE RULES DURING THE SCALING PROCESS?",
-    answer: "A rule breach (drawdown, margin, news, etc.) resets the scaling cycle for the current level. You must complete the requirements again. However, your existing level is not downgraded unless the account is terminated.",
+    answer: "A rule breach (drawdown, margin, news, etc.) resets the scaling cycle for the current level. You will need to complete the profit + consistency requirements again. However, your existing level is not downgraded unless the breach results in account termination.",
   },
 ];
 

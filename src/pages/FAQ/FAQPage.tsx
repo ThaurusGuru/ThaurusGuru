@@ -16,7 +16,11 @@ import {
 import "../../index.css";
 
 const faqSections = [
-  { title: "Why Thaurus Guru?", Component: FAQWhySection },
+  { 
+    title: "WHY THAURUSGURU", 
+    description: "About the company, trust, legal structure, and mission",
+    Component: FAQWhySection 
+  },
   { title: "Funding Models", Component: FAQFundingSection },
   { title: "Trading Rules", Component: FAQRulesSection },
   { title: "Available Payment", Component: FAQPaymentSection },
@@ -62,10 +66,17 @@ export const FAQPage = () => {
               >
                 <div className="flex flex-col items-start w-full">
                   <AccordionTrigger className="group flex items-center justify-start gap-4 py-6 px-4 md:px-16 hover:no-underline [&[data-state=open]_.cat-title]:text-[#E9B1FF] transition-all [&>svg]:hidden">
-                    <span className="cat-title text-white font-['M_PLUS_2',Helvetica] text-[24px] md:text-[32px] font-normal text-left tracking-wide">
-                      {section.title}
-                    </span>
-                    <div className="shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-90">
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="cat-title text-white font-['M_PLUS_2',Helvetica] text-[24px] md:text-[32px] font-normal text-left tracking-wide">
+                        {index + 1}. {section.title}
+                      </span>
+                      {section.description && (
+                        <span className="text-[#A0A3BD] font-['Inter'] text-[14px] md:text-[16px] font-normal opacity-70">
+                          {section.description}
+                        </span>
+                      )}
+                    </div>
+                    <div className="shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-90 ml-2">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 18L15 12L9 6" stroke="#E9B1FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
