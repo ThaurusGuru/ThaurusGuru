@@ -80,7 +80,8 @@
   "pricing": {
     "title": "Choose Your Challenge",
     "heading": "Choose Your Prop Trading Challenge & Get Funded Today",
-    "subheading": "Build your trading path with flexible challenges designed for every style."
+    "subheading": "Build your trading path with flexible challenges designed for every style.",
+    "price": "Price"
   },
   "build": {
     "heading1": "Built by Professionals.",

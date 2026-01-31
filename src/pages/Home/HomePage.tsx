@@ -26,15 +26,15 @@ export const HomePage = () => {
 
       {/* Main content */}
       <main className="relative w-full">
-        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+        <section className="relative w-full -translate-y-4 animate-fade-in opacity-0 [--animation-delay:200ms]">
           <HeroSection />
         </section>
 
-        <section className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+        <section className="relative w-full -translate-y-4 animate-fade-in opacity-0 [--animation-delay:400ms]">
           <MainContentSection />
         </section>
 
-        <section id="how-it-works" className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms] z-10">
+        <section id="how-it-works" className="relative w-full -translate-y-4 animate-fade-in opacity-0 [--animation-delay:600ms] z-10">
           <HowItWorksSection />
         </section>
 
@@ -47,7 +47,7 @@ export const HomePage = () => {
           />
         </div>
 
-        <section id="trading-rules" className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] z-10">
+        <section id="trading-rules" className="relative w-full -translate-y-4 animate-fade-in opacity-0 [--animation-delay:800ms] z-10">
           <PricingSection />
         </section>
 
