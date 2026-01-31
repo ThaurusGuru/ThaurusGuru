@@ -105,7 +105,7 @@ export const Header = () => {
         { label: t('header.howItWorks'), href: "/how-it-works" },
         { label: t('header.tradingRules'), href: "/trading-rules" },
         { label: t('header.scalingPlan'), href: "/scaling-plan" },
-        { label: t('header.reward'), href: "/#reward" },
+        { label: t('header.reward'), href: "/reward" },
       ]
     },
     { label: t('header.aboutUs'), href: "/about-us" },

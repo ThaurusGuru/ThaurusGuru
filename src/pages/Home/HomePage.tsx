@@ -107,19 +107,6 @@ export const HomePage = () => {
           <DiscordSection />
         </section>
 
-        {/* Background effect spanning from Discord to Media section */}
-        {/* <div className="relative w-full h-0">
-          <img
-            src="/discord-section/effect.png"
-            alt=""
-            className="absolute -top-[800px] left-0 w-auto h-[1500px] opacity-70 pointer-events-none z-0"
-            style={{
-              maskImage: 'linear-gradient(to bottom, transparent, black 15%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%)'
-            }}
-          />
-        </div> */}
-
         <section className="relative w-full">
           <MediaSection />
         </section>

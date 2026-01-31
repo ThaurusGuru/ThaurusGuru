@@ -1,0 +1,1 @@
+export { RewardPage } from './RewardPage';

@@ -13,6 +13,7 @@ import { TermsAndConditionsPage } from "./pages/TermsAndConditions";
 import { CookiesPolicyPage } from "./pages/CookiesPolicy";
 import { HowItWorksPage } from "./pages/HowItWorks";
 import { TradingRulesPage } from "./pages/TradingRules";
+import { RewardPage } from "./pages/Reward";
 import "./index.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/trading-rules" element={<TradingRulesPage />} />
+        <Route path="/reward" element={<RewardPage />} />
         <Route path="/affiliate" element={<AffiliatePage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/scaling-plan" element={<ScalingPlanPage />} />

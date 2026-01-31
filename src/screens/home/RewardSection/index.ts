@@ -1,0 +1,1 @@
+export { RewardSection } from './RewardSection';
