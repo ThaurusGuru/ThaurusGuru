@@ -6,6 +6,7 @@ import { AboutUsPage } from "./pages/AboutUs";
 import { ScalingPlanPage } from "./pages/ScalingPlan";
 import { ContactUsPage } from "./pages/ContactUs";
 import { BlogsPage } from "./pages/Blogs";
+import { BlogArticlePage } from "./pages/BlogArticle";
 import { FAQPage } from "./pages/FAQ";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicy";
 import { TermsAndConditionsPage } from "./pages/TermsAndConditions";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/scaling-plan" element={<ScalingPlanPage />} />
         <Route path="/contact-us" element={<ContactUsPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/blog/:id" element={<BlogArticlePage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
