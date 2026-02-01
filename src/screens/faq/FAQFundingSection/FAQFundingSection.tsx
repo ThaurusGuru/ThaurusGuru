@@ -62,56 +62,6 @@ const fundingData = [
     ],
   },
   {
-    category: "Instant Funding",
-    items: [
-      {
-        number: "01",
-        question: "INSTANT ACCOUNT MODEL OVERVIEW",
-        answer: "The Instant Account gives you immediate access to virtual trading capital without passing an evaluation. You start trading as soon as your purchase is confirmed, following strict professional risk rules designed to simulate real capital management.\n\nAccount Parameters:\n• Account Sizes: $5,000 / $10,000 / $25,000 / $50,000 / $100,000\n• Max Daily Drawdown: 3%\n• Max Trailing Drawdown: 5%\n• Min Trading Days for Payout: 7\n• Payout Split: 80% / 20% (Bi-Weekly)\n• Consistency Rule: 20% max per best day\n• Weekend Trading: Not allowed\n• Leverage: FX 1:30, Metals/Energies 1:10, Indices 1:10, Crypto 1:1\n• Margin Usage: Max 40% at any time\n• News Trading: Not allowed — 5 min before & 5 min after high-impact news\n• Fee Refund: None (non-refundable)",
-      },
-      {
-        number: "02",
-        question: "TRADING RULES & DRAWDOWN",
-        answer: "Maximum Daily Drawdown — 3%: Your equity cannot fall by more than 3% from the start-of-day balance/equity. A breach instantly terminates the account.\n\nMaximum Trailing Drawdown — 5%: A fully trailing drawdown follows your equity upward until the full 5% buffer is reached.\nExample: Starting balance: $100,000 | Trailing level: $95,000. If you grow to $102,000 → trailing level rises to $97,000. Equity can never fall below the trailing level.\n\nMargin Usage Limit — 40%: You may use up to 40% of your available margin. Exceeding this limit is a hard breach.",
-      },
-      {
-        number: "03",
-        question: "CONSISTENCY & NEWS RULES",
-        answer: "Consistency Rule — 20%: Your best trading day cannot represent more than 20% of the total profit in the payout cycle. This prevents oversized trades and ensures stable performance.\n\nNews Trading Rules: High-impact news trading is strictly prohibited. You cannot open positions, close positions, or have SL/TP triggered during the restricted window (10 minutes before and 10 minutes after). Violations result in account deactivation.",
-      },
-      {
-        number: "04",
-        question: "WEEKEND & FORBIDDEN STRATEGIES",
-        answer: "Weekend Rules: Holding trades over the weekend is not allowed. All positions must be closed before the market closes on Friday. Any violation results in a hard breach.\n\nForbidden Strategies: Gap trading, HFT, server manipulation, latency arbitrage, toxic flow, scalping under 30s, hedging between accounts, signal mirroring, etc., lead to immediate termination without payout.",
-      },
-    ],
-  },
-  {
-    category: "1-Step Classic",
-    items: [
-      {
-        number: "01",
-        question: "ONE-STEP CHALLENGE OVERVIEW",
-        answer: "The Classic One-Step Challenge is a straightforward evaluation model with one goal: prove your consistency and risk management in a single phase. Receive a funded account and start earning real payouts after meeting requirements.\n\nPhase Requirements:\n• Profit Target: 8%\n• Minimum Trading Days: 4 separate days\n• Risk Rules: Max Daily Drawdown 4%, Max Overall Drawdown 10%\n• Margin Usage Limit: 40% (hard rule)",
-      },
-      {
-        number: "02",
-        question: "ADD-ONS & TRADING POLICIES",
-        answer: "Optional Add-Ons: News Trading, Weekend Holding, and Weekly Payout (reduces cycle from 14 to 7 days). These apply only to the challenge phase unless specified.\n\nNews Trading Rules (Default): No trading 5 mins before/after high-impact news. This applies to opening, closing, and SL/TP triggers.\n\nWeekend Policy: Must close all trades before market close on Friday unless the Weekend Add-On is active.",
-      },
-      {
-        number: "03",
-        question: "FORBIDDEN STRATEGIES & RISK",
-        answer: "Forbidden Strategies: Gap trading, latency arbitrage, server manipulation, scalping <30s, hedging across accounts, opposite trading, etc., result in immediate disqualification.\n\nRisk Recommendation: Keep risk per trade within 1–2% to avoid accidental breaches.",
-      },
-      {
-        number: "04",
-        question: "FUNDED ACCOUNT RULES (1-STEP)",
-        answer: "Payout Schedule: every 14 days (7 days with Weekly Add-On). Profit Split: 80% to trader, 20% to ThaurusGuru.\n\nConsistency Rule: Largest winning day must not exceed 35% of total profit.\n\nLeverage: Forex 1:50, Indices/Metals/Energies 1:10, Crypto 1:1.",
-      },
-    ],
-  },
-  {
     category: "2-Step Classic",
     items: [
       {
@@ -228,56 +178,6 @@ const fundingData = [
         number: "06",
         question: "WEEKEND TRADING",
         answer: "Weekend holding is prohibited for Funded accounts. All positions must be closed before the market closes on Friday. Keeping trades open through the weekend constitutes a violation.",
-      },
-    ],
-  },
-  {
-    category: "1-Step Pro",
-    items: [
-      {
-        number: "01",
-        question: "PRO ONE-STEP OVERVIEW",
-        answer: "A high-performance evaluation for experienced traders with stricter trailing drawdown mechanics.\n\nEvaluation Requirements:\n• Profit Target: 9%\n• Max Daily Drawdown: 3%\n• Max Trailing Drawdown: 5%\n• Min Days: 4, Time Limit: 30 days.",
-      },
-      {
-        number: "02",
-        question: "TRAILING DRAWDOWN & ADD-ONS",
-        answer: "The trailing drawdown follows equity movement until the buffer is used. Add-ons available for News, Weekend, and Weekly Payouts. Default news: 5 mins before/after. Default weekend: no holding.",
-      },
-      {
-        number: "03",
-        question: "PRO FUNDED ACCOUNT (1-STEP)",
-        answer: "Maintains 5% trailing drawdown on funded phase. Payout cycle 14/7 days. Profit split 80/20. Consistency: Largest day < 35% of profits. Leverage matches 1-Step Classic.",
-      },
-    ],
-  },
-  {
-    category: "2-Step Pro",
-    items: [
-      {
-        number: "01",
-        question: "PRO TWO-STEP OVERVIEW",
-        answer: "Two-phase PRO evaluation with higher targets and trailing drawdown.\n\nPhase 1: 10% Profit Target | Phase 2: 4% Profit Target\nRules: 3% Daily Drawdown, 5% Trailing Drawdown, 3 days min per phase. Includes standard PRO news and weekend restrictions.",
-      },
-      {
-        number: "02",
-        question: "FUNDED PRO (2-STEP)",
-        answer: "Maintains 5% trailing drawdown. Payout cycle 14/7 days. Profit split 80/20. Consistency: Largest day < 35% of profits. Leverage: Forex 1:100, Indices 1:20, Commodities 1:30, Energies 1:10, Crypto 1:5.",
-      },
-    ],
-  },
-  {
-    category: "Funded Pro",
-    items: [
-      {
-        number: "01",
-        question: "FUNDED PARAMETERS (PRO)",
-        answer: "Sizes: $5k to $100k. Max Daily Drawdown 3%, Max Trailing Overall Drawdown 5% (fully trailing at all times). Consistency: Largest day < 35% of profit cycle.",
-      },
-      {
-        number: "02",
-        question: "TRADING & NEWS RULES (PRO)",
-        answer: "Payout cycle 14/7 days. Profit split 80/20. News Restriction: 5 mins before/after. Weekend holding not allowed. Leverage matches Funded Classic.",
       },
     ],
   },

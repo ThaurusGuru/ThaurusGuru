@@ -31,7 +31,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       hasInfo: true,
       tooltip: "" // This will be calculated dynamically
     },
-    { label: "Price", hasInfo: false },
+    { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
   ];
 
   // Classic model variations
@@ -44,7 +44,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
         { label: "Minimum Trading Days", hasInfo: true, tooltip: "No minimum" },
         { label: "Time Limit", hasInfo: true, tooltip: "Unlimited time to pass" },
         { label: "Leverage", hasInfo: true, tooltip: "" },
-        { label: "Price", hasInfo: false },
+        { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
       ];
     } else if (tabIndex === 1) { // Three Step
       return [
@@ -53,7 +53,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
         { label: "Profit Split", hasInfo: true, tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)" },
         { label: "Minimum Trading Days", hasInfo: true, tooltip: "No minimum" },
         { label: "Time Limit", hasInfo: true, tooltip: "1:00" },
-        { label: "Price", hasInfo: false },
+        { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
       ];
     }
   }
@@ -68,7 +68,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       { label: "Minimum Trading Days", hasInfo: true, tooltip: "3 trading days" },
       { label: "Time Limit", hasInfo: true, tooltip: "Unlimited" },
       { label: "Leverage", hasInfo: true, tooltip: "" },
-      { label: "Price", hasInfo: false },
+      { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
     ];
   }
 
@@ -130,6 +130,7 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
 };
 
 const prices = ["$45", "$85", "$185", "$295", "$510"];
+const threeStepPrices = ["$35", "$65", "$145", "$245", "$410"];
 // PAYG pricing - phase 1, phase 2, and total
 const paygPhase1Prices = ["$27", "$55", "$120", "$195", "$348"];
 const paygPhase2Prices = ["$27", "$40", "$85", "$135", "$232"];
@@ -629,11 +630,20 @@ export const PricingSection = () => {
                             backgroundClip: 'text'
                           }}
                         >
-                          {prices[activeAccountIndex]}
+                          {(activeTab === 1 && activeModel === 'classic') ? threeStepPrices[activeAccountIndex] : prices[activeAccountIndex]}
                         </span>
                       </div>
                     )}
                   </div>
+                  {/* Price Label for Mobile */}
+                  {activeModel !== 'payg' && (
+                    <div className="flex items-center justify-center gap-1 mb-4">
+                      <span className="font-['Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
+                        {t('pricing.price')}
+                      </span>
+                      <InfoTooltip content="Evaluation fee for the selected account size" />
+                    </div>
+                  )}
                   <Button
                     onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
                     className="flex w-full max-w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
@@ -783,8 +793,10 @@ export const PricingSection = () => {
                         </>
                       ) : (
                         <div className="h-16 w-[65%] rounded-lg border-2 border-dashed border-[#b882fb] flex items-center justify-center px-4">
-                          <span className={`bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent font-['Poppins',Helvetica] font-semibold text-3xl tracking-[0] leading-normal`}>
-                            {price}
+                          <span 
+                            className="bg-gradient-to-br from-[#9e59ff] to-[#e9b1ff] bg-clip-text text-transparent font-['Poppins',Helvetica] font-semibold text-3xl tracking-[0] leading-normal"
+                          >
+                             {(activeTab === 1 && activeModel === 'classic') ? threeStepPrices[index] : price}
                           </span>
                         </div>
                       )}
