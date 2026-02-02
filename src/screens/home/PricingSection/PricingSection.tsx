@@ -135,7 +135,7 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
 
 const prices = ["$45", "$85", "$185", "$295", "$510"];
 const threeStepPrices = ["$35", "$65", "$145", "$245", "$410"];
-// PAYG pricing - phase 1, phase 2, and total
+// PAYG pricing - Phase 1, Phase 2, and total
 const paygPhase1Prices = ["$27", "$55", "$120", "$195", "$348"];
 const paygPhase2Prices = ["$27", "$40", "$85", "$135", "$232"];
 const paygTotalPrices = ["$54", "$95", "$205", "$330", "$580"];
@@ -610,11 +610,11 @@ export const PricingSection = () => {
                       <>
                         <div className="inline-flex flex-col justify-center items-center px-[10px] py-[6px] rounded-[10px] border border-dashed border-[#B982FB]">
                           <div className="flex items-center gap-2">
-                            <span className="text-[#c193f1] text-[12px] font-['Poppins',Helvetica]">phase 1 -</span>
+                            <span className="text-[#c193f1] text-[12px] font-['Poppins',Helvetica]">Phase 1 -</span>
                             <span className="text-white font-['Poppins',Helvetica] font-semibold text-[20px]">{paygPhase1Prices[activeAccountIndex]}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="text-[#c193f1] text-[12px] font-['Poppins',Helvetica]">phase 2 -</span>
+                            <span className="text-[#c193f1] text-[12px] font-['Poppins',Helvetica]">Phase 2 -</span>
                             <span className="text-white font-['Poppins',Helvetica] font-semibold text-[20px]">{paygPhase2Prices[activeAccountIndex]}</span>
                           </div>
                         </div>
@@ -782,11 +782,11 @@ export const PricingSection = () => {
                         <>
                           <div className="inline-flex flex-col justify-center items-center px-[10px] py-[6px] rounded-[10px] border border-dashed border-[#B982FB]">
                             <div className="flex items-center gap-1">
-                              <span className="text-[#c193f1] text-[11px] font-['Poppins',Helvetica]">phase 1 -</span>
+                              <span className="text-[#c193f1] text-[11px] font-['Poppins',Helvetica]">Phase 1 -</span>
                               <span className="text-white font-['Poppins',Helvetica] font-semibold text-[18px]">{paygPhase1Prices[index]}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                              <span className="text-[#c193f1] text-[11px] font-['Poppins',Helvetica]">phase 2 -</span>
+                              <span className="text-[#c193f1] text-[11px] font-['Poppins',Helvetica]">Phase 2 -</span>
                               <span className="text-white font-['Poppins',Helvetica] font-semibold text-[18px]">{paygPhase2Prices[index]}</span>
                             </div>
                           </div>
