@@ -51,7 +51,7 @@ export const MediaSection = () => {
   // };
 
   return (
-    <section className="relative w-full py-12 md:py-16 px-4 bg-[#1b082e]">
+    <section className="relative w-full py-12 md:py-16 px-4">
       {/* Background decoration matching other sections if needed, or just solid dark */}
       {/* <div className="absolute inset-0 bg-[url('/path/to/bg.svg')] bg-cover opacity-50 pointer-events-none" /> */}
       

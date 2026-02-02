@@ -1,14 +1,132 @@
+import { useState, useEffect, useRef } from 'react';
+
+// Animated digit component with slot-machine effect
+const AnimatedDigit = ({ digit }: { digit: string }) => {
+  const [displayDigit, setDisplayDigit] = useState(digit);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const prevDigit = useRef(digit);
+
+  useEffect(() => {
+    if (prevDigit.current !== digit) {
+      setIsAnimating(true);
+      // Quick flip animation
+      setTimeout(() => {
+        setDisplayDigit(digit);
+        setTimeout(() => setIsAnimating(false), 150);
+      }, 150);
+      prevDigit.current = digit;
+    }
+  }, [digit]);
+
+  return (
+    <div
+      className="flex flex-col justify-center items-center border border-[#E9B1FF] overflow-hidden"
+      style={{
+        width: '48px',
+        height: '76px',
+        padding: '16px 13px',
+        gap: '10px',
+        background: 'rgba(65, 19, 114, 0.30)',
+        position: 'relative'
+      }}
+    >
+      <span
+        className="text-white text-center font-['Cambay',Helvetica]"
+        style={{
+          fontSize: '48px',
+          fontWeight: 400,
+          lineHeight: '36px',
+          transform: isAnimating ? 'translateY(-100%)' : 'translateY(0)',
+          opacity: isAnimating ? 0 : 1,
+          transition: 'all 0.15s ease-out',
+          textShadow: '0 0 10px rgba(233, 177, 255, 0.5)'
+        }}
+      >
+        {displayDigit}
+      </span>
+      {/* Glow effect on change */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle, rgba(233, 177, 255, 0.3) 0%, transparent 70%)',
+          opacity: isAnimating ? 1 : 0,
+          transition: 'opacity 0.3s ease-out',
+          pointerEvents: 'none'
+        }}
+      />
+    </div>
+  );
+};
+
 export const CappedSection = () => {
-  // The funding digits - can be made dynamic later
-  const fundingDigits = ['7', '3', '1', '0', '0', '0'];
+  // Configuration
+  const CAP_AMOUNT = 50_000_000; // $50 Million cap
+  const START_AMOUNT = 2_000_000; // Starting from $2 Million
+  const MONTHLY_TARGET = CAP_AMOUNT - START_AMOUNT; // Amount to add over a month
+  const INCREMENT_PER_SECOND = MONTHLY_TARGET / (30 * 24 * 60 * 60); // ~18.52 per second
+
+  // FIXED LAUNCH DATE - Set this to when you want the counter to start
+  // Example: February 3, 2026 at 00:00:00 UTC
+  const LAUNCH_DATE = new Date('2026-02-03T00:00:00Z').getTime();
+
+  // Calculate current funding based on fixed launch date
+  const calculateCurrentFunding = (): number => {
+    const now = Date.now();
+    const elapsedSeconds = Math.max(0, (now - LAUNCH_DATE) / 1000);
+    const calculatedAmount = START_AMOUNT + (elapsedSeconds * INCREMENT_PER_SECOND);
+    return Math.min(calculatedAmount, CAP_AMOUNT);
+  };
+
+  const [fundingAmount, setFundingAmount] = useState(START_AMOUNT);
+
+  useEffect(() => {
+    // Initialize with current calculated amount
+    setFundingAmount(calculateCurrentFunding());
+
+    // Update counter every second
+    const interval = setInterval(() => {
+      setFundingAmount(prev => {
+        const currentAmount = calculateCurrentFunding();
+        if (currentAmount >= CAP_AMOUNT) return CAP_AMOUNT;
+
+        // Add some randomness to make it feel more organic
+        const randomMultiplier = 0.8 + Math.random() * 0.4; // Smaller variance for smoother look
+        const increment = INCREMENT_PER_SECOND * randomMultiplier;
+        const newAmount = Math.min(prev + increment, CAP_AMOUNT);
+
+        return newAmount;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+  
+// Format number to 7 digits (for $2M-$50M range)
+const formatToDigits = (num: number): string[] => {
+  const rounded = Math.floor(num);
+  const str = rounded.toString().padStart(7, '0');  // Changed from 8 to 7
+  return str.split('');
+};
+
+  const fundingDigits = formatToDigits(fundingAmount);
+  const remainingAmount = CAP_AMOUNT - fundingAmount;
+
+  // Format remaining as $X.XXM
+  const formatRemaining = (amount: number): string => {
+    if (amount <= 0) return '$0 remaining';
+    const millions = amount / 1_000_000;
+    return `$${millions.toFixed(2)}M remaining`;
+  };
 
   return (
     <section 
-      className="relative w-full py-20 px-4 flex justify-center items-center"
+      className="relative w-full py-20 px-4 flex justify-center items-center min-h-screen"
       style={{
-        backgroundImage: 'url(/comparisontable/upper-bg.png)',
+        backgroundImage: 'url(/Capped/capped.png)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center calc(50% - 10vh)',
+        backgroundRepeat: 'no-repeat',
         paddingTop: '400px'
       }}
     >
@@ -22,10 +140,10 @@ export const CappedSection = () => {
             lineHeight: '26px'
           }}
         >
-          Capped
+          Capped at
         </p>
 
-        {/* $30 Million */}
+        {/* $50 Million */}
         <h2 
           className="text-white text-center font-['Poppins',Helvetica] mt-[22px]"
           style={{
@@ -34,7 +152,7 @@ export const CappedSection = () => {
             lineHeight: '46px'
           }}
         >
-          $30 Million
+          $50 Million
         </h2>
 
         {/* Subtitle */}
@@ -82,30 +200,9 @@ export const CappedSection = () => {
               $
             </span>
 
-            {/* Digit Boxes */}
+            {/* Digit Boxes - Animated */}
             {fundingDigits.map((digit, index) => (
-              <div
-                key={index}
-                className="flex flex-col justify-end items-center border border-[#E9B1FF]"
-                style={{
-                  width: '48px',
-                  height: '76px',
-                  padding: '16px 13px',
-                  gap: '10px',
-                  background: 'rgba(65, 19, 114, 0.30)'
-                }}
-              >
-                <span 
-                  className="text-white text-center font-['Cambay',Helvetica]"
-                  style={{
-                    fontSize: '48px',
-                    fontWeight: 400,
-                    lineHeight: '36px'
-                  }}
-                >
-                  {digit}
-                </span>
-              </div>
+              <AnimatedDigit key={index} digit={digit} />
             ))}
           </div>
 
@@ -113,56 +210,82 @@ export const CappedSection = () => {
           <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center">
             {/* Live funding updates */}
             <div 
-              className="flex justify-center items-center rounded-[30px]"
+              className="rounded-[30px] p-[2px]"
               style={{
-                padding: '6px 14px',
-                gap: '10px',
-                background: 'linear-gradient(90deg, rgba(45, 9, 83, 0.20) 0%, rgba(168, 90, 249, 0.20) 100%)'
+                background: 'linear-gradient(90deg, rgba(233, 177, 255, 0.5) 0%, rgba(129, 72, 237, 0.5) 100%)'
               }}
             >
-              <span 
-                className="text-white text-center font-['Poppins',Helvetica]"
+              <div 
+                className="flex justify-center items-center rounded-[28px]"
                 style={{
-                  fontSize: '18px',
-                  fontWeight: 400,
-                  lineHeight: '22px'
+                  padding: '6px 14px',
+                  gap: '10px',
+                  background: 'rgba(27, 9, 46, 0.95)'
                 }}
               >
-                Live funding updates
-              </span>
+                {/* Pulsing live dot */}
+                <span
+                  className="relative flex h-3 w-3 mr-2"
+                >
+                  <span
+                    className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                  />
+                  <span
+                    className="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+                  />
+                </span>
+                <span
+                  className="text-white text-center font-['Poppins',Helvetica]"
+                  style={{
+                    fontSize: '18px',
+                    fontWeight: 400,
+                    lineHeight: '22px'
+                  }}
+                >
+                  Live funding updates
+                </span>
+              </div>
             </div>
 
             {/* Remaining amount */}
             <div 
-              className="flex justify-center items-center rounded-[30px]"
+              className="rounded-[30px] p-[2px]"
               style={{
-                padding: '6px 14px',
-                gap: '10px',
-                background: 'linear-gradient(90deg, rgba(45, 9, 83, 0.20) 0%, rgba(168, 90, 249, 0.20) 100%)'
+                background: 'linear-gradient(90deg, rgba(233, 177, 255, 0.5) 0%, rgba(129, 72, 237, 0.5) 100%)'
               }}
             >
-              <span 
-                className="text-white text-center font-['Poppins',Helvetica]"
+              <div 
+                className="flex justify-center items-center rounded-[28px]"
                 style={{
-                  fontSize: '18px',
-                  fontWeight: 400,
-                  lineHeight: '22px'
+                  padding: '6px 14px',
+                  gap: '10px',
+                  background: 'rgba(27, 9, 46, 0.95)'
                 }}
               >
-                $2.69M remaining
-              </span>
+                <span
+                  className="text-white text-center font-['Poppins',Helvetica]"
+                  style={{
+                    fontSize: '18px',
+                    fontWeight: 400,
+                    lineHeight: '22px'
+                  }}
+                >
+                  {formatRemaining(remainingAmount)}
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Get Funded Now Button */}
         <button 
-          className="inline-flex justify-center items-center rounded-[10px] border border-[#510F96] mt-[24px] hover:opacity-90 transition-opacity"
+          className="inline-flex justify-center items-center rounded-[10px] border border-[#510F96] mt-[24px] transition-transform hover:scale-105 relative"
           style={{
             padding: '10px 20px',
             gap: '10px',
             background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)',
-            boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.25) inset'
+            boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.25) inset, 0 0 20px rgba(129, 72, 237, 0.5)',
+            zIndex: 20
           }}
           onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
         >

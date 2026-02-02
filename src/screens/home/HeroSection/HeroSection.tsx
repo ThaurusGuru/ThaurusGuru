@@ -5,8 +5,16 @@ import { useTranslation } from "react-i18next";
 import { Trading3DElement } from "../../../components/Trading3DElement";
 
 const reviewImages = [
-  "/hero/Trustpilot.svg",
-  "/hero/TTP.svg",
+  {
+    src: "/hero/Trustpilot.svg",
+    url: "https://www.trustpilot.com/review/thaurusguru.com",
+    alt: "Trustpilot Reviews"
+  },
+  {
+    src: "/hero/TTP.svg",
+    url: "https://thetrustedprop.com/prop-firms/thaurus-guru/reviews",
+    alt: "The Trusted Prop Reviews"
+  },
 ];
 
 export const HeroSection = () => {
@@ -230,13 +238,20 @@ export const HeroSection = () => {
             {/* Review Images - Centered on mobile, left on desktop */}
             <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms] 
               flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mt-6 sm:mt-8 md:mt-10 lg:mt-14 w-full">
-              {reviewImages.map((imageSrc, index) => (
-                <img
+              {reviewImages.map((review, index) => (
+                <a
                   key={index}
-                  src={imageSrc}
-                  alt={`Review ${index + 1}`}
-                  className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
-                />
+                  href={review.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-transform hover:scale-105 duration-300"
+                >
+                  <img
+                    src={review.src}
+                    alt={review.alt}
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
+                  />
+                </a>
               ))}
             </div>
           </div>

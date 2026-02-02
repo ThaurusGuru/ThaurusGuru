@@ -14,7 +14,7 @@ const statsData = [
     labelKey: "mainContent.countriesServed",
   },
   {
-    value: "2023",
+    value: "2024",
     labelKey: "mainContent.established",
   },
 ];

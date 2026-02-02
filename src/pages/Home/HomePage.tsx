@@ -7,11 +7,13 @@ import { FAQsSection } from "../../screens/home/FAQsSection";
 import { FooterSection } from "../../screens/home/FooterSection";
 import { HeroSection } from "../../screens/home/HeroSection";
 import { HowItWorksSection } from "../../screens/home/HowItWorksSection";
+import { CappedSection } from "../../screens/home/CappedSection";
 import { MainContentSection } from "../../screens/home/MainContentSection";
 import { MediaSection } from "../../screens/home/MediaSection";
 import { PayoutsSection } from "../../screens/home/PayoutsSection";
 import { PricingSection } from "../../screens/home/PricingSection";
 import { SponsorSection } from "../../screens/home/SponsorSection";
+import { NewsletterSection } from "../../screens/home/NewsletterSection";
 import "../../index.css";
 
 export const HomePage = () => {
@@ -71,9 +73,9 @@ export const HomePage = () => {
           <CalculatorSection />
         </section>
 
-        {/* <section className="relative w-full">
+        <section className="relative w-full">
           <CappedSection />
-        </section> */}
+        </section>
 
         {/* Background decoration for Comparison section */}
         <div className="relative w-full h-0">
@@ -116,6 +118,10 @@ export const HomePage = () => {
 
         <section className="relative w-full">
           <FAQsSection />
+        </section>
+
+        <section className="relative w-full" style={{ marginTop: '120px' }}>
+          <NewsletterSection />
         </section>
 
         <footer className="relative w-full">
