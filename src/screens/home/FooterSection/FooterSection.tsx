@@ -7,29 +7,6 @@ export const FooterSection = () => {
   const { t } = useTranslation();
   const [openSections, setOpenSections] = useState<string[]>([]);
 
-  const footerColumns = [
-    {
-      title: t('footer.contact'),
-      links: [t('footer.support'), t('footer.chat'), t('footer.contactLink'), t('footer.faqsLink')],
-    },
-    {
-      title: t('footer.quickLinks'),
-      links: [t('footer.aboutUs'), t('footer.career'), t('footer.purchaseAssessment')],
-    },
-    {
-      title: t('footer.trading'),
-      links: [
-        t('footer.howItWorks'),
-        t('footer.twoStep'),
-        t('footer.threeStep'),
-        t('footer.tryPayAsYouGo'),
-      ],
-    },
-    {
-      title: t('footer.community'),
-      links: [t('footer.joinDiscord'), t('footer.instagramCommunity')],
-    },
-  ];
 
   const toggleSection = (title: string) => {
     setOpenSections((prev) =>
