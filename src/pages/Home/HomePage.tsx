@@ -81,9 +81,9 @@ export const HomePage = () => {
           />
         </div>
 
-        <section className="relative w-full">
+        {/* <section className="relative w-full">
           <ComparisonTableSection />
-        </section>
+        </section> */}
 
         <section className="relative w-full">
           <SponsorSection />

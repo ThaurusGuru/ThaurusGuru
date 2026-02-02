@@ -20,10 +20,8 @@ export const FooterSection = () => {
       title: t('footer.trading'),
       links: [
         t('footer.howItWorks'),
-        t('footer.oneStep'),
         t('footer.twoStep'),
         t('footer.threeStep'),
-        t('footer.instantFunding'),
         t('footer.tryPayAsYouGo'),
       ],
     },
@@ -278,22 +276,12 @@ export const FooterSection = () => {
                   </li>
                   <li>
                     <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
-                      One Step
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Two Step
                     </a>
                   </li>
                   <li>
                     <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Three Step
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
-                      Instant Funding
                     </a>
                   </li>
                   <li>

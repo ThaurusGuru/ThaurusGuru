@@ -6,6 +6,7 @@ import { AboutUsOurVision } from "../../screens/aboutus/AboutUsOurVision";
 import { AboutUsWhyChoose } from "../../screens/aboutus/AboutUsWhyChoose";
 import { AboutUsOurTeam } from "../../screens/aboutus/AboutUsOurTeam";
 import "../../index.css";
+import { ComparisonTableSection } from "../../screens/home/ComparisonTableSection";
 
 export const AboutUsPage = () => {
   return (
@@ -27,7 +28,7 @@ export const AboutUsPage = () => {
           alt="Background Effect" 
           className="absolute right-0 top-[700px] w-full h-auto pointer-events-none z-0"
         />
-        <AboutUsOurTeam />
+        <ComparisonTableSection/>
         
         {/* Add more About Us sections here as needed */}
       </main>
