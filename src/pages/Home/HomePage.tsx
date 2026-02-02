@@ -1,9 +1,7 @@
 import { Header } from "../../components/Header";
 import { BuildSection } from "../../screens/home/BuildSection";
 import { CalculatorSection } from "../../screens/home/CalculatorSection";
-import { CappedSection } from "../../screens/home/CappedSection";
 import { CollaborationSection } from "../../screens/home/CollaborationSection";
-import { ComparisonTableSection } from "../../screens/home/ComparisonTableSection";
 import { DiscordSection } from "../../screens/home/DiscordSection";
 import { FAQsSection } from "../../screens/home/FAQsSection";
 import { FooterSection } from "../../screens/home/FooterSection";

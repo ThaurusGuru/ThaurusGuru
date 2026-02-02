@@ -4,7 +4,6 @@ import { AboutUsHeroSection } from "../../screens/aboutus/AboutUsHeroSection";
 import { AboutUsWhoWeAre } from "../../screens/aboutus/AboutUsWhoWeAre";
 import { AboutUsOurVision } from "../../screens/aboutus/AboutUsOurVision";
 import { AboutUsWhyChoose } from "../../screens/aboutus/AboutUsWhyChoose";
-import { AboutUsOurTeam } from "../../screens/aboutus/AboutUsOurTeam";
 import "../../index.css";
 import { ComparisonTableSection } from "../../screens/home/ComparisonTableSection";
 
