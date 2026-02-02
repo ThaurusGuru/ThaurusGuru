@@ -23,7 +23,15 @@ export const HowItWorksHero = () => {
   ];
 
   return (
-    <div className="relative w-full pt-[100px] pb-20 px-4 sm:px-6 lg:px-8">
+    <div 
+      className="relative w-full pt-[100px] pb-20 px-4 sm:px-6 lg:px-8"
+      style={{
+        backgroundImage: 'url(/How-it-wors-bg.png)',
+        backgroundPosition: 'top center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+      }}
+    >
       <div className="max-w-[1148px] mx-auto">
         {/* Hero Title */}
         <h1 

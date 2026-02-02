@@ -39,7 +39,7 @@ const faqData = [
   {
     number: "07",
     question: "WHAT IS GRID TRADING?",
-    answer: "Grid Trading involves placing a network of contrary buy/sell orders at specific intervals to overwhelm the server or manipulate market execution. This practice is strictly prohibited as it relies on market noise rather than a strategic edge.\n\nExample of Prohibited Behavior:\nA trader sets up a grid strategy on EUR/USD: Placing buy orders at every 20 pips upwards and sell orders at every 20 pips downwards. This creates a dense \"grid\" intended to capture small movements in any direction, often ignoring market conditions. Such activity is considered abusive and will lead to account termination.",
+    answer: "Grid Trading involves placing a network of contrary buy/sell orders at specific intervals to overwhelm the server or manipulate market execution. This practice is strictly prohibited as it relies on market noise rather than a strategic edge.\nExample of Prohibited Behavior: A trader sets up a grid strategy on EUR/USD without a clear risk management plan:\nBuy Orders: Placed at every 20 pips upwards (e.g., Buying at 1.0800, 1.0820, 1.0840).\nSell Orders: Placed at every 20 pips downwards (e.g., Selling at 1.0780, 1.0760, 1.0740).\nThis creates a dense \"grid\" of open positions intended to capture small movements in any direction, often ignoring market conditions. Such activity is considered abusive and will lead to account termination.",
   },
   {
     number: "08",
@@ -59,32 +59,37 @@ const faqData = [
   {
     number: "11",
     question: "WHAT IS THE IP RULE (VPS, VPN & DEVICES)?",
-    answer: "1. Allowed Devices: You may use multiple devices (Desktop/Mobile) for your convenience.\n2. VPS Usage: Private servers with a dedicated IP used exclusively by you are allowed.\n3. VPN & Proxies: Strictly prohibited. Accessing via masked locations may result in account suspension.\n4. Account Management: Third-party management or \"pass-your-challenge\" services are strictly prohibited.\n5. Travel: Drastic IP changes (e.g., logging from a different country) may trigger a security flag. Proof of travel (tickets, etc.) may be requested for verification.",
+    answer: "To ensure fair trading and account security, ThaurusGuru monitors IP addresses and device activity. We enforce the following protocols:\n1. Allowed Devices & Convenience We understand that modern traders need flexibility. You are permitted to use multiple devices for your convenience (e.g., trading on your Desktop PC and monitoring positions via your Mobile Phone). As long as the activity clearly belongs to you, this is fully acceptable.\n2. VPS Usage Using a Virtual Private Server (VPS) is allowed, provided it is a private server with a dedicated IP address used exclusively by you. Shared or public VPS services are not recommended due to security risks.\n3. VPN & Proxies VPNs, Proxies, and Anonymizers are strictly prohibited. Accessing the platform through masked locations or rotating IP addresses interferes with our monitoring systems and may result in immediate account suspension.\n4. Account Management Trading must be conducted solely by the account owner. Third-party account management or \"pass-your-challenge\" services are strictly prohibited.\n5. Travel & IP Changes We support traders who travel! However, drastic or sudden changes in your IP location (e.g., logging in from a different country within a short timeframe) may trigger a security flag.\nVerification: To protect your account from unauthorized access, ThaurusGuru reserves the right to request proof of travel if suspicious IP jumps occur.\nRequired Proof: This may include flight tickets, train tickets, bus tickets, or passport stamps that confirm your physical movement to the new location.\nFailure to provide valid proof upon request may lead to account investigation or termination.",
   },
   {
     number: "12",
     question: "WHAT DOES “PROFITABLE DAYS” MEAN?",
-    answer: "A “Profitable Day” is a day in which a trader generates more than 0.5% of the starting balance in profit. This metric is used to measure consistency and ensure performance is stable over time.",
+    answer: "A “Profitable Day” is a day in which a trader generates more than 0.5% of the starting balance in profit. This metric is used to measure consistency and ensure performance is stable over time rather than dependent on a single oversized winning day.",
   },
   {
     number: "13",
+    question: "WHAT IS PROHIBITED FOR MY TRADING?",
+    answer: "At ThaurusGuru, we seek profitable traders with a sustainable edge. Any practice that exploits technical inefficiencies, relies on pure luck (gambling), or manipulates the trading environment is strictly prohibited.\nEngaging in any of the following activities will result in disqualification or account termination:\n1. Time-Based Restrictions\nTick Scalping (The 4-Minute Rule): Strategies reliant on closing trades too quickly are prohibited. We recommend holding trades for at least 4 minutes. Closing positions under 3 minutes and 59 seconds is considered a violation.\nHigh-Frequency Trading (HFT): Executing a large number of trades in seconds or trading with a duration of less than 30 seconds is strictly prohibited.\n2. Gambling & Risk Management Violations\nWe distinguish between professional risk-taking and gambling. The following behaviors indicate a lack of strategy:\nPosition Stacking Limits: To ensure proper risk distribution, strict limits apply to open positions:\nSame Asset: Maximum 4 simultaneous positions (e.g., 4 trades on EURUSD).\nTotal Account: Maximum 7 simultaneous positions across all assets combined.\nViolation: Opening 5+ positions on one asset, 8+ total positions, or splitting orders into smaller chunks to bypass lot limits is prohibited.\nReverse Hand Trading (Chasing Losses): Immediately entering an opposite trade after a loss to \"revenge trade\" is prohibited. You must wait at least 5 minutes after a losing trade before opening a new position in the opposite direction on the same asset.\nOne-Sided Betting: Using large margin (>40%) in a single direction, hoping for a lucky breakout without a plan.\nMartingale: Doubling down on losing positions (increasing volume after a loss) to aggressively recover drawdown.\nGrid Trading: Placing a network of contrary buy/sell orders at intervals (e.g., every 20 pips) to manipulate execution.\nAccount Rolling: Continuously purchasing new accounts to \"gamble\" on different directions.\nExcessive Lot Size Spikes: A sudden, massive increase in lot size compared to your average trading history, solely to pass a challenge or recover a loss.\n3. Arbitrage & Manipulation\nAll forms of arbitrage and technical exploitation are banned:\nLatency Arbitrage: Exploiting data feed delays.\nHedge Arbitrage: Offsetting trades across different accounts to minimize risk artificially.\nReverse & Long-Short Arbitrage: Betting on both directions simultaneously across multiple accounts.\nGap Trading: Deliberately trading to exploit weekend or session gaps.\nServer Manipulation: Using emulators or software to delay feeds or spam the server with orders.\nNews Manipulation: Placing abusive orders specifically designed to exploit freeze times or feed delays during high-impact news.\nToxic Order Flow: Strategies that generate orders aimed at clogging the engine or exploiting technical flaws rather than market movements.\n4. Account Integrity & Third Parties\nThe evaluation is for you and your personal skills.\nGroup Trading: You are not allowed to use public signals, join \"group trading\" schemes, or coordinate trades with other users.\nCopy Trading (External): Copying trades from another individual or public signals is strictly prohibited. (Note: Copying your own external personal account is permitted).\nAccount Management: You cannot let a third party trade your account.\nFully Automated Bots: While EAs are allowed as assistants, using a bot that trades 100% autonomously without your supervision is prohibited.",
+  },
+  {
+    number: "14",
     question: "INACTIVITY POLICY",
     answer: "If no trades are opened or closed for 30 consecutive days, the account may be closed due to inactivity. This applies to both evaluation and funded accounts.",
   },
   {
-    number: "14",
+    number: "15",
     question: "SWAP POLICY",
     answer: "ThaurusGuru uses realistic swap and rollover fees consistent with live market conditions. Swaps apply to positions held through the rollover time (23:59 platform time). Triple swaps apply on Wednesdays.",
   },
   {
-    number: "15",
+    number: "16",
     question: "SLIPPAGE AND REAL MARKET CONDITIONS",
-    answer: "All accounts operate under real-market simulation: live pricing, real spreads, positive/negative slippage, and variable execution conditions. Slippage is a normal part of market behavior, especially during volatility.",
+    answer: "All accounts operate under real-market simulation: live pricing, real spreads, positive/negative slippage, and variable execution conditions. Slippage is a normal part of market behavior, especially during volatility. ThaurusGuru does not manipulate fills or artificially adjust execution.",
   },
   {
-    number: "16",
+    number: "17",
     question: "RISK MANAGEMENT GUIDELINES",
-    answer: "Challenge Accounts: Maximum 2% risk per trade.\nFunded Accounts: Maximum 1% risk per trade.\n\nWarning: Any violation of this rule may result in the immediate closure of your account.",
+    answer: "Challenge Accounts: Maximum 2% risk per trade.\nFunded Accounts: Maximum 1% risk per trade.\n\nWarning: These limits are critical for long-term consistency. Any violation of this rule may result in the immediate closure of your account.",
   },
 ];
 

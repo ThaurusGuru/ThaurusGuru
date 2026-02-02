@@ -19,7 +19,7 @@ const faqData = [
   {
     number: "03",
     question: "What commission models are available?",
-    answer: "ThaurusGuru offers two flexible commission models:\n\n1. Affiliate Model — Tier System: Perfect for creators of any size. As your audience grows, you naturally progress through multiple tiers that unlock higher earning potential. No strict requirements.\n\n2. Influencer Model: Designed for established creators with an established audience. Provides even higher earning opportunities, additional perks, personalized support, and exclusive creative tools.",
+    answer: "ThaurusGuru offers two flexible commission models so partners can choose the option that fits their style, audience, and content strategy.\nAffiliate Model — Tier System\nThis model is perfect for creators of any size. As your audience grows, you naturally progress through multiple tiers that unlock higher earning potential and additional benefits. You don't need to meet any strict requirements — you simply grow through results, at your own pace.\nInfluencer Model\nDesigned for creators with an established audience. This model provides even higher earning opportunities, additional perks, personalized support, and exclusive creative tools to help you scale.\nBoth models work long-term, offer strong earning potential, and allow you to build sustainable income while promoting ThaurusGuru in a way that feels natural to your content and community.",
   },
   {
     number: "04",

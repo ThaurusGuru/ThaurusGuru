@@ -37,12 +37,12 @@ const fundingData = [
       {
         number: "06",
         question: "IS A STOP LOSS REQUIRED?",
-        answer: "No, stop loss is not mandatory. However, traders must stay inside drawdown limits at all times — with or without SL.\nTrading without a stop loss increases the risk of breaching daily or overall drawdown, so using SL is strongly recommended for risk management.",
+        answer: "Yes, a Stop Loss is mandatory. You must place a valid Stop Loss on every single position immediately upon execution. This rule applies strictly to both the Challenge phases and the Funded Account. Failure to use a Stop Loss constitutes a violation.",
       },
       {
         number: "07",
         question: "CAN I TRADE DURING NEWS?",
-        answer: "Trading around high-impact economic news is restricted at ThaurusGuru unless you have the News Trading Add-On.\nThe exact restricted window depends on the type of account you are using.\n\nChallenge Accounts (Classic, PRO, Pay As You Go):\nNews trading is not allowed in the following time window: 5 minutes before and 5 minutes after a high-impact news event. This restriction applies to opening positions, closing positions, Stop Loss activation, Take Profit activation, and partial closures. Violations may result in the challenge being failed.\n\nInstant Accounts:\nInstant accounts follow a stricter rule: 10 minutes before and 10 minutes after a high-impact news event. Violations may result in immediate account deactivation.\n\nNews Add-On:\nIf you purchase the News Trading Add-On, you may trade during, before, and after the news without time restrictions (challenge accounts only).\n\nNote: The News Add-On does not apply to funded accounts unless specified. Instant accounts cannot bypass the 10-minute rule.",
+        answer: "Trading around high-impact economic news is restricted at ThaurusGuru unless you have the News Trading Add-On. The exact restricted window depends on the type of account you are using.\n\nChallenge Accounts (Classic, Pay As You Go)\nNews trading is not allowed in the following time window:\n5 minutes before and 5 minutes after a high-impact news event.\nThis restriction applies to: Opening positions, Closing positions, Stop Loss activation, Take Profit activation, Partial closures\nAny order triggered within this restricted window may be flagged as a violation and may result in the challenge being failed.\n\nNews Add-On\nIf you purchase the News Trading Add-On, you may trade: During the news, before the news, after the news, without time restrictions (challenge accounts only).\nNote: The News Add-On does not apply to funded accounts unless specified.",
       },
       {
         number: "08",
@@ -51,8 +51,8 @@ const fundingData = [
       },
       {
         number: "09",
-        question: "WHAT ARE THE FORBIDDEN STRATEGIES?",
-        answer: "Forbidden strategies include:\n• gap trading\n• HFT\n• server manipulation\n• latency arbitrage\n• hedging between accounts\n• long–short arbitrage\n• reverse arbitrage\n• tick scalping\n• toxic flow\n• instant-buy/sell manipulation\n• copying signals\n• EA/bot usage without approval\n• correlated trading across multiple accounts\n• exploiting technical limitations\n\nThese strategies compromise fairness and violate professional trading standards.",
+        question: "WHAT IS PROHIBITED FOR MY TRADING?",
+        answer: "At ThaurusGuru, we seek profitable traders with a sustainable edge. Any practice that exploits technical inefficiencies, relies on pure luck (gambling), or manipulates the trading environment is strictly prohibited.\nEngaging in any of the following activities will result in disqualification or account termination:\n1. Time-Based Restrictions\nTick Scalping (The 4-Minute Rule): Strategies reliant on closing trades too quickly are prohibited. We recommend holding trades for at least 4 minutes. Closing positions under 3 minutes and 59 seconds is considered a violation.\nHigh-Frequency Trading (HFT): Executing a large number of trades in seconds or trading with a duration of less than 5 seconds is strictly prohibited.\n2. Gambling & Risk Management Violations\nWe distinguish between professional risk-taking and gambling. The following behaviors indicate a lack of strategy:\nPosition Stacking Limits: To ensure proper risk distribution, strict limits apply to open positions:\nSame Asset: Maximum 4 simultaneous positions (e.g., 4 trades on EURUSD).\nTotal Account: Maximum 7 simultaneous positions across all assets combined.\nViolation: Opening 5+ positions on one asset, 8+ total positions, or splitting orders into smaller chunks to bypass lot limits is prohibited.\nReverse Hand Trading (Chasing Losses): Immediately entering an opposite trade after a loss to \"revenge trade\" is prohibited. You must wait at least 5 minutes after a losing trade before opening a new position in the opposite direction on the same asset.\nOne-Sided Betting: Using large margin (>40%) in a single direction, hoping for a lucky breakout without a plan.\nMartingale: Doubling down on losing positions (increasing volume after a loss) to aggressively recover drawdown.\nGrid Trading: Placing a network of contrary buy/sell orders at intervals (e.g., every 20 pips) to manipulate execution.\nAccount Rolling: Continuously purchasing new accounts to \"gamble\" on different directions.\nExcessive Lot Size Spikes: A sudden, massive increase in lot size compared to your average trading history, solely to pass a challenge or recover a loss.\n3. Arbitrage & Manipulation\nAll forms of arbitrage and technical exploitation are banned:\nLatency Arbitrage: Exploiting data feed delays.\nHedge Arbitrage: Offsetting trades across different accounts to minimize risk artificially.\nReverse & Long-Short Arbitrage: Betting on both directions simultaneously across multiple accounts.\nGap Trading: Deliberately trading to exploit weekend or session gaps.\nServer Manipulation: Using emulators or software to delay feeds or spam the server with orders.\nNews Manipulation: Placing abusive orders specifically designed to exploit freeze times or feed delays during high-impact news.\nToxic Order Flow: Strategies that generate orders aimed at clogging the engine or exploiting technical flaws rather than market movements.\n4. Account Integrity & Third Parties\nThe evaluation is for you and your personal skills.\nGroup Trading: You are not allowed to use public signals, join \"group trading\" schemes, or coordinate trades with other users.\nCopy Trading (External): Copying trades from another individual or public signals is strictly prohibited. (Note: Copying your own external personal account is permitted).\nAccount Management: You cannot let a third party trade your account.\nFully Automated Bots: While EAs are allowed as assistants, using a bot that trades 100% autonomously without your supervision is prohibited.",
       },
       {
         number: "10",
@@ -82,7 +82,7 @@ const fundingData = [
       {
         number: "04",
         question: "TRADING RULES & RESTRICTIONS",
-        answer: "News Rules: Trading is not allowed 5 minutes before and after high-impact news without the Add-On.\nWeekend Rules: Trades must be closed before market close on Friday unless the Add-On is active.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies: Gap trading, HFT, latency arbitrage, hedging across accounts, tick scalping, copy-trading.",
+        answer: "News Trading Rules (Default) Without the News Trading Add-On, the following restrictions apply:\nTrading is not allowed 5 minutes before and 5 minutes after a high-impact news event.\nThis includes opening/closing positions and SL/TP activations.\nReference: ForexFactory's high-impact news calendar.\nWeekend Rules (Default) By default, traders cannot hold positions over the weekend. All positions must be closed before the market closes on Friday.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies The following strategies are prohibited and will result in immediate termination: Gap trading, high-frequency trading, latency arbitrage, hedging across accounts, tick scalping, copy-trading, and use of unauthorized bots/EAs.",
       },
       {
         number: "05",
@@ -107,12 +107,12 @@ const fundingData = [
       {
         number: "03",
         question: "ADD-ONS",
-        answer: "Optional add-ons provide additional flexibility (purchased at checkout):\n\n• News Trading Add-On: Allows trading during high-impact news events.\n• Weekend Holding Add-On: Allows open positions to remain active over the weekend.\n• Weekly Payout Add-On: Enables weekly payouts on the funded account.\n• Minimum Days Removal: Removes the mandatory minimum trading days requirement.\n• EA Bots Allowed: Unlocks the ability to use Expert Advisors for trade assistance.",
+        answer: "Optional add-ons provide additional flexibility during the evaluation (purchased at checkout):\nNews Trading Add-On: Allows trading during high-impact economic news events.\nWeekend Holding Add-On: Allows open positions to remain active over the weekend.\nWeekly Payout Add-On: Enables weekly payouts on the funded account (instead of the standard 14-day schedule).\nMinimum Days Removal: Removes the minimum required trading days requirement.\nEA Bots Allowed: Unlocks the ability to use Expert Advisors for trade assistance. This is limited to semi-automated tools and position managers. Fully automated trading systems without human supervision remain prohibited.",
       },
       {
         number: "04",
         question: "TRADING RULES & RESTRICTIONS",
-        answer: "News Rules: Restricted 5 minutes before and after high-impact events without the Add-On.\nWeekend Rules: Weekend holding is not allowed by default. Positions must be closed before market close on Friday unless the Add-On is active.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies: Gap trading, HFT, latency arbitrage, hedging across accounts, tick scalping, copy-trading.",
+        answer: "News Trading Rules (Default) Without the News Trading Add-On, trading is restricted:\n5 minutes before and 5 minutes after a high-impact event.\nIncludes opening/closing positions and SL/TP execution.\nReference: ForexFactory high-impact news feed.\nWeekend Rules (Default) Weekend holding is not allowed by default. All positions must be closed before the market closes on Friday unless the Weekend Holding Add-On is active.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies The following practices will result in immediate termination: Gap trading, high-frequency trading, latency arbitrage, hedging across accounts, tick scalping, copy-trading, and use of unauthorized bots/EAs.",
       },
       {
         number: "05",
@@ -132,7 +132,7 @@ const fundingData = [
       {
         number: "02",
         question: "HOW PAY AS YOU GO WORKS",
-        answer: "1. Choose Your Account Size & Pay for Phase 1: Begin by paying only the fee for Phase 1.\n2. Pass Phase 1 → Unlock Phase 2: Pay the Phase 2 fee and receive your account immediately.\n3. Pass Phase 2 → Become Funded: After a compliance review, receive your Funded Account (no additional fees).",
+        answer: "1. Choose Your Account Size & Pay for Phase 1 You begin by paying only the fee for Phase 1.\n2. Pass Phase 1 → Unlock Phase 2 Upon successfully completing Phase 1:\nYou unlock the ability to purchase Phase 2.\nYou pay the Phase 2 fee.\nYou receive your Phase 2 account immediately.\n3. Pass Phase 2 → Become Funded After passing Phase 2 and a compliance review, you receive your Funded Account (no additional fees).",
       },
       {
         number: "03",
@@ -142,7 +142,7 @@ const fundingData = [
       {
         number: "04",
         question: "OTHER RULES & CONDITIONS",
-        answer: "• News Trading: Restricted 5 minutes before and after high-impact news during challenges.\n• Weekend Trading: Not allowed; positions must be closed before Friday market close.\n• Add-Ons: Not available for the Pay As You Go Challenge.\n• Leverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10.",
+        answer: "News Trading: Trading is restricted 5 minutes before and 5 minutes after high-impact news events (includes opening/closing trades and SL/TP execution) during the challenge phase.\nWeekend Trading: Holding trades over the weekend is not allowed. All positions must be closed before the market closes on Friday.\nAdd-Ons: Add-ons are not available for the Pay As You Go Challenge.\nLeverage: Matches the Classic Two Step Challenge 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10",
       },
     ],
   },
@@ -157,12 +157,12 @@ const fundingData = [
       {
         number: "02",
         question: "FUNDED ACCOUNT PARAMETERS",
-        answer: "Type: Funded (Classic)\nAvailable Account Sizes: $5,000 / $10,000 / $25,000 / $50,000 / $100,000",
+        answer: "Type: Funded (Classic) Available Account Sizes: $5,000 / $10,000 / $25,000 / $50,000 / $100,000",
       },
       {
         number: "03",
         question: "RISK MANAGEMENT RULES",
-        answer: "Your risk limits depend on the evaluation model you completed:\n\nGraduates of the Two-Step Challenge:\nDaily Drawdown: 5% | Max Drawdown: 10%\n\nGraduates of the Three-Step Challenge:\nDaily Drawdown: None (0%) | Max Drawdown: 5%\n\nPlease note: These risk limits remain active at all times. A violation of either limit results in immediate account termination.",
+        answer: "Your risk limits depend on the evaluation model you completed:\nGraduates of the Two-Step Challenge:\nDaily Drawdown: 5%\nMax Drawdown: 10%\nGraduates of the Three-Step Challenge:\nDaily Drawdown: None (0%)\nMax Drawdown: 5%\nPlease note: These risk limits remain active at all times. A violation of either limit results in immediate account termination.",
       },
       {
         number: "04",
@@ -172,7 +172,7 @@ const fundingData = [
       {
         number: "05",
         question: "TRADING CONDITIONS & NEWS TRADING",
-        answer: "Leverage: Forex 1:40 | Indices, Metals, Energies 1:10 | Crypto 1:1.\nNews Trading: Not permitted 10 minutes before and 10 minutes after a high-impact event. This includes opening/closing positions and SL/TP execution. (Reference: ForexFactory).",
+        answer: "Trading Conditions\nLeverage: Leverage is fixed and applies across all funded models under the Classic & Pay As You Go category: Forex: 1:40, Indices, Metals, Energies: 1:10, Crypto: 1:1.\nNews Trading\nClassic Funded accounts follow strict news-related rules. Trading is not permitted:\n10 minutes before a high-impact economic event.\n10 minutes after a high-impact economic event.\nThis restriction includes opening and closing positions, as well as any SL/TP execution during the restricted window. Any violation may result in account termination. (Reference: ForexFactory High-Impact events).",
       },
       {
         number: "06",
@@ -207,7 +207,7 @@ const fundingData = [
       {
         number: "05",
         question: "NO REFUND FOR BREACHES OR VIOLATIONS",
-        answer: "Refunds are not issued for:\n• rule violations\n• over-leveraging or breaking drawdown limits\n• failing a challenge\n• dissatisfaction with performance or market conditions\n\nThe fee is intended to cover the evaluation process, platform access, and administrative operations.",
+        answer: "Refunds are not issued for:\nrule violations\nover-leveraging or breaking drawdown limits\nfailing a challenge\nmisunderstanding of rules\ndissatisfaction with performance or market conditions\nThe fee is intended to cover the evaluation process, platform access, and administrative operations.",
       },
     ],
   },

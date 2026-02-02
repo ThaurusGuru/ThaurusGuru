@@ -29,7 +29,7 @@ const faqData = [
   {
     number: "05",
     question: "ARE THERE ACCOUNT TYPE LIMITATIONS?",
-    answer: "Yes. Scaling applies only to: Classic Two-Step, Classic Three-Step.\n\nPay As You Go, Instant, and PRO models (if applicable) do not include scaling.",
+    answer: "Yes. Scaling applies only to: Classic Two-Step, Classic Three-Step.\n\nPay As You Go do not include scaling.",
   },
   {
     number: "06",
