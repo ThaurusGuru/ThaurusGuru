@@ -1,6 +1,7 @@
 import { Header } from "../../components/Header";
 import { BuildSection } from "../../screens/home/BuildSection";
 import { CalculatorSection } from "../../screens/home/CalculatorSection";
+import { CappedSection } from "../../screens/home/CappedSection";
 import { CollaborationSection } from "../../screens/home/CollaborationSection";
 import { ComparisonTableSection } from "../../screens/home/ComparisonTableSection";
 import { DiscordSection } from "../../screens/home/DiscordSection";
@@ -71,6 +72,10 @@ export const HomePage = () => {
         <section className="relative w-full">
           <CalculatorSection />
         </section>
+
+        {/* <section className="relative w-full">
+          <CappedSection />
+        </section> */}
 
         {/* Background decoration for Comparison section */}
         <div className="relative w-full h-0">

@@ -24,7 +24,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
     {
       label: "Profit Split",
       hasInfo: true,
-      tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)"
+      tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 95%."
     },
     {
       label: "Leverage",
@@ -38,20 +38,22 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
   if (model === 'classic') {
     if (tabIndex === 0) { // Two Step
       return [
-        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "5%" },
-        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
-        { label: "Profit Split", hasInfo: true, tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)" },
-        { label: "Minimum Trading Days", hasInfo: true, tooltip: "No minimum" },
+        { label: "Profit Target", hasInfo: true, tooltip: "The profit target required to pass the challenge phase. For Classic Two Step, there is no profit target requirement." },
+        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
+        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
+        { label: "Profit Split", hasInfo: true, tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 95%." },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
         { label: "Time Limit", hasInfo: true, tooltip: "Unlimited time to pass" },
         { label: "Leverage", hasInfo: true, tooltip: "" },
         { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
       ];
     } else if (tabIndex === 1) { // Three Step
       return [
-        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "5%" },
-        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "5%" },
-        { label: "Profit Split", hasInfo: true, tooltip: "Bi-Weekly\n80%/20% - Weekly (add-on)" },
-        { label: "Minimum Trading Days", hasInfo: true, tooltip: "No minimum" },
+        { label: "Profit Target", hasInfo: true, tooltip: "The profit target required to pass the challenge phase. For Classic Three Step, there is no profit target requirement." },
+        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
+        { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
+        { label: "Profit Split", hasInfo: true, tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 95%." },
+        { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
         { label: "Time Limit", hasInfo: true, tooltip: "1:00" },
         { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
       ];
@@ -61,11 +63,11 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
   // PAYG model - Pay As You Go
   if (model === 'payg') {
     return [
-      { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
-      { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "5%" },
-      { label: "Max Daily Drawdown", hasInfo: true, tooltip: "5%" },
-      { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
-      { label: "Minimum Trading Days", hasInfo: true, tooltip: "3 trading days" },
+      { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "To advance to the next stage, traders must reach the designated profit target." },
+      { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "To advance to the next stage, traders must reach the designated profit target." },
+      { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
+      { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
+      { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
       { label: "Time Limit", hasInfo: true, tooltip: "Unlimited" },
       { label: "Leverage", hasInfo: true, tooltip: "" },
       { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
@@ -74,10 +76,10 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
 
   // Default fallback
   return [
-    { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "8%" },
-    { label: "Max Daily Drawdown", hasInfo: true, tooltip: "4%" },
-    { label: "Max Overall Drawdown", hasInfo: true, tooltip: "10%" },
-    { label: "Minimum Trading Days", hasInfo: true, tooltip: "4 trading days minimum" },
+    { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "To advance to the next stage, traders must reach the designated profit target." },
+    { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
+    { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
+    { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
     ...baseRows
   ];
 };
@@ -87,6 +89,7 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
   if (model === 'classic') {
     if (tabIndex === 0) { // Two Step
       return [
+        { value: "None" }, // Profit Target
         { value: "5%" }, // Max Daily Drawdown
         { value: "10%" }, // Max Overall Drawdown
         { value: "" }, // Profit Split - calculated dynamically
@@ -96,6 +99,7 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       ];
     } else if (tabIndex === 1) { // Three Step
       return [
+        { value: "None" }, // Profit Target
         { value: "5%" }, // Max Daily Drawdown
         { value: "5%" }, // Max Overall Drawdown
         { value: "" }, // Profit Split - calculated dynamically
@@ -227,8 +231,8 @@ export const PricingSection = () => {
       return [];
     }
 
-    // Classic Two Step (index 0) - 3 add-ons
-    if (model === 'classic' && tabIndex === 0) {
+    // Classic Two Step (index 0) and Three Step (index 1) - 3 add-ons
+    if (model === 'classic' && (tabIndex === 0 || tabIndex === 1)) {
       return [
         { icon: '/pricing-section/icon-1.svg', title: 'News Trading', price: '' },
         { icon: '/pricing-section/icon-2.svg', title: 'Weekend Trading', price: '' },
@@ -236,7 +240,7 @@ export const PricingSection = () => {
       ];
     }
 
-    // Classic Three Step (index 1) - No add-ons
+    // Default - No add-ons
     return [];
   }, []);
 

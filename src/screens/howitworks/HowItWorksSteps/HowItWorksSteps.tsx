@@ -44,7 +44,7 @@ export const HowItWorksSteps = () => {
         <div className="mb-20">
           {/* Step 2 Title */}
           <h2 
-            className="text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px]"
+            className="text-center md:text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px]"
             style={{
               background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
               backgroundClip: 'text',
@@ -56,12 +56,12 @@ export const HowItWorksSteps = () => {
           </h2>
 
           {/* Step 2 Description */}
-          <p className="text-white font-['M_PLUS_2'] text-[16px] font-normal leading-[26px] text-left max-w-[1148px] mt-[35px]">
+          <p className="text-white font-['M_PLUS_2'] text-[16px] font-normal leading-[26px] text-center md:text-left max-w-[1148px] mt-[35px]">
             Achieving your goals opens the door to a professional partnership. Once you pass the evaluation, you gain access to your Funded Account within a professional simulated environment.
           </p>
 
           {/* Step 2 Cards */}
-          <div className="flex flex-wrap justify-start gap-5 mt-[35px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[35px]">
             {step2Cards.map((card, index) => (
               <div
                 key={index}
@@ -88,7 +88,7 @@ export const HowItWorksSteps = () => {
         <div>
           {/* Step 3 Title */}
           <h2 
-            className="text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px]"
+            className="text-center md:text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px]"
             style={{
               background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
               backgroundClip: 'text',
@@ -100,12 +100,12 @@ export const HowItWorksSteps = () => {
           </h2>
 
           {/* Step 3 Description */}
-          <p className="text-white font-['M_PLUS_2'] text-[16px] font-normal leading-[26px] text-left max-w-[1148px] mt-[35px]">
+          <p className="text-white font-['M_PLUS_2'] text-[16px] font-normal leading-[26px] text-center md:text-left max-w-[1148px] mt-[35px]">
             You've achieved what only a few can. Now, it's time to showcase your talent, inspire others, and maximize your potential with ThaurusGuru.
           </p>
 
           {/* Step 3 Cards */}
-          <div className="flex flex-wrap justify-start gap-5 mt-[35px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[35px]">
             {step3Cards.map((card, index) => (
               <div
                 key={index}

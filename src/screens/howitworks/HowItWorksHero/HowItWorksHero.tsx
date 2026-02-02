@@ -27,7 +27,7 @@ export const HowItWorksHero = () => {
       <div className="max-w-[1148px] mx-auto">
         {/* Hero Title */}
         <h1 
-          className="text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] mt-[150px]"
+          className="text-center md:text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] mt-[150px]"
           style={{
             background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
             backgroundClip: 'text',
@@ -39,13 +39,13 @@ export const HowItWorksHero = () => {
         </h1>
 
         {/* Phase Description */}
-        <p className="text-white font-['M_PLUS_2'] text-[16px] font-normal leading-[26px] text-left max-w-[1148px] mt-[35px]">
+        <p className="text-white font-['M_PLUS_2'] text-[16px] font-normal leading-[26px] text-center md:text-left max-w-[1148px] mt-[35px]">
           Phase Description: The ThaurusGuru Challenge is your gateway to the world of professional finance. We believe that everyone deserves a chance to trade with significant capital. No matter your background, show us your approach and unlock the door to becoming a Funded Trader.
         </p>
 
         {/* Process Steps Title */}
         <h2 
-          className="text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] mt-[69px]"
+          className="text-center md:text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] mt-[69px]"
           style={{
             background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
             backgroundClip: 'text',
@@ -57,7 +57,7 @@ export const HowItWorksHero = () => {
         </h2>
 
         {/* Process Steps Cards */}
-        <div className="flex flex-wrap justify-start gap-5 mt-[35px]">
+        <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[35px]">
           {processSteps.map((step, index) => (
             <div
               key={index}
@@ -86,7 +86,7 @@ export const HowItWorksHero = () => {
 
         {/* Empowering Section Title */}
         <h2 
-          className="text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] mt-[89px]"
+          className="text-center md:text-left font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] mt-[89px]"
           style={{
             background: 'linear-gradient(180deg, #FFF 0%, #E9B1FF 100%)',
             backgroundClip: 'text',
@@ -98,7 +98,7 @@ export const HowItWorksHero = () => {
         </h2>
 
         {/* Empowering Description */}
-        <div className="max-w-[1148px] mt-[35px] text-white font-['M_PLUS_2'] text-[16px] leading-[26px] space-y-4">
+        <div className="max-w-[1148px] mt-[35px] text-white font-['M_PLUS_2'] text-[16px] leading-[26px] space-y-4 text-center md:text-left">
           <p className="font-bold">
             We believe that financial barriers shouldn't stop a great strategy. ThaurusGuru provides a professional ecosystem where your skills are the only currency that matters.
           </p>
