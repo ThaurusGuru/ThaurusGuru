@@ -63,53 +63,29 @@ export const CappedSection = () => {
   // Configuration
   const CAP_AMOUNT = 50_000_000; // $50 Million cap
   const START_AMOUNT = 2_000_000; // Starting from $2 Million
-  const MONTHLY_TARGET = CAP_AMOUNT - START_AMOUNT; // Amount to add over a month
-  const INCREMENT_PER_SECOND = MONTHLY_TARGET / (30 * 24 * 60 * 60); // ~18.52 per second
-
-  // FIXED LAUNCH DATE - Set this to when you want the counter to start
-  // Example: February 3, 2026 at 00:00:00 UTC
-  const LAUNCH_DATE = new Date('2026-02-03T00:00:00Z').getTime();
-
-  // Calculate current funding based on fixed launch date
-  const calculateCurrentFunding = (): number => {
-    const now = Date.now();
-    const elapsedSeconds = Math.max(0, (now - LAUNCH_DATE) / 1000);
-    const calculatedAmount = START_AMOUNT + (elapsedSeconds * INCREMENT_PER_SECOND);
-    return Math.min(calculatedAmount, CAP_AMOUNT);
-  };
 
   const [fundingAmount, setFundingAmount] = useState(START_AMOUNT);
 
   useEffect(() => {
-    // Initialize with current calculated amount
-    setFundingAmount(calculateCurrentFunding());
+    // Challenge amounts that can be funded
+    const CHALLENGE_AMOUNTS = [5000, 10000, 25000, 50000, 100000];
 
-    // Update counter every 100ms with 'step-wise' logic for realism
+    // Update counter every 100ms with random challenge increments
     const interval = setInterval(() => {
       setFundingAmount(prev => {
-        const targetAmount = calculateCurrentFunding();
         if (prev >= CAP_AMOUNT) return CAP_AMOUNT;
 
-        let increment = 0;
+        // Random probability for funding event: 0.5% chance per tick
         const roll = Math.random();
-        const isBehind = prev < targetAmount;
-
-        // Determine jump probability: 4% chance if behind, 0.5% if ahead/on-target
-        const jumpProbability = isBehind ? 0.96 : 0.995;
-
-        if (roll > jumpProbability) {
-          // Calculate jump size: minimum $100 up to $2500
-          if (roll > 0.998) {
-             // Rare big funding event
-             increment = 2500 + Math.random() * 5000;
-          } else {
-             // Standard funding event
-             increment = 100 + Math.random() * 900;
-          }
+        
+        if (roll > 0.995) {
+          // Randomly select a challenge amount to add
+          const increment = CHALLENGE_AMOUNTS[Math.floor(Math.random() * CHALLENGE_AMOUNTS.length)];
+          const newAmount = Math.min(prev + increment, CAP_AMOUNT);
+          return newAmount;
         }
 
-        const newAmount = Math.min(prev + increment, CAP_AMOUNT);
-        return newAmount;
+        return prev;
       });
     }, 100);
 
