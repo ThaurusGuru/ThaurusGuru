@@ -10,7 +10,15 @@ export const TradingRulesScreen = () => {
       <Header />
 
       {/* Main content */}
-      <main className="relative w-full">
+      <main 
+        className="relative w-full"
+        style={{
+          backgroundImage: 'url(/How-it-wors-bg.png)',
+          backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
+        }}
+      >
         <TradingRulesOurRules />
         <TradingRulesContent />
       </main>

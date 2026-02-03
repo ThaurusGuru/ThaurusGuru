@@ -21,7 +21,7 @@ export const ContactUsPage = () => {
           { src: "/Contact-Us/icons/discord.svg", alt: "Discord" },
           { src: "/Contact-Us/icons/instagram.svg", alt: "Instagram" },
           { src: "/Contact-Us/icons/X.svg", alt: "X" },
-          { src: "/Contact-Us/icons/bluesky.svg", alt: "BlueSky" },
+          { src: "/footer/Linkdin.svg", alt: "LinkedIn" },
           { src: "/Contact-Us/icons/yt.svg", alt: "YouTube" },
           { src: "/Contact-Us/icons/tiktok.svg", alt: "TikTok" }
         ].map((icon, idx) => (

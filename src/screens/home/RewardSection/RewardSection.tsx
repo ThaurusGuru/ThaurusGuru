@@ -33,8 +33,17 @@ export const RewardSection = () => {
   ];
 
   return (
-    <section id="reward" className="relative w-full py-[100px] overflow-hidden bg-[#1b082e]">
-      <div className="max-w-[1440px] mx-auto px-4 flex flex-col items-center">
+    <section 
+      id="reward" 
+      className="relative w-full pb-[100px] overflow-hidden bg-[#1b082e]"
+      style={{
+        backgroundImage: 'url(/How-it-wors-bg.png)',
+        backgroundPosition: 'top center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+      }}
+    >
+      <div className="max-w-[1440px] mx-auto px-4 flex flex-col items-center relative z-10">
         {/* The ThaurusGuru Foundation */}
         <h2 className="mt-[125px] text-center font-['M_PLUS_2'] text-[42px] font-normal leading-[60px] bg-linear-to-b from-white to-[#E9B1FF] bg-clip-text text-transparent">
           The ThaurusGuru Foundation

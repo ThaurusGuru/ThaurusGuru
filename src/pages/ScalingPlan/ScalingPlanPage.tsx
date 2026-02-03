@@ -10,16 +10,15 @@ export const ScalingPlanPage = () => {
   return (
     <div className="bg-[#1b082e] w-full min-w-0 lg:min-w-[1440px] relative overflow-hidden">
       <Header />
-      <main className="relative w-full">
-        {/* Mid-page background decoration */}
-        <div className="absolute top-[40%] left-0 w-full h-0 pointer-events-none z-0">
-          <img
-            src="/Scaling-plan-mid bg.png"
-            alt=""
-            className="absolute -top-[300px] left-0 w-auto h-[1000px] opacity-100"
-          />
-        </div>
-
+      <main 
+        className="relative w-full"
+        style={{
+          backgroundImage: 'url(/How-it-wors-bg.png)',
+          backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
+        }}
+      >
         <ScalingPlanHero />
         <ScalingPlanHowItWorks />
         <ScalingPlanAccountLimitations />
