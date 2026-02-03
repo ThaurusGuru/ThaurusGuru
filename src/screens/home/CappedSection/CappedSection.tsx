@@ -20,7 +20,7 @@ const AnimatedDigit = ({ digit }: { digit: string }) => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center border border-[#E9B1FF] overflow-hidden"
+      className="flex flex-col justify-center items-center border border-[#E9B1FF] overflow-hidden capped-digit-box"
       style={{
         width: '48px',
         height: '76px',
@@ -31,7 +31,7 @@ const AnimatedDigit = ({ digit }: { digit: string }) => {
       }}
     >
       <span
-        className="text-white text-center font-['Cambay',Helvetica]"
+        className="text-white text-center font-['Cambay',Helvetica] capped-digit-text"
         style={{
           fontSize: '48px',
           fontWeight: 400,
@@ -136,8 +136,152 @@ const formatToDigits = (num: number): string[] => {
   };
 
   return (
-    <section 
-      className="relative w-full py-20 px-4 flex justify-center items-center min-h-screen"
+    <>
+      <style>{`
+        /* Mobile-only styles - only apply below 768px */
+        @media (max-width: 767px) {
+          .capped-digit-box {
+            width: 28px !important;
+            height: 46px !important;
+            padding: 8px 6px !important;
+          }
+          
+          .capped-digit-text {
+            font-size: 28px !important;
+            line-height: 22px !important;
+          }
+          
+          .capped-section {
+            padding-top: 150px !important;
+            padding-bottom: 40px !important;
+            background-position: center calc(30% - 13.5vh) !important;
+          }
+          
+          .capped-label {
+            font-size: 14px !important;
+          }
+          
+          .capped-title {
+            font-size: 32px !important;
+            margin-top: 12px !important;
+          }
+          
+          .capped-subtitle {
+            font-size: 12px !important;
+            margin-top: 8px !important;
+            padding: 0 16px !important;
+          }
+          
+          .capped-main-container {
+            min-height: 280px !important;
+            height: auto !important;
+            border-radius: 12px !important;
+            margin-top: 32px !important;
+            padding-bottom: 64px !important;
+          }
+          
+          .capped-amount-text {
+            font-size: 16px !important;
+            margin-top: 32px !important;
+            padding: 0 16px !important;
+          }
+          
+          .capped-digits-container {
+            gap: 4px !important;
+            margin-top: 12px !important;
+          }
+          
+          .capped-dollar-sign {
+            font-size: 32px !important;
+            line-height: 24px !important;
+          }
+          
+          .capped-badges {
+            bottom: 16px !important;
+            left: 12px !important;
+            right: 12px !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+          }
+          
+          .capped-badge {
+            border-radius: 20px !important;
+            width: 100% !important;
+          }
+          
+          .capped-badge-inner {
+            border-radius: 18px !important;
+            padding: 4px 10px !important;
+            gap: 6px !important;
+          }
+          
+          .capped-badge-dot {
+            height: 8px !important;
+            width: 8px !important;
+            margin-right: 4px !important;
+          }
+          
+          .capped-badge-text {
+            font-size: 12px !important;
+            line-height: 16px !important;
+          }
+          
+          .capped-button {
+            border-radius: 8px !important;
+            margin-top: 16px !important;
+            padding: 8px 14px !important;
+            gap: 8px !important;
+          }
+          
+          .capped-button-text {
+            font-size: 13px !important;
+            line-height: 16px !important;
+          }
+          
+          .capped-button-arrow {
+            border-radius: 20px !important;
+            width: 28px !important;
+            height: 19px !important;
+            padding: 1px 5px !important;
+          }
+        }
+        
+        /* Tablet styles - 768px to 1023px */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .capped-digit-box {
+            width: 38px !important;
+            height: 60px !important;
+            padding: 12px 10px !important;
+          }
+          
+          .capped-digit-text {
+            font-size: 38px !important;
+            line-height: 30px !important;
+          }
+          
+          .capped-section {
+            padding-top: 250px !important;
+          }
+          
+          .capped-title {
+            font-size: 40px !important;
+          }
+          
+          .capped-subtitle {
+            font-size: 14px !important;
+          }
+          
+          .capped-amount-text {
+            font-size: 22px !important;
+          }
+          
+          .capped-dollar-sign {
+            font-size: 42px !important;
+          }
+        }
+      `}</style>
+      <section 
+      className="relative w-full py-20 px-4 flex justify-center items-center min-h-screen capped-section"
       style={{
         backgroundImage: 'url(/Capped/capped.png)',
         backgroundSize: 'cover',
@@ -149,7 +293,7 @@ const formatToDigits = (num: number): string[] => {
       <div className="flex flex-col items-center max-w-[1200px] w-full">
         {/* Capped Label */}
         <p 
-          className="text-white text-center font-['Poppins',Helvetica]"
+          className="text-white text-center font-['Poppins',Helvetica] capped-label"
           style={{
             fontSize: '18px',
             fontWeight: 400,
@@ -161,7 +305,7 @@ const formatToDigits = (num: number): string[] => {
 
         {/* $50 Million */}
         <h2 
-          className="text-white text-center font-['Poppins',Helvetica] mt-[22px]"
+          className="text-white text-center font-['Poppins',Helvetica] mt-[22px] capped-title"
           style={{
             fontSize: '48px',
             fontWeight: 500,
@@ -173,7 +317,7 @@ const formatToDigits = (num: number): string[] => {
 
         {/* Subtitle */}
         <p 
-          className="text-white text-center font-['Poppins',Helvetica] mt-[12px]"
+          className="text-white text-center font-['Poppins',Helvetica] mt-[12px] capped-subtitle"
           style={{
             fontSize: '16px',
             fontWeight: 400,
@@ -185,14 +329,14 @@ const formatToDigits = (num: number): string[] => {
 
         {/* Main Container */}
         <div 
-          className="relative w-full max-w-[898px] h-[332px] rounded-[20px] mt-[72px] flex flex-col items-center"
+          className="relative w-full max-w-[898px] h-[332px] rounded-[20px] mt-[72px] flex flex-col items-center capped-main-container"
           style={{
             background: 'linear-gradient(180deg, rgba(96, 40, 158, 0.40) 0%, rgba(29, 10, 50, 0.40) 25%, rgba(27, 9, 46, 0.40) 50%, rgba(30, 8, 53, 0.40) 75%, rgba(51, 9, 97, 0.40) 100%)'
           }}
         >
           {/* Amount funded text */}
           <p 
-            className="text-[#E9B1FF] text-center font-['Poppins',Helvetica] mt-[72px]"
+            className="text-[#E9B1FF] text-center font-['Poppins',Helvetica] mt-[72px] capped-amount-text"
             style={{
               fontSize: '28px',
               fontWeight: 400,
@@ -203,10 +347,10 @@ const formatToDigits = (num: number): string[] => {
           </p>
 
           {/* Funding Amount Display */}
-          <div className="flex items-center gap-2 mt-[16px]">
+          <div className="flex items-center gap-2 mt-[16px] capped-digits-container">
             {/* Dollar Sign */}
             <span 
-              className="text-white text-center font-['Poppins',Helvetica]"
+              className="text-white text-center font-['Poppins',Helvetica] capped-dollar-sign"
               style={{
                 fontSize: '53px',
                 fontWeight: 300,
@@ -223,16 +367,16 @@ const formatToDigits = (num: number): string[] => {
           </div>
 
           {/* Bottom Badges */}
-          <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center">
+          <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center capped-badges">
             {/* Live funding updates */}
             <div 
-              className="rounded-[30px] p-[2px]"
+              className="rounded-[30px] p-[2px] capped-badge"
               style={{
                 background: 'linear-gradient(90deg, rgba(233, 177, 255, 0.5) 0%, rgba(129, 72, 237, 0.5) 100%)'
               }}
             >
               <div 
-                className="flex justify-center items-center rounded-[28px]"
+                className="flex justify-center items-center rounded-[28px] capped-badge-inner"
                 style={{
                   padding: '6px 14px',
                   gap: '10px',
@@ -241,7 +385,7 @@ const formatToDigits = (num: number): string[] => {
               >
                 {/* Pulsing live dot */}
                 <span
-                  className="relative flex h-3 w-3 mr-2"
+                  className="relative flex h-3 w-3 mr-2 capped-badge-dot"
                 >
                   <span
                     className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
@@ -251,7 +395,7 @@ const formatToDigits = (num: number): string[] => {
                   />
                 </span>
                 <span
-                  className="text-white text-center font-['Poppins',Helvetica]"
+                  className="text-white text-center font-['Poppins',Helvetica] capped-badge-text"
                   style={{
                     fontSize: '18px',
                     fontWeight: 400,
@@ -265,13 +409,13 @@ const formatToDigits = (num: number): string[] => {
 
             {/* Remaining amount */}
             <div 
-              className="rounded-[30px] p-[2px]"
+              className="rounded-[30px] p-[2px] capped-badge"
               style={{
                 background: 'linear-gradient(90deg, rgba(233, 177, 255, 0.5) 0%, rgba(129, 72, 237, 0.5) 100%)'
               }}
             >
               <div 
-                className="flex justify-center items-center rounded-[28px]"
+                className="flex justify-center items-center rounded-[28px] capped-badge-inner"
                 style={{
                   padding: '6px 14px',
                   gap: '10px',
@@ -279,7 +423,7 @@ const formatToDigits = (num: number): string[] => {
                 }}
               >
                 <span
-                  className="text-white text-center font-['Poppins',Helvetica]"
+                  className="text-white text-center font-['Poppins',Helvetica] capped-badge-text"
                   style={{
                     fontSize: '18px',
                     fontWeight: 400,
@@ -295,7 +439,7 @@ const formatToDigits = (num: number): string[] => {
 
         {/* Get Funded Now Button */}
         <button 
-          className="inline-flex justify-center items-center rounded-[10px] border border-[#510F96] mt-[24px] transition-transform hover:scale-105 relative"
+          className="inline-flex justify-center items-center rounded-[10px] border border-[#510F96] mt-[24px] transition-transform hover:scale-105 relative capped-button"
           style={{
             padding: '10px 20px',
             gap: '10px',
@@ -311,7 +455,7 @@ const formatToDigits = (num: number): string[] => {
           }}
         >
           <span 
-            className="text-white font-['Cambay',Helvetica]"
+            className="text-white font-['Cambay',Helvetica] capped-button-text"
             style={{
               fontSize: '16px',
               fontWeight: 700,
@@ -324,7 +468,7 @@ const formatToDigits = (num: number): string[] => {
 
           {/* Arrow Icon Container */}
           <div 
-            className="flex items-center justify-center rounded-[30px] bg-white"
+            className="flex items-center justify-center rounded-[30px] bg-white capped-button-arrow"
             style={{
               width: '34px',
               height: '23px',
@@ -369,5 +513,6 @@ const formatToDigits = (num: number): string[] => {
         </button>
       </div>
     </section>
+    </>
   );
 };
