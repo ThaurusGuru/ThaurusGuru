@@ -84,35 +84,51 @@ export const CappedSection = () => {
     // Initialize with current calculated amount
     setFundingAmount(calculateCurrentFunding());
 
-    // Update counter every second
+    // Update counter every 100ms with 'step-wise' logic for realism
     const interval = setInterval(() => {
       setFundingAmount(prev => {
-        const currentAmount = calculateCurrentFunding();
-        if (currentAmount >= CAP_AMOUNT) return CAP_AMOUNT;
+        const targetAmount = calculateCurrentFunding();
+        if (prev >= CAP_AMOUNT) return CAP_AMOUNT;
 
-        // Add some randomness to make it feel more organic
-        const randomMultiplier = 0.8 + Math.random() * 0.4; // Smaller variance for smoother look
-        const increment = INCREMENT_PER_SECOND * randomMultiplier;
+        let increment = 0;
+        const roll = Math.random();
+        const isBehind = prev < targetAmount;
+
+        // Determine jump probability: 4% chance if behind, 0.5% if ahead/on-target
+        const jumpProbability = isBehind ? 0.96 : 0.995;
+
+        if (roll > jumpProbability) {
+          // Calculate jump size: minimum $100 up to $2500
+          if (roll > 0.998) {
+             // Rare big funding event
+             increment = 2500 + Math.random() * 5000;
+          } else {
+             // Standard funding event
+             increment = 100 + Math.random() * 900;
+          }
+        }
+
         const newAmount = Math.min(prev + increment, CAP_AMOUNT);
-
         return newAmount;
       });
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
   
-// Format number to 7 digits (for $2M-$50M range)
+// Format number to 8 digits (for up to $50M range)
 const formatToDigits = (num: number): string[] => {
-  const rounded = Math.floor(num);
-  const str = rounded.toString().padStart(7, '0');  // Changed from 8 to 7
+  // Round to nearest 10 so only the last digit is always 0
+  const rounded = Math.floor(num / 10) * 10;
+  // Pad to 8 digits to accommodate $50,000,000 consistently
+  const str = rounded.toString().padStart(8, '0');
   return str.split('');
 };
 
   const fundingDigits = formatToDigits(fundingAmount);
   const remainingAmount = CAP_AMOUNT - fundingAmount;
 
-  // Format remaining as $X.XXM
+  // Format remaining as $X.XXM - Reduced precision to make jumps feel more significant
   const formatRemaining = (amount: number): string => {
     if (amount <= 0) return '$0 remaining';
     const millions = amount / 1_000_000;
@@ -317,7 +333,6 @@ const formatToDigits = (num: number): string[] => {
               viewBox="0 0 20 20" 
               fill="none"
               style={{
-                transform: 'rotate(90deg)',
                 flexShrink: 0
               }}
             >

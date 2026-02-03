@@ -118,36 +118,36 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Dynamic Bar - White/Purple gradient - Desktop */}
-              <div 
+              <div
                 className="hidden lg:block absolute left-[310px] w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                 style={{
                   height: `${calculateBarHeight()}px`,
-                  bottom: '42px'
+                  bottom: '44px'
                 }}
               />
 
               {/* Dynamic Bar - White/Purple gradient - Mobile */}
-              <div 
+              <div
                 className="lg:hidden absolute left-[245px] w-[49px] rounded-[12px_12px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                 style={{
                   height: `${calculateBarHeightMobile()}px`,
-                  bottom: '33px'
+                  bottom: '47px'
                 }}
               />
 
               {/* Static comparison bar - Dark purple - Desktop */}
-              <div 
+              <div
                 className="hidden lg:block absolute left-[190px] w-[62px] h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
                 style={{
-                  bottom: '42px'
+                  bottom: '44px'
                 }}
               />
 
               {/* Static comparison bar - Dark purple - Mobile */}
-              <div 
+              <div
                 className="lg:hidden absolute left-[150px] w-[49px] h-[73px] rounded-[12px_12px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
                 style={{
-                  bottom: '33px'
+                  bottom: '47px'
                 }}
               />
 
@@ -159,7 +159,7 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Value label for left bar - Desktop */}
-              <div className="hidden lg:flex absolute left-[184px] w-[73px] h-9 bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '145px' }}>
+              <div className="hidden lg:flex absolute left-[184px] w-[73px] h-9 bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '147px' }}>
                 <div className="flex mt-[3px] w-16 h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
                   <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                     $4,150
@@ -168,7 +168,7 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Value label for left bar - Mobile */}
-              <div className="lg:hidden absolute left-[140px] w-[60px] h-8 flex bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '114px' }}>
+              <div className="lg:hidden absolute left-[140px] w-[60px] h-8 flex bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '128px' }}>
                 <div className="flex mt-[3px] w-[50px] h-[26px] ml-[5px] relative items-center justify-center gap-2.5 px-2 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
                   <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                     $4,150
@@ -177,10 +177,10 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Value label for right bar - Dynamic - Desktop */}
-              <div 
+              <div
                 className="hidden lg:flex absolute left-[302px] w-[78px] h-9 bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
                 style={{
-                  bottom: `${calculateBarHeight() + 10}px`
+                  bottom: `${calculateBarHeight() + 12}px`
                 }}
               >
                 <div className="mt-[3px] w-[68px] ml-[5px] flex h-[30px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
@@ -191,10 +191,10 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Value label for right bar - Dynamic - Mobile */}
-              <div 
+              <div
                 className="lg:hidden absolute left-[238px] w-[65px] h-8 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
                 style={{
-                  bottom: `${calculateBarHeightMobile() + 8}px`
+                  bottom: `${calculateBarHeightMobile() + 22}px`
                 }}
               >
                 <div className="mt-[3px] w-[55px] ml-[5px] flex h-[26px] relative items-center justify-center gap-2.5 px-2 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
