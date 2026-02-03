@@ -70,7 +70,14 @@ export const BuildSection = () => {
               {t('build.description')}
             </p>
 
-            <Button className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
+            <Button 
+              onClick={() => {
+                const element = document.getElementById('pricing-section');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="flex w-[196px] lg:w-[228px] h-[40px] lg:h-[50px] px-[30px] justify-center items-center gap-[-18px] lg:gap-[10px] rounded-[6px] lg:rounded-[10px]
               border border-[#7A27EF]
               bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)]
               shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] 

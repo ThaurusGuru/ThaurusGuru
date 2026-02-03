@@ -303,7 +303,12 @@ const formatToDigits = (num: number): string[] => {
             boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.25) inset, 0 0 20px rgba(129, 72, 237, 0.5)',
             zIndex: 20
           }}
-          onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
+          onClick={() => {
+            const element = document.getElementById('pricing-section');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
         >
           <span 
             className="text-white font-['Cambay',Helvetica]"

@@ -57,6 +57,12 @@ export const NewsletterSection = () => {
 
         {/* Get Started Button */}
         <button
+          onClick={() => {
+            const element = document.getElementById('pricing-section');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
           className="flex justify-center items-center transition-transform hover:scale-105 w-full md:w-auto"
           style={{
             padding: '12px 32px',

@@ -43,7 +43,14 @@ export const SponsorSection = () => {
         
         {/* CTA Button */}
         <div className="relative right-[144px] md:left-0">
-          <Button className="flex w-[90px] md:w-[146px] h-[32px] md:h-[50px] px-[14px] md:px-[28px] py-[4px] justify-center items-center gap-[10px] rounded-[10px] border border-solid border-[#7A27EF] bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)] shadow-[inset_0_4px_14px_0_rgba(0,0,0,0.25)] hover:scale-105 transition-transform translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
+          <Button 
+            onClick={() => {
+              const element = document.getElementById('pricing-section');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="flex w-[90px] md:w-[146px] h-[32px] md:h-[50px] px-[14px] md:px-[28px] py-[4px] justify-center items-center gap-[10px] rounded-[10px] border border-solid border-[#7A27EF] bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)] shadow-[inset_0_4px_14px_0_rgba(0,0,0,0.25)] hover:scale-105 transition-transform translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
             <span className="[text-shadow:0px_2px_4px_#00000040] text-[11px] md:text-base leading-[normal] [font-family:'Cambay',Helvetica] font-bold text-white tracking-[0]">
               Get Started
             </span>

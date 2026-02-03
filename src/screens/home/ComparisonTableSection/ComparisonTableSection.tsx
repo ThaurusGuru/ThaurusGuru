@@ -18,20 +18,9 @@ export const ComparisonTableSection = () => {
     ],
   },
   {
-    feature: t('comparison.profitTarget1Step'),
-    values: [
-      "8%",
-      "11%",
-      "10%",
-      "10%",
-      "10%",
-      "10%",
-    ],
-  },
-  {
     feature: t('comparison.profitTarget2Step'),
     values: [
-      "8% / 4%",
+      "8% / 5%",
       "10% / 5%",
       "10% / 5%",
       "10% / 6%",
@@ -42,7 +31,7 @@ export const ComparisonTableSection = () => {
   {
     feature: t('comparison.profitTarget3Step'),
     values: [
-      "6% / 4% / 2%",
+      "6% / 6% / 6%",
       "4% / 4% / 6%",
       "6% / 6% / 6%",
       "-",
@@ -53,7 +42,7 @@ export const ComparisonTableSection = () => {
   {
     feature: t('comparison.drawdown'),
     values: [
-      "4% DD / 10% ML (static)",
+      "5% DD / 10% ML (static)",
       "3% DD / 6% ML (static / Trailing)",
       "4% DD / 6% ML (static)",
       "3% DD / 6% ML (static)",
@@ -72,17 +61,7 @@ export const ComparisonTableSection = () => {
       "Bi-Weekly",
     ],
   },
-  {
-    feature: t('comparison.commissions'),
-    values: [
-      "NO",
-      "Yes",
-      "Yes",
-      "Yes",
-      "Yes",
-      "Yes",
-    ],
-  },
+
   {
     feature: t('comparison.addOns'),
     values: [
