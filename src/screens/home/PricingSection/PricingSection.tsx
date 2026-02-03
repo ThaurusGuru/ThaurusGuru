@@ -480,7 +480,7 @@ export const PricingSection = () => {
             
             {/* Challenge Type Buttons - Hidden on desktop and for PAYG */}
             {activeModel !== 'payg' && (
-              <div className="w-full flex gap-2 justify-center md:hidden">
+              <div className="w-full flex gap-2 justify-center md:hidden mb-4">
                 {availableChallengeTypes.map((type, index) => {
                   // Get the original index from challengeTypes array
                   const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
