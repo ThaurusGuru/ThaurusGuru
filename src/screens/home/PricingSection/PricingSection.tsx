@@ -38,7 +38,8 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
   if (model === 'classic') {
     if (tabIndex === 0) { // Two Step
       return [
-        { label: "Profit Target", hasInfo: true, tooltip: "The profit target required to pass the challenge phase. For Classic Two Step, there is no profit target requirement." },
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "To advance to Phase 2, traders must reach the designated profit target of 8%." },
+        { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "To complete the challenge, traders must reach the designated profit target of 5% in Phase 2." },
         { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
         { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
         { label: "Profit Split", hasInfo: true, tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 95%." },
@@ -49,12 +50,14 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       ];
     } else if (tabIndex === 1) { // Three Step
       return [
-        { label: "Profit Target", hasInfo: true, tooltip: "The profit target required to pass the challenge phase. For Classic Three Step, there is no profit target requirement." },
-        { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
+        { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "To advance to Phase 2, traders must reach the designated profit target of 6%." },
+        { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "To advance to Phase 3, traders must reach the designated profit target of 6%." },
+        { label: "Profit Target (Phase 3)", hasInfo: true, tooltip: "To complete the challenge, traders must reach the designated profit target of 6% in Phase 3." },
         { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
-        { label: "Profit Split", hasInfo: true, tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 95%." },
+        { label: "Profit Split", hasInfo: true, tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 90%." },
         { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
-        { label: "Time Limit", hasInfo: true, tooltip: "1:00" },
+        { label: "Time Limit", hasInfo: true, tooltip: "30 days per phase to complete the challenge" },
+        { label: "Leverage", hasInfo: true, tooltip: "" },
         { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
       ];
     }
@@ -63,12 +66,12 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
   // PAYG model - Pay As You Go
   if (model === 'payg') {
     return [
-      { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "To advance to the next stage, traders must reach the designated profit target." },
-      { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "To advance to the next stage, traders must reach the designated profit target." },
+      { label: "Profit Target (Phase 1)", hasInfo: true, tooltip: "To advance to Phase 2, traders must reach the designated profit target of 8%." },
+      { label: "Profit Target (Phase 2)", hasInfo: true, tooltip: "To complete the challenge, traders must reach the designated profit target of 5% in Phase 2." },
       { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
       { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
       { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
-      { label: "Time Limit", hasInfo: true, tooltip: "Unlimited" },
+      { label: "Time Limit", hasInfo: true, tooltip: "30 days per phase to complete the challenge" },
       { label: "Leverage", hasInfo: true, tooltip: "" },
       { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
     ];
@@ -89,22 +92,25 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
   if (model === 'classic') {
     if (tabIndex === 0) { // Two Step
       return [
-        { value: "None" }, // Profit Target
+        { value: "8%" }, // Profit Target (Phase 1)
+        { value: "5%" }, // Profit Target (Phase 2)
         { value: "5%" }, // Max Daily Drawdown
         { value: "10%" }, // Max Overall Drawdown
         { value: "" }, // Profit Split - calculated dynamically
-        { value: "-" }, // Minimum Trading Days
+        { value: "3 days" }, // Minimum Trading Days
         { value: "Unlimited" }, // Time Limit
         { value: "" }, // Leverage - calculated dynamically
       ];
     } else if (tabIndex === 1) { // Three Step
       return [
-        { value: "None" }, // Profit Target
-        { value: "5%" }, // Max Daily Drawdown
+        { value: "6%" }, // Profit Target (Phase 1)
+        { value: "6%" }, // Profit Target (Phase 2)
+        { value: "6%" }, // Profit Target (Phase 3)
         { value: "5%" }, // Max Overall Drawdown
         { value: "" }, // Profit Split - calculated dynamically
-        { value: "-" }, // Minimum Trading Days
-        { value: "1:00" }, // Time Limit
+        { value: "5 days" }, // Minimum Trading Days
+        { value: "30 days/phase" }, // Time Limit
+        { value: "" }, // Leverage - calculated dynamically
       ];
     }
   }
@@ -116,9 +122,9 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       { value: "5%" }, // Profit Target (Phase 2)
       { value: "5%" }, // Max Daily Drawdown
       { value: "10%" }, // Max Overall Drawdown
-      { value: "3" }, // Minimum Trading Days
-      { value: "Unlimited" }, // Time Limit
-      { value: "1:100" }, // Leverage
+      { value: "3 days" }, // Minimum Trading Days
+      { value: "30 days/phase" }, // Time Limit
+      { value: "" }, // Leverage - calculated dynamically
     ];
   }
 
@@ -201,7 +207,7 @@ export const PricingSection = () => {
     }
 
     if (tabIndex === 0) { // Two Step
-      return '1:00';
+      return '1:100';
     } else if (tabIndex === 1) { // Three Step
       return '1:100';
     }
@@ -216,7 +222,7 @@ export const PricingSection = () => {
     }
 
     if (tabIndex === 0) { // Two Step
-      return '1:100 FX, 1:20 Indices, 1:30 Metals, 1:5 Crypto, Energies 1:10';
+      return '1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10';
     } else if (tabIndex === 1) { // Three Step
       return '1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10';
     }
@@ -231,12 +237,24 @@ export const PricingSection = () => {
       return [];
     }
 
-    // Classic Two Step (index 0) and Three Step (index 1) - 3 add-ons
-    if (model === 'classic' && (tabIndex === 0 || tabIndex === 1)) {
+    // Classic Two Step (index 0)
+    if (model === 'classic' && tabIndex === 0) {
       return [
         { icon: '/pricing-section/icon-1.svg', title: 'News Trading', price: '' },
         { icon: '/pricing-section/icon-2.svg', title: 'Weekend Trading', price: '' },
-        { icon: '/pricing-section/icon-3.svg', title: 'Weekly Payout', price: '' },
+        { icon: '/pricing-section/icon-3.svg', title: 'Days between Consecutive Withdrawals', price: '' },
+        { icon: '/pricing-section/icon-4.svg', title: 'EA Bot Allowed', price: '' },
+      ];
+    }
+
+    // Classic Three Step (index 1)
+    if (model === 'classic' && tabIndex === 1) {
+      return [
+        { icon: '/pricing-section/icon-1.svg', title: 'News Trading', price: '' },
+        { icon: '/pricing-section/icon-2.svg', title: 'Weekend Trading', price: '' },
+        { icon: '/pricing-section/icon-3.svg', title: 'Weekly Payouts', price: '' },
+        { icon: '/pricing-section/icon-4.svg', title: 'EA Bot Allowed', price: '' },
+        { icon: '/pricing-section/icon-5.svg', title: 'No Minimum Trading Days', price: '' },
       ];
     }
 
@@ -304,10 +322,10 @@ export const PricingSection = () => {
             <div className="flex gap-3 md:gap-4">
               <Button
                 onClick={() => setActiveModel('classic')}
-                className={`flex-1 md:flex-none h-[44px] md:h-[52px] md:w-[180px]
+                className={`flex-none w-[228px] md:w-[180px] h-[52px]
                 rounded-[10px] border border-solid
                 font-['Cambay',Helvetica] font-bold text-white
-                text-base md:text-xl
+                text-xl
                 hover:opacity-90 transition-opacity
                 ${activeModel === 'classic'
                   ? 'border-[#a770e0] bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)]'
@@ -412,7 +430,7 @@ export const PricingSection = () => {
             ${activeModel === 'payg' ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
             ${activeModel !== 'payg' && activeTab === 0 ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
             ${activeModel !== 'payg' && activeTab === 1 ? 'rounded-tl-[20px] rounded-tr-none rounded-bl-[20px] rounded-br-[20px]' : ''}
-            p-4 md:p-8`}
+            p-4 md:p-8 ${activeModel === 'payg' ? 'pt-2 md:pt-4' : ''}`}
           style={{
             maxWidth: typeof window !== 'undefined' && window.innerWidth < 768 ? '386px' : 'none',
             margin: typeof window !== 'undefined' && window.innerWidth < 768 ? '0 auto' : undefined,
@@ -421,95 +439,99 @@ export const PricingSection = () => {
           }}
         >
           
-          {/* Promotional Banner - Hidden on mobile */}
-          <div className="hidden md:flex items-center justify-end mt-6 mb-8">
-            <div 
-              className="w-[848px] h-[53px] rounded-[10px] flex items-center justify-center gap-3 px-6 border-2 border-dashed border-[#b882fb]"
-              style={{
-                background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
-              }}
-            >
-              <span className="text-white font-['Poppins',Helvetica] font-normal text-[22px] leading-[28px]">
-                15% Off + BOGO on 1,2,3 Step Challenges
-              </span>
-              <img 
-                src="/pricing-section/basil_arrow-up-outline.svg" 
-                alt="Arrow" 
-                className="w-6 h-6"
-              />
-              <span className="text-[#A861FF] font-['Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
-                CODE - XMAS
-              </span>
+          {/* Promotional Banner - Hidden on mobile and PAYG */}
+          {activeModel !== 'payg' && (
+            <div className="hidden md:flex items-center justify-end mt-6 mb-8">
+              <div 
+                className="w-[848px] h-[53px] rounded-[10px] flex items-center justify-center gap-6 px-6 border-2 border-dashed border-[#AF66FF]"
+                style={{
+                  background: 'linear-gradient(90deg, #1A082D 0%, #451581 50%, #1A082D 100%)',
+                }}
+              >
+                <span className="text-white font-['Poppins',Helvetica] font-bold text-[22px] leading-none uppercase tracking-wide">
+                  LIMITED TIME: 20% OFF CHALLENGES
+                </span>
+                <span className="text-white text-2xl font-bold">→</span>
+                <span className="text-[#BD85FF] font-['Poppins',Helvetica] font-bold text-[24px] leading-none uppercase tracking-wide">
+                  USE CODE TG20
+                </span>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Mobile: Promotional Banner - Compact version */}
-          <div className="md:hidden flex flex-col items-center gap-3 mt-4 mb-6">
-            <div 
-              className="w-full flex flex-col items-center gap-2 p-3 rounded-[10px] border-2 border-dashed border-[#b882fb]"
-              style={{
-                background: 'linear-gradient(90deg,#1F0A34 0%,#4F1990 50%,#1B092E 100%)',
-              }}
-            >
-              <span className="text-white font-['Poppins',Helvetica] font-normal text-[14px] text-center leading-[20px]">
-                15% Off + BOGO on 1,2,3 Step Challenges
-              </span>
-              <span className="text-[#A861FF] font-['Poppins',Helvetica] font-bold text-[24px] leading-[28px]">
-                CODE - XMAS
-              </span>
+          {activeModel !== 'payg' && (
+            <div className="md:hidden flex flex-col items-center gap-3 mt-4 mb-6">
+              <div 
+                className="w-full flex flex-col items-center gap-2 p-3 rounded-[10px] border-2 border-dashed border-[#AF66FF]"
+                style={{
+                  background: 'linear-gradient(90deg, #1A082D 0%, #451581 50%, #1A082D 100%)',
+                }}
+              >
+                <span className="text-white font-['Poppins',Helvetica] font-bold text-[14px] text-center leading-tight uppercase tracking-tight">
+                  LIMITED TIME: 20% OFF CHALLENGES
+                </span>
+                <span className="text-[#BD85FF] font-['Poppins',Helvetica] font-bold text-[22px] leading-none uppercase">
+                  USE CODE TG20
+                </span>
+              </div>
             </div>
+          )}
             
-            {/* Challenge Type Buttons */}
-            <div className="w-full flex gap-2 justify-center">
-              {availableChallengeTypes.map((type, index) => {
-                // Get the original index from challengeTypes array
-                const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
+            {/* Challenge Type Buttons - Hidden on desktop and for PAYG */}
+            {activeModel !== 'payg' && (
+              <div className="w-full flex gap-2 justify-center md:hidden">
+                {availableChallengeTypes.map((type, index) => {
+                  // Get the original index from challengeTypes array
+                  const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
 
-                return (
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTab(originalIndex)}
+                      className={`flex flex-col justify-center items-center w-[112px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border transition-all
+                        ${activeTab === originalIndex
+                          ? 'bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] border-[#a770e0]'
+                          : 'bg-[#1b0732] border-[#4f1b85]'
+                        }`}
+                    >
+                      <span className="font-['Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                        {type.label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+            
+            {/* Account Size Buttons - Hidden on desktop and for PAYG on mobile */}
+            {activeModel !== 'payg' && (
+              <div className="w-full flex gap-2 justify-center pb-2 md:hidden">
+                {accountSizes.map((size, index) => (
                   <button
                     key={index}
-                    onClick={() => setActiveTab(originalIndex)}
-                    className={`flex flex-col justify-center items-center w-[112px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border transition-all
-                      ${activeTab === originalIndex
-                        ? 'bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] border-[#a770e0]'
-                        : 'bg-[#1b0732] border-[#4f1b85]'
-                      }`}
+                    onClick={() => setActiveAccountIndex(index)}
+                    className="flex flex-col justify-center items-center w-[62px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border shrink-0 transition-all"
+                    style={
+                      activeAccountIndex === index
+                        ? {
+                            border: '1px solid rgba(218, 182, 255, 0.15)',
+                            background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)'
+                          }
+                        : {
+                            border: '1px solid #4f1b85',
+                            background: '#1b0732'
+                          }
+                    }
                   >
-                    <span className="font-['Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
-                      {type.label}
+                    <span className="font-['Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                      {size}
                     </span>
                   </button>
-                );
-              })}
-            </div>
-            
-            {/* Account Size Buttons */}
-            <div className="w-full flex gap-2 justify-center pb-2">
-              {accountSizes.map((size, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveAccountIndex(index)}
-                  className="flex flex-col justify-center items-center w-[62px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border shrink-0 transition-all"
-                  style={
-                    activeAccountIndex === index
-                      ? {
-                          border: '1px solid rgba(218, 182, 255, 0.15)',
-                          background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)'
-                        }
-                      : {
-                          border: '1px solid #4f1b85',
-                          background: '#1b0732'
-                        }
-                  }
-                >
-                  <span className="font-['Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
-                    {size}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-
+                ))}
+              </div>
+            )}
+          
           {/* Platform Badge */}
           <div className="flex items-center justify-start mt-6 md:mt-12 -mb-6 md:-mb-10 opacity-0 animate-fade-in [--animation-delay:1400ms]">
             <div 
@@ -856,11 +878,11 @@ export const PricingSection = () => {
                           </span>
                           <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(233, 177, 255, 0.24)' }}></div>
                         </div>
-                        <div className={`flex items-center ${addOns.length === 4 ? 'justify-around' : 'justify-between'} gap-3`}>
+                        <div className="flex items-center justify-between gap-x-4 lg:gap-x-6">
                           {addOns.map((addon, index) => (
-                            <div key={index} className="flex items-center gap-3">
-                              <img src={addon.icon} alt={addon.title} className="w-10 h-10 flex-shrink-0" />
-                              <span className="text-white font-['Cambay',Helvetica] text-base whitespace-nowrap">
+                            <div key={index} className="flex items-center gap-1.5 lg:gap-2.5">
+                              <img src={addon.icon} alt={addon.title} className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
+                              <span className="text-white font-['Cambay',Helvetica] text-[12px] md:text-[13px] lg:text-[15px] whitespace-nowrap">
                                 <span className="font-bold">{addon.title}</span>
                                 {addon.price && <span className="font-normal"> {addon.price}</span>}
                               </span>
@@ -905,11 +927,11 @@ export const PricingSection = () => {
                     </span>
                     <div className="flex-1 h-px bg-purple-500"></div>
                   </div>
-                  <div className="space-y-3">
+                  <div className="flex overflow-x-auto pb-2 [scrollbar-width:thin] scrollbar-color-[#9d62d9_transparent] gap-6">
                     {addOns.map((addon, index) => (
-                      <div key={index} className="flex items-center gap-2">
+                      <div key={index} className="flex items-center gap-2 flex-shrink-0">
                         <img src={addon.icon} alt={addon.title} className="w-8 h-8 flex-shrink-0" />
-                        <span className="text-white font-['Cambay',Helvetica] text-[12px] leading-[48px]">
+                        <span className="text-white font-['Cambay',Helvetica] text-[12px] whitespace-nowrap">
                           <span className="font-bold">{addon.title}</span>
                           {addon.price && <span className="font-normal"> {addon.price}</span>}
                         </span>
