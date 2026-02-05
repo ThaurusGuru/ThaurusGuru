@@ -180,8 +180,8 @@ export const PricingSection = () => {
   const tableRows = React.useMemo(() => getTableRows(activeModel, activeTab), [activeModel, activeTab]);
   const columnData = React.useMemo(() => getColumnData(activeModel, activeTab), [activeModel, activeTab]);
 
-  // Function to get profit split based on model, challenge type, and account size
-  const getProfitSplit = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number, accountIndex?: number): string => {
+  // Function to get profit split based on model and challenge type
+  const getProfitSplit = React.useCallback((model: 'classic' | 'pro' | 'payg', tabIndex: number): string => {
     if (model === 'payg') {
       return 'Up to 80%';
     }
@@ -601,8 +601,8 @@ export const PricingSection = () => {
                           {/* Right: Value */}
                           <span className="font-['Poppins',Helvetica] font-normal text-white text-[14px] tracking-[0] leading-[normal] text-right">
                             {isProfitSplit ? (
-                              // Profit Split - Dynamic based on model, tab, and account size
-                              getProfitSplit(activeModel, activeTab, activeAccountIndex)
+                              // Profit Split - Dynamic based on model and tab
+                              getProfitSplit(activeModel, activeTab)
                             ) : isLeverage ? (
                               // Leverage - Dynamic based on model and tab
                               getLeverageText(activeModel, activeTab)
@@ -766,8 +766,8 @@ export const PricingSection = () => {
                         <div key={colIndex} className="flex items-center justify-center rounded-xl h-[46px]">
                           <span className="font-['Poppins',Helvetica] font-normal text-white text-center tracking-[0] px-2 text-sm block w-full leading-relaxed">
                             {isProfitSplit ? (
-                              // Profit Split - Dynamic based on model, tab, and account size
-                              getProfitSplit(activeModel, activeTab, colIndex)
+                              // Profit Split - Dynamic based on model and tab
+                              getProfitSplit(activeModel, activeTab)
                             ) : isLeverage ? (
                               // Leverage - Dynamic based on model and tab
                               getLeverageText(activeModel, activeTab)
