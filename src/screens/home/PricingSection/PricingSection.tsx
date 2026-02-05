@@ -188,10 +188,6 @@ export const PricingSection = () => {
 
     // For Classic model
     if (tabIndex === 0) { // Two Step
-      // $25K (index 2) has different profit split
-      if (accountIndex === 2) {
-        return 'Up to 85%';
-      }
       return 'Up to 95%';
     } else if (tabIndex === 1) { // Three Step
       return 'Up to 90%';
