@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function BlogFeatured() {
   return (
-    <div className="w-full flex justify-center px-4 lg:px-[100px] pt-16 lg:pt-[100px]">
+    <div className="relative z-10 w-full flex justify-center px-4 lg:px-[100px] pt-16 lg:pt-[100px] pb-16 lg:pb-24">
       <div className="w-full max-w-[1240px]">
         {/* Featured Heading */}
         <h2 
@@ -136,7 +136,7 @@ function BlogFeatured() {
           </Link>
 
           {/* Blog Card 2 */}
-          <Link to="/blog/1" className="block">
+          <Link to="/blog/2" className="block">
             <div 
               className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
               style={{ 
@@ -242,7 +242,7 @@ function BlogFeatured() {
           </Link>
 
           {/* Blog Card 3 */}
-          <Link to="/blog/1" className="block">
+          <Link to="/blog/3" className="block">
             <div 
               className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
               style={{ 

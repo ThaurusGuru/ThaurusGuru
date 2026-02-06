@@ -1,7 +1,7 @@
 import { Header } from "../../components/Header";
 import { FooterSection } from "../../screens/home/FooterSection";
 import { BlogHero } from "../../screens/blogs/BlogHero";
-import { BlogFeatured } from "../../screens/blogs/BlogFeatured";
+// import { BlogFeatured } from "../../screens/blogs/BlogFeatured";
 import "../../index.css";
 
 export const BlogsPage = () => {
@@ -11,7 +11,7 @@ export const BlogsPage = () => {
       <Header />
       <main className="relative w-full">
         <BlogHero />
-        <BlogFeatured />
+        {/* <BlogFeatured /> */}
         
       </main>
       <FooterSection />

@@ -36,7 +36,7 @@ function BlogHero() {
       <div className="flex justify-center px-4 lg:px-0">
         <div className="flex flex-col lg:flex-row gap-[37px] w-full lg:w-auto">
           {/* Large Left Image - Hidden on mobile */}
-          <Link to="/blog/1" className="hidden lg:block">
+          <Link to="/blog/4" className="hidden lg:block">
             <div 
               className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
               style={{ 
@@ -45,7 +45,7 @@ function BlogHero() {
               }}
             >
               <img 
-                src="/blog/blog-img.svg" 
+                src="/blog/blog-img.png" 
                 alt="Featured Blog"
                 className="w-full h-full object-cover"
               />
@@ -62,7 +62,7 @@ function BlogHero() {
                     lineHeight: 'normal'
                   }}
                 >
-                  Smart Money
+                  Scope360°
                 </h2>
                 
                 {/* First Divider Line */}
@@ -86,7 +86,7 @@ function BlogHero() {
                     marginTop: '12px'
                   }}
                 >
-                  How Smart Money Times the Perfect Entry
+                  The AI-Powered Trading Journal for Crypto & Forex
                 </p>
                 
                 {/* Second Divider Line */}
@@ -110,7 +110,7 @@ function BlogHero() {
                       lineHeight: 'normal'
                     }}
                   >
-                    by Tracey Wilson
+                    by Thaurus Team
                   </span>
                   
                   {/* Date Badge */}
@@ -153,7 +153,7 @@ function BlogHero() {
                 }}
               >
               <img 
-                src="/blog/blog-img.svg" 
+                src="/blog/Blog-1.png" 
                 alt="Blog Post 1"
                 className="w-full h-full object-cover"
               />
@@ -170,7 +170,7 @@ function BlogHero() {
                     lineHeight: 'normal'
                   }}
                 >
-                  Smart Money
+                  Best Prop Firms Nigeria
                 </h3>
                 
                 {/* First Divider Line */}
@@ -194,7 +194,7 @@ function BlogHero() {
                     marginTop: '6px'
                   }}
                 >
-                  How Smart Money Times the Perfect Entry
+                  Top Prop Firms Nigerian Traders Can Trust in 2026
                 </p>
                 
                 {/* Second Divider Line */}
@@ -250,7 +250,7 @@ function BlogHero() {
             </Link>
 
             {/* Blog Post 2 */}
-            <Link to="/blog/1" className="block">
+            <Link to="/blog/2" className="block">
               <div 
                 className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
                 style={{ 
@@ -259,7 +259,7 @@ function BlogHero() {
                 }}
               >
                 <img 
-                  src="/blog/blog-img.svg" 
+                  src="/blog/Blog-2.png" 
                   alt="Blog Post 2"
                   className="w-full h-full object-cover"
                 />
@@ -276,7 +276,7 @@ function BlogHero() {
                       lineHeight: 'normal'
                     }}
                   >
-                    Smart Money
+                    Prop Trading for Nigerians
                   </h3>
                   
                   {/* First Divider Line */}
@@ -300,7 +300,7 @@ function BlogHero() {
                       marginTop: '6px'
                     }}
                   >
-                    How Smart Money Times the Perfect Entry
+                    Prop Firms for Nigerian Traders: What You Should Know
                   </p>
                   
                   {/* Second Divider Line */}
@@ -356,7 +356,7 @@ function BlogHero() {
             </Link>
 
             {/* Blog Post 3 */}
-            <Link to="/blog/1" className="block">
+            <Link to="/blog/3" className="block">
               <div 
                 className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
                 style={{ 
@@ -365,7 +365,7 @@ function BlogHero() {
                 }}
               >
                 <img 
-                  src="/blog/blog-img.svg" 
+                  src="/blog/Blog-3.png" 
                   alt="Blog Post 3"
                   className="w-full h-full object-cover"
                 />
@@ -382,7 +382,7 @@ function BlogHero() {
                       lineHeight: 'normal'
                     }}
                   >
-                    Smart Money
+                    How Prop<br />Firms Work in India
                   </h3>
                   
                   {/* First Divider Line */}
@@ -406,7 +406,7 @@ function BlogHero() {
                       marginTop: '6px'
                     }}
                   >
-                    How Smart Money Times the Perfect Entry
+                    How Prop Firms Work in India: A Trader's Guide
                   </p>
                   
                   {/* Second Divider Line */}

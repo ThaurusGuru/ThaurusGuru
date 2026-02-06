@@ -146,6 +146,30 @@ const paygPhase1Prices = ["$27", "$55", "$120", "$195", "$348"];
 const paygPhase2Prices = ["$27", "$40", "$85", "$135", "$232"];
 const paygTotalPrices = ["$54", "$95", "$205", "$330", "$580"];
 
+const twoStepLinks = [
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=6aaa62a0-0270-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=944bb7b0-0277-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=b49395c0-027b-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=63120951-027d-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=2fae0840-0280-11f1-ba50-69d41bd68da6&showPayButton=true",
+];
+
+const threeStepLinks = [
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=b306da40-0286-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=4f098db0-0288-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=75352bb0-0289-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=31976b40-028c-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=9a7cf200-028d-11f1-ba50-69d41bd68da6&showPayButton=true",
+];
+
+const paygLinks = [
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=97b81cf0-029e-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=50cc5f70-02a0-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=a2023580-02a1-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=493b9650-02a4-11f1-ba50-69d41bd68da6&showPayButton=true",
+  "https://my.thaurusguru.com/promotion/challenge?challengeId=7ecc1781-02a5-11f1-ba50-69d41bd68da6&showPayButton=true",
+];
+
 // Tooltip Component
 const InfoTooltip = ({ content }: { content: string }) => {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -266,6 +290,17 @@ export const PricingSection = () => {
     }
     return challengeTypes;
   }, [activeModel]);
+
+  const getStartNowLink = (accountIndex: number) => {
+    if (activeModel === 'classic') {
+      if (activeTab === 0) return twoStepLinks[accountIndex];
+      if (activeTab === 1) return threeStepLinks[accountIndex];
+    }
+    if (activeModel === 'payg') {
+      return paygLinks[accountIndex];
+    }
+    return 'https://my.thaurusguru.com/promotion/challenge';
+  };
 
   return (
     <section id="pricing-section" className="relative w-full py-6 md:py-10 px-4 translate-y-[-1rem] animate-fade-in opacity-0">
@@ -667,7 +702,7 @@ export const PricingSection = () => {
                     </div>
                   )}
                   <Button
-                    onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
+                    onClick={() => window.open(getStartNowLink(activeAccountIndex), '_blank')}
                     className="flex w-full max-w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
                     style={{
                       background: 'linear-gradient(90deg, #FFF 0%, #DAB6FF 100%)'
@@ -832,7 +867,7 @@ export const PricingSection = () => {
                   {prices.map((_, index) => (
                     <div key={index} className="flex items-center justify-center">
                       <Button
-                        onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
+                        onClick={() => window.open(getStartNowLink(index), '_blank')}
                         className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] font-['Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity"
                       >
                         Start Now
