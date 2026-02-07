@@ -281,32 +281,36 @@ export const Header = () => {
 
           <div className="inline-flex items-center gap-4">
             {/* Web App Button - Elegant gradient */}
-            <Button className="relative h-9 px-7 py-1 rounded-lg border-none overflow-hidden
-              bg-gradient-to-r from-white via-[#e9d5ff] to-white
-              shadow-[0_4px_20px_rgba(168,85,247,0.4),0_0_0_1px_rgba(139,92,246,0.3)_inset]
-              hover:shadow-[0_8px_32px_rgba(168,85,247,0.6),0_0_0_1px_rgba(139,92,246,0.5)_inset]
-              hover:scale-105
-              transition-all duration-300
-              group/webapp">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-purple-400/20 to-purple-400/0 
-              translate-x-[-100%] group-hover/webapp:translate-x-[100%] transition-transform duration-700" />
-              <span className="relative z-10 [font-family:'Cambay',Helvetica] font-semibold text-[#1b092e] text-sm tracking-[0.2px] leading-[normal]">
-                {t('header.login')}
-              </span>
-            </Button>
+            <a href="https://my.thaurusguru.com/auth/signin" target="_blank" rel="noopener noreferrer">
+              <Button className="relative h-9 px-7 py-1 rounded-lg border-none overflow-hidden
+                bg-gradient-to-r from-white via-[#e9d5ff] to-white
+                shadow-[0_4px_20px_rgba(168,85,247,0.4),0_0_0_1px_rgba(139,92,246,0.3)_inset]
+                hover:shadow-[0_8px_32px_rgba(168,85,247,0.6),0_0_0_1px_rgba(139,92,246,0.5)_inset]
+                hover:scale-105
+                transition-all duration-300
+                group/webapp">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-purple-400/20 to-purple-400/0 
+                translate-x-[-100%] group-hover/webapp:translate-x-[100%] transition-transform duration-700" />
+                <span className="relative z-10 [font-family:'Cambay',Helvetica] font-semibold text-[#1b092e] text-sm tracking-[0.2px] leading-[normal]">
+                  {t('header.login')}
+                </span>
+              </Button>
+            </a>
           </div>
         </div>
 
         {/* Mobile: Login + Hamburger */}
         <div className="flex lg:hidden relative z-20 items-center gap-2">
-          <Button className="relative h-8 px-4 py-1 rounded-lg border-none overflow-hidden
-            bg-gradient-to-r from-white via-[#e9d5ff] to-white
-            shadow-[0_4px_20px_rgba(168,85,247,0.4)]
-            transition-all duration-300">
-            <span className="relative z-10 [font-family:'Cambay',Helvetica] font-semibold text-[#1b092e] text-xs sm:text-sm tracking-[0.2px] leading-[normal]">
-              {t('header.login')}
-            </span>
-          </Button>
+          <a href="https://my.thaurusguru.com/auth/signin" target="_blank" rel="noopener noreferrer">
+            <Button className="relative h-8 px-4 py-1 rounded-lg border-none overflow-hidden
+              bg-gradient-to-r from-white via-[#e9d5ff] to-white
+              shadow-[0_4px_20px_rgba(168,85,247,0.4)]
+              transition-all duration-300">
+              <span className="relative z-10 [font-family:'Cambay',Helvetica] font-semibold text-[#1b092e] text-xs sm:text-sm tracking-[0.2px] leading-[normal]">
+                {t('header.login')}
+              </span>
+            </Button>
+          </a>
 
           {/* Hamburger Menu Button */}
           <button
