@@ -175,7 +175,7 @@ export const PrivacyPolicyContent = () => {
         {/* Footer legal */}
         <section className="pt-10 border-t border-white/10 text-center text-xs text-white/40">
           <p className="mb-2">We reserve the right to amend this policy at any time. Notifications will be provided for significant changes.</p>
-          <p>© 2024 Thaurus Guru. All Rights Reserved.</p>
+          <p>© 2026 Thaurus Guru. All Rights Reserved.</p>
         </section>
       </div>
     </div>

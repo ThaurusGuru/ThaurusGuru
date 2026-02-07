@@ -261,7 +261,7 @@ export const FooterSection = () => {
               {/* Bottom Bar - Mobile */}
               <div className="mt-8 mb-4 border-t border-white/10 pt-6 flex flex-col items-center gap-6">
                 <p className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 text-center">
-                  © 2024 - 2025 Thaurus Ltd. All rights reserved.
+                  © 2024 - 2026 Thaurus Ltd. All rights reserved.
                 </p>
                 <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4">
                   <Link to="/cookies-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Cookies Policy</Link>
@@ -466,7 +466,7 @@ export const FooterSection = () => {
             {/* Bottom Bar - Desktop */}
             <div className="hidden md:flex flex-row items-center justify-between mt-12 pt-8 border-t border-white/10 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
               <p className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60">
-                © 2024 - 2025 Thaurus Ltd. All rights reserved.
+                © 2024 - 2026 Thaurus Ltd. All rights reserved.
               </p>
               <div className="flex flex-row items-center gap-8">
                 <Link to="/cookies-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-xs opacity-60 hover:text-white transition-colors">Cookies Policy</Link>
