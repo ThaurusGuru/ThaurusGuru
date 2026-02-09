@@ -137,13 +137,10 @@ export const Header = () => {
         {/* Logo */}
         <Link to="/">
           <img
-            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
+            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
             src="/thaurus logo.svg"
-            style={{
-              imageRendering: 'crisp-edges',
-            }}
           />
         </Link>
 
