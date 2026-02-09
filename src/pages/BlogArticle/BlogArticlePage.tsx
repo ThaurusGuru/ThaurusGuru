@@ -8,7 +8,7 @@ export const BlogArticlePage = () => {
   const { id } = useParams<{ id: string }>();
   
   return (
-    <div className="bg-[#1b082e] w-full min-w-0 lg:min-w-[1440px] relative overflow-hidden">
+    <div className="bg-[#1b082e] w-full min-w-0 relative overflow-hidden">
       <Header />
       
       <main className="relative w-full">

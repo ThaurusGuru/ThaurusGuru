@@ -35,7 +35,7 @@ function BlogArticle() {
         {/* Header Section - Title Area and Image */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[100px] items-start mb-12 lg:mb-16">
           {/* Title Area */}
-          <div className="flex flex-col items-start w-full lg:w-[454px]">
+          <div className="flex flex-col items-start w-full lg:max-w-[454px]">
             {/* Date Badge */}
             <div 
               className="inline-flex justify-center items-center mb-4 lg:mb-6"
@@ -87,7 +87,7 @@ function BlogArticle() {
 
           {/* Image */}
           <div 
-            className="w-full lg:w-[686px]"
+            className="w-full lg:max-w-[686px]"
             style={{ 
               height: 'auto',
               maxHeight: '351px',
@@ -105,7 +105,7 @@ function BlogArticle() {
         {/* Content Section with Sidebar Buttons */}
         <div className="flex flex-col lg:flex-row items-start">
           {/* Left Sidebar - Buttons */}
-          <div className="flex flex-col gap-4 mb-8 lg:mb-0 lg:mr-[100px] w-full lg:w-[400px]">
+          <div className="flex flex-col gap-4 mb-8 lg:mb-0 lg:mr-[100px] w-full lg:max-w-[400px]">
             <div className="flex flex-wrap gap-2 lg:gap-4">
               <button style={ButtonStyle} className="hover:bg-[rgba(229, 210, 255, 0.30)] scale-90 lg:scale-100 origin-left">
                 <Volume2 size={16} />
@@ -123,7 +123,7 @@ function BlogArticle() {
           </div>
 
           {/* Right Content - Article Text */}
-          <div className="w-full lg:w-[741px] prose prose-invert prose-headings:text-white prose-p:text-white prose-p:font-['M_PLUS_2',Helvetica] prose-p:text-lg prose-p:font-bold prose-p:leading-normal prose-p:mb-6 prose-h2:font-['M_PLUS_2',Helvetica] prose-h2:text-2xl prose-h2:font-semibold prose-h2:mb-4 prose-h2:mt-8 prose-ul:text-white prose-ul:font-['M_PLUS_2',Helvetica] prose-ul:text-lg prose-ul:font-bold prose-li:mb-2 max-w-none">
+          <div className="w-full lg:max-w-[741px] prose prose-invert prose-headings:text-white prose-p:text-white prose-p:font-['M_PLUS_2',Helvetica] prose-p:text-lg prose-p:font-bold prose-p:leading-normal prose-p:mb-6 prose-h2:font-['M_PLUS_2',Helvetica] prose-h2:text-2xl prose-h2:font-semibold prose-h2:mb-4 prose-h2:mt-8 prose-ul:text-white prose-ul:font-['M_PLUS_2',Helvetica] prose-ul:text-lg prose-ul:font-bold prose-li:mb-2 max-w-none">
             <ReactMarkdown
               components={{
                 h2: ({node, ...props}) => <h2 style={{ color: '#FFF', fontFamily: '"M PLUS 2", Helvetica', fontSize: '24px', fontWeight: 600, lineHeight: 'normal', marginBottom: '1rem', marginTop: '2rem' }} {...props} />,

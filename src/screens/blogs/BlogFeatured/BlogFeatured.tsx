@@ -2,41 +2,26 @@ import { Link } from 'react-router-dom';
 
 function BlogFeatured() {
   return (
-    <div className="relative z-10 w-full flex justify-center px-4 lg:px-[100px] pt-16 lg:pt-[100px] pb-16 lg:pb-24">
+    <div className="relative z-10 w-full flex justify-center px-4 md:px-8 lg:px-[100px] pt-12 md:pt-16 lg:pt-[100px] pb-12 md:pb-16 lg:pb-24">
       <div className="w-full max-w-[1240px]">
         {/* Featured Heading */}
         <h2 
-          className="font-['M_PLUS_2',Helvetica]"
-          style={{
-            color: '#FFF',
-            fontSize: '42px',
-            fontWeight: 700,
-            lineHeight: 'normal'
-          }}
+          className="font-['M_PLUS_2',Helvetica] text-white text-3xl md:text-4xl lg:text-[42px] font-bold"
         >
           Featured
         </h2>
         
         {/* Divider Line */}
         <div 
-          className="w-full lg:w-[1240px]"
-          style={{
-            height: '0.4px',
-            background: '#DEC7FF',
-            marginTop: '27px'
-          }}
+          className="w-full h-[0.4px] bg-[#DEC7FF] mt-4 md:mt-6 lg:mt-[27px]"
         />
         
         {/* Blog Cards - Horizontally Aligned on desktop, vertical on mobile */}
-        <div className="flex flex-col lg:flex-row justify-center gap-[37px]" style={{ marginTop: '92px' }}>
+        <div className="flex flex-col lg:flex-row justify-center gap-6 md:gap-[37px] mt-12 md:mt-16 lg:mt-[92px]">
           {/* Blog Card 1 */}
-          <Link to="/blog/1" className="block">
+          <Link to="/blog/1" className="block w-full max-w-[449px] mx-auto lg:mx-0">
             <div 
-              className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              style={{ 
-                width: '449px',
-                height: '248px'
-              }}
+              className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity w-full h-auto aspect-449/248"
             >
               <img 
                 src="/blog/blog-img.svg" 
@@ -45,87 +30,45 @@ function BlogFeatured() {
               />
               
               {/* Text Overlays */}
-              <div className="absolute" style={{ top: '17px', left: '24px' }}>
+              <div className="absolute top-3 md:top-[17px] left-4 md:left-6 right-4 md:right-6">
                 {/* Title */}
                 <h3 
-                  className="font-['M_PLUS_2',Helvetica]"
-                  style={{
-                    color: '#FFF',
-                    fontSize: '30px',
-                    fontWeight: 700,
-                    lineHeight: 'normal'
-                  }}
+                  className="font-['M_PLUS_2',Helvetica] text-white text-xl md:text-2xl lg:text-[30px] font-bold"
                 >
                   Smart Money
                 </h3>
                 
                 {/* First Divider Line */}
                 <div 
-                  style={{
-                    width: '402px',
-                    height: '0.241px',
-                    background: '#DEC7FF',
-                    marginTop: '9px'
-                  }}
+                  className="w-full max-w-[402px] h-[0.241px] bg-[#DEC7FF] mt-2 md:mt-[9px]"
                 />
                 
                 {/* Subtitle */}
                 <p 
-                  className="font-['M_PLUS_2',Helvetica]"
-                  style={{
-                    color: '#FFF',
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    lineHeight: '15.638px',
-                    marginTop: '6px'
-                  }}
+                  className="font-['M_PLUS_2',Helvetica] text-white text-[8px] md:text-[10px] font-bold leading-[12px] md:leading-[15.638px] mt-1 md:mt-[6px]"
                 >
                   How Smart Money Times the Perfect Entry
                 </p>
                 
                 {/* Second Divider Line */}
                 <div 
-                  style={{
-                    width: '402px',
-                    height: '0.241px',
-                    background: '#DEC7FF',
-                    marginTop: '109px'
-                  }}
+                  className="w-full max-w-[402px] h-[0.241px] bg-[#DEC7FF] mt-20 md:mt-24 lg:mt-[109px]"
                 />
                 
                 {/* Author and Date Section */}
-                <div className="flex items-center whitespace-nowrap" style={{ marginTop: '13px' }}>
+                <div className="flex items-center justify-between whitespace-nowrap mt-2 md:mt-[13px]">
                   <span 
-                    className="font-['M_PLUS_2',Helvetica]"
-                    style={{
-                      color: '#FFF',
-                      fontSize: '8px',
-                      fontWeight: 700,
-                      lineHeight: 'normal'
-                    }}
+                    className="font-['M_PLUS_2',Helvetica] text-white text-[7px] md:text-[8px] font-bold"
                   >
                     by Tracey Wilson
                   </span>
                   
                   {/* Date Badge */}
                   <div 
-                    className="inline-flex justify-center items-center"
-                    style={{
-                      marginLeft: '220px',
-                      padding: '1.203px 8.421px',
-                      gap: '6.015px',
-                      borderRadius: '12.03px',
-                      background: 'rgba(229, 210, 255, 0.40)'
-                    }}
+                    className="inline-flex justify-center items-center px-2 md:px-[8.421px] py-[1.203px] rounded-[12.03px] bg-[rgba(229,210,255,0.40)]"
                   >
                     <span 
-                      className="font-['Poppins',Helvetica]"
-                      style={{
-                        color: '#FFF',
-                        fontSize: '6px',
-                        fontWeight: 700,
-                        lineHeight: '14.435px'
-                      }}
+                      className="font-['Poppins',Helvetica] text-white text-[5px] md:text-[6px] font-bold leading-[14.435px]"
                     >
                       August 20, 2022
                     </span>
@@ -136,13 +79,9 @@ function BlogFeatured() {
           </Link>
 
           {/* Blog Card 2 */}
-          <Link to="/blog/2" className="block">
+          <Link to="/blog/2" className="block w-full max-w-[449px] mx-auto lg:mx-0">
             <div 
-              className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              style={{ 
-                width: '449px',
-                height: '248px'
-              }}
+              className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity w-full h-auto aspect-449/248"
             >
               <img 
                 src="/blog/blog-img.svg" 
@@ -151,87 +90,45 @@ function BlogFeatured() {
               />
               
               {/* Text Overlays */}
-              <div className="absolute" style={{ top: '17px', left: '24px' }}>
+              <div className="absolute top-3 md:top-[17px] left-4 md:left-6 right-4 md:right-6">
                 {/* Title */}
                 <h3 
-                  className="font-['M_PLUS_2',Helvetica]"
-                  style={{
-                    color: '#FFF',
-                    fontSize: '30px',
-                    fontWeight: 700,
-                    lineHeight: 'normal'
-                  }}
+                  className="font-['M_PLUS_2',Helvetica] text-white text-xl md:text-2xl lg:text-[30px] font-bold"
                 >
                   Smart Money
                 </h3>
                 
                 {/* First Divider Line */}
                 <div 
-                  style={{
-                    width: '402px',
-                    height: '0.241px',
-                    background: '#DEC7FF',
-                    marginTop: '9px'
-                  }}
+                  className="w-full max-w-[402px] h-[0.241px] bg-[#DEC7FF] mt-2 md:mt-[9px]"
                 />
                 
                 {/* Subtitle */}
                 <p 
-                  className="font-['M_PLUS_2',Helvetica]"
-                  style={{
-                    color: '#FFF',
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    lineHeight: '15.638px',
-                    marginTop: '6px'
-                  }}
+                  className="font-['M_PLUS_2',Helvetica] text-white text-[8px] md:text-[10px] font-bold leading-[12px] md:leading-[15.638px] mt-1 md:mt-[6px]"
                 >
                   How Smart Money Times the Perfect Entry
                 </p>
                 
                 {/* Second Divider Line */}
                 <div 
-                  style={{
-                    width: '402px',
-                    height: '0.241px',
-                    background: '#DEC7FF',
-                    marginTop: '109px'
-                  }}
+                  className="w-full max-w-[402px] h-[0.241px] bg-[#DEC7FF] mt-20 md:mt-24 lg:mt-[109px]"
                 />
                 
                 {/* Author and Date Section */}
-                <div className="flex items-center whitespace-nowrap" style={{ marginTop: '13px' }}>
+                <div className="flex items-center justify-between whitespace-nowrap mt-2 md:mt-[13px]">
                   <span 
-                    className="font-['M_PLUS_2',Helvetica]"
-                    style={{
-                      color: '#FFF',
-                      fontSize: '8px',
-                      fontWeight: 700,
-                      lineHeight: 'normal'
-                    }}
+                    className="font-['M_PLUS_2',Helvetica] text-white text-[7px] md:text-[8px] font-bold"
                   >
                     by Tracey Wilson
                   </span>
                   
                   {/* Date Badge */}
                   <div 
-                    className="inline-flex justify-center items-center"
-                    style={{
-                      marginLeft: '220px',
-                      padding: '1.203px 8.421px',
-                      gap: '6.015px',
-                      borderRadius: '12.03px',
-                      background: 'rgba(229, 210, 255, 0.40)'
-                    }}
+                    className="inline-flex justify-center items-center px-2 md:px-[8.421px] py-[1.203px] rounded-[12.03px] bg-[rgba(229,210,255,0.40)]"
                   >
                     <span 
-                      className="font-['Poppins',Helvetica]"
-                      style={{
-                        color: '#FFF',
-                        fontSize: '6px',
-                        fontWeight: 700,
-                        lineHeight: '14.435px'
-                      }}
+                      className="font-['Poppins',Helvetica] text-white text-[5px] md:text-[6px] font-bold leading-[14.435px]"
                     >
                       August 20, 2022
                     </span>
@@ -242,13 +139,9 @@ function BlogFeatured() {
           </Link>
 
           {/* Blog Card 3 */}
-          <Link to="/blog/3" className="block">
+          <Link to="/blog/3" className="block w-full max-w-[449px] mx-auto lg:mx-0">
             <div 
-              className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              style={{ 
-                width: '449px',
-                height: '248px'
-              }}
+              className="relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity w-full h-auto aspect-449/248"
             >
               <img 
                 src="/blog/blog-img.svg" 
@@ -257,87 +150,45 @@ function BlogFeatured() {
               />
               
               {/* Text Overlays */}
-              <div className="absolute" style={{ top: '17px', left: '24px' }}>
+              <div className="absolute top-3 md:top-[17px] left-4 md:left-6 right-4 md:right-6">
                 {/* Title */}
                 <h3 
-                  className="font-['M_PLUS_2',Helvetica]"
-                  style={{
-                    color: '#FFF',
-                    fontSize: '30px',
-                    fontWeight: 700,
-                    lineHeight: 'normal'
-                  }}
+                  className="font-['M_PLUS_2',Helvetica] text-white text-xl md:text-2xl lg:text-[30px] font-bold"
                 >
                   Smart Money
                 </h3>
                 
                 {/* First Divider Line */}
                 <div 
-                  style={{
-                    width: '402px',
-                    height: '0.241px',
-                    background: '#DEC7FF',
-                    marginTop: '9px'
-                  }}
+                  className="w-full max-w-[402px] h-[0.241px] bg-[#DEC7FF] mt-2 md:mt-[9px]"
                 />
                 
                 {/* Subtitle */}
                 <p 
-                  className="font-['M_PLUS_2',Helvetica]"
-                  style={{
-                    color: '#FFF',
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    lineHeight: '15.638px',
-                    marginTop: '6px'
-                  }}
+                  className="font-['M_PLUS_2',Helvetica] text-white text-[8px] md:text-[10px] font-bold leading-[12px] md:leading-[15.638px] mt-1 md:mt-[6px]"
                 >
                   How Smart Money Times the Perfect Entry
                 </p>
                 
                 {/* Second Divider Line */}
                 <div 
-                  style={{
-                    width: '402px',
-                    height: '0.241px',
-                    background: '#DEC7FF',
-                    marginTop: '109px'
-                  }}
+                  className="w-full max-w-[402px] h-[0.241px] bg-[#DEC7FF] mt-20 md:mt-24 lg:mt-[109px]"
                 />
                 
                 {/* Author and Date Section */}
-                <div className="flex items-center whitespace-nowrap" style={{ marginTop: '13px' }}>
+                <div className="flex items-center justify-between whitespace-nowrap mt-2 md:mt-[13px]">
                   <span 
-                    className="font-['M_PLUS_2',Helvetica]"
-                    style={{
-                      color: '#FFF',
-                      fontSize: '8px',
-                      fontWeight: 700,
-                      lineHeight: 'normal'
-                    }}
+                    className="font-['M_PLUS_2',Helvetica] text-white text-[7px] md:text-[8px] font-bold"
                   >
                     by Tracey Wilson
                   </span>
                   
                   {/* Date Badge */}
                   <div 
-                    className="inline-flex justify-center items-center"
-                    style={{
-                      marginLeft: '220px',
-                      padding: '1.203px 8.421px',
-                      gap: '6.015px',
-                      borderRadius: '12.03px',
-                      background: 'rgba(229, 210, 255, 0.40)'
-                    }}
+                    className="inline-flex justify-center items-center px-2 md:px-[8.421px] py-[1.203px] rounded-[12.03px] bg-[rgba(229,210,255,0.40)]"
                   >
                     <span 
-                      className="font-['Poppins',Helvetica]"
-                      style={{
-                        color: '#FFF',
-                        fontSize: '6px',
-                        fontWeight: 700,
-                        lineHeight: '14.435px'
-                      }}
+                      className="font-['Poppins',Helvetica] text-white text-[5px] md:text-[6px] font-bold leading-[14.435px]"
                     >
                       August 20, 2022
                     </span>
