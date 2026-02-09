@@ -10,7 +10,7 @@ const screenshots = [
   {
     src: "/videoTestimonial/img-2.png",
     alt: "Screenshot 2",
-    videoUrl: "https://youtube.com/shorts/wAdRjlwUgW4?feature=share",
+    videoUrl: "https://youtube.com/shorts/oKYvZOzW20I",
   },
 ];
 
