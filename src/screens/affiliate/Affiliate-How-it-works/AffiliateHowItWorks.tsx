@@ -354,7 +354,7 @@ export const AffiliateHowItWorks = () => {
 
           .timeline-container {
             margin-top: 60px !important;
-            height: 700px !important;
+            height: 850px !important;
           }
           
           .step-title-1-mobile {
@@ -442,7 +442,7 @@ export const AffiliateHowItWorks = () => {
         }
       `}</style>
       
-      <section ref={sectionRef} className="w-full flex flex-col items-center">
+      <section ref={sectionRef} className="w-full flex flex-col items-center mb-20 md:mb-32">
         <h2
           className="howitworks-heading-mobile heading-animated heading-shimmer text-center"
           style={{
@@ -510,8 +510,8 @@ export const AffiliateHowItWorks = () => {
                   position: 'absolute',
                   top: `calc(${step.dotTop} - 23px)`,
                   ...(step.position === 'right'
-                    ? { left: '50%', marginLeft: '93px' }
-                    : { right: '50%', marginRight: '93px' }),
+                    ? { left: '50%', marginLeft: window.innerWidth < 768 ? '35px' : '93px' }
+                    : { right: '50%', marginRight: window.innerWidth < 768 ? '35px' : '93px' }),
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: step.position === 'right' ? 'flex-start' : 'flex-end',
