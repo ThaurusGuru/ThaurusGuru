@@ -118,6 +118,19 @@ export const Header = () => {
 
   return (
     <header className="fixed top-[20px] sm:top-[41px] left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-32px)] sm:w-[calc(100%-80px)] lg:w-[1440px] h-[46px] sm:h-16">
+      {/* Backdrop blur container - OUTSIDE nav */}
+      <div className="absolute inset-0 rounded-[10px] overflow-hidden pointer-events-none">
+        <div 
+          className="absolute inset-0 rounded-[10px]"
+          style={{
+            backdropFilter: 'blur(40px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+          }}
+        />
+        {/* Background gradient */}
+        <div className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04] opacity-90" />
+      </div>
+
       <nav 
         className="relative flex items-center justify-between h-full px-4 sm:px-6 lg:px-11
         rounded-[10px] 
@@ -127,22 +140,7 @@ export const Header = () => {
         hover:shadow-[0_12px_48px_rgba(168,85,247,0.25),0_0_0_1px_rgba(255,255,255,0.15)_inset,0_2px_0_rgba(255,255,255,0.3)_inset]
         transition-all duration-700 ease-out
         group"
-        style={{
-          isolation: 'isolate',
-        }}
       >
-        {/* Backdrop filter layer - separated from content */}
-        <div 
-          className="absolute inset-0 rounded-[10px] -z-10 pointer-events-none"
-          style={{
-            backdropFilter: 'blur(40px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-          }}
-        />
-
-        {/* Background gradient */}
-        <div className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04] opacity-90 -z-10" />
-        
         {/* Shimmer effect overlay */}
         <div className="absolute inset-0 rounded-[10px] overflow-hidden pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.15] to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
@@ -151,19 +149,33 @@ export const Header = () => {
         {/* Subtle inner glow */}
         <div className="absolute inset-[1px] rounded-[9px] bg-gradient-to-b from-white/[0.08] to-transparent pointer-events-none" />
         
-        {/* Logo - with iOS optimization */}
-        <Link to="/" className="relative z-20">
+        {/* Logo - COMPLETELY ISOLATED with will-change */}
+        <Link 
+          to="/" 
+          className="relative z-[110]"
+          style={{
+            isolation: 'isolate',
+            willChange: 'transform',
+          }}
+        >
           <img
             className="w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
             src="/thaurus logo.svg"
             style={{
-              transform: 'translateZ(0)',
-              WebkitTransform: 'translateZ(0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transformStyle: 'preserve-3d',
+              WebkitTransformStyle: 'preserve-3d',
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
-              imageRendering: '-webkit-optimize-contrast',
+              perspective: 1000,
+              WebkitPerspective: 1000,
+              imageRendering: 'crisp-edges',
+              WebkitFontSmoothing: 'antialiased',
+              willChange: 'transform',
+              filter: 'blur(0px)', // Force sharp rendering
             }}
           />
         </Link>
