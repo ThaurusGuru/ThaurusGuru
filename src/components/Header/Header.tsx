@@ -140,12 +140,7 @@ export const Header = () => {
             className="w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
-            src="/thaurus logo.svg"
-            style={{
-              transform: 'translateZ(0)',
-              backfaceVisibility: 'hidden',
-              WebkitBackfaceVisibility: 'hidden',
-            }}
+            src="/hero/Thaurus_Guru_White_.svg"
           />
         </Link>
 
