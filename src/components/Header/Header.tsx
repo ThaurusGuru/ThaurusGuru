@@ -135,12 +135,17 @@ export const Header = () => {
         <div className="absolute inset-[1px] rounded-[9px] bg-gradient-to-b from-white/[0.08] to-transparent pointer-events-none" />
         
         {/* Logo */}
-        <Link to="/">
+        <Link to="/" className="relative z-20">
           <img
-            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain
+            className="w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
             src="/thaurus logo.svg"
+            style={{
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+            }}
           />
         </Link>
 
