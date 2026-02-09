@@ -3,10 +3,10 @@ import { Button } from "../../../components/ui/button";
 import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const statImages = [
-  "/build-section/card-1.svg",
-  "/build-section/card-2.svg",
-  "/build-section/card-3.svg",
+const statCards = [
+  { number: "25+", label: "Dedicated\\nProfessionals" },
+  { number: "3", label: "Dedicated Offices\\naround the world" },
+  { number: "24/7", label: "Available\\ncustomer services" },
 ];
 
 export const BuildSection = () => {
@@ -55,14 +55,54 @@ export const BuildSection = () => {
             </h2>
 
             <div className="flex gap-[11px] justify-center lg:justify-start lg:gap-[15px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-              {statImages.map((imageSrc, index) => (
-                <img
+              {statCards.map((card, index) => (
+                <div
                   key={index}
-                  src={imageSrc}
-                  alt={`Stat card ${index + 1}`}
-                  className="w-[105.35px] lg:w-[184px] h-auto cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => setSelectedImage(imageSrc)}
-                />
+                  className="w-[105.35px] lg:w-[184px] cursor-pointer hover:opacity-80 transition-opacity
+                    px-[20.041px] lg:px-[35px] pt-[19.467px] lg:pt-[34px] pb-[8.549px] lg:pb-[16px] pr-[24.045px] lg:pr-[42px]"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    alignItems: 'flex-start',
+                    borderRadius: '10px',
+                    border: '1px solid #E9B1FF',
+                    background: 'radial-gradient(83.12% 57.39% at 79.62% 50.26%, rgba(112, 0, 255, 0.20) 0%, rgba(30, 9, 51, 0.20) 100%)',
+                    boxShadow: '0 4px 8px 0 rgba(63, 13, 116, 0.40)',
+                  }}
+                >
+                  <div className="flex flex-col w-full gap-[8px] lg:gap-[14px]">
+                    <div
+                      className="w-[61.263px] h-[14.886px] lg:w-[107px] lg:h-[26px]
+                        text-[28px] lg:text-[50px] leading-[9.161px] lg:leading-[16px]"
+                      style={{
+                        color: '#FFF',
+                        fontFamily: 'Manrope',
+                        fontStyle: 'normal',
+                        fontWeight: 700,
+                      }}
+                    >
+                      {card.number}
+                    </div>
+                    <div
+                      className="lg:w-[140px]
+                        text-[7px] lg:text-[14px] leading-[9.161px] lg:leading-[16px]"
+                      style={{
+                        color: '#FFF',
+                        fontFamily: 'Cambay',
+                        fontStyle: 'normal',
+                        fontWeight: 700,
+                      }}
+                    >
+                      {card.label.split('\\n').map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          {i < card.label.split('\\n').length - 1 && <br />}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
 
