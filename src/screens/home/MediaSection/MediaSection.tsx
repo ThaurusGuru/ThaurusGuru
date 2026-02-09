@@ -8,8 +8,9 @@ const screenshots = [
     videoUrl: "https://youtube.com/shorts/wAdRjlwUgW4?feature=share",
   },
   {
-    src: "https://c.animaapp.com/mishf4erVkDEuN/img/screenshot-2025-11-23-213415-1.png",
+    src: "/videoTestimonial/img-2.png",
     alt: "Screenshot 2",
+    videoUrl: "https://youtube.com/shorts/wAdRjlwUgW4?feature=share",
   },
 ];
 

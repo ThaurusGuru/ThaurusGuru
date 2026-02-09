@@ -419,7 +419,7 @@ export const PricingSection = () => {
         {/* Challenge Type Tabs - OUTSIDE table container */}
         {/* Show tabs only when NOT in PAYG mode */}
         {activeModel !== 'payg' && (
-          <div className="w-full relative flex items-center justify-start mt-8 md:mt-16 pt-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="w-full max-w-[386px] md:max-w-none mx-auto md:mx-0 relative flex items-end justify-start mt-8 md:mt-16">
             {/* Tab Buttons */}
             {availableChallengeTypes.map((type, index) => {
               // Get the original index from challengeTypes array
@@ -429,13 +429,13 @@ export const PricingSection = () => {
                 <div
                   key={index}
                   onClick={() => setActiveTab(originalIndex)}
-                  className={`relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 cursor-pointer flex-shrink-0
+                  className={`relative flex items-center justify-center cursor-pointer flex-shrink-0
                     ${activeTab === originalIndex
-                      ? `text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10`
-                      : 'text-white bg-transparent px-4 md:px-8'
+                      ? 'text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[12px] md:rounded-t-[20px] px-4 md:px-18 py-2.5 md:py-5 z-10 mb-[-2px] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-[#1a0a2e]'
+                      : 'text-white/70 bg-transparent px-3 md:px-8 py-2.5 md:py-5'
                   }`}
                 >
-                  <span className="font-['Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+                  <span className="font-['Blinker',Helvetica] font-semibold text-[14px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
                     {type.label}
                   </span>
                 </div>
@@ -446,9 +446,9 @@ export const PricingSection = () => {
 
         {/* PAYG Header - Show when in PAYG mode */}
         {activeModel === 'payg' && (
-          <div className="w-full relative flex items-center justify-start mt-8 md:mt-16 pt-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            <div className="relative flex items-center justify-center gap-2 md:gap-3 py-2 md:py-5.5 flex-shrink-0 text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[20px] px-6 md:px-18 md:translate-y-[-2.9px] translate-y-[7.9px] pb-[calc(1.375rem+3.4px)] z-10">
-              <span className="font-['Blinker',Helvetica] font-semibold text-[18px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
+          <div className="w-full max-w-[386px] md:max-w-none mx-auto md:mx-0 relative flex items-end justify-start mt-8 md:mt-16">
+            <div className="relative flex items-center justify-center flex-shrink-0 text-white bg-[#1a0a2e] border-t border-l border-r border-[#DAB6FF] rounded-t-[12px] md:rounded-t-[20px] px-4 md:px-18 py-2.5 md:py-5 z-10 mb-[-2px] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-[#1a0a2e]">
+              <span className="font-['Blinker',Helvetica] font-semibold text-[14px] md:text-[26px] tracking-[0] leading-[normal] whitespace-nowrap">
                 Pay As You Go
               </span>
             </div>
@@ -457,17 +457,11 @@ export const PricingSection = () => {
 
         {/* Bordered Table Container - FIXED BORDER */}
         <div
-          className={`w-full border border-[#DAB6FF] bg-[#1a0a2e]
-            ${activeModel === 'payg' ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
-            ${activeModel !== 'payg' && activeTab === 0 ? 'rounded-tl-none rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]' : ''}
-            ${activeModel !== 'payg' && activeTab === 1 ? 'rounded-tl-[20px] rounded-tr-none rounded-bl-[20px] rounded-br-[20px]' : ''}
-            p-4 md:p-8 ${activeModel === 'payg' ? 'pt-2 md:pt-4' : ''}`}
-          style={{
-            maxWidth: typeof window !== 'undefined' && window.innerWidth < 768 ? '386px' : 'none',
-            margin: typeof window !== 'undefined' && window.innerWidth < 768 ? '0 auto' : undefined,
-            overflow: typeof window !== 'undefined' && window.innerWidth < 768 ? 'hidden' : 'visible',
-            marginTop: typeof window !== 'undefined' && window.innerWidth < 768 ? '-1px' : '-4px'
-          }}
+          className={`w-full max-w-[386px] md:max-w-none mx-auto md:mx-0 border border-[#DAB6FF] bg-[#1a0a2e]
+            ${activeModel === 'payg' ? 'rounded-tl-none rounded-tr-[12px] md:rounded-tr-[20px] rounded-bl-[12px] md:rounded-bl-[20px] rounded-br-[12px] md:rounded-br-[20px]' : ''}
+            ${activeModel !== 'payg' && activeTab === 0 ? 'rounded-tl-none rounded-tr-[12px] md:rounded-tr-[20px] rounded-bl-[12px] md:rounded-bl-[20px] rounded-br-[12px] md:rounded-br-[20px]' : ''}
+            ${activeModel !== 'payg' && activeTab === 1 ? 'rounded-tl-[12px] md:rounded-tl-[20px] rounded-tr-none rounded-bl-[12px] md:rounded-bl-[20px] rounded-br-[12px] md:rounded-br-[20px]' : ''}
+            p-4 md:p-8 overflow-hidden ${activeModel === 'payg' ? 'pt-2 md:pt-4' : ''}`}
         >
           
           {/* Promotional Banner - Hidden on mobile and PAYG */}
@@ -508,32 +502,6 @@ export const PricingSection = () => {
               </div>
             </div>
           )}
-            
-            {/* Challenge Type Buttons - Hidden on desktop and for PAYG */}
-            {activeModel !== 'payg' && (
-              <div className="w-full flex gap-2 justify-center md:hidden mb-4">
-                {availableChallengeTypes.map((type, index) => {
-                  // Get the original index from challengeTypes array
-                  const originalIndex = challengeTypes.findIndex(ct => ct.label === type.label);
-
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTab(originalIndex)}
-                      className={`flex flex-col justify-center items-center w-[112px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border transition-all
-                        ${activeTab === originalIndex
-                          ? 'bg-[linear-gradient(164deg,rgba(96,40,158,1)_0%,rgba(51,9,97,1)_100%)] border-[#a770e0]'
-                          : 'bg-[#1b0732] border-[#4f1b85]'
-                        }`}
-                    >
-                      <span className="font-['Blinker',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
-                        {type.label}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            )}
             
             {/* Account Size Buttons - Hidden on desktop only */}
             <div className="w-full flex gap-2 justify-center pb-2 md:hidden">
