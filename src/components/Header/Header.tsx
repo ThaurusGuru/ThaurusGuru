@@ -36,12 +36,10 @@ export const Header = () => {
     if (activeDropdownTimeout.current) clearTimeout(activeDropdownTimeout.current);
 
     if (label) {
-      // Small delay before showing
       activeDropdownTimeout.current = setTimeout(() => {
         setActiveDropdown(label);
       }, 150);
     } else {
-      // Delay before hiding to allow moving mouse to the dropdown
       activeDropdownTimeout.current = setTimeout(() => {
         setActiveDropdown(null);
       }, 300);
@@ -63,17 +61,14 @@ export const Header = () => {
     }
   };
 
-  // Get current language label
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
 
-  // Handle language change
   const changeLanguage = (langCode: string) => {
     i18n.changeLanguage(langCode);
     setIsLangDropdownOpen(false);
     setIsMobileLangOpen(false);
   };
 
-  // Handle smooth scroll to sections with header offset
   const handleHashNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes('#')) {
       e.preventDefault();
@@ -81,7 +76,7 @@ export const Header = () => {
       const element = document.getElementById(hash);
       
       if (element) {
-        const headerOffset = 100; // Account for fixed header height
+        const headerOffset = 100;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -90,13 +85,11 @@ export const Header = () => {
           behavior: 'smooth'
         });
 
-        // Close mobile menu if open
         setIsMobileMenuOpen(false);
       }
     }
   };
 
-  // Navigation items with translations
   const navItems = [
     { 
       label: t('header.challenges'), 
@@ -113,24 +106,12 @@ export const Header = () => {
     { label: t('header.affiliate'), href: "/affiliate" },
     { label: t('header.contactUs'), href: "/contact-us" },
     { label: t('header.blogs'), href: "/blogs" },
-    
   ];
 
   return (
     <header className="fixed top-[20px] sm:top-[41px] left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-32px)] sm:w-[calc(100%-80px)] lg:w-[1440px] h-[46px] sm:h-16">
-      {/* Backdrop blur container - OUTSIDE nav */}
-      <div className="absolute inset-0 rounded-[10px] overflow-hidden pointer-events-none">
-        <div 
-          className="absolute inset-0 rounded-[10px]"
-          style={{
-            backdropFilter: 'blur(40px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-          }}
-        />
-        {/* Background gradient */}
-        <div className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04] opacity-90" />
-      </div>
-
+      <div className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-white/[0.12] via-white/[0.08] to-white/[0.04] opacity-90" />
+      
       <nav 
         className="relative flex items-center justify-between h-full px-4 sm:px-6 lg:px-11
         rounded-[10px] 
@@ -140,6 +121,10 @@ export const Header = () => {
         hover:shadow-[0_12px_48px_rgba(168,85,247,0.25),0_0_0_1px_rgba(255,255,255,0.15)_inset,0_2px_0_rgba(255,255,255,0.3)_inset]
         transition-all duration-700 ease-out
         group"
+        style={{
+          backdropFilter: 'blur(40px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+        }}
       >
         {/* Shimmer effect overlay */}
         <div className="absolute inset-0 rounded-[10px] overflow-hidden pointer-events-none">
@@ -149,33 +134,15 @@ export const Header = () => {
         {/* Subtle inner glow */}
         <div className="absolute inset-[1px] rounded-[9px] bg-gradient-to-b from-white/[0.08] to-transparent pointer-events-none" />
         
-        {/* Logo - COMPLETELY ISOLATED with will-change */}
-        <Link 
-          to="/" 
-          className="relative z-[110]"
-          style={{
-            isolation: 'isolate',
-            willChange: 'transform',
-          }}
-        >
+        {/* Logo */}
+        <Link to="/">
           <img
-            className="w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
+            className="relative z-20 w-[100px] sm:w-[130px] lg:w-[157px] h-8 sm:h-10 lg:h-12 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
             transition-transform duration-300 hover:scale-105"
             alt="Logo"
             src="/thaurus logo.svg"
             style={{
-              transform: 'translate3d(0, 0, 0)',
-              WebkitTransform: 'translate3d(0, 0, 0)',
-              transformStyle: 'preserve-3d',
-              WebkitTransformStyle: 'preserve-3d',
-              backfaceVisibility: 'hidden',
-              WebkitBackfaceVisibility: 'hidden',
-              perspective: 1000,
-              WebkitPerspective: 1000,
               imageRendering: 'crisp-edges',
-              WebkitFontSmoothing: 'antialiased',
-              willChange: 'transform',
-              filter: 'blur(0px)', // Force sharp rendering
             }}
           />
         </Link>
@@ -232,7 +199,7 @@ export const Header = () => {
               {item.subItems && activeDropdown === item.label && (
                 <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 min-w-[220px]
                   rounded-xl border border-white/18
-                  bg-linear-to-b from-[#1b0a2e]/95 to-[#090422]/98 backdrop-blur-3xl
+                  bg-gradient-to-b from-[#1b0a2e]/95 to-[#090422]/98 backdrop-blur-3xl
                   shadow-[0_24px_48px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)_inset,0_4px_16px_rgba(168,85,247,0.15)]
                   p-2 grid gap-1 animate-in fade-in slide-in-from-top-2 duration-300">
                   {item.subItems.map((sub, sIdx) => (
@@ -287,7 +254,7 @@ export const Header = () => {
             {isLangDropdownOpen && (
               <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 min-w-[100px]
                 rounded-xl border border-white/18
-                bg-linear-to-b from-[#1b0a2e]/95 to-[#090422]/98 backdrop-blur-3xl
+                bg-gradient-to-b from-[#1b0a2e]/95 to-[#090422]/98 backdrop-blur-3xl
                 shadow-[0_24px_48px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)_inset,0_4px_16px_rgba(168,85,247,0.15)]
                 p-2 grid gap-1 animate-in fade-in slide-in-from-top-2 duration-300">
                 {languages.map((lang) => (
