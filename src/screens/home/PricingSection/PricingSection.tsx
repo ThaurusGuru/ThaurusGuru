@@ -594,7 +594,7 @@ export const PricingSection = () => {
                   </p>
                   <div className="flex items-center justify-center gap-1">
                     <span className="font-['Cambay',Helvetica] font-normal text-[#9d62d9] text-xs tracking-[0] leading-[normal]">
-                      {t('pricing.accountSize')}
+                      Account Size
                     </span>
                     <InfoIcon className="w-3 h-3 text-[#9d62d9]" />
                   </div>

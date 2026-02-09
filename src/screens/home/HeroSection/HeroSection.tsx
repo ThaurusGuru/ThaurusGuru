@@ -163,6 +163,12 @@ export const HeroSection = () => {
                               src={card.logo}
                               alt="Logo"
                               className="w-[15px] h-[15px] sm:w-[22px] sm:h-[22px] md:w-[26px] md:h-[26px] object-contain shrink-0"
+                              loading="eager"
+                              style={{ 
+                                imageRendering: '-webkit-optimize-contrast',
+                                transform: 'translateZ(0)',
+                                backfaceVisibility: 'hidden'
+                              }}
                             />
                           )}
                         </div>
@@ -180,6 +186,7 @@ export const HeroSection = () => {
                     to={card.link}
                     className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] 
                     hover:scale-105 transition-all duration-300 cursor-pointer block"
+                    style={{ willChange: 'transform', transform: 'translateZ(0)' }}
                   >
                     {CardContent}
                   </Link>
@@ -188,6 +195,7 @@ export const HeroSection = () => {
                     key={index}
                     className="relative h-[65px] sm:h-[80px] md:h-[85px] lg:h-[90px] 
                     hover:scale-105 transition-all duration-300"
+                    style={{ willChange: 'transform', transform: 'translateZ(0)' }}
                   >
                     {CardContent}
                   </div>
@@ -245,11 +253,19 @@ export const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-105 duration-300"
+                  style={{ willChange: 'transform', transform: 'translateZ(0)' }}
                 >
                   <img
                     src={review.src}
                     alt={review.alt}
                     className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
+                    loading="eager"
+                    decoding="sync"
+                    style={{ 
+                      imageRendering: '-webkit-optimize-contrast',
+                      transform: 'translateZ(0)',
+                      backfaceVisibility: 'hidden'
+                    }}
                   />
                 </a>
               ))}

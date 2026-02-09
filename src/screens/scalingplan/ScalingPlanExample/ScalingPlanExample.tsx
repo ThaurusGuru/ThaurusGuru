@@ -149,6 +149,7 @@ export const ScalingPlanExample = () => {
           {/* CTA Button */}
           <div className="w-full flex justify-center md:justify-start mt-[120px] md:pl-[300px] mb-[200px]">
             <button
+              onClick={() => window.open('https://my.thaurusguru.com/promotion/challenge', '_blank')}
               style={{
                 display: 'inline-flex',
                 padding: '10px 20px',
