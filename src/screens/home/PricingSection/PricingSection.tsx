@@ -535,33 +535,31 @@ export const PricingSection = () => {
               </div>
             )}
             
-            {/* Account Size Buttons - Hidden on desktop and for PAYG on mobile */}
-            {activeModel !== 'payg' && (
-              <div className="w-full flex gap-2 justify-center pb-2 md:hidden">
-                {accountSizes.map((size, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveAccountIndex(index)}
-                    className="flex flex-col justify-center items-center w-[62px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border shrink-0 transition-all"
-                    style={
-                      activeAccountIndex === index
-                        ? {
-                            border: '1px solid rgba(218, 182, 255, 0.15)',
-                            background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)'
-                          }
-                        : {
-                            border: '1px solid #4f1b85',
-                            background: '#1b0732'
-                          }
-                    }
-                  >
-                    <span className="font-['Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
-                      {size}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            )}
+            {/* Account Size Buttons - Hidden on desktop only */}
+            <div className="w-full flex gap-2 justify-center pb-2 md:hidden">
+              {accountSizes.map((size, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveAccountIndex(index)}
+                  className="flex flex-col justify-center items-center w-[62px] h-[36px] px-[20px] py-[6px] gap-[10px] rounded-[10px] border shrink-0 transition-all"
+                  style={
+                    activeAccountIndex === index
+                      ? {
+                          border: '1px solid rgba(218, 182, 255, 0.15)',
+                          background: 'linear-gradient(104deg, #F6E6FF -33.17%, #D692FF 16.49%, #8148ED 66.15%, #4829C3 115.81%, #090422 165.47%)'
+                        }
+                      : {
+                          border: '1px solid #4f1b85',
+                          background: '#1b0732'
+                        }
+                  }
+                >
+                  <span className="font-['Poppins',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap">
+                    {size}
+                  </span>
+                </button>
+              ))}
+            </div>
           
           {/* Platform Badge */}
           <div className="flex items-center justify-start mt-6 md:mt-12 -mb-6 md:-mb-10 opacity-0 animate-fade-in [--animation-delay:1400ms]">

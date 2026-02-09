@@ -170,6 +170,7 @@ export const AffiliateHeroSection = () => {
 
         {/* Button - 32px spacing */}
         <button 
+          onClick={() => window.open('https://docs.google.com/forms/d/1hWKNVE1u9tYHjiMqbXz4794TsqVTbbz7pCjaI7MU4Vw/edit', '_blank')}
           className="flex items-center justify-center gap-[10px] mt-10 hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.7)] hover:scale-105 transition-all duration-300"
           style={{
             width: '136px',
