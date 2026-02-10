@@ -3,6 +3,14 @@ import { FooterSection } from "../../screens/home/FooterSection";
 import "../../index.css";
 
 export const ContactUsPage = () => {
+  // Function to open LiveAgent chat by clicking the chat widget button
+  const openLiveChat = () => {
+    const chatBtn = document.querySelector('.circleRollButtonIcon') as HTMLElement;
+    if (chatBtn) {
+      chatBtn.click();
+    }
+  };
+
   const MapContent = (
     <img 
       src="/Contact-Us/gifcu.gif" 
@@ -64,7 +72,10 @@ export const ContactUsPage = () => {
             </p>
 
             {/* Support Button - Below description */}
-            <button className="inline-flex items-center justify-center gap-[10px] px-[20px] py-[10px] mb-[30px] rounded-[10px] border border-solid border-[#510F96] bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)] shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] hover:scale-105 transition-transform">
+            <button 
+              onClick={openLiveChat}
+              className="inline-flex items-center justify-center gap-[10px] px-[20px] py-[10px] mb-[30px] rounded-[10px] border border-solid border-[#510F96] bg-[linear-gradient(104deg,#F6E6FF_-33.17%,#D692FF_16.49%,#8148ED_66.15%,#4829C3_115.81%,#090422_165.47%)] shadow-[0_4px_14px_0_rgba(0,0,0,0.25)_inset] hover:scale-105 transition-transform cursor-pointer"
+            >
               <span className="text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.25)] font-['Cambay'] font-bold text-[16px] leading-[20px]">
                 Talk to Our Support Team
               </span>
