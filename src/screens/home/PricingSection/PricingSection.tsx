@@ -262,7 +262,7 @@ export const PricingSection = () => {
       return [
         { icon: '/pricing-section/icon-1.svg', title: 'News Trading', price: '' },
         { icon: '/pricing-section/icon-2.svg', title: 'Weekend Trading', price: '' },
-        { icon: '/pricing-section/icon-3.svg', title: 'Days between Consecutive Withdrawals', price: '' },
+        { icon: '/pricing-section/icon-3.svg', title: 'Weekly Payouts', price: '' },
         { icon: '/pricing-section/icon-4.svg', title: 'EA Bot Allowed', price: '' },
       ];
     }
@@ -461,7 +461,7 @@ export const PricingSection = () => {
             ${activeModel === 'payg' ? 'rounded-tl-none rounded-tr-[12px] md:rounded-tr-[20px] rounded-bl-[12px] md:rounded-bl-[20px] rounded-br-[12px] md:rounded-br-[20px]' : ''}
             ${activeModel !== 'payg' && activeTab === 0 ? 'rounded-tl-none rounded-tr-[12px] md:rounded-tr-[20px] rounded-bl-[12px] md:rounded-bl-[20px] rounded-br-[12px] md:rounded-br-[20px]' : ''}
             ${activeModel !== 'payg' && activeTab === 1 ? 'rounded-tl-[12px] md:rounded-tl-[20px] rounded-tr-none rounded-bl-[12px] md:rounded-bl-[20px] rounded-br-[12px] md:rounded-br-[20px]' : ''}
-            p-4 md:p-8 overflow-hidden ${activeModel === 'payg' ? 'pt-2 md:pt-4' : ''}`}
+            p-4 md:p-8 ${activeModel === 'payg' ? 'pt-2 md:pt-4' : ''}`}
         >
           
           {/* Promotional Banner - Hidden on mobile and PAYG */}
