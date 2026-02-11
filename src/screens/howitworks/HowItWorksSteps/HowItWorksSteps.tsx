@@ -61,11 +61,11 @@ export const HowItWorksSteps = () => {
           </p>
 
           {/* Step 2 Cards */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[60px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-[55px] mt-[60px] pt-[35px]">
             {step2Cards.map((card, index) => (
               <div
                 key={index}
-                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF] relative mt-[50px] md:mt-0"
+                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF] relative"
                 style={{
                   background: 'linear-gradient(180deg, rgba(35, 11, 62, 0.20) 0%, rgba(93, 29, 164, 0.20) 100%)'
                 }}
@@ -75,10 +75,11 @@ export const HowItWorksSteps = () => {
                   <div 
                     className="w-[60px] h-[60px] rounded-full flex items-center justify-center"
                     style={{
-                      backgroundColor: 'rgba(21, 2, 40, 0.20)',
+                      backgroundColor: 'rgba(21, 2, 40, 0.50)',
                       border: '1px solid #E9B1FF',
-                      backdropFilter: 'blur(10px)',
-                      WebkitBackdropFilter: 'blur(10px)'
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
                     }}
                   >
                     <img 
@@ -124,11 +125,11 @@ export const HowItWorksSteps = () => {
           </p>
 
           {/* Step 3 Cards */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[60px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-[55px] mt-[60px] pt-[35px]">
             {step3Cards.map((card, index) => (
               <div
                 key={index}
-                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF] relative mt-[50px] md:mt-0"
+                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF] relative"
                 style={{
                   background: 'linear-gradient(180deg, rgba(35, 11, 62, 0.20) 0%, rgba(93, 29, 164, 0.20) 100%)'
                 }}
@@ -138,10 +139,11 @@ export const HowItWorksSteps = () => {
                   <div 
                     className="w-[60px] h-[60px] rounded-full flex items-center justify-center"
                     style={{
-                      backgroundColor: 'rgba(21, 2, 40, 0.20)',
+                      backgroundColor: 'rgba(21, 2, 40, 0.50)',
                       border: '1px solid #E9B1FF',
-                      backdropFilter: 'blur(10px)',
-                      WebkitBackdropFilter: 'blur(10px)'
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
                     }}
                   >
                     <img 

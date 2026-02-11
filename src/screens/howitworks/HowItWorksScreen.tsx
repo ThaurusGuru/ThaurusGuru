@@ -5,7 +5,7 @@ import { HowItWorksSteps } from "./HowItWorksSteps/HowItWorksSteps";
 
 export const HowItWorksScreen = () => {
   return (
-    <div className="bg-[#1b082e] w-full min-w-0 lg:min-w-[1440px] relative overflow-hidden">
+    <div className="bg-[#1b082e] w-full min-w-0 lg:min-w-[1440px] relative overflow-x-clip">
       {/* Header */}
       <Header />
 
