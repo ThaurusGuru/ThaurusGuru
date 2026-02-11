@@ -21,7 +21,7 @@ export const HeroSection = () => {
   const { t } = useTranslation();
 
   const scrollToPricing = (activatePayg = false) => {
-    const pricingSection = document.getElementById('pricing-section');
+    const pricingSection = document.getElementById('trading-rules');
     if (pricingSection) {
       pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       
@@ -95,7 +95,9 @@ export const HeroSection = () => {
           {/* Left Column - Content */}
           <div className="flex flex-col items-center lg:items-start order-1 lg:order-1">
             {/* Badge with violet gradient, white border and premium animations */}
-            <Badge className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] 
+            <Badge 
+              onClick={() => scrollToPricing(false)}
+              className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] 
               inline-flex items-center justify-center self-center lg:self-start gap-3 px-6 sm:px-10 py-3 sm:py-4 h-auto 
               rounded-full border-2 border-white/90
               bg-gradient-to-r from-[#2c115c] via-[#47107b] to-[#4d0d8d]
