@@ -3,7 +3,7 @@ import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 import { useTranslation } from "react-i18next";
 
-const yAxisLabels = ["$8,000", "$4,000", "$2,000", "$0"];
+const yAxisLabels = ["$8,000", "$6,000", "$4,000", "$2,000", "$0"];
 
 export const CalculatorSection = () => {
   const { t } = useTranslation();
@@ -38,20 +38,20 @@ export const CalculatorSection = () => {
     return Math.round(earnings).toLocaleString();
   };
 
-  // Calculate bar height for chart (proportional to max $8000)
+  // Calculate bar height for chart (proportional to max $8000, capped with margin)
   const calculateBarHeight = () => {
     const earnings = accountSize * (profitRate / 100) * (rewardSplit / 100);
-    const maxHeight = 132; // pixels for desktop
-    const maxEarnings = 8000;
-    return Math.min((earnings / maxEarnings) * maxHeight, maxHeight);
+    const pxPerDollar = 175 / 8000;
+    const raw = earnings * pxPerDollar;
+    return Math.min(raw, 245); // cap so bar stays inside card with margin
   };
 
   // Calculate bar height for mobile
   const calculateBarHeightMobile = () => {
     const earnings = accountSize * (profitRate / 100) * (rewardSplit / 100);
-    const maxHeight = 104; // pixels for mobile (scaled)
-    const maxEarnings = 8000;
-    return Math.min((earnings / maxEarnings) * maxHeight, maxHeight);
+    const pxPerDollar = 140 / 8000;
+    const raw = earnings * pxPerDollar;
+    return Math.min(raw, 195); // cap so bar stays inside card with margin
   };
 
   return (
@@ -94,7 +94,7 @@ export const CalculatorSection = () => {
             </div>
 
             {/* Estimated Monthly Take-Home Chart */}
-            <div className="bar-chart-card-border relative lg:absolute lg:top-[30px] lg:left-0 w-full max-w-[386px] lg:max-w-[490px] h-[241px] lg:h-[306px] rounded-[15.755px] lg:rounded-[20px] mx-auto lg:mx-0">
+            <div className="bar-chart-card-border relative lg:absolute lg:top-[30px] lg:left-0 w-full max-w-[386px] lg:max-w-[490px] h-[241px] lg:h-[306px] rounded-[15.755px] lg:rounded-[20px] mx-auto lg:mx-0 overflow-hidden">
               <Badge className="absolute top-[20px] lg:top-7 left-[20px] lg:left-[35px] flex w-auto lg:w-[242px] h-[35px] items-center justify-center gap-[7px] px-[13px] py-1 bg-[#17003980] rounded-[18px] border border-[#7a27ef]/50 backdrop-blur-sm z-10">
                 <img
                   className="relative w-[22px] h-[22px]"
@@ -107,8 +107,8 @@ export const CalculatorSection = () => {
               </Badge>
 
               {/* Chart Grid Lines */}
-              <div className="absolute top-[90px] left-[60px] lg:top-[130px] lg:left-[76px] w-[266px] lg:w-[338px] h-[104px] lg:h-[132px] flex flex-col justify-between">
-                {[0, 1, 2, 3].map((index) => (
+              <div className="absolute top-[75px] left-[60px] lg:top-[85px] lg:left-[76px] w-[266px] lg:w-[338px] h-[140px] lg:h-[175px] flex flex-col justify-between">
+                {[0, 1, 2, 3, 4].map((index) => (
                   <div
                     key={`chart-line-${index}`}
                     className="w-[266px] lg:w-[338px] h-[0.788px] lg:h-[1px]"
@@ -117,12 +117,19 @@ export const CalculatorSection = () => {
                 ))}
               </div>
 
+              {/* Y-axis labels - same position as grid, each label centered on its grid line */}
+              <div className="absolute top-[75px] left-[10px] lg:top-[85px] lg:left-[18px] h-[140px] lg:h-[175px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-[8px] lg:text-xs tracking-[0]">
+                {yAxisLabels.map((label, index) => (
+                  <div key={`y-label-${index}`} className="h-0 flex items-center leading-none">{label}</div>
+                ))}
+              </div>
+
               {/* Dynamic Bar - White/Purple gradient - Desktop */}
               <div
                 className="hidden lg:block absolute left-[310px] w-[62px] rounded-[15px_15px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                 style={{
                   height: `${calculateBarHeight()}px`,
-                  bottom: '44px'
+                  bottom: '46px'
                 }}
               />
 
@@ -131,35 +138,30 @@ export const CalculatorSection = () => {
                 className="lg:hidden absolute left-[245px] w-[49px] rounded-[12px_12px_0px_0px] bg-gradient-to-b from-white/90 via-white/50 to-transparent transition-all duration-300 z-10"
                 style={{
                   height: `${calculateBarHeightMobile()}px`,
-                  bottom: '47px'
+                  bottom: '26px'
                 }}
               />
 
               {/* Static comparison bar - Dark purple - Desktop */}
               <div
-                className="hidden lg:block absolute left-[190px] w-[62px] h-[93px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
+                className="hidden lg:block absolute left-[190px] w-[62px] rounded-[15px_15px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
                 style={{
-                  bottom: '44px'
+                  height: '91px',
+                  bottom: '46px'
                 }}
               />
 
               {/* Static comparison bar - Dark purple - Mobile */}
               <div
-                className="lg:hidden absolute left-[150px] w-[49px] h-[73px] rounded-[12px_12px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
+                className="lg:hidden absolute left-[150px] w-[49px] rounded-[12px_12px_0px_0px] bg-[linear-gradient(180deg,rgba(20,0,51,1)_0%,rgba(24,12,43,0)_100%)]"
                 style={{
-                  bottom: '47px'
+                  height: '73px',
+                  bottom: '26px'
                 }}
               />
 
-              {/* Y-axis labels */}
-              <div className="absolute top-[82px] left-[10px] lg:top-[107px] lg:left-[18px] h-[112px] lg:h-[145px] flex flex-col items-start justify-between [font-family:'Poppins',Helvetica] font-normal text-white text-[10px] lg:text-lg tracking-[0] leading-[30px] lg:leading-[43px]">
-                {yAxisLabels.map((label, index) => (
-                  <div key={`y-label-${index}`}>{label}</div>
-                ))}
-              </div>
-
               {/* Value label for left bar - Desktop */}
-              <div className="hidden lg:flex absolute left-[184px] w-[73px] h-9 bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '147px' }}>
+              <div className="hidden lg:flex absolute left-[184px] w-[73px] h-9 bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: `${46 + 91 + 8}px` }}>
                 <div className="flex mt-[3px] w-16 h-[30px] ml-[5px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
                   <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-sm leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                     $4,150
@@ -168,7 +170,7 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Value label for left bar - Mobile */}
-              <div className="lg:hidden absolute left-[140px] w-[60px] h-8 flex bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: '128px' }}>
+              <div className="lg:hidden absolute left-[140px] w-[60px] h-8 flex bg-[#4b1d7b] rounded-[18px] z-20" style={{ bottom: `${26 + 73 + 8}px` }}>
                 <div className="flex mt-[3px] w-[50px] h-[26px] ml-[5px] relative items-center justify-center gap-2.5 px-2 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
                   <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-normal text-white text-xs leading-5 whitespace-nowrap [font-family:'Poppins',Helvetica] tracking-[0]">
                     $4,150
@@ -180,7 +182,7 @@ export const CalculatorSection = () => {
               <div
                 className="hidden lg:flex absolute left-[302px] w-[78px] h-9 bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
                 style={{
-                  bottom: `${calculateBarHeight() + 12}px`
+                  bottom: `${Math.min(46 + calculateBarHeight() + 8, 255)}px`
                 }}
               >
                 <div className="mt-[3px] w-[68px] ml-[5px] flex h-[30px] relative items-center justify-center gap-2.5 px-2.5 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
@@ -194,7 +196,7 @@ export const CalculatorSection = () => {
               <div
                 className="lg:hidden absolute left-[238px] w-[65px] h-8 flex bg-[#4b1d7b] rounded-[18px] transition-all duration-300 z-20"
                 style={{
-                  bottom: `${calculateBarHeightMobile() + 22}px`
+                  bottom: `${Math.min(26 + calculateBarHeightMobile() + 8, 194)}px`
                 }}
               >
                 <div className="mt-[3px] w-[55px] ml-[5px] flex h-[26px] relative items-center justify-center gap-2.5 px-2 py-[5px] bg-[rgba(27,9,46,0.33)] rounded-[23.633px] backdrop-blur-[2.0px] backdrop-brightness-[110%] [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)]">
@@ -339,9 +341,9 @@ export const CalculatorSection = () => {
               </div>
 
               {/* Reward Split Radio Options */}
-              <div className="inline-flex items-center gap-[34px]">
+              <div className="inline-flex items-center gap-[24px] lg:gap-[34px] flex-wrap">
                 <div 
-                  className="inline-flex items-center gap-4 cursor-pointer"
+                  className="inline-flex items-center gap-2 lg:gap-4 cursor-pointer"
                   onClick={() => setRewardSplit(80)}
                 >
                   <div className={`w-5 h-5 rounded-[10px] border-2 flex items-center justify-center transition-all ${
@@ -355,6 +357,40 @@ export const CalculatorSection = () => {
                   </div>
                   <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
                     80/20
+                  </span>
+                </div>
+                <div 
+                  className="inline-flex items-center gap-2 lg:gap-4 cursor-pointer"
+                  onClick={() => setRewardSplit(90)}
+                >
+                  <div className={`w-5 h-5 rounded-[10px] border-2 flex items-center justify-center transition-all ${
+                    rewardSplit === 90 
+                      ? 'bg-white border-white' 
+                      : 'bg-transparent border-[#4b1d7b]'
+                  }`}>
+                    {rewardSplit === 90 && (
+                      <div className="w-2.5 h-2.5 bg-[#4b1d7b] rounded-[5px]" />
+                    )}
+                  </div>
+                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                    90/10
+                  </span>
+                </div>
+                <div 
+                  className="inline-flex items-center gap-2 lg:gap-4 cursor-pointer"
+                  onClick={() => setRewardSplit(95)}
+                >
+                  <div className={`w-5 h-5 rounded-[10px] border-2 flex items-center justify-center transition-all ${
+                    rewardSplit === 95 
+                      ? 'bg-white border-white' 
+                      : 'bg-transparent border-[#4b1d7b]'
+                  }`}>
+                    {rewardSplit === 95 && (
+                      <div className="w-2.5 h-2.5 bg-[#4b1d7b] rounded-[5px]" />
+                    )}
+                  </div>
+                  <span className="[font-family:'Poppins',Helvetica] font-medium text-white text-sm tracking-[0] leading-5 whitespace-nowrap">
+                    95/5
                   </span>
                 </div>
               </div>
