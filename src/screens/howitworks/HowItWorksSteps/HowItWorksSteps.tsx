@@ -61,15 +61,34 @@ export const HowItWorksSteps = () => {
           </p>
 
           {/* Step 2 Cards */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[35px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[60px]">
             {step2Cards.map((card, index) => (
               <div
                 key={index}
-                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF]"
+                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF] relative mt-[50px] md:mt-0"
                 style={{
                   background: 'linear-gradient(180deg, rgba(35, 11, 62, 0.20) 0%, rgba(93, 29, 164, 0.20) 100%)'
                 }}
               >
+                {/* Arrow Icon at Top Center */}
+                <div className="absolute -top-[30px] left-1/2 -translate-x-1/2">
+                  <div 
+                    className="w-[60px] h-[60px] rounded-full flex items-center justify-center"
+                    style={{
+                      backgroundColor: 'rgba(21, 2, 40, 0.20)',
+                      border: '1px solid #E9B1FF',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <img 
+                      src={`/How-it-works/icons/funded account/icon-${index + 1}.svg`}
+                      alt={card.title} 
+                      className="w-[28px] h-[28px] aspect-square"
+                    />
+                  </div>
+                </div>
+
                 {/* Title */}
                 <h3 className="text-white text-center font-['M_PLUS_2'] text-[16px] font-normal leading-[26px]">
                   {card.title}
@@ -105,15 +124,34 @@ export const HowItWorksSteps = () => {
           </p>
 
           {/* Step 3 Cards */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[35px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-[60px]">
             {step3Cards.map((card, index) => (
               <div
                 key={index}
-                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF]"
+                className="w-[272px] h-[336px] p-[35px_30px] flex flex-col items-center rounded-[20px] border border-[#E9B1FF] relative mt-[50px] md:mt-0"
                 style={{
                   background: 'linear-gradient(180deg, rgba(35, 11, 62, 0.20) 0%, rgba(93, 29, 164, 0.20) 100%)'
                 }}
               >
+                {/* Arrow Icon at Top Center */}
+                <div className="absolute -top-[30px] left-1/2 -translate-x-1/2">
+                  <div 
+                    className="w-[60px] h-[60px] rounded-full flex items-center justify-center"
+                    style={{
+                      backgroundColor: 'rgba(21, 2, 40, 0.20)',
+                      border: '1px solid #E9B1FF',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <img 
+                      src={`/How-it-works/icons/Join the elite/icon-${index + 1}.svg`}
+                      alt={card.title} 
+                      className="w-[28px] h-[28px] aspect-square"
+                    />
+                  </div>
+                </div>
+
                 {/* Title */}
                 <h3 className="text-white text-center font-['M_PLUS_2'] text-[16px] font-normal leading-[26px]">
                   {card.title}

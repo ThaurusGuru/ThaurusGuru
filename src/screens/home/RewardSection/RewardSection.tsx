@@ -20,15 +20,18 @@ export const RewardSection = () => {
   const cards = [
     {
       title: "RAPID REWARDS",
-      content: "In trading, timing is everything, and we believe the same applies to your rewards. At ThaurusGuru, we don't just \"pay quickly\"—we have engineered a financial infrastructure that respects your time. Provided that your trading activity remains in full compliance with our guidelines and no violations are detected, your performance-based rewards are processed within a 48-hour window. Whether you choose to withdraw via Crypto or Direct Bank Transfer, our priority is to get your success into your hands as fast as humanly possible."
+      content: "In trading, timing is everything, and we believe the same applies to your rewards. At ThaurusGuru, we don't just \"pay quickly\"—we have engineered a financial infrastructure that respects your time. Provided that your trading activity remains in full compliance with our guidelines and no violations are detected, your performance-based rewards are processed within a 48-hour window. Whether you choose to withdraw via Crypto or Direct Bank Transfer, our priority is to get your success into your hands as fast as humanly possible.",
+      image: "/reward/rapid.png"
     },
     {
       title: "TRADING CO-PILOT",
-      content: "The markets don't sleep, and neither do we. Whether you are navigating a late-night session in New York or catching the early Tokyo open, our expert support team is active 24 hours a day, 7 days a week. Get real-time assistance via Discord or Live Chat whenever you need it."
+      content: "The markets don't sleep, and neither do we. Whether you are navigating a late-night session in New York or catching the early Tokyo open, our expert support team is active 24 hours a day, 7 days a week. Get real-time assistance via Discord or Live Chat whenever you need it.",
+      image: "/reward/pilot.png"
     },
     {
       title: "PROFESSIONAL ENVIRONMENT",
-      content: "Our partnership with Thaurus LTD is about providing you with a professional, simulated environment that you can actually trust. Every rule, every payout method, and every scaling step is clearly defined. No hidden clauses, no \"fine print\" traps. Just a clear path from your first trade to a professional career, backed by a firm that values transparency in every interaction."
+      content: "Our partnership with Thaurus LTD is about providing you with a professional, simulated environment that you can actually trust. Every rule, every payout method, and every scaling step is clearly defined. No hidden clauses, no \"fine print\" traps. Just a clear path from your first trade to a professional career, backed by a firm that values transparency in every interaction.",
+      image: "/reward/pro.png"
     }
   ];
 
@@ -60,14 +63,30 @@ export const RewardSection = () => {
         </p>
         
         {/* Card(s) Container */}
-        <div className="mt-[90px] w-full flex flex-wrap justify-center gap-[30px]">
+        <div className="mt-[90px] w-full flex flex-col items-center gap-[30px]">
           {cards.map((card, index) => (
-            <div key={index} className="w-[380px] h-auto lg:h-[556px] rounded-[15px] border border-[#7D00FF] bg-[#7a27ef]/10 flex flex-col items-center pt-[48px] px-8 pb-8 lg:pb-0">
-               <h4 className="text-center text-white font-['Poppins'] text-[22px] font-normal leading-[26px] uppercase">
-                 {card.title}
-               </h4>
-               <div className="mt-[19px] w-[294px] text-justify text-white font-['Poppins'] text-[16px] font-normal leading-[26px]">
-                 {card.content}
+            <div key={index} className="w-full max-w-[1200px] rounded-[15px] border border-[#7D00FF] bg-[#7a27ef]/10 flex flex-col lg:flex-row items-center justify-between p-8 gap-6">
+               {/* Text Content */}
+               <div className="flex-1 flex flex-col">
+                 <h4 className="text-left text-white font-['Poppins'] text-[22px] font-normal leading-[26px] uppercase">
+                   {card.title}
+                 </h4>
+                 <div className="mt-[19px] text-justify text-white font-['Poppins'] text-[16px] font-normal leading-[26px]">
+                   {card.content}
+                 </div>
+               </div>
+               
+               {/* Image */}
+               <div className="shrink-0 ml-8 w-[250px] h-[250px] flex items-center justify-center">
+                 <img 
+                   src={card.image} 
+                   alt={card.title}
+                   className="object-contain"
+                   style={{
+                     width: index === 0 ? '208.273px' : index === 1 ? '155px' : '200px',
+                     height: index === 0 ? '227px' : index === 1 ? '153.838px' : '200px'
+                   }}
+                 />
                </div>
             </div>
           ))}
