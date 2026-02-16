@@ -224,7 +224,7 @@ export const PayoutsSection = () => {
               key={`horizontal-line-${index}`}
               className={`w-[1316px] h-px object-cover ${line.top}`}
               alt="Line"
-              src="https://c.animaapp.com/mishf4erVkDEuN/img/line-41.svg"
+              src="/payouts/line-41.svg"
             />
           ))}
         </div>
@@ -235,7 +235,7 @@ export const PayoutsSection = () => {
               key={`vertical-line-${index}`}
               className={`absolute top-0 ${line.left} w-px h-[582px] object-cover`}
               alt="Line"
-              src={index < 7 ? "https://c.animaapp.com/mishf4erVkDEuN/img/line-50.svg" : "https://c.animaapp.com/mishf4erVkDEuN/img/line-43.svg"}
+              src={index < 7 ? "/payouts/line-50.svg" : "/payouts/line-43.svg"}
             />
           ))}
 

@@ -75,7 +75,7 @@ export const CalculatorSection = () => {
                 <img
                   className="relative w-5 h-5"
                   alt="Solar calculator"
-                  src="https://c.animaapp.com/mishf4erVkDEuN/img/solar-calculator-minimalistic-outline.svg"
+                  src="/calculator-section/solar-calculator-minimalistic-outline.svg"
                 />
                 <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-sm tracking-[0] leading-[20px] whitespace-nowrap">
                   Earnings Estimator
@@ -99,7 +99,7 @@ export const CalculatorSection = () => {
                 <img
                   className="relative w-[22px] h-[22px]"
                   alt="Healthicons money"
-                  src="https://c.animaapp.com/mishf4erVkDEuN/img/healthicons-money-bag-outline.svg"
+                  src="/calculator-section/solar-calculator-minimalistic-outline.svg"
                 />
                 <span className="relative [font-family:'Cambay',Helvetica] font-normal text-white text-xs lg:text-sm tracking-[0] leading-5 whitespace-nowrap">
                   Estimated Monthly Take-Home

@@ -384,7 +384,7 @@ export const PricingSection = () => {
               <img
                 className="hidden md:block absolute top-[-36px] left-[34px] w-[38px] h-[26px]"
                 alt="Arrow"
-                src="https://c.animaapp.com/mishf4erVkDEuN/img/group-66.png"
+                src="/pricing-section/group-66.png"
               />
               
               {/* Mobile & Desktop: Custom Styled Button */}
@@ -544,7 +544,7 @@ export const PricingSection = () => {
               <img
                 className="w-6 md:w-7 h-6 md:h-7 object-cover"
                 alt="MT5"
-                src="https://c.animaapp.com/mishf4erVkDEuN/img/image-2-3.png"
+                src="/pricing-section/image-2-3.png"
               />
             </div>
           </div>

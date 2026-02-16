@@ -7,7 +7,7 @@ export const DiscordSection = () => {
 
   const featureCards = [
     {
-      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/majesticons-chat-line.svg",
+      icon: "/discord-section/majesticons-chat-line.svg",
       title: t('discord.marketChats'),
       description: t('discord.marketChatsDesc'),
       channels: [
@@ -19,17 +19,17 @@ export const DiscordSection = () => {
         "# 💬 crypto-chat",
       ],
       hasImage: true,
-      imageUrl: "https://c.animaapp.com/mishf4erVkDEuN/img/group-112.png",
+      imageUrl: "/discord-section/group-112.png",
     },
     {
-      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/ant-design-stock-outlined.svg",
+      icon: "/discord-section/ant-design-stock-outlined.svg",
       title: t('discord.tradeIdeas'),
       description: t('discord.tradeIdeasDesc'),
       channels: ["# 📈 trade-ideas"],
       hasImage: false,
     },
     {
-      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/fluent-people-community-16-regular.svg",
+      icon: "/discord-section/fluent-people-community-16-regular.svg",
       title: t('discord.communityHub'),
       description: t('discord.communityHubDesc'),
       channels: [
@@ -45,7 +45,7 @@ export const DiscordSection = () => {
       hasImage: false,
     },
     {
-      icon: "https://c.animaapp.com/mishf4erVkDEuN/img/fluent-speaker-1-28-regular.svg",
+      icon: "/discord-section/fluent-speaker-1-28-regular.svg",
       title: t('discord.announcements'),
       description: t('discord.announcementsDesc'),
       channels: ["# 📢 announcements"],
@@ -131,7 +131,7 @@ export const DiscordSection = () => {
             <img
               className="w-[32px] h-[32px] md:w-[37.59px] md:h-[37.59px]"
               alt="Discord icon"
-              src="https://c.animaapp.com/mishf4erVkDEuN/img/social-media-day-png-highquality-transparent-icons-popular-apps-.png"
+              src="/discord-section/social-media-day-png-highquality-transparent-icons-popular-apps-.png"
             />
             <span className="[font-family:'Montserrat',Helvetica] font-bold text-white text-[13px] md:text-[15px] tracking-[0] leading-[normal] whitespace-nowrap">
               {t('discord.joinForFree')}
