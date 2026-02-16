@@ -146,19 +146,19 @@ export const FooterSection = () => {
                 >
                   <ul className="flex flex-col gap-1 pl-0 pb-2">
                     <li>
-                      <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
+                      <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
                         Challenges
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
+                      <Link to="/about-us" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
                         About Us
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
+                      <Link to="/faq" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
                         FAQ
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -188,17 +188,17 @@ export const FooterSection = () => {
                 >
                   <ul className="flex flex-col gap-1 pl-0 pb-2">
                     <li>
-                      <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
+                      <Link to="/how-it-works" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
                         How it Works
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
+                      <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
                         Two Step
                       </a>
                     </li>
                     <li>
-                      <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
+                      <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[12px] tracking-[0.12px] leading-normal hover:text-white transition-colors">
                         Three Step
                       </a>
                     </li>
@@ -337,34 +337,34 @@ export const FooterSection = () => {
                 </h3>
                 <ul className="flex flex-col gap-1">
                   <li>
-                    <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Challenges
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <Link to="/about-us" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <Link to="/faq" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       FAQ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <Link to="/affiliate" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Affiliate
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <Link to="/contact-us" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Contact Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <Link to="/blogs" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Blogs
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -379,22 +379,22 @@ export const FooterSection = () => {
                 </h3>
                 <ul className="flex flex-col gap-1">
                   <li>
-                    <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <Link to="/how-it-works" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       How it Works
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Two Step
                     </a>
                   </li>
                   <li>
-                    <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
+                    <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors">
                       Three Step
                     </a>
                   </li>
                   <li>
-                    <a href="#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors whitespace-nowrap">
+                    <a href="/#pricing-section" className="[font-family:'Poppins',Helvetica] font-normal text-[#B982FB] text-[14px] tracking-[0.14px] leading-normal hover:text-white transition-colors whitespace-nowrap">
                       Try Pay As You Go
                     </a>
                   </li>
