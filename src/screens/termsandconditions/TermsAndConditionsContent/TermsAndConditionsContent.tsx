@@ -730,6 +730,15 @@ export const TermsAndConditionsContent = () => {
           </div>
         </section>
 
+        {/* Section 17 - Supplier and Payment Settlement */}
+        <section className="border-t border-white/10 pt-8 mt-8">
+          <div className="space-y-4 text-sm text-purple-200/90 italic">
+            <p>
+              Thaurus Ltd. represents a supplier of services. Settlement of payments is executed via Odeonpay ALE S.R.L. (&quot;Paysagi&quot;), acting solely as Merchant of Record for transaction settlement purposes. Paysagi shall never be considered as the supplier of the goods or services. Any payment settlement is subject to Paysagi&apos;s Terms of Use, available at <a href="https://paysagi.com/terms-of-use/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">https://paysagi.com/terms-of-use/</a>, presented to customers during the payment process.
+            </p>
+          </div>
+        </section>
+
       </div>
     </div>
   );

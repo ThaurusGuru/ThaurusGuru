@@ -263,10 +263,15 @@ export const FooterSection = () => {
                   <Link to="/terms-and-conditions" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Terms & Conditions</Link>
                   <Link to="/privacy-policy" className="font-['Poppins',Helvetica] text-[#b982fb] text-[10px] opacity-60 hover:text-white transition-colors">Privacy Policy</Link>
                 </div>
-                {/* Restored Disclaimer Text - Mobile */}
-                <p className="font-['Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-40 text-center px-4 pb-4">
-                  {t('footer.disclaimerText')}
-                </p>
+                <div className="flex flex-col gap-3 px-4 pb-4">
+                  <p className="font-['Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-40 text-center">
+                    Thaurus Ltd., a company registered under registration number 190874 at the address: 8 th Floor, Hennessy Tower, Pope Hennessy Street, Port Louis, Mauritius
+                  </p>
+                  {/* Restored Disclaimer Text - Mobile */}
+                  <p className="font-['Poppins',Helvetica] text-[#b982fb] text-[8px] tracking-[0.08px] leading-normal opacity-40 text-center">
+                    {t('footer.disclaimerText')}
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -465,7 +470,10 @@ export const FooterSection = () => {
               </div>
             </div>
             {/* Restored Disclaimer Text - Desktop */}
-            <div className="hidden md:block mt-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1200ms]">
+            <div className="hidden md:flex flex-col gap-3 mt-6 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1200ms]">
+              <p className="font-['Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-[1.5] md:leading-normal opacity-40">
+                Thaurus Ltd., a company registered under registration number 190874 at the address: 8 th Floor, Hennessy Tower, Pope Hennessy Street, Port Louis, Mauritius
+              </p>
               <p className="font-['Poppins',Helvetica] font-light text-[#b982fb] text-[10px] md:text-xs tracking-[0.1px] md:tracking-[0.12px] leading-[1.5] md:leading-normal opacity-40">
                 {t('footer.disclaimerText')}
               </p>
