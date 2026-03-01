@@ -56,7 +56,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
         { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
         { label: "Profit Split", hasInfo: true, tooltip: "Your share of the generated profits. While the standard payout is 80%, our scaling program allows successful traders to increase their reward share up to a maximum of 90%." },
         { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
-        { label: "Time Limit", hasInfo: true, tooltip: "30 days per phase to complete the challenge" },
+        { label: "Time Limit", hasInfo: true, tooltip: "Unlimited time to pass" },
         { label: "Leverage", hasInfo: true, tooltip: "" },
         { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
       ];
@@ -71,7 +71,7 @@ const getTableRows = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       { label: "Max Daily Drawdown", hasInfo: true, tooltip: "The maximum loss permitted within a single trading day, factoring in both closed trades and live market fluctuations. If your daily equity drops below this threshold, the account will be closed." },
       { label: "Max Overall Drawdown", hasInfo: true, tooltip: "This is the total allowable decline from your starting balance. It is calculated based on both realized and unrealized (floating) PnL. Exceeding this overall limit results in account closure." },
       { label: "Minimum Trading Days", hasInfo: true, tooltip: "The required number of active trading days for each phase. This requirement varies depending on the specific challenge type selected." },
-      { label: "Time Limit", hasInfo: true, tooltip: "30 days per phase to complete the challenge" },
+      { label: "Time Limit", hasInfo: true, tooltip: "Unlimited time to pass" },
       { label: "Leverage", hasInfo: true, tooltip: "" },
       { label: "Price", hasInfo: true, tooltip: "Evaluation fee for the selected account size" },
     ];
@@ -109,7 +109,7 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
         { value: "5%" }, // Max Overall Drawdown
         { value: "" }, // Profit Split - calculated dynamically
         { value: "5 days" }, // Minimum Trading Days
-        { value: "30 days/phase" }, // Time Limit
+        { value: "Unlimited" }, // Time Limit
         { value: "" }, // Leverage - calculated dynamically
       ];
     }
@@ -123,7 +123,7 @@ const getColumnData = (model: 'classic' | 'pro' | 'payg', tabIndex: number) => {
       { value: "5%" }, // Max Daily Drawdown
       { value: "10%" }, // Max Overall Drawdown
       { value: "3 days" }, // Minimum Trading Days
-      { value: "30 days/phase" }, // Time Limit
+      { value: "Unlimited" }, // Time Limit
       { value: "" }, // Leverage - calculated dynamically
     ];
   }
