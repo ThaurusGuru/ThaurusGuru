@@ -192,7 +192,7 @@ const fundingData = [
       {
         number: "02",
         question: "REFUND ON THE FIRST PAYOUT",
-        answer: "For the majority of challenge models, ThaurusGuru refunds the full evaluation fee once a trader receives their first funded payout.\n\nEligible for Refund on Second Payout:\n• Classic 2-Step\n• Classic 3-Step\nOnce you complete your first payout successfully, the refund amount you originally paid for the evaluation is credited back to you.",
+        answer: "For the majority of challenge models, ThaurusGuru refunds the full evaluation fee once a trader receives their first funded payout.\n\nEligible for Refund on First Payout:\n• Classic 2-Step\n• Classic 3-Step\nOnce you complete your first payout successfully, the refund amount you originally paid for the evaluation is credited back to you.",
       },
       {
         number: "03",
