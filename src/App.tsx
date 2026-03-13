@@ -14,6 +14,7 @@ import { CookiesPolicyPage } from "./pages/CookiesPolicy";
 import { HowItWorksPage } from "./pages/HowItWorks";
 import { TradingRulesPage } from "./pages/TradingRules";
 import { RewardPage } from "./pages/Reward";
+import { CheckoutPage } from "./pages/Checkout";
 import "./index.css";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
         <Route path="/cookies-policy" element={<CookiesPolicyPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   );
