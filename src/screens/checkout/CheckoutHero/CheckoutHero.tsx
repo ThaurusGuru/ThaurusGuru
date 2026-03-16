@@ -66,6 +66,7 @@ const VerticalArrowSeparator = () => (
 interface CheckoutHeroProps {
   activeStep: number;
   onStepClick: (step: number) => void;
+  completedStep: number;
 }
 
 const steps = [
@@ -74,7 +75,7 @@ const steps = [
   { number: 3, label: "Payment Method" },
 ];
 
-export const CheckoutHero = ({ activeStep, onStepClick }: CheckoutHeroProps) => {
+export const CheckoutHero = ({ activeStep, onStepClick, completedStep }: CheckoutHeroProps) => {
   return (
     <div className="relative w-full">
       <div
@@ -115,17 +116,19 @@ export const CheckoutHero = ({ activeStep, onStepClick }: CheckoutHeroProps) => 
         <div className="hidden lg:flex items-center" style={{ marginTop: "67px" }}>
           {steps.map((step, index) => {
             const isActive = activeStep === step.number;
+            const isClickable = step.number <= completedStep + 1;
             return (
               <div key={step.number} className="flex items-center">
                 <div
-                  onClick={() => onStepClick(step.number)}
-                  className="flex items-center cursor-pointer"
+                  onClick={() => isClickable && onStepClick(step.number)}
+                  className={`flex items-center ${isClickable ? "cursor-pointer" : "cursor-not-allowed"}`}
                   style={{
                     width: "360px",
                     height: "100px",
                     padding: "20px 24px",
                     gap: "18px",
                     borderRadius: "52px",
+                    opacity: isClickable ? 1 : 0.5,
                     background: isActive
                       ? "radial-gradient(53.02% 149% at 50% 100%, rgba(112, 0, 255, 0.40) 0%, rgba(30, 9, 51, 0.40) 100%)"
                       : "radial-gradient(53.02% 149% at 50% 100%, rgba(112, 0, 255, 0.20) 0%, rgba(30, 9, 51, 0.20) 100%)",
@@ -167,17 +170,19 @@ export const CheckoutHero = ({ activeStep, onStepClick }: CheckoutHeroProps) => 
         <div className="flex lg:hidden flex-col items-center" style={{ marginTop: "40px" }}>
           {steps.map((step, index) => {
             const isActive = activeStep === step.number;
+            const isClickable = step.number <= completedStep + 1;
             return (
               <div key={step.number} className="flex flex-col items-center">
                 <div
-                  onClick={() => onStepClick(step.number)}
-                  className="flex items-center cursor-pointer"
+                  onClick={() => isClickable && onStepClick(step.number)}
+                  className={`flex items-center ${isClickable ? "cursor-pointer" : "cursor-not-allowed"}`}
                   style={{
                     width: "311px",
                     height: "86px",
                     padding: "18px 20px",
                     gap: "18px",
                     borderRadius: "52px",
+                    opacity: isClickable ? 1 : 0.5,
                     background: isActive
                       ? "radial-gradient(53.02% 149% at 50% 100%, rgba(112, 0, 255, 0.40) 0%, rgba(30, 9, 51, 0.40) 100%)"
                       : "radial-gradient(53.02% 149% at 50% 100%, rgba(112, 0, 255, 0.20) 0%, rgba(30, 9, 51, 0.20) 100%)",

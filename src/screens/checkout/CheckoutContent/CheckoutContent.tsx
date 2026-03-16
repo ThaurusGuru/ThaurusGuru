@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { OrderSidebar } from "../OrderSidebar/OrderSidebar";
+import { useCheckout } from "../CheckoutContext";
 
 const CheckIcon = () => (
   <svg
@@ -37,15 +37,19 @@ interface CheckoutContentProps {
 }
 
 export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
-  const [selectedPlan, setSelectedPlan] = useState("2-step Classic");
-  const [selectedSize, setSelectedSize] = useState("$5,000");
-  const [selectedAddons, setSelectedAddons] = useState(["News Trading"]);
-
-  const toggleAddon = (addon: string) => {
-    setSelectedAddons((prev) =>
-      prev.includes(addon) ? prev.filter((a) => a !== addon) : [...prev, addon]
-    );
-  };
+  const {
+    loading,
+    plans,
+    selectedPlanId,
+    selectPlan,
+    sizes,
+    selectedSizeId,
+    selectSize,
+    addons,
+    selectedAddonTitles,
+    toggleAddon,
+    total,
+  } = useCheckout();
 
   const selectedCardBg =
     "linear-gradient(138deg, rgb(96, 40, 158) 17%, rgb(38, 5, 72) 64%)";
@@ -54,25 +58,15 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
   const panelBg =
     "radial-gradient(ellipse at 50% -40%, rgba(112,0,255,0.2) 0%, rgba(30,9,51,0.2) 100%)";
 
-  const plans = [
-    { id: "2-step Classic", subtitle: "2-step", label: "Classic" },
-    { id: "3-step Classic", subtitle: "3-step", label: "Classic" },
-    {
-      id: "Pay As You Go",
-      subtitle: "",
-      label: "Pay As You Go",
-      popular: true,
-    },
-  ];
-
-  const sizes = ["$5,000", "$10,000", "$25,000", "$50,000", "$100,000"];
-
-  const addons = [
-    { name: "News Trading" },
-    { name: "Weekend Trading" },
-    { name: "Weekly Payouts" },
-    { name: "EA Bot Allowed" },
-  ];
+  if (loading) {
+    return (
+      <div className="w-full flex items-center justify-center py-[100px]">
+        <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "20px", color: "#b982fb" }}>
+          Loading challenges...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full relative z-10" style={{ fontFamily: "'Poppins', sans-serif" }}>
@@ -127,14 +121,14 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
             </h3>
 
             {/* Desktop plan cards */}
-            <div className="hidden lg:flex gap-[28px] items-center flex-wrap">
+            <div className="hidden lg:flex gap-[28px] items-center">
               {plans.map((plan) => {
-                const isSelected = selectedPlan === plan.id;
+                const isSelected = selectedPlanId === plan.id;
                 const w = plan.popular ? 210 : 188;
                 return (
                   <div
                     key={plan.id}
-                    onClick={() => setSelectedPlan(plan.id)}
+                    onClick={() => selectPlan(plan.id)}
                     className="relative cursor-pointer"
                     style={{
                       width: `${w}px`,
@@ -202,18 +196,17 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
             </div>
 
             {/* Mobile plan cards */}
-            <div className="flex lg:hidden flex-wrap gap-[20px]">
+            <div className="flex lg:hidden gap-[10px]">
               {plans.map((plan) => {
-                const isSelected = selectedPlan === plan.id;
-                const w = plan.popular ? 160 : 150;
+                const isSelected = selectedPlanId === plan.id;
                 return (
                   <div
                     key={plan.id}
-                    onClick={() => setSelectedPlan(plan.id)}
-                    className="relative cursor-pointer"
+                    onClick={() => selectPlan(plan.id)}
+                    className="relative cursor-pointer flex-1"
                     style={{
-                      width: `${w}px`,
-                      height: plan.popular ? "74px" : "80px",
+                      minWidth: 0,
+                      height: "80px",
                       borderRadius: "10px",
                       background: isSelected
                         ? plan.popular
@@ -298,11 +291,11 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
             <div className="hidden lg:flex flex-col gap-[27px]">
               <div className="flex gap-[28px] items-center">
                 {sizes.slice(0, 3).map((size) => {
-                  const isSelected = selectedSize === size;
+                  const isSelected = selectedSizeId === size.id;
                   return (
                     <div
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
+                      key={size.id}
+                      onClick={() => selectSize(size.id)}
                       className="relative cursor-pointer"
                       style={{
                         width: "190px",
@@ -327,60 +320,62 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                           textTransform: "capitalize",
                         }}
                       >
-                        {size}
+                        {size.label}
                       </p>
                     </div>
                   );
                 })}
               </div>
-              <div className="flex gap-[28px] items-center">
-                {sizes.slice(3).map((size) => {
-                  const isSelected = selectedSize === size;
-                  return (
-                    <div
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className="relative cursor-pointer"
-                      style={{
-                        width: "190px",
-                        height: "64px",
-                        borderRadius: "10px",
-                        background: isSelected ? selectedCardBg : unselectedCardBg,
-                        border: isSelected ? "0.5px solid #a770e1" : "none",
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: "19px", left: "23px" }}>
-                        <CheckCircle checked={isSelected} />
-                      </div>
-                      <p
+              {sizes.length > 3 && (
+                <div className="flex gap-[28px] items-center">
+                  {sizes.slice(3).map((size) => {
+                    const isSelected = selectedSizeId === size.id;
+                    return (
+                      <div
+                        key={size.id}
+                        onClick={() => selectSize(size.id)}
+                        className="relative cursor-pointer"
                         style={{
-                          position: "absolute",
-                          top: "17px",
-                          left: "65px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "20px",
-                          fontWeight: 700,
-                          color: "#fff",
-                          textTransform: "capitalize",
+                          width: "190px",
+                          height: "64px",
+                          borderRadius: "10px",
+                          background: isSelected ? selectedCardBg : unselectedCardBg,
+                          border: isSelected ? "0.5px solid #a770e1" : "none",
                         }}
                       >
-                        {size}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
+                        <div style={{ position: "absolute", top: "19px", left: "23px" }}>
+                          <CheckCircle checked={isSelected} />
+                        </div>
+                        <p
+                          style={{
+                            position: "absolute",
+                            top: "17px",
+                            left: "65px",
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "20px",
+                            fontWeight: 700,
+                            color: "#fff",
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          {size.label}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Mobile sizes */}
             <div className="flex lg:hidden flex-col gap-[16px]">
               <div className="flex gap-[10px] items-center">
                 {sizes.slice(0, 3).map((size) => {
-                  const isSelected = selectedSize === size;
+                  const isSelected = selectedSizeId === size.id;
                   return (
                     <div
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
+                      key={size.id}
+                      onClick={() => selectSize(size.id)}
                       className="relative cursor-pointer flex-1"
                       style={{
                         height: "44px",
@@ -405,50 +400,52 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {size}
+                        {size.label}
                       </p>
                     </div>
                   );
                 })}
               </div>
-              <div className="flex gap-[10px] items-center">
-                {sizes.slice(3).map((size) => {
-                  const isSelected = selectedSize === size;
-                  return (
-                    <div
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className="relative cursor-pointer"
-                      style={{
-                        width: "calc(50% - 5px)",
-                        height: "44px",
-                        borderRadius: "10px",
-                        background: isSelected ? selectedCardBg : unselectedCardBg,
-                        border: isSelected ? "0.5px solid #a770e1" : "none",
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: "10px", left: "10px" }}>
-                        <CheckCircle checked={isSelected} size={24} />
-                      </div>
-                      <p
+              {sizes.length > 3 && (
+                <div className="flex gap-[10px] items-center">
+                  {sizes.slice(3).map((size) => {
+                    const isSelected = selectedSizeId === size.id;
+                    return (
+                      <div
+                        key={size.id}
+                        onClick={() => selectSize(size.id)}
+                        className="relative cursor-pointer"
                         style={{
-                          position: "absolute",
-                          top: "11px",
-                          left: "40px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "12px",
-                          fontWeight: 700,
-                          color: "#fff",
-                          textTransform: "capitalize",
-                          whiteSpace: "nowrap",
+                          width: "calc(50% - 5px)",
+                          height: "44px",
+                          borderRadius: "10px",
+                          background: isSelected ? selectedCardBg : unselectedCardBg,
+                          border: isSelected ? "0.5px solid #a770e1" : "none",
                         }}
                       >
-                        {size}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
+                        <div style={{ position: "absolute", top: "10px", left: "10px" }}>
+                          <CheckCircle checked={isSelected} size={24} />
+                        </div>
+                        <p
+                          style={{
+                            position: "absolute",
+                            top: "11px",
+                            left: "40px",
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "12px",
+                            fontWeight: 700,
+                            color: "#fff",
+                            textTransform: "capitalize",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {size.label}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Add ons */}
@@ -469,14 +466,14 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
             <div className="hidden lg:flex flex-col gap-[27px]">
               <div className="flex gap-[28px] items-center">
                 {addons.slice(0, 2).map((addon) => {
-                  const isSelected = selectedAddons.includes(addon.name);
+                  const isSelected = selectedAddonTitles.includes(addon.title);
                   return (
                     <div
-                      key={addon.name}
-                      onClick={() => toggleAddon(addon.name)}
+                      key={addon.title}
+                      onClick={() => toggleAddon(addon.title)}
                       className="relative cursor-pointer"
                       style={{
-                        width: addon.name === "Weekend Trading" ? "280px" : "246px",
+                        width: "260px",
                         height: "64px",
                         borderRadius: "10px",
                         background: isSelected ? selectedCardBg : unselectedCardBg,
@@ -496,62 +493,66 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                           fontWeight: 700,
                           color: "#fff",
                           textTransform: "capitalize",
+                          whiteSpace: "nowrap",
                         }}
                       >
-                        {addon.name}
+                        {addon.title.replace(" Allowed", "")}
                       </p>
                     </div>
                   );
                 })}
               </div>
-              <div className="flex gap-[28px] items-center">
-                {addons.slice(2).map((addon) => {
-                  const isSelected = selectedAddons.includes(addon.name);
-                  return (
-                    <div
-                      key={addon.name}
-                      onClick={() => toggleAddon(addon.name)}
-                      className="relative cursor-pointer"
-                      style={{
-                        width: addon.name === "Weekly Payouts" ? "262px" : "248px",
-                        height: "64px",
-                        borderRadius: "10px",
-                        background: isSelected ? selectedCardBg : unselectedCardBg,
-                        border: isSelected ? "0.5px solid #a770e1" : "none",
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: "19px", left: "27px" }}>
-                        <CheckCircle checked={isSelected} />
-                      </div>
-                      <p
+              {addons.length > 2 && (
+                <div className="flex gap-[28px] items-center">
+                  {addons.slice(2).map((addon) => {
+                    const isSelected = selectedAddonTitles.includes(addon.title);
+                    return (
+                      <div
+                        key={addon.title}
+                        onClick={() => toggleAddon(addon.title)}
+                        className="relative cursor-pointer"
                         style={{
-                          position: "absolute",
-                          top: "17px",
-                          left: "69px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "20px",
-                          fontWeight: 700,
-                          color: "#fff",
-                          textTransform: "capitalize",
+                          width: "260px",
+                          height: "64px",
+                          borderRadius: "10px",
+                          background: isSelected ? selectedCardBg : unselectedCardBg,
+                          border: isSelected ? "0.5px solid #a770e1" : "none",
                         }}
                       >
-                        {addon.name}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
+                        <div style={{ position: "absolute", top: "19px", left: "27px" }}>
+                          <CheckCircle checked={isSelected} />
+                        </div>
+                        <p
+                          style={{
+                            position: "absolute",
+                            top: "17px",
+                            left: "69px",
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "20px",
+                            fontWeight: 700,
+                            color: "#fff",
+                            textTransform: "capitalize",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {addon.title.replace(" Allowed", "")}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Mobile addons */}
             <div className="flex lg:hidden flex-col gap-[20px]">
               <div className="flex gap-[20px] items-center">
                 {addons.slice(0, 2).map((addon) => {
-                  const isSelected = selectedAddons.includes(addon.name);
+                  const isSelected = selectedAddonTitles.includes(addon.title);
                   return (
                     <div
-                      key={addon.name}
-                      onClick={() => toggleAddon(addon.name)}
+                      key={addon.title}
+                      onClick={() => toggleAddon(addon.title)}
                       className="relative cursor-pointer flex-1"
                       style={{
                         height: "44px",
@@ -576,49 +577,51 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {addon.name}
+                        {addon.title.replace(" Allowed", "")}
                       </p>
                     </div>
                   );
                 })}
               </div>
-              <div className="flex gap-[20px] items-center">
-                {addons.slice(2).map((addon) => {
-                  const isSelected = selectedAddons.includes(addon.name);
-                  return (
-                    <div
-                      key={addon.name}
-                      onClick={() => toggleAddon(addon.name)}
-                      className="relative cursor-pointer flex-1"
-                      style={{
-                        height: "44px",
-                        borderRadius: "10px",
-                        background: isSelected ? selectedCardBg : unselectedCardBg,
-                        border: isSelected ? "0.5px solid #a770e1" : "none",
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: "10px", left: "10px" }}>
-                        <CheckCircle checked={isSelected} size={24} />
-                      </div>
-                      <p
+              {addons.length > 2 && (
+                <div className="flex gap-[20px] items-center">
+                  {addons.slice(2).map((addon) => {
+                    const isSelected = selectedAddonTitles.includes(addon.title);
+                    return (
+                      <div
+                        key={addon.title}
+                        onClick={() => toggleAddon(addon.title)}
+                        className="relative cursor-pointer flex-1"
                         style={{
-                          position: "absolute",
-                          top: "11px",
-                          left: "40px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "12px",
-                          fontWeight: 700,
-                          color: "#fff",
-                          textTransform: "capitalize",
-                          whiteSpace: "nowrap",
+                          height: "44px",
+                          borderRadius: "10px",
+                          background: isSelected ? selectedCardBg : unselectedCardBg,
+                          border: isSelected ? "0.5px solid #a770e1" : "none",
                         }}
                       >
-                        {addon.name}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
+                        <div style={{ position: "absolute", top: "10px", left: "10px" }}>
+                          <CheckCircle checked={isSelected} size={24} />
+                        </div>
+                        <p
+                          style={{
+                            position: "absolute",
+                            top: "11px",
+                            left: "40px",
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "12px",
+                            fontWeight: 700,
+                            color: "#fff",
+                            textTransform: "capitalize",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {addon.title.replace(" Allowed", "")}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -626,11 +629,12 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
         {/* RIGHT COLUMN / BOTTOM ON MOBILE */}
         <OrderSidebar
           onCtaClick={onContinue}
+          showPromoCode={true}
           ctaText={
             <>
-              <span className="text-[18px] lg:text-[22px]">START A NEW CHALLENGE FOR</span>
+              <span className="text-[14px] lg:text-[22px]">START A NEW CHALLENGE FOR</span>
               <span
-                className="text-[28px] lg:text-[34px]"
+                className="text-[22px] lg:text-[34px]"
                 style={{
                   background: "linear-gradient(121deg, #b783ff 16%, #fff 94%)",
                   backgroundClip: "text",
@@ -638,7 +642,7 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                $45
+                ${total}
               </span>
             </>
           }

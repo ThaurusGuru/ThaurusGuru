@@ -5,7 +5,8 @@
       "Bash(npx tailwindcss --help:*)",
       "Bash(claude mcp:*)",
       "mcp__figma__whoami",
-      "mcp__figma__get_design_context"
+      "mcp__figma__get_design_context",
+      "mcp__figma__get_screenshot"
     ]
   }
 }
