@@ -208,7 +208,9 @@ function deriveSizes(chains: ChallengeChain[], chainIndices: number[]): Size[] {
       if (!step) return null;
       return {
         id: step.id,
-        label: `$${step.initialBalance.toLocaleString()}`,
+        label: step.initialBalance >= 1000
+          ? `$${step.initialBalance / 1000}K`
+          : `$${step.initialBalance}`,
         initialBalance: step.initialBalance,
         price: step.price,
         leverage: step.accountType?.leverages?.[0] ?? 100,

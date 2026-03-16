@@ -23,8 +23,13 @@ export const OrderSidebar = ({ ctaText, onCtaClick, showPromoCode = false }: Ord
     promoError,
   } = useCheckout();
 
+  const balanceLabel = selectedChallenge
+    ? selectedChallenge.initialBalance >= 1000
+      ? `$${selectedChallenge.initialBalance / 1000}K`
+      : `$${selectedChallenge.initialBalance}`
+    : "";
   const challengeLabel = selectedChallenge
-    ? `$${selectedChallenge.initialBalance / 1000}K ${selectedChallenge.accountType?.platformInfo?.type ?? "MT5"} Instant`
+    ? `${balanceLabel} ${selectedChallenge.accountType?.platformInfo?.type ?? "MT5"} Instant`
     : "Challenge";
 
   const receiptItems = [
@@ -33,7 +38,6 @@ export const OrderSidebar = ({ ctaText, onCtaClick, showPromoCode = false }: Ord
     ...(discountAmount > 0
       ? [{ label: `Coupon : ${promoCode}`, value: `-$${discountAmount.toFixed(2)}` }]
       : []),
-    { label: "VAT", value: "$0.00" },
     { label: "Total", value: `$${total.toFixed(2)}`, isLast: true },
   ];
 
