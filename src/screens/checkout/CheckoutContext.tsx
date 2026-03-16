@@ -433,8 +433,6 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
   const discountAmount = promoDiscount !== null ? subtotal - promoDiscount : 0;
   const total = promoDiscount !== null ? promoDiscount : subtotal;
 
-  const selectedPlan = plans.find((p) => p.id === selectedPlanId);
-
   const submitPayment = useCallback(async (): Promise<string | null> => {
     setPaymentError(null);
 
@@ -452,9 +450,8 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
 
     setPaymentLoading(true);
     try {
-      const { phone, ...traderRest } = billingData;
       // Clean phone: remove spaces, keep digits only
-      const cleanPhone = phone.replace(/[^0-9]/g, "");
+      const cleanPhone = billingData.phone.replace(/[^0-9]/g, "");
       // Get regionId from the selected chain's accountType
       const chainData = chains[sizeObj.chainIndex];
       const publicStep = chainData?.chain.find((s) => s.isPublic);

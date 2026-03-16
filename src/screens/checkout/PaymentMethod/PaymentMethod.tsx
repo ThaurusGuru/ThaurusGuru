@@ -90,7 +90,7 @@ interface PaymentMethodProps {
   onContinue: () => void;
 }
 
-export const PaymentMethod = ({ onContinue }: PaymentMethodProps) => {
+export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) => {
   const {
     merchants,
     selectedMerchant,
@@ -109,7 +109,6 @@ export const PaymentMethod = ({ onContinue }: PaymentMethodProps) => {
   const [agreedTerms, setAgreedTerms] = useState(false);
   const [localError, setLocalError] = useState("");
 
-  const selectedTab = tabs.find((t) => t.id === selectedTabId);
 
   const handleTabChange = (tab: PaymentTab) => {
     setSelectedTabId(tab.id);

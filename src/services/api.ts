@@ -43,7 +43,7 @@ async function request<T>(
     throw error;
   }
 
-  return data;
+  return data as T;
 }
 
 // ─── Error type ──────────────────────────────────────────────────────
