@@ -3,6 +3,13 @@ html {
   scroll-behavior: smooth;
 }
 
+select::-webkit-scrollbar {
+  display: none;
+}
+select {
+  scrollbar-width: none;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

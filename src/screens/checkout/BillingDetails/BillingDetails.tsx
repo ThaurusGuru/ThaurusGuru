@@ -403,31 +403,18 @@ export const BillingDetails = ({ onContinue }: BillingDetailsProps) => {
               <div className="flex-1">
                 <label style={labelStyle}>Language</label>
                 <div
-                  className="flex items-center justify-between w-full"
+                  className="flex items-center w-full"
                   style={getStyle("language")}
                 >
-                  <select
-                    value={billingData.language}
-                    onChange={(e) => {
-                      setBillingData({ language: e.target.value });
-                      clearFieldError("language");
-                    }}
-                    className="bg-transparent outline-none flex-1 appearance-none cursor-pointer"
+                  <span
                     style={{
                       fontFamily: "'Poppins', sans-serif",
                       fontSize: "16px",
-                      color: billingData.language ? "#fff" : "#b982fb",
-                      border: "none",
-                      padding: 0,
+                      color: "#fff",
                     }}
                   >
-                    <option value="" style={{ background: "#1b092e" }}>Select Language</option>
-                    <option value="EN" style={{ background: "#1b092e" }}>English</option>
-                    <option value="ES" style={{ background: "#1b092e" }}>Spanish</option>
-                    <option value="SK" style={{ background: "#1b092e" }}>Slovak</option>
-                    <option value="UK" style={{ background: "#1b092e" }}>Ukrainian</option>
-                  </select>
-                  <DropdownArrow />
+                    English
+                  </span>
                 </div>
                 {fieldErrors.language && <p style={errorTextStyle}>{fieldErrors.language}</p>}
                 <p

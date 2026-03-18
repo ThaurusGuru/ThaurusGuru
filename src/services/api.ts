@@ -87,6 +87,7 @@ export interface AccountType {
 
 export interface ChallengeStep {
   id: string;
+  challengeTypeId?: string;
   title: string;
   description1?: string;
   description2?: string;
@@ -213,7 +214,17 @@ export const api = {
   validatePromoCode: (challengeTypeId: string, promoCode: string) =>
     request<PromoCodeResponse>("/challenge-type/promo-code", {
       method: "POST",
-      body: JSON.stringify({ challengeTypeId, promoCode }),
+      body: JSON.stringify({
+        challengeTypeId,
+        promoCode,
+        conditions: [],
+        fingerprint: JSON.stringify({
+          screenResolution: `${window.screen.width}x${window.screen.height}`,
+          timezoneOffset: new Date().getTimezoneOffset(),
+          userAgent: navigator.userAgent,
+          language: navigator.language,
+        }),
+      }),
     }),
 
   /** Step 2: Check if email is available */

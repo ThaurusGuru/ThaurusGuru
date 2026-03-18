@@ -221,10 +221,8 @@ function deriveSizes(chains: ChallengeChain[], chainIndices: number[]): Size[] {
     .sort((a, b) => a.initialBalance - b.initialBalance);
 }
 
-function deriveAddons(chains: ChallengeChain[], chainIndices: number[]): Upsale[] {
-  // All chains in a plan group share the same upsales — take from the first chain
-  if (chainIndices.length === 0) return [];
-  return chains[chainIndices[0]].upsales.map((u) => ({
+function deriveAddons(chains: ChallengeChain[], chainIndex: number): Upsale[] {
+  return (chains[chainIndex]?.upsales ?? []).map((u) => ({
     ...u,
     title: u.title.trim(),
   }));
@@ -256,7 +254,7 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
     lastName: "",
     phone: "",
     country: "",
-    language: "",
+    language: "EN",
     password: "",
     confirmPassword: "",
   });
@@ -290,10 +288,10 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
 
           const derivedSizes = deriveSizes(chainsData, firstPlan.chainIndices);
           setSizes(derivedSizes);
-          setAddons(deriveAddons(chainsData, firstPlan.chainIndices));
 
           if (derivedSizes.length > 0) {
             setSelectedSizeId(derivedSizes[0].id);
+            setAddons(deriveAddons(chainsData, derivedSizes[0].chainIndex));
           }
         }
       } catch (err) {
@@ -323,11 +321,13 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
       if (plan) {
         const newSizes = deriveSizes(chains, plan.chainIndices);
         setSizes(newSizes);
-        setAddons(deriveAddons(chains, plan.chainIndices));
         setSelectedAddonTitles([]);
 
         if (newSizes.length > 0) {
           setSelectedSizeId(newSizes[0].id);
+          setAddons(deriveAddons(chains, newSizes[0].chainIndex));
+        } else {
+          setAddons([]);
         }
       }
     },
@@ -338,7 +338,13 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
     setSelectedSizeId(sizeId);
     setPromoDiscount(null);
     setPromoError(null);
-  }, []);
+    setSelectedAddonTitles([]);
+
+    const sizeObj = sizes.find((s) => s.id === sizeId);
+    if (sizeObj) {
+      setAddons(deriveAddons(chains, sizeObj.chainIndex));
+    }
+  }, [sizes, chains]);
 
   const toggleAddon = useCallback((title: string) => {
     setSelectedAddonTitles((prev) =>
@@ -353,16 +359,27 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
     }
     if (!selectedSizeId) return;
 
+    // Production API uses step.id as challengeTypeId for promo validation
+    const challengeTypeId = selectedSizeId;
+
     setPromoLoading(true);
     setPromoError(null);
     try {
-      const res = await api.validatePromoCode(selectedSizeId, promoCode);
+      const res = await api.validatePromoCode(challengeTypeId, promoCode);
       setPromoDiscount(res.data.price);
     } catch (err: unknown) {
       if (isApiError(err)) {
-        setPromoError(err.errorMessage);
+        // API returns raw translation keys — map them to human-readable messages
+        const code = err.errorCode ?? "";
+        if (code.includes("notFound") || err.status === 404) {
+          setPromoError("The promo code you entered is invalid or has expired.");
+        } else if (err.status === 400) {
+          setPromoError("This promo code cannot be applied to the selected challenge.");
+        } else {
+          setPromoError("Unable to apply promo code. Please try again.");
+        }
       } else {
-        setPromoError("Failed to validate promo code. Please try again.");
+        setPromoError("Unable to apply promo code. Please try again.");
       }
       setPromoDiscount(null);
     } finally {
@@ -430,8 +447,10 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
   }, 0);
 
   const subtotal = basePrice + addonsTotal;
-  const discountAmount = promoDiscount !== null ? subtotal - promoDiscount : 0;
-  const total = promoDiscount !== null ? promoDiscount : subtotal;
+  // promoDiscount is the discounted base price returned by the API (e.g. $36 for a $45 challenge)
+  // Discount only applies to the base challenge price, not addons
+  const discountAmount = promoDiscount !== null ? basePrice - promoDiscount : 0;
+  const total = (promoDiscount !== null ? promoDiscount : basePrice) + addonsTotal;
 
   const submitPayment = useCallback(async (): Promise<string | null> => {
     setPaymentError(null);
@@ -482,7 +501,7 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
         challengeTypeId: selectedSizeId,
         currency: selectedMerchant.currency[0]?.toUpperCase() || "USD",
         originalCurrency: selectedMerchant.currency[0] || "usd",
-        amount: sizeObj.price,
+        amount: total,
         leverage: sizeObj.leverage,
         regionId,
         promoCode: promoCode || null,
@@ -518,13 +537,15 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
           }
           // Show specific field errors in the payment error
           setPaymentError(fieldMessages.length > 0
-            ? fieldMessages.join(". ")
-            : err.errorMessage);
+            ? `Please review the following fields: ${fieldMessages.map(f => f.split(":")[0]).join(", ")}.`
+            : "Some of your details are invalid. Please go back and review your billing information.");
+        } else if (err.errorCode === "internal_server_error") {
+          setPaymentError("We encountered an issue processing your payment. Please try again or contact support.");
         } else {
-          setPaymentError(err.errorMessage);
+          setPaymentError(err.errorMessage ?? "Payment could not be processed. Please try again.");
         }
       } else {
-        setPaymentError("Payment failed. Please try again or contact support.");
+        setPaymentError("Payment could not be processed. Please try again or contact our support team.");
       }
       console.error("Payment failed:", err);
       return null;

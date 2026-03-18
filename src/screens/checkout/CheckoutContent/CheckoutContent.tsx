@@ -296,9 +296,9 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                     <div
                       key={size.id}
                       onClick={() => selectSize(size.id)}
-                      className="relative cursor-pointer"
+                      className="relative cursor-pointer flex-1"
                       style={{
-                        width: "190px",
+                        minWidth: "130px",
                         height: "64px",
                         borderRadius: "10px",
                         background: isSelected ? selectedCardBg : unselectedCardBg,
@@ -334,9 +334,9 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                       <div
                         key={size.id}
                         onClick={() => selectSize(size.id)}
-                        className="relative cursor-pointer"
+                        className="relative cursor-pointer flex-1"
                         style={{
-                          width: "190px",
+                          minWidth: "130px",
                           height: "64px",
                           borderRadius: "10px",
                           background: isSelected ? selectedCardBg : unselectedCardBg,
@@ -464,55 +464,17 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
 
             {/* Desktop addons */}
             <div className="hidden lg:flex flex-col gap-[27px]">
-              <div className="flex gap-[28px] items-center">
-                {addons.slice(0, 2).map((addon) => {
-                  const isSelected = selectedAddonTitles.includes(addon.title);
-                  return (
-                    <div
-                      key={addon.title}
-                      onClick={() => toggleAddon(addon.title)}
-                      className="relative cursor-pointer"
-                      style={{
-                        width: "260px",
-                        height: "64px",
-                        borderRadius: "10px",
-                        background: isSelected ? selectedCardBg : unselectedCardBg,
-                        border: isSelected ? "0.5px solid #a770e1" : "none",
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: "19px", left: "27px" }}>
-                        <CheckCircle checked={isSelected} />
-                      </div>
-                      <p
-                        style={{
-                          position: "absolute",
-                          top: "17px",
-                          left: "69px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "20px",
-                          fontWeight: 700,
-                          color: "#fff",
-                          textTransform: "capitalize",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        {addon.title.replace(" Allowed", "")}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-              {addons.length > 2 && (
-                <div className="flex gap-[28px] items-center">
-                  {addons.slice(2).map((addon) => {
+              {Array.from({ length: Math.ceil(addons.length / 2) }, (_, rowIdx) => (
+                <div key={rowIdx} className="flex gap-[28px] items-center">
+                  {addons.slice(rowIdx * 2, rowIdx * 2 + 2).map((addon) => {
                     const isSelected = selectedAddonTitles.includes(addon.title);
                     return (
                       <div
                         key={addon.title}
                         onClick={() => toggleAddon(addon.title)}
-                        className="relative cursor-pointer"
+                        className="relative cursor-pointer flex-1"
                         style={{
-                          width: "260px",
+                          minWidth: addon.title === "No Minimum Trading Days" ? "260px" : "180px",
                           height: "64px",
                           borderRadius: "10px",
                           background: isSelected ? selectedCardBg : unselectedCardBg,
@@ -527,12 +489,12 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                             position: "absolute",
                             top: "17px",
                             left: "69px",
+                            right: "12px",
                             fontFamily: "'Poppins', sans-serif",
-                            fontSize: "20px",
+                            fontSize: addon.title === "No Minimum Trading Days" ? "15px" : "20px",
                             fontWeight: 700,
                             color: "#fff",
                             textTransform: "capitalize",
-                            whiteSpace: "nowrap",
                           }}
                         >
                           {addon.title.replace(" Allowed", "")}
@@ -541,51 +503,14 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                     );
                   })}
                 </div>
-              )}
+              ))}
             </div>
 
             {/* Mobile addons */}
             <div className="flex lg:hidden flex-col gap-[20px]">
-              <div className="flex gap-[20px] items-center">
-                {addons.slice(0, 2).map((addon) => {
-                  const isSelected = selectedAddonTitles.includes(addon.title);
-                  return (
-                    <div
-                      key={addon.title}
-                      onClick={() => toggleAddon(addon.title)}
-                      className="relative cursor-pointer flex-1"
-                      style={{
-                        height: "44px",
-                        borderRadius: "10px",
-                        background: isSelected ? selectedCardBg : unselectedCardBg,
-                        border: isSelected ? "0.5px solid #a770e1" : "none",
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: "10px", left: "10px" }}>
-                        <CheckCircle checked={isSelected} size={24} />
-                      </div>
-                      <p
-                        style={{
-                          position: "absolute",
-                          top: "11px",
-                          left: "40px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "12px",
-                          fontWeight: 700,
-                          color: "#fff",
-                          textTransform: "capitalize",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        {addon.title.replace(" Allowed", "")}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-              {addons.length > 2 && (
-                <div className="flex gap-[20px] items-center">
-                  {addons.slice(2).map((addon) => {
+              {Array.from({ length: Math.ceil(addons.length / 2) }, (_, rowIdx) => (
+                <div key={rowIdx} className="flex gap-[20px] items-center">
+                  {addons.slice(rowIdx * 2, rowIdx * 2 + 2).map((addon) => {
                     const isSelected = selectedAddonTitles.includes(addon.title);
                     return (
                       <div
@@ -621,7 +546,7 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                     );
                   })}
                 </div>
-              )}
+              ))}
             </div>
           </div>
         </div>

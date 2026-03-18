@@ -12,6 +12,8 @@ interface OrderSidebarProps {
 export const OrderSidebar = ({ ctaText, onCtaClick, showPromoCode = false }: OrderSidebarProps) => {
   const {
     selectedChallenge,
+    plans,
+    selectedPlanId,
     basePrice,
     subtotal,
     discountAmount,
@@ -23,17 +25,27 @@ export const OrderSidebar = ({ ctaText, onCtaClick, showPromoCode = false }: Ord
     promoError,
   } = useCheckout();
 
+  const selectedPlan = plans.find((p) => p.id === selectedPlanId);
+
   const balanceLabel = selectedChallenge
     ? selectedChallenge.initialBalance >= 1000
       ? `$${selectedChallenge.initialBalance / 1000}K`
       : `$${selectedChallenge.initialBalance}`
     : "";
+
+  // e.g. "2-step Classic" or "Pay As You Go"
+  const planName = selectedPlan
+    ? selectedPlan.subtitle
+      ? `${selectedPlan.subtitle} ${selectedPlan.label}`
+      : selectedPlan.label
+    : "";
+
   const challengeLabel = selectedChallenge
-    ? `${balanceLabel} ${selectedChallenge.accountType?.platformInfo?.type ?? "MT5"} Instant`
+    ? `${balanceLabel} ${planName}`.trim()
     : "Challenge";
 
   const receiptItems = [
-    { label: `$${basePrice} ${challengeLabel}`, value: `$${basePrice.toFixed(2)}` },
+    { label: challengeLabel, value: `$${basePrice.toFixed(2)}` },
     { label: "Subtotal", value: `$${subtotal.toFixed(2)}` },
     ...(discountAmount > 0
       ? [{ label: `Coupon : ${promoCode}`, value: `-$${discountAmount.toFixed(2)}` }]
