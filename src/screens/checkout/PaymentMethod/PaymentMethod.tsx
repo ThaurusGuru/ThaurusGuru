@@ -9,49 +9,17 @@ const panelBg =
 interface CardDef {
   id: string;
   label: string;
-  matchMerchant: (m: Merchant) => boolean;
+  provider: "paymid" | "payok" | "korapay";
+  disabled?: boolean;
 }
 
 const CARD_DEFS: CardDef[] = [
-  {
-    id: "visa",
-    label: "Visa/ Master Card/ Amex",
-    matchMerchant: (m) =>
-      m.currency.some((c) => ["usd", "eur"].includes(c.toLowerCase())) &&
-      !["confirmo", "korapay", "transactpay"].some((s) =>
-        m.slug.toLowerCase().includes(s)
-      ),
-  },
-  {
-    id: "apple-google",
-    label: "Apple Pay, Google Pay ($)",
-    matchMerchant: (m) =>
-      m.currency.some((c) => ["usd", "eur"].includes(c.toLowerCase())) &&
-      !["confirmo", "korapay", "transactpay"].some((s) =>
-        m.slug.toLowerCase().includes(s)
-      ),
-  },
-  {
-    id: "confirmo",
-    label: "Confirmo",
-    matchMerchant: (m) => m.slug.toLowerCase().includes("confirmo"),
-  },
-  {
-    id: "transactpay",
-    label: "TransactPay (NGN)",
-    matchMerchant: (m) => m.slug.toLowerCase().includes("transactpay"),
-  },
-  {
-    id: "korapay",
-    label: "KoraPay (NGN)",
-    matchMerchant: (m) => m.slug.toLowerCase().includes("korapay"),
-  },
-  {
-    id: "upi",
-    label: "UPI (INR)",
-    matchMerchant: (m) =>
-      m.currency.some((c) => c.toLowerCase() === "inr"),
-  },
+  { id: "visa", label: "Visa/ Master Card/ Amex", provider: "paymid" },
+  { id: "apple-google", label: "Apple Pay, Google Pay ($)", provider: "paymid" },
+  { id: "confirmo", label: "Confirmo", provider: "paymid" },
+  { id: "transactpay", label: "TransactPay (NGN)", provider: "paymid" },
+  { id: "korapay", label: "KoraPay (NGN)", provider: "korapay", disabled: true },
+  { id: "upi", label: "UPI (INR)", provider: "payok" },
 ];
 
 // Proper Apple Pay logo (white Apple symbol + Pay text)
@@ -135,11 +103,18 @@ export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) =
   const [selectedCardId, setSelectedCardId] = useState<string>("");
   const [localError, setLocalError] = useState("");
 
-  const findMerchant = (card: CardDef): Merchant | null =>
-    // Try specific match first, fallback to first available merchant for testing
-    merchants.find((m) => card.matchMerchant(m)) ?? merchants[0] ?? null;
+  const findMerchant = (card: CardDef): Merchant | null => {
+    if (card.disabled) return null;
+    // Match merchant by provider slug
+    return (
+      merchants.find((m) => m.slug.toLowerCase().includes(card.provider)) ??
+      merchants[0] ??
+      null
+    );
+  };
 
   const handleCardSelect = (card: CardDef) => {
+    if (card.disabled) return;
     const merchant = findMerchant(card);
     if (!merchant) return;
     setSelectedCardId(card.id);
@@ -162,11 +137,12 @@ export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) =
   const row2 = CARD_DEFS.slice(2, 5);
   const row3 = CARD_DEFS.slice(5);
 
-  const cardStyle = (isSelected: boolean): React.CSSProperties => ({
+  const cardStyle = (isSelected: boolean, disabled?: boolean): React.CSSProperties => ({
     borderRadius: "16px",
     border: isSelected ? "1px solid #8546dd" : "1px solid #4e159d",
     background: isSelected ? "#2c1451" : "#1b092e",
-    cursor: "pointer",
+    cursor: disabled ? "not-allowed" : "pointer",
+    opacity: disabled ? 0.4 : 1,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -227,7 +203,7 @@ export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) =
                   <div
                     key={card.id}
                     onClick={() => handleCardSelect(card)}
-                    style={{ ...cardStyle(selectedCardId === card.id), flex: i === 0 ? "1.4 1 0" : "1 1 0", minWidth: 0, height: "128px" }}
+                    style={{ ...cardStyle(selectedCardId === card.id, card.disabled), flex: i === 0 ? "1.4 1 0" : "1 1 0", minWidth: 0, height: "128px" }}
                   >
                     <CardLogos cardId={card.id} />
                     <span style={{ ...cardLabelStyle, fontSize: "13px" }}>{card.label}</span>
@@ -241,10 +217,13 @@ export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) =
                   <div
                     key={card.id}
                     onClick={() => handleCardSelect(card)}
-                    style={{ ...cardStyle(selectedCardId === card.id), flex: "1 1 0", minWidth: 0, height: "128px" }}
+                    style={{ ...cardStyle(selectedCardId === card.id, card.disabled), flex: "1 1 0", minWidth: 0, height: "128px", position: "relative" }}
                   >
                     <CardLogos cardId={card.id} />
                     <span style={{ ...cardLabelStyle, fontSize: "13px" }}>{card.label}</span>
+                    {card.disabled && (
+                      <span style={{ position: "absolute", bottom: "6px", fontSize: "10px", color: "#b982fb", fontStyle: "italic" }}>Coming soon</span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -253,7 +232,7 @@ export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) =
               <div className="flex gap-[16px]">
                 <div
                   onClick={() => handleCardSelect(row3[0])}
-                  style={{ ...cardStyle(selectedCardId === row3[0].id), width: "200px", height: "128px" }}
+                  style={{ ...cardStyle(selectedCardId === row3[0].id, row3[0].disabled), width: "200px", height: "128px" }}
                 >
                   <CardLogos cardId={row3[0].id} />
                   <span style={{ ...cardLabelStyle, fontSize: "13px" }}>{row3[0].label}</span>
@@ -273,10 +252,13 @@ export const PaymentMethod = ({ onContinue: _onContinue }: PaymentMethodProps) =
                 <div
                   key={card.id}
                   onClick={() => handleCardSelect(card)}
-                  style={{ ...cardStyle(selectedCardId === card.id), height: "110px", overflow: "hidden" }}
+                  style={{ ...cardStyle(selectedCardId === card.id, card.disabled), height: "110px", overflow: "hidden", position: "relative" }}
                 >
                   <CardLogos cardId={card.id} />
                   <span style={{ ...cardLabelStyle, fontSize: "11px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "100%", padding: "0 2px" }}>{card.label}</span>
+                  {card.disabled && (
+                    <span style={{ position: "absolute", bottom: "4px", fontSize: "9px", color: "#b982fb", fontStyle: "italic" }}>Coming soon</span>
+                  )}
                 </div>
               ))}
             </div>

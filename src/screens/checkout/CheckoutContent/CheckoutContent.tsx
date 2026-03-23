@@ -206,7 +206,7 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                     className="relative cursor-pointer flex-1"
                     style={{
                       minWidth: 0,
-                      height: "80px",
+                      minHeight: "80px",
                       borderRadius: "10px",
                       background: isSelected
                         ? plan.popular
@@ -214,20 +214,24 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                           : selectedCardBg
                         : unselectedCardBg,
                       border: isSelected ? "0.5px solid #a770e1" : "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "12px 10px",
+                      overflow: "hidden",
                     }}
                   >
                     {plan.popular && (
                       <div
                         className="absolute flex items-center justify-center"
                         style={{
-                          top: "12px",
-                          right: "12px",
-                          padding: "3px 8px",
+                          top: "8px",
+                          right: "8px",
+                          padding: "2px 6px",
                           borderRadius: "3px",
                           border: "0.6px solid #fff",
                           background: "linear-gradient(90deg, #b05bff 0%, #7626ef 100%)",
                           fontFamily: "'Poppins', sans-serif",
-                          fontSize: "10px",
+                          fontSize: "8px",
                           fontWeight: 600,
                           color: "#fff",
                           textTransform: "capitalize",
@@ -236,34 +240,31 @@ export const CheckoutContent = ({ onContinue }: CheckoutContentProps) => {
                         Popular
                       </div>
                     )}
-                    <div style={{ position: "absolute", top: "14px", left: "16px" }}>
-                      <CheckCircle checked={isSelected} size={24} />
+                    <div className="flex items-center gap-[6px]">
+                      <CheckCircle checked={isSelected} size={20} />
+                      {plan.subtitle && (
+                        <span
+                          style={{
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "11px",
+                            fontWeight: 400,
+                            color: "#b982fb",
+                          }}
+                        >
+                          {plan.subtitle}
+                        </span>
+                      )}
                     </div>
-                    {plan.subtitle && (
-                      <p
-                        style={{
-                          position: "absolute",
-                          top: "13px",
-                          left: "48px",
-                          fontFamily: "'Poppins', sans-serif",
-                          fontSize: "12px",
-                          fontWeight: 400,
-                          color: "#b982fb",
-                        }}
-                      >
-                        {plan.subtitle}
-                      </p>
-                    )}
                     <p
                       style={{
-                        position: "absolute",
-                        top: plan.subtitle ? "40px" : "30px",
-                        left: plan.subtitle ? "16px" : "16px",
+                        marginTop: "6px",
                         fontFamily: "'Poppins', sans-serif",
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 700,
                         color: "#fff",
                         textTransform: "capitalize",
+                        lineHeight: 1.2,
+                        wordBreak: "break-word",
                       }}
                     >
                       {plan.label}
