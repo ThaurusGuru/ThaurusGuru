@@ -13,7 +13,8 @@
       "Bash(rm merchants_temp.json)",
       "Bash(curl -s -w \"\\\\nHTTP_STATUS: %{http_code}\" -X POST \"https://my.thaurusguru.com/api-2/v3/challenge-promo\" -H \"Content-Type: application/json\" -d '{:*)",
       "Bash(curl -s \"https://my.thaurusguru.com/api-2/ninja-merchants\")",
-      "Bash(node -e \"const d=require\\(''''fs''''\\).readFileSync\\(''''/dev/stdin'''',''''utf8''''\\); const j=JSON.parse\\(d\\); j.data.merchants.forEach\\(m => console.log\\(JSON.stringify\\(m, null, 2\\)\\)\\);\")"
+      "Bash(node -e \"const d=require\\(''''fs''''\\).readFileSync\\(''''/dev/stdin'''',''''utf8''''\\); const j=JSON.parse\\(d\\); j.data.merchants.forEach\\(m => console.log\\(JSON.stringify\\(m, null, 2\\)\\)\\);\")",
+      "mcp__figma__get_metadata"
     ]
   }
 }
