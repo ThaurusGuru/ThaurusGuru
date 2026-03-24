@@ -18,7 +18,7 @@ const CARD_DEFS: CardDef[] = [
   { id: "apple-google", label: "Apple Pay, Google Pay ($)", provider: "paymid" },
   { id: "confirmo", label: "Confirmo", provider: "paymid" },
   { id: "transactpay", label: "TransactPay (NGN)", provider: "paymid" },
-  { id: "korapay", label: "KoraPay (NGN)", provider: "korapay", disabled: true },
+  { id: "korapay", label: "KoraPay (NGN)", provider: "paymid" },
   { id: "upi", label: "UPI (INR)", provider: "payok" },
 ];
 
