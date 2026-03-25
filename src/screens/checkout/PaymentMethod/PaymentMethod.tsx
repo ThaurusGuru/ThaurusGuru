@@ -19,7 +19,7 @@ const CARD_DEFS: CardDef[] = [
   { id: "confirmo", label: "Confirmo", provider: "paymid" },
   { id: "transactpay", label: "TransactPay (NGN)", provider: "paymid" },
   { id: "korapay", label: "KoraPay (NGN)", provider: "paymid" },
-  { id: "upi", label: "UPI (INR)", provider: "payok" },
+  { id: "upi", label: "UPI (INR)", provider: "paymid" },
 ];
 
 // Proper Apple Pay logo (white Apple symbol + Pay text)
