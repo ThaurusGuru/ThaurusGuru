@@ -147,29 +147,6 @@ const paygPhase1Prices = ["$27", "$55", "$120", "$195", "$348"];
 const paygPhase2Prices = ["$27", "$40", "$85", "$135", "$232"];
 const paygTotalPrices = ["$54", "$95", "$205", "$330", "$580"];
 
-const twoStepLinks = [
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=6aaa62a0-0270-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=944bb7b0-0277-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=b49395c0-027b-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=63120951-027d-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=2fae0840-0280-11f1-ba50-69d41bd68da6&showPayButton=true",
-];
-
-const threeStepLinks = [
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=b306da40-0286-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=4f098db0-0288-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=75352bb0-0289-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=31976b40-028c-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=9a7cf200-028d-11f1-ba50-69d41bd68da6&showPayButton=true",
-];
-
-const paygLinks = [
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=97b81cf0-029e-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=50cc5f70-02a0-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=a2023580-02a1-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=493b9650-02a4-11f1-ba50-69d41bd68da6&showPayButton=true",
-  "https://my.thaurusguru.com/promotion/challenge?challengeId=7ecc1781-02a5-11f1-ba50-69d41bd68da6&showPayButton=true",
-];
 
 // Tooltip Component
 const InfoTooltip = ({ content }: { content: string }) => {
