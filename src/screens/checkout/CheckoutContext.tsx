@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import {
   api,
   isApiError,
@@ -266,7 +266,11 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
   const [paymentError, setPaymentError] = useState<string | null>(null);
 
   // ─── Fetch initial data ─────────────────────────────────────────
+  const initializedRef = useRef(false);
   useEffect(() => {
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -282,16 +286,27 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
         const derivedPlans = derivePlans(chainsData);
         setPlans(derivedPlans);
 
-        if (derivedPlans.length > 0) {
-          const firstPlan = derivedPlans[0];
-          setSelectedPlanId(firstPlan.id);
+        // Read query params for pre-selection from pricing page
+        const params = new URLSearchParams(window.location.search);
+        const planParam = params.get("plan"); // "2step" | "3step" | "payg"
+        const sizeParam = params.get("size"); // index: "0"-"4"
 
-          const derivedSizes = deriveSizes(chainsData, firstPlan.chainIndices);
+        if (derivedPlans.length > 0) {
+          // Find matching plan from query param, or default to first
+          const targetPlan = planParam
+            ? derivedPlans.find((p) => p.id === `plan-${planParam}`) ?? derivedPlans[0]
+            : derivedPlans[0];
+          setSelectedPlanId(targetPlan.id);
+
+          const derivedSizes = deriveSizes(chainsData, targetPlan.chainIndices);
           setSizes(derivedSizes);
 
           if (derivedSizes.length > 0) {
-            setSelectedSizeId(derivedSizes[0].id);
-            setAddons(deriveAddons(chainsData, derivedSizes[0].chainIndex));
+            // Pick size by index from query param, or default to first
+            const sizeIndex = sizeParam !== null ? parseInt(sizeParam, 10) : 0;
+            const targetSize = derivedSizes[Math.min(sizeIndex, derivedSizes.length - 1)] ?? derivedSizes[0];
+            setSelectedSizeId(targetSize.id);
+            setAddons(deriveAddons(chainsData, targetSize.chainIndex));
           }
         }
       } catch (err) {

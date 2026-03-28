@@ -1,5 +1,6 @@
 import { InfoIcon } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Badge } from "../../../components/ui/badge";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent } from "../../../components/ui/card";
@@ -291,15 +292,16 @@ export const PricingSection = () => {
     return challengeTypes;
   }, [activeModel]);
 
-  const getStartNowLink = (accountIndex: number) => {
-    if (activeModel === 'classic') {
-      if (activeTab === 0) return twoStepLinks[accountIndex];
-      if (activeTab === 1) return threeStepLinks[accountIndex];
+  const navigate = useNavigate();
+
+  const goToCheckout = (accountIndex: number) => {
+    let plan = "2step";
+    if (activeModel === "classic") {
+      plan = activeTab === 1 ? "3step" : "2step";
+    } else if (activeModel === "payg") {
+      plan = "payg";
     }
-    if (activeModel === 'payg') {
-      return paygLinks[accountIndex];
-    }
-    return 'https://my.thaurusguru.com/promotion/challenge';
+    navigate(`/checkout?plan=${plan}&size=${accountIndex}`);
   };
 
   return (
@@ -668,7 +670,7 @@ export const PricingSection = () => {
                     </div>
                   )}
                   <Button
-                    onClick={() => window.open(getStartNowLink(activeAccountIndex), '_blank')}
+                    onClick={() => goToCheckout(activeAccountIndex)}
                     className="flex w-full max-w-[312px] h-[44px] px-[35px] py-[6px] justify-center items-center gap-[10px] rounded-[10px] border border-[#E9B1FF] mx-auto"
                     style={{
                       background: 'linear-gradient(90deg, #FFF 0%, #DAB6FF 100%)'
@@ -833,7 +835,7 @@ export const PricingSection = () => {
                   {prices.map((_, index) => (
                     <div key={index} className="flex items-center justify-center">
                       <Button
-                        onClick={() => window.open(getStartNowLink(index), '_blank')}
+                        onClick={() => goToCheckout(index)}
                         className="h-10 w-[85%] mx-auto rounded-lg border border-[#e8b0ff] bg-gradient-to-r from-white to-[#dab6ff] font-['Cambay',Helvetica] font-bold text-black text-base hover:opacity-90 transition-opacity"
                       >
                         Start Now
