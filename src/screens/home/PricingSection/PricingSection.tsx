@@ -625,7 +625,7 @@ export const PricingSection = () => {
                       </>
                     ) : (
                       <div className="w-[130px] h-[80px] rounded-lg border-2 border-dashed border-[#b882fb] flex flex-col items-center justify-center gap-0">
-                        <span className="font-['Poppins',Helvetica] font-medium text-[#b982fb] text-[14px] line-through leading-none">
+                        <span className="font-['Poppins',Helvetica] font-medium text-[#b982fb] text-[14px] line-through leading-none" style={{ textDecorationColor: "#AF0000" }}>
                           {(activeTab === 1 && activeModel === 'classic') ? threeStepPrices[activeAccountIndex] : prices[activeAccountIndex]}
                         </span>
                         <span
@@ -800,7 +800,7 @@ export const PricingSection = () => {
                         </>
                       ) : (
                         <div className="h-[90px] w-[75%] rounded-lg border-2 border-dashed border-[#b882fb] flex flex-col items-center justify-center px-4 gap-0">
-                          <span className="font-['Poppins',Helvetica] font-medium text-[#b982fb] text-[16px] line-through leading-none">
+                          <span className="font-['Poppins',Helvetica] font-medium text-[#b982fb] text-[16px] line-through leading-none" style={{ textDecorationColor: "#AF0000" }}>
                             {(activeTab === 1 && activeModel === 'classic') ? threeStepPrices[index] : price}
                           </span>
                           <span
