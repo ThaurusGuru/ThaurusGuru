@@ -22,7 +22,7 @@ const fundingData = [
       {
         number: "03",
         question: "IS THERE A MINIMUM OR MAXIMUM NUMBER OF TRADING DAYS DURING THE EVALUATION WITH THAURUSGURU?",
-        answer: "Yes. Minimum trading days ensure consistent performance, not accidental one-day luck.\nMinimum trading days:\nClassic 2-Step: 3 days per phase\nClassic 3-Step: 5 days per phase\nPay As You Go: 3 days per phase\nMaximum time limits:\nClassic 3-Step: 30 days per phase\t\nPay As You Go: 30 days per phase\nOther models: No maximum time limit\n\nThese rules ensure structured progress and controlled evaluation pacing.",
+        answer: "Yes. Minimum trading days ensure consistent performance, not accidental one-day luck.\nMinimum trading days:\nClassic 2-Step: 3 days per phase\nClassic 3-Step: 5 days per phase\nPay As You Go: 3 days per phase\nThere is no maximum time limit — you can trade at your own pace without any deadlines.\nThese rules ensure structured progress and controlled evaluation pacing.",
       },
       {
         number: "04",
@@ -32,17 +32,17 @@ const fundingData = [
       {
         number: "05",
         question: "WHAT IS PROHIBITED FOR MY TRADING?",
-        answer: "ThaurusGuru prohibits any trading style that artificially manipulates performance or exploits execution mechanics.\n\nProhibited practices include:\n• ultra-low time scalping (<30 seconds)\n• toxic or unnatural order flow\n• latency or arbitrage trading\n• news exploitation without add-ons\n• hedging or mirrored trading across accounts\n• copy trading or signal mirroring\n• bot/EAs without explicit approval\n• long–short, reverse, or tick arbitrage\n• exploiting price feed delays or slippage\n• any unfair or unrealistic trading behavior\n\nThese rules maintain a fair evaluation environment and protect funded capital.",
+        answer: "ThaurusGuru prohibits any trading style that artificially manipulates performance or exploits execution mechanics.\nProhibited practices include:\nScalping\n\ntoxic or unnatural order flow\n\nlatency or arbitrage trading\n\nnews exploitation without add-ons\n\nhedging or mirrored trading across accounts\n\ncopy trading or signal mirroring\n\nlong–short, reverse, or tick arbitrage\n\nexploiting price feed delays or slippage\n\nany unfair or unrealistic trading behavior\nThese rules maintain a fair evaluation environment and protect funded capital.",
       },
       {
         number: "06",
         question: "IS A STOP LOSS REQUIRED?",
-        answer: "Yes, a Stop Loss is mandatory. You must place a valid Stop Loss on every single position immediately upon execution. This rule applies strictly to both the Challenge phases and the Funded Account. Failure to use a Stop Loss constitutes a violation.",
+        answer: "During the Challenge phases, a Stop Loss is not required — you are free to manage your trades as you see fit.\nHowever, once you receive a Funded Account, placing a valid Stop Loss on every position immediately upon execution becomes mandatory. Failure to do so constitutes a violation.",
       },
       {
         number: "07",
         question: "CAN I TRADE DURING NEWS?",
-        answer: "Trading around high-impact economic news is restricted at ThaurusGuru unless you have the News Trading Add-On. The exact restricted window depends on the type of account you are using.\n\nChallenge Accounts (Classic, Pay As You Go)\nNews trading is not allowed in the following time window:\n5 minutes before and 5 minutes after a high-impact news event.\nThis restriction applies to: Opening positions, Closing positions, Stop Loss activation, Take Profit activation, Partial closures\nAny order triggered within this restricted window may be flagged as a violation and may result in the challenge being failed.\n\nNews Add-On\nIf you purchase the News Trading Add-On, you may trade: During the news, before the news, after the news, without time restrictions (challenge accounts only).\nNote: The News Add-On does not apply to funded accounts unless specified.",
+        answer: "Trading around high-impact economic news is restricted at ThaurusGuru unless you have the News Trading Add-On. The exact restricted window depends on the type of account you are using.\n\nChallenge Accounts (Classic, Pay As You Go)\nNews trading is not allowed in the following time window:\n5 minutes before and 5 minutes after a high-impact news event.\nAny order triggered within this restricted window may be flagged as a violation.",
       },
       {
         number: "08",
@@ -52,7 +52,7 @@ const fundingData = [
       {
         number: "09",
         question: "WHAT IS PROHIBITED FOR MY TRADING?",
-        answer: "At ThaurusGuru, we seek profitable traders with a sustainable edge. Any practice that exploits technical inefficiencies, relies on pure luck (gambling), or manipulates the trading environment is strictly prohibited.\nEngaging in any of the following activities will result in disqualification or account termination:\n1. Time-Based Restrictions\nTick Scalping (The 4-Minute Rule): Strategies reliant on closing trades too quickly are prohibited. We recommend holding trades for at least 4 minutes. Closing positions under 3 minutes and 59 seconds is considered a violation.\nHigh-Frequency Trading (HFT): Executing a large number of trades in seconds or trading with a duration of less than 5 seconds is strictly prohibited.\n2. Gambling & Risk Management Violations\nWe distinguish between professional risk-taking and gambling. The following behaviors indicate a lack of strategy:\nPosition Stacking Limits: To ensure proper risk distribution, strict limits apply to open positions:\nSame Asset: Maximum 4 simultaneous positions (e.g., 4 trades on EURUSD).\nTotal Account: Maximum 7 simultaneous positions across all assets combined.\nViolation: Opening 5+ positions on one asset, 8+ total positions, or splitting orders into smaller chunks to bypass lot limits is prohibited.\nReverse Hand Trading (Chasing Losses): Immediately entering an opposite trade after a loss to \"revenge trade\" is prohibited. You must wait at least 5 minutes after a losing trade before opening a new position in the opposite direction on the same asset.\nOne-Sided Betting: Using large margin (>40%) in a single direction, hoping for a lucky breakout without a plan.\nMartingale: Doubling down on losing positions (increasing volume after a loss) to aggressively recover drawdown.\nGrid Trading: Placing a network of contrary buy/sell orders at intervals (e.g., every 20 pips) to manipulate execution.\nAccount Rolling: Continuously purchasing new accounts to \"gamble\" on different directions.\nExcessive Lot Size Spikes: A sudden, massive increase in lot size compared to your average trading history, solely to pass a challenge or recover a loss.\n3. Arbitrage & Manipulation\nAll forms of arbitrage and technical exploitation are banned:\nLatency Arbitrage: Exploiting data feed delays.\nHedge Arbitrage: Offsetting trades across different accounts to minimize risk artificially.\nReverse & Long-Short Arbitrage: Betting on both directions simultaneously across multiple accounts.\nGap Trading: Deliberately trading to exploit weekend or session gaps.\nServer Manipulation: Using emulators or software to delay feeds or spam the server with orders.\nNews Manipulation: Placing abusive orders specifically designed to exploit freeze times or feed delays during high-impact news.\nToxic Order Flow: Strategies that generate orders aimed at clogging the engine or exploiting technical flaws rather than market movements.\n4. Account Integrity & Third Parties\nThe evaluation is for you and your personal skills.\nGroup Trading: You are not allowed to use public signals, join \"group trading\" schemes, or coordinate trades with other users.\nCopy Trading (External): Copying trades from another individual or public signals is strictly prohibited. (Note: Copying your own external personal account is permitted).\nAccount Management: You cannot let a third party trade your account.\nFully Automated Bots: While EAs are allowed as assistants, using a bot that trades 100% autonomously without your supervision is prohibited.",
+        answer: "At ThaurusGuru, we seek profitable traders with a sustainable edge. Any practice that exploits technical inefficiencies, relies on pure luck (gambling), or manipulates the trading environment is strictly prohibited.\nEngaging in any of the following activities will result in disqualification or account termination:\n1. Time-Based Restrictions\nScalping (The 4-Minute Rule): Strategies reliant on closing trades too quickly are prohibited. We recommend holding trades for at least 4 minutes. Closing positions under 3 minutes and 59 seconds is considered a violation.\nHigh-Frequency Trading (HFT): Executing a large number of trades in seconds or trading with a duration of less than 30 seconds is strictly prohibited.\n2. Gambling & Risk Management Violations\nWe distinguish between professional risk-taking and gambling. The following behaviors indicate a lack of strategy:\nReverse Hand Trading (Chasing Losses): Immediately entering an opposite trade after a loss to \"revenge trade\" is prohibited. You must wait at least 5 minutes after a losing trade before opening a new position in the opposite direction on the same asset.\nOne-Sided Betting: Using large margin in a single direction, hoping for a lucky breakout without a plan.\nMartingale: Doubling down on losing positions (increasing volume after a loss) to aggressively recover drawdown.\nGrid Trading: Placing a network of contrary buy/sell orders at intervals (e.g., every 20 pips) to manipulate execution.\nAccount Rolling: Continuously purchasing new accounts to \"gamble\" on different directions.\nExcessive Lot Size Spikes: A sudden, massive increase in lot size compared to your average trading history, solely to pass a challenge or recover a loss.\n3. Arbitrage & Manipulation\nAll forms of arbitrage and technical exploitation are banned:\nLatency Arbitrage: Exploiting data feed delays.\nHedge Arbitrage: Offsetting trades across different accounts to minimize risk artificially.\nReverse & Long-Short Arbitrage: Betting on both directions simultaneously across multiple accounts.\nGap Trading: Deliberately trading to exploit weekend or session gaps.\nServer Manipulation: Using emulators or software to delay feeds or spam the server with orders.\nNews Manipulation: Placing abusive orders specifically designed to exploit freeze times or feed delays during high-impact news.\nToxic Order Flow: Strategies that generate orders aimed at clogging the engine or exploiting technical flaws rather than market movements.\n4. Account Integrity & Third Parties\nThe evaluation is for you and your personal skills.\nGroup Trading: You are not allowed to use public signals, join \"group trading\" schemes, or coordinate trades with other users.\nCopy Trading (External): Copying trades from another individual or public signals is strictly prohibited. (Note: Copying your own external personal account is permitted).\nAccount Management: You cannot let a third party trade your account.\nFully Automated Bots: While EAs are allowed as assistants, using a bot that trades 100% autonomously without your supervision is prohibited.",
       },
       {
         number: "10",
@@ -67,22 +67,22 @@ const fundingData = [
       {
         number: "01",
         question: "TWO-STEP CHALLENGE OVERVIEW",
-        answer: "A structured two-phase evaluation designed for traders who value disciplined, rule-based performance. Also known as \"The Equilibrium Standard,\" this is our most balanced program.\n\nThe Classic Two-Step Challenge includes two phases designed to confirm your ability to trade consistently and apply sound risk management.\n\nPhase 1 : Generate returns under controlled risk.\nPhase 2 : Prove consistency with a slightly lower target.\nFunded : Once verified, you receive a funded account with the same risk parameters.",
+        answer: "A structured two-phase evaluation designed for traders who value disciplined, rule-based performance. Also known as \"The Equilibrium Standard,\" this is our most balanced program.",
       },
       {
         number: "02",
         question: "PHASE REQUIREMENTS",
-        answer: "This model offers balanced targets and generous drawdown limits.\n\nPhase 1 – Audition\nProfit Target: 8% | Daily Drawdown: 5% | Max Overall Drawdown: 10% | Min Trading Days: 3 | Time Limit: Unlimited\n\nPhase 2 – Verification\nProfit Target: 5% | Daily Drawdown: 5% | Max Overall Drawdown: 10% | Min Trading Days: 3 | Time Limit: Unlimited\n\nFunded Account\nProfit Target: None | Daily Drawdown: 5% | Max Overall Drawdown: 10% | Time Limit: Unlimited",
+        answer: "This model offers balanced targets and generous drawdown limits.\n\nPhase 1 – Audition\nProfit Target: 8% | Daily Drawdown: 5% | Max Overall Drawdown: 10% | Minimum Trading Days: 3 | Time Limit: Unlimited (No maximum days)\n\nPhase 2 – Verification\nProfit Target: 5% | Daily Drawdown: 5% | Max Overall Drawdown: 10% | Minimum Trading Days: 3 | Time Limit: Unlimited (No maximum days)\n\nFunded Account\nProfit Target: None | Daily Drawdown: 5% | Max Overall Drawdown: 10% | Time Limit: Unlimited (No maximum days)",
       },
       {
         number: "03",
         question: "ADD-ONS",
-        answer: "Optional add-ons can be applied at checkout to increase flexibility:\n\n• News Trading Add-On: Allows trading during high-impact news events.\n• Weekend Holding Add-On: Allows holding open positions over the weekend.\n• Weekly Payout Add-On: Enables weekly payouts on the funded account.\n• EA Bots Allowed: Unlocks the ability to use Expert Advisors for trade assistance. Fully automated trading systems without human supervision remain prohibited.",
+        answer: "Optional add-ons can be applied at checkout to increase flexibility:\n\nNews Trading Add-On: Allows trading during high-impact economic news events.\nWeekend Holding Add-On: Allows holding open positions over the weekend.\nWeekly Payout Add-On: Enables weekly payouts on the funded account (instead of the standard 14-day cycle).\nEA Bots Allowed: Unlocks the ability to use Expert Advisors for trade assistance. This is limited to semi-automated tools and position managers. Fully automated trading systems without human supervision remain prohibited.",
       },
       {
         number: "04",
         question: "TRADING RULES & RESTRICTIONS",
-        answer: "News Trading Rules (Default) Without the News Trading Add-On, the following restrictions apply:\nTrading is not allowed 5 minutes before and 5 minutes after a high-impact news event.\nThis includes opening/closing positions and SL/TP activations.\nReference: ForexFactory's high-impact news calendar.\nWeekend Rules (Default) By default, traders cannot hold positions over the weekend. All positions must be closed before the market closes on Friday.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies The following strategies are prohibited and will result in immediate termination: Gap trading, high-frequency trading, latency arbitrage, hedging across accounts, tick scalping, copy-trading, and use of unauthorized bots/EAs.",
+        answer: "News Trading Rules (Default) Without the News Trading Add-On, the following restrictions apply:\nTrading is not allowed 5 minutes before and 5 minutes after a high-impact news event.\nReference: ForexFactory's high-impact news calendar.\nWeekend Rules (Default) By default, traders cannot hold positions over the weekend. All positions must be closed before the market closes on Friday.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies The following strategies are prohibited and will result in immediate termination: Gap trading, high-frequency trading, latency arbitrage, hedging across accounts, tick scalping, copy-trading, and use of unauthorized bots/EAs.",
       },
       {
         number: "05",
@@ -97,12 +97,12 @@ const fundingData = [
       {
         number: "01",
         question: "THREE-STEP CHALLENGE OVERVIEW",
-        answer: "A structured evaluation program designed for traders who prefer gradual, controlled progression. This model is built for the risk-averse architect who values consistency over high-risk trading.\n\nThe Classic Three-Step Challenge extends the evaluation to lower the psychological pressure on the trader.\n\n• No Daily Drawdown: There is no daily loss limit in this model, giving you maximum flexibility within the overall static limit.\n• Consistent Targets: A steady profit target across all three phases allows you to demonstrate resilience and discipline.\n• High Incentives: Successful graduates enter the Classic Funded stage with the potential for an 80% profit split.",
+        answer: "A structured evaluation program designed for traders who prefer gradual, controlled progression. This model, is built for the risk-averse architect who values consistency over high-risk trading.\n\nThe Classic Three-Step Challenge extends the evaluation to lower the psychological pressure on the trader.\n\nNo Daily Drawdown: There is no daily loss limit in this model, giving you maximum flexibility within the overall static limit.\nConsistent Targets: A steady profit target across all three phases allows you to demonstrate resilience and discipline.\nHigh Incentives: Successful graduates enter the Funded stage with the potential for a 80% profit split and rapid scaling up to 90% profit split.",
       },
       {
         number: "02",
         question: "PHASE REQUIREMENTS",
-        answer: "This model features consistent targets and risk parameters across all stages.\n\nPhase 1 – Challenge\nProfit Target: 6% | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Min Trading Days: 5 | Time Limit: 30 days\n\nPhase 2 – Verification I\nProfit Target: 6% | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Min Trading Days: 5 | Time Limit: 30 days\n\nPhase 3 – Verification II\nProfit Target: 6% | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Min Trading Days: 5 | Time Limit: 30 days\n\nFunded Account\nProfit Target: None | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Time Limit: Unlimited\n\nNote: The Max Overall Drawdown of 5% is a static limit that applies throughout the entire evaluation and funded stage.",
+        answer: "This model features consistent targets and risk parameters across all stages.\n\nPhase 1 – Challenge\nProfit Target: 6% | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Minimum Trading Days: 5 | Time Limit: Unlimited (No maximum days)\n\nPhase 2 – Verification I\nProfit Target: 6% | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Minimum Trading Days: 5 | Time Limit: Unlimited (No maximum days)\n\nPhase 3 – Verification II\nProfit Target: 6% | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Minimum Trading Days: 5 | Time Limit: Unlimited (No maximum days)\n\nFunded Account\nProfit Target: None | Daily Drawdown: None (0%) | Max Overall Drawdown: 5% | Time Limit: Unlimited (No maximum days)\n\nNote: The Max Overall Drawdown of 5% is a static limit that applies throughout the entire evaluation and funded stage.",
       },
       {
         number: "03",
@@ -112,7 +112,7 @@ const fundingData = [
       {
         number: "04",
         question: "TRADING RULES & RESTRICTIONS",
-        answer: "News Trading Rules (Default) Without the News Trading Add-On, trading is restricted:\n5 minutes before and 5 minutes after a high-impact event.\nIncludes opening/closing positions and SL/TP execution.\nReference: ForexFactory high-impact news feed.\nWeekend Rules (Default) Weekend holding is not allowed by default. All positions must be closed before the market closes on Friday unless the Weekend Holding Add-On is active.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies The following practices will result in immediate termination: Gap trading, high-frequency trading, latency arbitrage, hedging across accounts, tick scalping, copy-trading, and use of unauthorized bots/EAs.",
+        answer: "News Trading Rules (Default) Without the News Trading Add-On, trading is restricted:\n5 minutes before and 5 minutes after a high-impact event.\nReference: ForexFactory high-impact news feed.\nWeekend Rules (Default) Weekend holding is not allowed by default. All positions must be closed before the market closes on Friday unless the Weekend Holding Add-On is active.\nLeverage: 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10\nProhibited Strategies The following practices will result in immediate termination: Gap trading, high-frequency trading, latency arbitrage, hedging across accounts, tick scalping, copy-trading, and use of unauthorized bots/EAs.",
       },
       {
         number: "05",
@@ -127,7 +127,7 @@ const fundingData = [
       {
         number: "01",
         question: "PAY AS YOU GO — TWO-STEP CHALLENGE OVERVIEW",
-        answer: "A flexible, low-risk evaluation where you pay separately for each phase instead of the full challenge upfront. This model is now streamlined into a Two-Step process, identical in trading conditions to our Classic Two-Step Challenge, but with a divided payment structure.\n\n• Split Payments: Pay only for the phase you are attempting.\n• Reduced Risk: If you fail Phase 1, you do not lose the fee for Phase 2.\n• Same Conditions: Follows the exact same trading objectives as the Classic Two-Step.",
+        answer: "A flexible, low-risk evaluation where you pay separately for each phase instead of the full challenge upfront. This model is now streamlined into a Two-Step process, identical in trading conditions to our Classic Two-Step Challenge, but with a divided payment structure.\n\nThe Pay As You Go Challenge is designed for traders who want the lowest possible initial financial commitment.\nSplit Payments: Instead of paying the full fee at once, you pay only for the phase you are attempting.\nReduced Risk: If you fail Phase 1, you do not lose the fee for Phase 2.\nSame Conditions: It follows the exact same trading objectives and risk rules as the standard Classic Two-Step Challenge.",
       },
       {
         number: "02",
@@ -137,12 +137,12 @@ const fundingData = [
       {
         number: "03",
         question: "PHASE REQUIREMENTS",
-        answer: "Phase 1 — Challenge\nProfit Target: 8% | Daily Drawdown: 5% | Max Drawdown: 10% | Min Trading Days: 3 | Time Limit: 30 days\n\nPhase 2 — Verification\nProfit Target: 5% | Daily Drawdown: 5% | Max Drawdown: 10% | Min Trading Days: 3 | Time Limit: 30 days\n\nFunded Account\nProfit Target: None | Daily Drawdown: 5% | Max Drawdown: 10%",
+        answer: "This model strictly follows the Classic Two-Step parameters.\n\nPhase 1 — Challenge\nProfit Target: 8% | Daily Drawdown: 5% | Max Drawdown: 10% | Minimum Trading Days: 3 | Time Limit: Unlimited (No maximum days)\n\nPhase 2 — Verification\nProfit Target: 5% | Daily Drawdown: 5% | Max Drawdown: 10% | Minimum Trading Days: 3 | Time Limit: Unlimited (No maximum days)\n\nFunded Account\nProfit Target: None | Daily Drawdown: 5% | Max Drawdown: 10%",
       },
       {
         number: "04",
         question: "OTHER RULES & CONDITIONS",
-        answer: "News Trading: Trading is restricted 5 minutes before and 5 minutes after high-impact news events (includes opening/closing trades and SL/TP execution) during the challenge phase.\nWeekend Trading: Holding trades over the weekend is not allowed. All positions must be closed before the market closes on Friday.\nAdd-Ons: Add-ons are not available for the Pay As You Go Challenge.\nLeverage: Matches the Classic Two Step Challenge 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10",
+        answer: "News Trading: Trading is restricted 5 minutes before and 5 minutes after high-impact news events, during the challenge phase.\nWeekend Trading: Holding trades over the weekend is not allowed. All positions must be closed before the market closes on Friday.\nAdd-Ons: Add-ons are not available for the Pay As You Go Challenge.\nLeverage: Matches the Classic Two Step Challenge 1:100 FX, 1:20 Indices, 1:30 Commodities, 1:5 Crypto, Energies 1:10",
       },
     ],
   },
@@ -167,12 +167,12 @@ const fundingData = [
       {
         number: "04",
         question: "PAYOUT STRUCTURE",
-        answer: "First Payout: 21 Working Days after the first trade on the funded account.\nSubsequent Frequency: Bi-Weekly (Every 14 days).\nWeekly Payout (Add-On): Available as an upgrade on funded accounts for traders who selected the Weekly Payout Add-On during the challenge (payouts every 7 days).\nProfit Split: 80% to the Trader & 20% to ThaurusGuru.\nMinimum Withdrawal: $100 USD.\nFee Refund: Included with the 1st Payout.",
+        answer: "First Payout: 21 Days after the first trade on the funded account.\nSubsequent Frequency: Bi-Weekly (Every 14 days). Weekly Payout(Add-On) (Every 7 days):\n Available as an upgrade on funded accounts for traders who selected the Weekly Payout Add-On during the challenge.\nProfit Split: 80% to the Trader & 20% to the ThaurusGuru.\nMinimum Withdrawal: $100 USD.\nFee Refund: Included with the 1st Payout.",
       },
       {
         number: "05",
         question: "TRADING CONDITIONS & NEWS TRADING",
-        answer: "Trading Conditions\nLeverage: Leverage is fixed and applies across all funded models under the Classic & Pay As You Go category: Forex: 1:40, Indices, Metals, Energies: 1:10, Crypto: 1:1.\nNews Trading\nClassic Funded accounts follow strict news-related rules. Trading is not permitted:\n10 minutes before a high-impact economic event.\n10 minutes after a high-impact economic event.\nThis restriction includes opening and closing positions, as well as any SL/TP execution during the restricted window. Any violation may result in account termination. (Reference: ForexFactory High-Impact events).",
+        answer: "Trading Conditions\nLeverage: Leverage is fixed and applies across all funded models under the Classic & Pay As You Go category: Forex: 1:40, Indices, Metals, Energies: 1:10, Crypto: 1:1.\nNews Trading\nClassic Funded accounts follow strict news-related rules. Trading is not permitted:\n10 minutes before a high-impact economic event.\n10 minutes after a high-impact economic event.\nThis restriction includes opening and closing positions. (Reference: ForexFactory High-Impact events).",
       },
       {
         number: "06",
@@ -192,22 +192,22 @@ const fundingData = [
       {
         number: "02",
         question: "REFUND ON THE FIRST PAYOUT",
-        answer: "For the majority of challenge models, ThaurusGuru refunds the full evaluation fee once a trader receives their first funded payout.\n\nEligible for Refund on First Payout:\n• Classic 2-Step\n• Classic 3-Step\nOnce you complete your first payout successfully, the refund amount you originally paid for the evaluation is credited back to you.",
+        answer: "For the majority of challenge models, ThaurusGuru refunds the full evaluation fee once a trader receives their first funded payout.\nEligible for Refund on First Payout:\nClassic 2-Step\n\n\nClassic 3-Step\nOnce you complete your first payout successfully, the refund amount you originally paid for the evaluation is credited back to you.",
       },
       {
         number: "03",
         question: "NOT ELIGIBLE FOR REFUND",
-        answer: "The following products do not include a refund on second payout:\n• Pay As You Go Challenges\nThese models do not include refund benefits because of their structure, reduced entry fees, or immediate funded access.",
+        answer: "The following products do not include a refund:\nPay As You Go Challenges\nThese models do not include refund benefits because of their structure, reduced entry fees.",
       },
       {
         number: "04",
         question: "STANDARD REFUND BEFORE TRADING",
-        answer: "A refund may be requested only if no trades were opened on the challenge account. Once a trade is executed, the challenge fee becomes fully non-refundable.",
+        answer: "A refund may be requested only if no trades were opened on the challenge account.\nOnce a trade is executed, the challenge fee becomes fully non-refundable.",
       },
       {
         number: "05",
         question: "NO REFUND FOR BREACHES OR VIOLATIONS",
-        answer: "Refunds are not issued for:\nrule violations\nover-leveraging or breaking drawdown limits\nfailing a challenge\nmisunderstanding of rules\ndissatisfaction with performance or market conditions\nThe fee is intended to cover the evaluation process, platform access, and administrative operations.",
+        answer: "Refunds are not issued for:\nrule violations\n\n\nover-leveraging or breaking drawdown limits\n\n\nfailing a challenge\n\n\nmisunderstanding of rules\n\n\ndissatisfaction with performance or market conditions\n\n\nThe fee is intended to cover the evaluation process, platform access, and administrative operations.",
       },
     ],
   },

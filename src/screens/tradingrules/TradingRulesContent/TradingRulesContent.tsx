@@ -209,7 +209,7 @@ export const TradingRulesContent = () => {
                     <span className="font-semibold">Standard Rules (Without Add-On):</span> Trading is restricted 5 minutes before and 5 minutes after a high-impact news event.
                   </p>
                   <p className={RuleItemStyle}>
-                    <span className="font-semibold">Includes:</span> Opening trades, closing trades, and SL/TP execution.
+                    <span className="font-semibold">Includes:</span> Opening trades, closing trades.
                   </p>
                 </div>
               </div>
@@ -273,10 +273,9 @@ export const TradingRulesContent = () => {
                     We distinguish between "trading at risk" and "gambling." The following constitute a lack of strategy:
                   </p>
                   <ul className="space-y-3 list-disc pl-5">
-                    <li className={RuleItemStyle}><span className="font-semibold">One-Sided Betting:</span> Using large margin (&gt;40%) in a single direction without a plan.</li>
+                    <li className={RuleItemStyle}><span className="font-semibold">One-Sided Betting:</span> Using large margin in a single direction without a plan.</li>
                     <li className={RuleItemStyle}><span className="font-semibold">Martingale:</span> Doubling down on losing positions to aggressively recover losses.</li>
                     <li className={RuleItemStyle}><span className="font-semibold">Grid Trading:</span> Placing a network of contrary buy/sell orders at fixed intervals to manipulate execution.</li>
-                    <li className={RuleItemStyle}><span className="font-semibold">Position Stacking:</span> Exceeding 4 positions on a single asset or 7 positions total across the account.</li>
                     <li className={RuleItemStyle}><span className="font-semibold">Reverse Hand:</span> Entering an opposite trade less than 5 minutes after closing a losing position on the same asset.</li>
                   </ul>
                 </div>

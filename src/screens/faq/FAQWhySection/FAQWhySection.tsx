@@ -28,7 +28,7 @@ const faqData = [
     id: "item-4",
     number: "04",
     question: "AT WHAT STAGE IS THE KYC VERIFICATION REQUIRED?",
-    answer: "KYC is required before receiving your funded account.\nTo avoid delays, we recommend completing KYC immediately after purchasing a challenge.\n The process includes:\nID Verification (passport or national ID) – required before trading begins\n\nProof of Address – required before your first payout\nYou may submit these steps separately. All data is handled securely and in line with regulatory standards.",
+    answer: "KYC is required before receiving your funded account.\nTo avoid delays, we recommend completing KYC immediately after purchasing a challenge. The process includes:\nID Verification (passport or national ID) – required before trading begins\nProof of Address – required before your first payout\nSelfie with ID – a photo of you holding your ID document, required before account activation\nDocument Requirements:\nAll document corners must be fully visible — no cropping or cut-off edges.\nPhotos must be clear, without glare, reflections, or overexposure.\nThe name on all submitted documents must match exactly.\nYou may submit these steps separately. All data is handled securely and in line with regulatory standards.",
   },
   {
     id: "item-5",
