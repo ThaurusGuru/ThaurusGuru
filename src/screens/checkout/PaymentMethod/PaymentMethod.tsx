@@ -46,10 +46,10 @@ const GooglePayLogo = () => (
 );
 
 // Figma-hosted logos for testing (expire after 7 days — replace with final assets)
-const CONFIRMO_LOGO = "https://www.figma.com/api/mcp/asset/25e86310-c076-4315-acb7-87102e0f3bd8";
+const CONFIRMO_LOGO = "/confirmo.svg";
 const TRANSACTPAY_LOGO = "/transactpay.svg";
 const KORAPAY_LOGO = "/korapay.svg";
-const UPI_LOGO = "https://www.figma.com/api/mcp/asset/e3b3469a-5e8f-4d99-94b0-9cfd5414d067";
+const UPI_LOGO = "/UPI.svg";
 
 function CardLogos({ cardId }: { cardId: string }) {
   const imgBase: React.CSSProperties = { objectFit: "contain", maxWidth: "100%" };
